@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Refactor src to ' cmpt213.assignment1.packagedeliveriestracker' and add main Class">
-      <change afterPath="$PROJECT_DIR$/src/PackageDeliveryTracker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Add Package and TextMenu Classes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMPT213-A1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/cmpt213.assignment1.packagedeliveriestracker.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmpt213.assignment1.packagedeliveriestracker/PackageDeliveryTracker.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Package.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Package.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +91,21 @@
       <option name="project" value="LOCAL" />
       <updated>1653069165434</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Refactor files">
+      <created>1653069406968</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1653069406968</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Add Package and TextMenu Classes">
+      <created>1653069508357</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1653069508357</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -111,6 +122,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Initial Commit" />
     <MESSAGE value="Refactor src to ' cmpt213.assignment1.packagedeliveriestracker' and add main Class" />
-    <option name="LAST_COMMIT_MESSAGE" value="Refactor src to ' cmpt213.assignment1.packagedeliveriestracker' and add main Class" />
+    <MESSAGE value="Refactor files" />
+    <MESSAGE value="Add Package and TextMenu Classes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Package and TextMenu Classes" />
   </component>
 </project>
