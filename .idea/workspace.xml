@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Add Package and TextMenu Classes">
+    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Fill in basics of Package class">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Package.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Package.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmpt213.assignment1.packagedeliveriestracker.iml" beforeDir="false" afterPath="$PROJECT_DIR$/CMPT213-A1.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Package.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment1/packagedeliveriestracker/Package.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +39,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2"
@@ -44,19 +48,19 @@
   <component name="RunManager">
     <configuration name="PackageDeliveryTracker" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="PackageDeliveryTracker" />
-      <module name="cmpt213.assignment1.packagedeliveriestracker" />
+      <module name="CMPT213-A1" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration default="true" type="JetRunConfigurationType">
-      <module name="cmpt213.assignment1.packagedeliveriestracker" />
+      <module name="CMPT213-A1" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="cmpt213.assignment1.packagedeliveriestracker" />
+      <module name="CMPT213-A1" />
       <option name="filePath" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -105,7 +109,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653069508357</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Fill in basics of Package class">
+      <created>1653070018756</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1653070018756</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -124,6 +135,7 @@
     <MESSAGE value="Refactor src to ' cmpt213.assignment1.packagedeliveriestracker' and add main Class" />
     <MESSAGE value="Refactor files" />
     <MESSAGE value="Add Package and TextMenu Classes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add Package and TextMenu Classes" />
+    <MESSAGE value="Fill in basics of Package class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fill in basics of Package class" />
   </component>
 </project>

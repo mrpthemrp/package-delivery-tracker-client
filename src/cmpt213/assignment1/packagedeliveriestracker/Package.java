@@ -1,3 +1,5 @@
+package cmpt213.assignment1.packagedeliveriestracker;
+
 import java.time.LocalDateTime;
 
 public class Package {
