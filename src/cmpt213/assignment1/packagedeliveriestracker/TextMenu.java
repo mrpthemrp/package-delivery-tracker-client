@@ -1,6 +1,5 @@
 package cmpt213.assignment1.packagedeliveriestracker;
 
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
