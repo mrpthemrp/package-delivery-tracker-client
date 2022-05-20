@@ -13,11 +13,39 @@ public class PackageDeliveryTracker {
     }
 
     public static void main(String[] args) {
-        PackageDeliveryTracker self = new PackageDeliveryTracker();
+        PackageDeliveryTracker tracker = new PackageDeliveryTracker();
+        TextMenu menu = tracker.menu;
 
-        self.menu.getInput();
 
-        //System.out.println("Main works");
-        //use a switch case for the menu!
+        int userInput = 0;
+        boolean endProgram = false;
+        while(!endProgram){
+            userInput = menu.getInput();
+            switch (userInput){
+                case 1:
+                    System.out.println("case 1");
+                    break;
+                case 2:
+                    System.out.println("case 2");
+                    break;
+                case 3:
+                    System.out.println("case 3");
+                    break;
+                case 4:
+                    System.out.println("case 4");
+                    break;
+                case 5:
+                    System.out.println("case 5");
+                    break;
+                case 6:
+                    System.out.println("case 6");
+                    break;
+                case 7:
+                    System.out.println("Program will now exit.");
+                    endProgram = true;
+                    break;
+            }
+
+        }
     }
 }
