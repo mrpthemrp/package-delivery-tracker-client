@@ -1,7 +1,6 @@
 package cmpt213.assignment1.packagedeliveriestracker;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class PackageDeliveryTracker {
     private TextMenu menu;
@@ -16,10 +15,10 @@ public class PackageDeliveryTracker {
         PackageDeliveryTracker tracker = new PackageDeliveryTracker();
         TextMenu menu = tracker.menu;
 
-
         int userInput = 0;
         boolean endProgram = false;
         while(!endProgram){
+            menu.displayMenu();
             userInput = menu.getInput();
             switch (userInput){
                 case 1:

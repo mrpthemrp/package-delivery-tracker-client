@@ -30,7 +30,7 @@ public class TextMenu {
 
     public void displayMenu(){
         String hashTags ="####";// to account for spaces
-        for(int i =0;i<menuOptions.size();i++){
+        for(int i =0;i<menuTitle.length();i++){
             hashTags+="#";
         }
         System.out.println(hashTags+"\n# "+menuTitle+" #\n"+hashTags);

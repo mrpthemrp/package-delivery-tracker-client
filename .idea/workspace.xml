@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="try catch in TextMenu almost implemented">
+    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Implement switch case in PackageDeliveryTracker">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment1/packagedeliveriestracker/PackageDeliveryTracker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment1/packagedeliveriestracker/PackageDeliveryTracker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment1/packagedeliveriestracker/TextMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment1/packagedeliveriestracker/TextMenu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,7 +129,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653086208940</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Implement switch case in PackageDeliveryTracker">
+      <created>1653087039662</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1653087039662</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -152,6 +160,7 @@
     <MESSAGE value="Fill in basics for TextMenu class" />
     <MESSAGE value="TextMenu constructor half-finish" />
     <MESSAGE value="try catch in TextMenu almost implemented" />
-    <option name="LAST_COMMIT_MESSAGE" value="try catch in TextMenu almost implemented" />
+    <MESSAGE value="Implement switch case in PackageDeliveryTracker" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implement switch case in PackageDeliveryTracker" />
   </component>
 </project>
