@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Fill in basics for TextMenu class">
+    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="TextMenu constructor half-finish">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment1/packagedeliveriestracker/PackageDeliveryTracker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment1/packagedeliveriestracker/PackageDeliveryTracker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment1/packagedeliveriestracker/TextMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment1/packagedeliveriestracker/TextMenu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -115,7 +114,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653082791259</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="TextMenu constructor half-finish">
+      <created>1653084892901</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1653084892901</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -137,6 +143,7 @@
     <MESSAGE value="Fill in basics of Package class" />
     <MESSAGE value="Refactor package files" />
     <MESSAGE value="Fill in basics for TextMenu class" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fill in basics for TextMenu class" />
+    <MESSAGE value="TextMenu constructor half-finish" />
+    <option name="LAST_COMMIT_MESSAGE" value="TextMenu constructor half-finish" />
   </component>
 </project>

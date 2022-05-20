@@ -35,6 +35,9 @@ public class TextMenu {
         }
         System.out.println(hashTags+"\n# "+menuTitle+" #\n"+hashTags);
         System.out.println("Today is: DATE (to be implemented)");
+        for (int j =0;j< menuOptions.size();j++){
+            System.out.println((j+1)+": "+menuOptions.get(j));
+        }
     }
 
     public int getInput() throws InputMismatchException{
@@ -43,10 +46,19 @@ public class TextMenu {
 
         while(!correctInput){
             try{
+                System.out.println("Choose a menu option by entering" +
+                        " a whole number between 1 and 7.");
+                System.out.print("Your input: ");
                 userInput = input.nextInt();
-                correctInput = true;
+
+                if (userInput > 0 && userInput <=7){
+                    correctInput = true;
+                }
+                else {
+                    throw new InputMismatchException();
+                }
             } catch (InputMismatchException e){
-                System.out.println("Incorrect input. Please try again.");
+                System.out.println("Invalid input. Enter a number between 1 and 7");
                 input.next();
             }
         }
