@@ -131,11 +131,7 @@ public class TextMenu {
     }
 
     private boolean isOverdue(LocalDateTime packageDate){
-        if(packageDate.isAfter(currentTime)){
-            return true;
-        }
-
-        return false;
+        return packageDate.isBefore(currentTime);
     }
 
     //QuickSort reference from: https://www.geeksforgeeks.org/quick-sort/
@@ -176,22 +172,28 @@ public class TextMenu {
         if(listOfPackages.size() ==0){
             System.out.println("No packages to show.");
         } else{
-            ArrayList<Package> sortedList = listOfPackages;
-            quickSortPackageList(sortedList, 0, sortedList.size()-1);
             for(int i =0;i< listOfPackages.size();i++){
 
                 if(menuOption == LIST_PACKAGES){
                     printSinglePackage(i, listOfPackages);
 
-                } else if (menuOption == LIST_OVERDUE_PACKAGES){
-                    if(isOverdue(sortedList.get(i).getExpectedDeliveryDate())){
-                        sortedList.get(i).printPackageInfo();
+                } else {
+                    ArrayList<Package> sortedList = listOfPackages;
+                    quickSortPackageList(sortedList, 0, sortedList.size()-1);
+
+                    if (menuOption == LIST_OVERDUE_PACKAGES){
+                        if(isOverdue(sortedList.get(i).getExpectedDeliveryDate())){
+                            sortedList.get(i).printPackageInfo();
+                            System.out.println();
+                        }
+
+                    } else if (menuOption == LIST_UPCOMING_PACKAGES) {
+                        if(!isOverdue(sortedList.get(i).getExpectedDeliveryDate())){
+                            sortedList.get(i).printPackageInfo();
+                            System.out.println();
+                        }
                     }
 
-                } else if (menuOption == LIST_UPCOMING_PACKAGES) {
-                    if(!isOverdue(sortedList.get(i).getExpectedDeliveryDate())){
-                        sortedList.get(i).printPackageInfo();
-                    }
                 }
             }
         }
