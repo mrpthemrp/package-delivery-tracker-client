@@ -8,6 +8,7 @@ public class PackageDeliveryTracker {
         TextMenu menu = new TextMenu("Package Menu");
         ArrayList<Package> listOfPackages = new ArrayList<>();
 
+        menu.displayMenu();
         Package bob = menu.createPackage();
 
         bob.printPackageInfo();

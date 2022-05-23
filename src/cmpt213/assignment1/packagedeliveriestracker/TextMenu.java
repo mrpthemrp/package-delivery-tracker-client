@@ -1,18 +1,26 @@
 package cmpt213.assignment1.packagedeliveriestracker;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class TextMenu {
+    private static final int LIST_PACKAGES = 1;
+    private static final int LIST_OVERDUE_PACKAGES = 4;
+    private static final int LIST_UPCOMING_PACKAGES = 5;
     private String menuTitle;
     private ArrayList<String> menuOptions;
+    private LocalDateTime currentTime;
+    private DateTimeFormatter monthDateYear;
     private Scanner input = new Scanner(System.in);
 
     //MENU
     public TextMenu(String menuTitle){
         this.menuTitle = menuTitle;
+        this.currentTime = LocalDateTime.now();
+        monthDateYear = DateTimeFormatter.ofPattern("MMM dd, yyyy");
 
         //initialize ArrayList
         menuOptions = new ArrayList<>();
@@ -35,7 +43,7 @@ public class TextMenu {
             hashTags+="#";
         }
         System.out.println(hashTags+"\n# "+menuTitle+" #\n"+hashTags);
-        System.out.println("Today is: DATE (to be implemented)");
+        System.out.println("Today is: "+currentTime.format(monthDateYear));
         for (int j =0;j< menuOptions.size();j++){
             System.out.println((j+1)+": "+menuOptions.get(j));
         }
@@ -109,5 +117,24 @@ public class TextMenu {
         LocalDateTime deliveryDate = LocalDateTime.of(year,month, day, hour, minute);
 
         return new Package(name, notes, price, weight, deliveryDate);
+    }
+
+    private void printSinglePackage(int index,ArrayList<Package> listOfPackages ){
+        System.out.println("Package #"+(index+1));
+        listOfPackages.get(index).printPackageInfo();
+        System.out.println();
+    }
+    public void listPackages(int menuOption,ArrayList<Package> listOfPackages ){
+        for(int i =0;i< listOfPackages.size();i++){
+            if(menuOption == LIST_PACKAGES){
+                printSinglePackage(i, listOfPackages);
+            } else if (menuOption == LIST_OVERDUE_PACKAGES){
+                listOfPackages.get(i).getExpectedDeliveryDate();
+
+            } else if (menuOption == LIST_UPCOMING_PACKAGES) {
+
+            }
+        }
+
     }
 }
