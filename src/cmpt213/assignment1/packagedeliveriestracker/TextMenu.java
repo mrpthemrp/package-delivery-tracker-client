@@ -3,6 +3,7 @@ package cmpt213.assignment1.packagedeliveriestracker;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -17,7 +18,7 @@ public class TextMenu {
     private Scanner input = new Scanner(System.in);
 
     //MENU
-    public TextMenu(String menuTitle){
+    public TextMenu(String menuTitle) {
         this.menuTitle = menuTitle;
         this.currentTime = LocalDateTime.now();
         monthDateYear = DateTimeFormatter.ofPattern("MMM dd, yyyy");
@@ -47,6 +48,10 @@ public class TextMenu {
         for (int j =0;j< menuOptions.size();j++){
             System.out.println((j+1)+": "+menuOptions.get(j));
         }
+    }
+
+    public void printMenuOption(int option){
+        System.out.println(menuOptions.get(option));
     }
 
     public int getMenuInput() throws InputMismatchException{
@@ -124,15 +129,70 @@ public class TextMenu {
         listOfPackages.get(index).printPackageInfo();
         System.out.println();
     }
+
+    private boolean isOverdue(LocalDateTime packageDate){
+        if(packageDate.isAfter(currentTime)){
+            return true;
+        }
+
+        return false;
+    }
+
+    //QuickSort reference from: https://www.geeksforgeeks.org/quick-sort/
+
+    private void quickSortSwap (ArrayList<Package> packageList, int i, int j){
+        Package temp = packageList.get(i);
+        packageList.set(i, packageList.get(j));
+        packageList.set(j, temp);
+    }
+
+    private int quickSortPartition(ArrayList<Package> packageList, int low, int high){
+        //set pivot
+        LocalDateTime pivot = packageList.get(high).getExpectedDeliveryDate();
+
+        int i = (low -1);
+
+        for(int j =low; j <=(high-1); j++){
+            if(packageList.get(j).getExpectedDeliveryDate().isBefore(pivot)){
+                i++;
+                quickSortSwap(packageList, i, j);
+            }
+        }
+        quickSortSwap(packageList, i+1, high);
+        return(i+1);
+    }
+
+    //sorts by LocalDateTime field!
+    private void quickSortPackageList (ArrayList<Package> unsortedList, int low, int high){
+        if(low < high){
+            int partitionIndex = quickSortPartition(unsortedList, low, high);
+
+            quickSortPackageList(unsortedList, low, partitionIndex-1);
+            quickSortPackageList(unsortedList, partitionIndex+1, high);
+        }
+    }
+
     public void listPackages(int menuOption,ArrayList<Package> listOfPackages ){
-        for(int i =0;i< listOfPackages.size();i++){
-            if(menuOption == LIST_PACKAGES){
-                printSinglePackage(i, listOfPackages);
-            } else if (menuOption == LIST_OVERDUE_PACKAGES){
-                listOfPackages.get(i).getExpectedDeliveryDate();
+        if(listOfPackages.size() ==0){
+            System.out.println("No packages to show.");
+        } else{
+            ArrayList<Package> sortedList = listOfPackages;
+            quickSortPackageList(sortedList, 0, sortedList.size()-1);
+            for(int i =0;i< listOfPackages.size();i++){
 
-            } else if (menuOption == LIST_UPCOMING_PACKAGES) {
+                if(menuOption == LIST_PACKAGES){
+                    printSinglePackage(i, listOfPackages);
 
+                } else if (menuOption == LIST_OVERDUE_PACKAGES){
+                    if(isOverdue(sortedList.get(i).getExpectedDeliveryDate())){
+                        sortedList.get(i).printPackageInfo();
+                    }
+
+                } else if (menuOption == LIST_UPCOMING_PACKAGES) {
+                    if(!isOverdue(sortedList.get(i).getExpectedDeliveryDate())){
+                        sortedList.get(i).printPackageInfo();
+                    }
+                }
             }
         }
 

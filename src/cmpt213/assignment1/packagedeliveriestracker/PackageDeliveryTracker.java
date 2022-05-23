@@ -8,29 +8,24 @@ public class PackageDeliveryTracker {
         TextMenu menu = new TextMenu("Package Menu");
         ArrayList<Package> listOfPackages = new ArrayList<>();
 
-        menu.displayMenu();
-        Package bob = menu.createPackage();
+        int userInput;
+        boolean endProgram = false;
+        while(!endProgram){
+            menu.displayMenu();
+            userInput = menu.getMenuInput();
+            menu.printMenuOption(userInput-1);
 
-        bob.printPackageInfo();
+            switch (userInput) {
+                case 1,4,5 -> menu.listPackages(userInput, listOfPackages);
+                case 2 -> listOfPackages.add(menu.createPackage());
+                case 3 -> System.out.println("case 3");
+                case 6 -> System.out.println("case 6");
+                case 7 -> {
+                    System.out.println("Program will now exit.");
+                    endProgram = true;
+                }
+            }
 
-//        int userInput;
-//        boolean endProgram = false;
-//        while(!endProgram){
-//            menu.displayMenu();
-//            userInput = menu.getInput();
-//            switch (userInput) {
-//                case 1 -> System.out.println("case 1");
-//                case 2 -> System.out.println("case 2");
-//                case 3 -> System.out.println("case 3");
-//                case 4 -> System.out.println("case 4");
-//                case 5 -> System.out.println("case 5");
-//                case 6 -> System.out.println("case 6");
-//                case 7 -> {
-//                    System.out.println("Program will now exit.");
-//                    endProgram = true;
-//                }
-//            }
-//
-//        }
+        }
     }
 }
