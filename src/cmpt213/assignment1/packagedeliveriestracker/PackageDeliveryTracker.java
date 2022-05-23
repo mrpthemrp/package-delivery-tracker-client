@@ -11,6 +11,7 @@ public class PackageDeliveryTracker {
         int userInput;
         boolean endProgram = false;
         while(!endProgram){
+            System.out.println();
             menu.displayMenu();
             userInput = menu.getMenuInput();
             menu.printMenuOption(userInput-1);

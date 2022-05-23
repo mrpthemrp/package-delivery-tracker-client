@@ -45,7 +45,7 @@ public class Package {
                 "Notes: "+this.notes+"\n" +
                 "Price (CAD): $"+ this.price +"\n" +
                 "Weight (kg): "+ this.weight +"kg\n" +
-                "Expected Delivery Date: 2022-05-19 23:45\n" +
+                "Expected Delivery Date: "+this.expectedDeliveryDate+"\n" +
                 "Delivery Status: "+deliveryStatus);
     }
 
