@@ -169,29 +169,35 @@ public class TextMenu {
     }
 
     public void listPackages(int menuOption,ArrayList<Package> listOfPackages ){
-        if(listOfPackages.size() ==0){
+        if(listOfPackages.size() == 0){
             System.out.println("No packages to show.");
-        } else{
+        } else {
             for(int i =0;i< listOfPackages.size();i++){
 
                 if(menuOption == LIST_PACKAGES){
                     printSinglePackage(i, listOfPackages);
 
                 } else {
-                    ArrayList<Package> sortedList = listOfPackages;
+                    ArrayList<Package> sortedList = new ArrayList<Package>(listOfPackages);
                     quickSortPackageList(sortedList, 0, sortedList.size()-1);
-
+                    int packageCount =0;
                     if (menuOption == LIST_OVERDUE_PACKAGES){
                         if(isOverdue(sortedList.get(i).getExpectedDeliveryDate())){
+                            packageCount++;
                             sortedList.get(i).printPackageInfo();
                             System.out.println();
                         }
 
                     } else if (menuOption == LIST_UPCOMING_PACKAGES) {
                         if(!isOverdue(sortedList.get(i).getExpectedDeliveryDate())){
+                            packageCount++;
                             sortedList.get(i).printPackageInfo();
                             System.out.println();
                         }
+                    }
+
+                    if (packageCount == 0){
+                        System.out.println("No packages to show.");
                     }
 
                 }
