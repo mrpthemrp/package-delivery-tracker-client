@@ -3,12 +3,12 @@ package cmpt213.assignment1.packagedeliveriestracker;
 import java.time.LocalDateTime;
 
 public class Package {
-    private String name;
-    private String notes;
-    private double price;
-    private double weight;
+    private final String name;
+    private final String notes;
+    private final double price;
+    private final double weight;
     private boolean isDelivered;
-    private LocalDateTime expectedDeliveryDate;
+    private final LocalDateTime expectedDeliveryDate;
 
     public Package (String name, String notes, double price,
                     double weight, LocalDateTime date){
@@ -21,24 +21,12 @@ public class Package {
         this.expectedDeliveryDate = date;
     }
 
-    //GETTERS
-    public String getName() {
-        return name;
+    //GETTERS, SETTER
+    public void setDeliveryStatus(boolean newStatus){
+        this.isDelivered = newStatus;
     }
 
-    public String getNotes() {
-        return notes;
-    }
-
-    public double getPrice() {
-        return price;
-    }
-
-    public double getWeight() {
-        return weight;
-    }
-
-    public boolean isDelivered() {
+    public boolean getDeliveryStatus() {
         return isDelivered;
     }
 
@@ -46,6 +34,19 @@ public class Package {
         return expectedDeliveryDate;
     }
 
-    //toString things
+    //PRINT
+    public void printPackageInfo(){
+        String deliveryStatus = "Not delivered.";
+        if(this.isDelivered){
+            deliveryStatus = "Delivered.";
+        }
+
+        System.out.println("Package Name: "+this.name+"\n" +
+                "Notes: "+this.notes+"\n" +
+                "Price (CAD): $"+ this.price +"\n" +
+                "Weight (kg): "+ this.weight +"kg\n" +
+                "Expected Delivery Date: 2022-05-19 23:45\n" +
+                "Delivery Status: "+deliveryStatus);
+    }
 
 }
