@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Add GSON Library to project structure">
+    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Added To Do for string check">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment1/packagedeliveriestracker/TextMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment1/packagedeliveriestracker/TextMenu.java" afterDir="false" />
     </list>
@@ -205,7 +205,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653502946754</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Added To Do for string check">
+      <created>1653503154062</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1653503154062</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -240,6 +247,7 @@
     <MESSAGE value="Fix isOverdue bug in TextMenu" />
     <MESSAGE value="Fix sortedList copy clone bug in TextMenu" />
     <MESSAGE value="Add GSON Library to project structure" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add GSON Library to project structure" />
+    <MESSAGE value="Added To Do for string check" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added To Do for string check" />
   </component>
 </project>

@@ -3,7 +3,6 @@ package cmpt213.assignment1.packagedeliveriestracker;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -34,14 +33,10 @@ public class TextMenu {
         menuOptions.add("Exit");
     }
 
-    public String getMenuTitle() {
-        return menuTitle;
-    }
-
     public void displayMenu(){
         String hashTags ="####";// to account for spaces
         for(int i =0;i<menuTitle.length();i++){
-            hashTags+="#";
+            hashTags = hashTags.concat("#");
         }
         System.out.println(hashTags+"\n# "+menuTitle+" #\n"+hashTags);
         System.out.println("Today is: "+currentTime.format(monthDateYear));
@@ -182,7 +177,7 @@ public class TextMenu {
                     printSinglePackage(i, listOfPackages);
 
                 } else {
-                    ArrayList<Package> sortedList = new ArrayList<Package>(listOfPackages);
+                    ArrayList<Package> sortedList = new ArrayList<>(listOfPackages);
                     quickSortPackageList(sortedList, 0, sortedList.size()-1);
                     int packageCount =0;
                     if (menuOption == LIST_OVERDUE_PACKAGES){
