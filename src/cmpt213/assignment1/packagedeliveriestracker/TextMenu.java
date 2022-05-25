@@ -80,7 +80,11 @@ public class TextMenu {
         return userInput;
     }
 
-    //INPUT AND OPTIONS?
+    //INPUT AND OPTIONS
+
+    //TO DO
+    // - fix next() issue with strings
+    // - implement exception handling properly for here and above
     public Package createPackage (){
 
         System.out.print("Enter the name of your package: ");
