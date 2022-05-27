@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Resolve minor warnings in TextMenu">
+    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Fix Scanner bug in TextMenu">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment1/packagedeliveriestracker/Package.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment1/packagedeliveriestracker/Package.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment1/packagedeliveriestracker/TextMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment1/packagedeliveriestracker/TextMenu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -220,7 +221,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653503496345</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Fix Scanner bug in TextMenu">
+      <created>1653685706408</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1653685706408</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -257,6 +265,7 @@
     <MESSAGE value="Add GSON Library to project structure" />
     <MESSAGE value="Added To Do for string check" />
     <MESSAGE value="Resolve minor warnings in TextMenu" />
-    <option name="LAST_COMMIT_MESSAGE" value="Resolve minor warnings in TextMenu" />
+    <MESSAGE value="Fix Scanner bug in TextMenu" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix Scanner bug in TextMenu" />
   </component>
 </project>

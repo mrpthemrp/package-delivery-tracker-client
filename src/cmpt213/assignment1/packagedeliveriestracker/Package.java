@@ -1,6 +1,7 @@
 package cmpt213.assignment1.packagedeliveriestracker;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Package {
     private final String name;
@@ -9,9 +10,26 @@ public class Package {
     private final double weight;
     private boolean isDelivered;
     private final LocalDateTime expectedDeliveryDate;
+    private final DateTimeFormatter packageDateFormat;
+
+    @Override
+    public String toString() {
+        String deliveryStatus = "Not delivered.";
+        if(this.isDelivered){
+            deliveryStatus = "Delivered.";
+        }
+
+        return ("Package Name: "+this.name+"\n" +
+                "Notes: "+this.notes+"\n" +
+                "Price (CAD): $"+ this.price +"\n" +
+                "Weight (kg): "+ this.weight +"kg\n" +
+                "Expected Delivery Date: "+this.expectedDeliveryDate.format(packageDateFormat)+"\n" +
+                "Delivery Status: "+deliveryStatus);
+    }
 
     public Package (String name, String notes, double price,
                     double weight, LocalDateTime date){
+        packageDateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm aa");
         this.isDelivered = false;
 
         this.name = name;
@@ -33,20 +51,4 @@ public class Package {
     public LocalDateTime getExpectedDeliveryDate() {
         return expectedDeliveryDate;
     }
-
-    //PRINT
-    public void printPackageInfo(){
-        String deliveryStatus = "Not delivered.";
-        if(this.isDelivered){
-            deliveryStatus = "Delivered.";
-        }
-
-        System.out.println("Package Name: "+this.name+"\n" +
-                "Notes: "+this.notes+"\n" +
-                "Price (CAD): $"+ this.price +"\n" +
-                "Weight (kg): "+ this.weight +"kg\n" +
-                "Expected Delivery Date: "+this.expectedDeliveryDate+"\n" +
-                "Delivery Status: "+deliveryStatus);
-    }
-
 }

@@ -84,13 +84,11 @@ public class TextMenu {
 
         System.out.print("Enter the name of your package: ");
         String name = input.nextLine();
-        System.out.println();
 
         System.out.print("Enter any notes for your package: ");
         String notes = input.nextLine();
-        System.out.println();
 
-        System.out.print("Enter the price for your package (in dollars): $");
+        System.out.print("\nEnter the price for your package (in dollars): $");
         double price = Double.parseDouble(input.nextLine());
         System.out.println();
 
@@ -124,9 +122,8 @@ public class TextMenu {
     }
 
     private void printSinglePackage(int index,ArrayList<Package> listOfPackages ){
-        System.out.println("Package #"+(index+1));
-        listOfPackages.get(index).printPackageInfo();
-        System.out.println();
+        System.out.println("Package #"+(index+1)+"\n"+
+                listOfPackages.get(index).toString()+"\n");
     }
 
     private boolean isOverdue(LocalDateTime packageDate){
@@ -183,14 +180,14 @@ public class TextMenu {
                     if (menuOption == LIST_OVERDUE_PACKAGES){
                         if(isOverdue(sortedList.get(i).getExpectedDeliveryDate())){
                             packageCount++;
-                            sortedList.get(i).printPackageInfo();
+                            System.out.println(sortedList.get(i).toString());
                             System.out.println();
                         }
 
                     } else if (menuOption == LIST_UPCOMING_PACKAGES) {
                         if(!isOverdue(sortedList.get(i).getExpectedDeliveryDate())){
                             packageCount++;
-                            sortedList.get(i).printPackageInfo();
+                            System.out.println(sortedList.get(i).toString());
                             System.out.println();
                         }
                     }
