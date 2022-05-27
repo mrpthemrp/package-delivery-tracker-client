@@ -10,11 +10,11 @@ public class TextMenu {
     private static final int LIST_PACKAGES = 1;
     private static final int LIST_OVERDUE_PACKAGES = 4;
     private static final int LIST_UPCOMING_PACKAGES = 5;
-    private String menuTitle;
-    private ArrayList<String> menuOptions;
-    private LocalDateTime currentTime;
-    private DateTimeFormatter monthDateYear;
-    private Scanner input = new Scanner(System.in);
+    private final String menuTitle;
+    private final ArrayList<String> menuOptions;
+    private final LocalDateTime currentTime;
+    private final DateTimeFormatter monthDateYear;
+    private final Scanner input = new Scanner(System.in);
 
     //MENU
     public TextMenu(String menuTitle) {
