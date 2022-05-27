@@ -15,7 +15,6 @@ public class TextMenu {
     private final DateTimeFormatter monthDateYear;
     private final Scanner input = new Scanner(System.in);
 
-    //MENU
     public TextMenu(String menuTitle) {
         this.menuTitle = menuTitle;
         this.currentTime = LocalDateTime.now();
@@ -32,22 +31,41 @@ public class TextMenu {
         menuOptions.add("Exit");
     }
 
-    public void displayMenu() {
-        String hashTags = "####";// to account for spaces
-        for (int i = 0; i < menuTitle.length(); i++) {
-            hashTags = hashTags.concat("#");
+    //QUICKSORT
+    //reference from: https://www.geeksforgeeks.org/quick-sort/
+    private void quickSortSwap(ArrayList<Package> packageList, int i, int j) {
+        Package temp = packageList.get(i);
+        packageList.set(i, packageList.get(j));
+        packageList.set(j, temp);
+    }
+
+    private int quickSortPartition(ArrayList<Package> packageList, int low, int high) {
+        //set pivot
+        LocalDateTime pivot = packageList.get(high).getExpectedDeliveryDate();
+
+        int i = (low - 1);
+
+        for (int j = low; j <= (high - 1); j++) {
+            if (packageList.get(j).getExpectedDeliveryDate().isBefore(pivot)) {
+                i++;
+                quickSortSwap(packageList, i, j);
+            }
         }
-        System.out.println(hashTags + "\n# " + menuTitle + " #\n" + hashTags);
-        System.out.println("Today is: " + currentTime.format(monthDateYear));
-        for (int j = 0; j < menuOptions.size(); j++) {
-            System.out.println((j + 1) + ": " + menuOptions.get(j));
+        quickSortSwap(packageList, i + 1, high);
+        return (i + 1);
+    }
+
+    //sorts by LocalDateTime field!
+    private void quickSortPackageList(ArrayList<Package> unsortedList, int low, int high) {
+        if (low < high) {
+            int partitionIndex = quickSortPartition(unsortedList, low, high);
+
+            quickSortPackageList(unsortedList, low, partitionIndex - 1);
+            quickSortPackageList(unsortedList, partitionIndex + 1, high);
         }
     }
 
-    public void printMenuOption(int option) {
-        System.out.println(menuOptions.get(option));
-    }
-
+    //INPUT
     public int getMenuInput() throws NumberFormatException {
         boolean correctInput = false;
         int userInput = 0;
@@ -72,7 +90,6 @@ public class TextMenu {
         return userInput;
     }
 
-    //INPUT AND OPTIONS
     private double inputTryCatch(String question, String errorLine, boolean isDouble) {
         double finalNumber = 0.0;
         boolean control = false;
@@ -97,9 +114,6 @@ public class TextMenu {
         return finalNumber;
     }
 
-    //TO DO
-    // - fix next() issue with strings
-    // - implement exception handling properly for here and above
     public Package createPackage() throws NumberFormatException {
 
         System.out.print("Enter the name of your package: ");
@@ -136,46 +150,26 @@ public class TextMenu {
         return new Package(name, notes, price, weight, deliveryDate);
     }
 
+    //PRINT
+    public void displayMenu() {
+        String hashTags = "####";// to account for spaces
+        for (int i = 0; i < menuTitle.length(); i++) {
+            hashTags = hashTags.concat("#");
+        }
+        System.out.println(hashTags + "\n# " + menuTitle + " #\n" + hashTags);
+        System.out.println("Today is: " + currentTime.format(monthDateYear));
+        for (int j = 0; j < menuOptions.size(); j++) {
+            System.out.println((j + 1) + ": " + menuOptions.get(j));
+        }
+    }
+
+    public void printMenuOption(int option) {
+        System.out.println(menuOptions.get(option));
+    }
+
     private void printSinglePackage(int index, ArrayList<Package> listOfPackages) {
         System.out.println("Package #" + (index + 1) + "\n" +
                 listOfPackages.get(index).toString() + "\n");
-    }
-
-    private boolean isOverdue(LocalDateTime packageDate) {
-        return packageDate.isBefore(currentTime);
-    }
-
-    //QuickSort reference from: https://www.geeksforgeeks.org/quick-sort/
-    private void quickSortSwap(ArrayList<Package> packageList, int i, int j) {
-        Package temp = packageList.get(i);
-        packageList.set(i, packageList.get(j));
-        packageList.set(j, temp);
-    }
-
-    private int quickSortPartition(ArrayList<Package> packageList, int low, int high) {
-        //set pivot
-        LocalDateTime pivot = packageList.get(high).getExpectedDeliveryDate();
-
-        int i = (low - 1);
-
-        for (int j = low; j <= (high - 1); j++) {
-            if (packageList.get(j).getExpectedDeliveryDate().isBefore(pivot)) {
-                i++;
-                quickSortSwap(packageList, i, j);
-            }
-        }
-        quickSortSwap(packageList, i + 1, high);
-        return (i + 1);
-    }
-
-    //sorts by LocalDateTime field!
-    private void quickSortPackageList(ArrayList<Package> unsortedList, int low, int high) {
-        if (low < high) {
-            int partitionIndex = quickSortPartition(unsortedList, low, high);
-
-            quickSortPackageList(unsortedList, low, partitionIndex - 1);
-            quickSortPackageList(unsortedList, partitionIndex + 1, high);
-        }
     }
 
     public void listPackages(int menuOption, ArrayList<Package> listOfPackages) {
@@ -213,4 +207,10 @@ public class TextMenu {
         }
 
     }
-}
+
+    //OTHER -to be organized
+    private boolean isOverdue(LocalDateTime packageDate) {
+        return packageDate.isBefore(currentTime);
+    }
+
+} // TextMenu.java

@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Implement try-catch method in TextMenu">
+    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Fix bugs in try-catch method and DateTimeFormatter variables in TextMenu">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment1/packagedeliveriestracker/Package.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment1/packagedeliveriestracker/Package.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment1/packagedeliveriestracker/TextMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment1/packagedeliveriestracker/TextMenu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -256,7 +255,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653688694730</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Fix bugs in try-catch method and DateTimeFormatter variables in TextMenu">
+      <created>1653689074237</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1653689074237</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -272,7 +278,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Refactor src to ' cmpt213.assignment1.packagedeliveriestracker' and add main Class" />
     <MESSAGE value="Refactor files" />
     <MESSAGE value="Add Package and TextMenu Classes" />
     <MESSAGE value="Fill in basics of Package class" />
@@ -297,6 +302,7 @@
     <MESSAGE value="Optimize print lines in TextMenu" />
     <MESSAGE value="Remove warnings from TextMenu" />
     <MESSAGE value="Implement try-catch method in TextMenu" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implement try-catch method in TextMenu" />
+    <MESSAGE value="Fix bugs in try-catch method and DateTimeFormatter variables in TextMenu" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix bugs in try-catch method and DateTimeFormatter variables in TextMenu" />
   </component>
 </project>
