@@ -83,39 +83,39 @@ public class TextMenu {
     public Package createPackage (){
 
         System.out.print("Enter the name of your package: ");
-        String name = input.next();
+        String name = input.nextLine();
         System.out.println();
 
         System.out.print("Enter any notes for your package: ");
-        String notes = input.next();
+        String notes = input.nextLine();
         System.out.println();
 
         System.out.print("Enter the price for your package (in dollars): $");
-        double price = input.nextDouble();
+        double price = Double.parseDouble(input.nextLine());
         System.out.println();
 
         System.out.print("Enter the weight of your package (in kg): ");
-        double weight = input.nextDouble();
-        System.out.print("kg\n");
+        double weight = Double.parseDouble(input.nextLine());
+        System.out.println();
 
         System.out.print("Enter the year of the expected delivery date: ");
-        int year = input.nextInt();
+        int year = Integer.parseInt(input.nextLine());
         System.out.println();
 
-        System.out.print("Enter the month of the expected delivery date (1-12): ");
-        int month = input.nextInt();
+        System.out.print("Enter the month of the expected delivery date (1 - 12): ");
+        int month = Integer.parseInt(input.nextLine());
         System.out.println();
 
-        System.out.print("Enter the day of the expected delivery date (1-28/29/30/31): ");
-        int day = input.nextInt();
+        System.out.print("Enter the day of the expected delivery date (1 - 28/29/30/31): ");
+        int day = Integer.parseInt(input.nextLine());
         System.out.println();
 
-        System.out.print("Enter the hour of the expected delivery date (0-23): ");
-        int hour = input.nextInt();
+        System.out.print("Enter the hour of the expected delivery date (0 - 23): ");
+        int hour = Integer.parseInt(input.nextLine());
         System.out.println();
 
-        System.out.print("Enter the minute of the expected delivery date (0-59): ");
-        int minute = input.nextInt();
+        System.out.print("Enter the minute of the expected delivery date (0 - 59): ");
+        int minute = Integer.parseInt(input.nextLine());
         System.out.println();
 
         LocalDateTime deliveryDate = LocalDateTime.of(year,month, day, hour, minute);
