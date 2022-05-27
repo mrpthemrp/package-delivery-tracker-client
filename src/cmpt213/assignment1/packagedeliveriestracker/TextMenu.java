@@ -119,9 +119,19 @@ public class TextMenu {
 
     public Package createPackage() throws NumberFormatException {
 
-        System.out.print("Enter the name of your package: ");
-        String name = input.nextLine();
-        System.out.println();
+        control = false;
+        String name;
+        do {
+            System.out.print("Enter the name of your package: ");
+            name = input.nextLine();
+
+            if(name.isEmpty() || name.isBlank()){
+                System.out.println("name cannot be empty, please enter a name");
+            } else{
+                System.out.println();
+                this.control = true;
+            }
+        }while (!this.control);
 
         System.out.print("Enter any notes for your package: ");
         String notes = input.nextLine();

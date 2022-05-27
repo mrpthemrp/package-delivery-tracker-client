@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Reorganize methods in TextMenu">
+    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Implement Remove Package in TextMenu">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment1/packagedeliveriestracker/PackageDeliveryTracker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment1/packagedeliveriestracker/PackageDeliveryTracker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment1/packagedeliveriestracker/TextMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment1/packagedeliveriestracker/TextMenu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -270,7 +269,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653689286147</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Implement Remove Package in TextMenu">
+      <created>1653691350423</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1653691350423</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -286,7 +292,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Add Package and TextMenu Classes" />
     <MESSAGE value="Fill in basics of Package class" />
     <MESSAGE value="Refactor package files" />
     <MESSAGE value="Fill in basics for TextMenu class" />
@@ -311,6 +316,7 @@
     <MESSAGE value="Implement try-catch method in TextMenu" />
     <MESSAGE value="Fix bugs in try-catch method and DateTimeFormatter variables in TextMenu" />
     <MESSAGE value="Reorganize methods in TextMenu" />
-    <option name="LAST_COMMIT_MESSAGE" value="Reorganize methods in TextMenu" />
+    <MESSAGE value="Implement Remove Package in TextMenu" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implement Remove Package in TextMenu" />
   </component>
 </project>
