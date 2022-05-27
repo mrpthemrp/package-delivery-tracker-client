@@ -9,7 +9,9 @@ public class TextMenu {
     private static final int LIST_PACKAGES = 1;
     private static final int LIST_OVERDUE_PACKAGES = 4;
     private static final int LIST_UPCOMING_PACKAGES = 5;
+    private static final String NO_PACKAGE_MESSAGE = "No packages to show";
     private final String menuTitle;
+    private boolean control;
     private final ArrayList<String> menuOptions;
     private final LocalDateTime currentTime;
     private final DateTimeFormatter monthDateYear;
@@ -17,6 +19,7 @@ public class TextMenu {
 
     public TextMenu(String menuTitle) {
         this.menuTitle = menuTitle;
+        this.control = false;
         this.currentTime = LocalDateTime.now();
         monthDateYear = DateTimeFormatter.ofPattern("MMM dd, yyyy | hh:mm a");
 
@@ -92,7 +95,7 @@ public class TextMenu {
 
     private double inputTryCatch(String question, String errorLine, boolean isDouble) {
         double finalNumber = 0.0;
-        boolean control = false;
+        this.control = false;
 
         do {
             System.out.print(question);
@@ -104,12 +107,12 @@ public class TextMenu {
                 }
                 System.out.println();
 
-                control = true;
+                this.control = true;
             } catch (NumberFormatException nfe) {
                 System.err.println(errorLine+"\n");
             }
 
-        } while (!control);
+        } while (!this.control);
 
         return finalNumber;
     }
@@ -174,7 +177,7 @@ public class TextMenu {
 
     public void listPackages(int menuOption, ArrayList<Package> listOfPackages) {
         if (listOfPackages.size() == 0) {
-            System.out.println("No packages to show.");
+            System.out.println(NO_PACKAGE_MESSAGE);
         } else {
             for (int i = 0; i < listOfPackages.size(); i++) {
 
@@ -199,7 +202,7 @@ public class TextMenu {
                     }
 
                     if (packageCount == 0) {
-                        System.out.println("No packages to show.");
+                        System.out.println(NO_PACKAGE_MESSAGE);
                     }
 
                 }
@@ -211,6 +214,43 @@ public class TextMenu {
     //OTHER -to be organized
     private boolean isOverdue(LocalDateTime packageDate) {
         return packageDate.isBefore(currentTime);
+    }
+
+    public void removeAPackage (ArrayList<Package> packageList) throws NumberFormatException{
+        if(packageList.size() ==0){
+            System.out.println(NO_PACKAGE_MESSAGE);
+            return;
+        }
+
+        this.control = false;
+        do{
+            try{
+                System.out.println("\nList of packages:");
+                listPackages(1, packageList);
+                System.out.println();
+
+                System.out.println("Which package would you like to remove?\n" +
+                        "Enter 0 to cancel removing a package.");
+                System.out.print("Remove package # ");
+                int packageNumber = Integer.parseInt(input.nextLine());
+
+                if (packageNumber == 0){
+                    System.out.println("Cancel selected.\nReturning to Main Menu.");
+                    control = true;
+                }
+
+                packageNumber--; //to get package index
+                if (packageNumber >= 0 && packageNumber < packageList.size()) {
+                    System.out.println("Removed Package #"+(packageNumber+1));
+                    packageList.remove(packageNumber);
+                    this.control = true;
+                } else {
+                    throw new NumberFormatException();
+                }
+            } catch(NumberFormatException nfe){
+                System.err.println("Package does not exist, try again.");
+            }
+        } while (!control);
     }
 
 } // TextMenu.java

@@ -19,7 +19,7 @@ public class PackageDeliveryTracker {
             switch (userInput) {
                 case 1,4,5 -> menu.listPackages(userInput, listOfPackages);
                 case 2 -> listOfPackages.add(menu.createPackage());
-                case 3 -> System.out.println("case 3");
+                case 3 -> menu.removeAPackage(listOfPackages);
                 case 6 -> System.out.println("case 6");
                 case 7 -> {
                     System.out.println("Program will now exit.");
