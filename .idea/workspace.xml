@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Reformat code">
+    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Start case 6">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment1/packagedeliveriestracker/PackageDeliveryTracker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment1/packagedeliveriestracker/PackageDeliveryTracker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment1/packagedeliveriestracker/TextMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment1/packagedeliveriestracker/TextMenu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -291,7 +290,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653691953263</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Start case 6">
+      <created>1653692441165</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1653692441165</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -307,7 +313,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Fill in basics for TextMenu class" />
     <MESSAGE value="TextMenu constructor half-finish" />
     <MESSAGE value="try catch in TextMenu almost implemented" />
     <MESSAGE value="Implement switch case in PackageDeliveryTracker" />
@@ -332,6 +337,7 @@
     <MESSAGE value="Implement Remove Package in TextMenu" />
     <MESSAGE value="Add name of package must not be blank catch" />
     <MESSAGE value="Reformat code" />
-    <option name="LAST_COMMIT_MESSAGE" value="Reformat code" />
+    <MESSAGE value="Start case 6" />
+    <option name="LAST_COMMIT_MESSAGE" value="Start case 6" />
   </component>
 </project>

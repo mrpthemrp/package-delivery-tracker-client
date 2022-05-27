@@ -226,7 +226,14 @@ public class TextMenu {
         return packageDate.isBefore(currentTime);
     }
 
-    public void changeAPackage(ArrayList<Package> packageList, String question, String prompt, int listType) throws NumberFormatException {
+    // TODO: 2022-05-28
+    /* - create list of packages not delivered (by boolean)
+        - finish case 6
+        - debug case 3,4,5
+        - DateTimeFormat exception for case 2
+    */
+    public void changeAPackage(ArrayList<Package> packageList, String question,
+                               String prompt, int listType) throws NumberFormatException {
         if (packageList.size() == 0) {
             System.out.println(NO_PACKAGE_MESSAGE);
             return;
