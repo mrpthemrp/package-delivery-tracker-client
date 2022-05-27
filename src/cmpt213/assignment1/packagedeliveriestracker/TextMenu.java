@@ -226,7 +226,7 @@ public class TextMenu {
         return packageDate.isBefore(currentTime);
     }
 
-    public void removeAPackage(ArrayList<Package> packageList) throws NumberFormatException {
+    public void changeAPackage(ArrayList<Package> packageList, String question, String prompt, int listType) throws NumberFormatException {
         if (packageList.size() == 0) {
             System.out.println(NO_PACKAGE_MESSAGE);
             return;
@@ -236,12 +236,11 @@ public class TextMenu {
         do {
             try {
                 System.out.println("\nList of packages:");
-                listPackages(1, packageList);
+                listPackages(listType, packageList);
                 System.out.println();
 
-                System.out.println("Which package would you like to remove?\n" +
-                        "Enter 0 to cancel removing a package.");
-                System.out.print("Remove package # ");
+                System.out.println(question+"\nEnter 0 to cancel.");
+                System.out.print(prompt);
                 int packageNumber = Integer.parseInt(input.nextLine());
 
                 if (packageNumber == 0) {
