@@ -131,7 +131,6 @@ public class TextMenu {
     }
 
     //QuickSort reference from: https://www.geeksforgeeks.org/quick-sort/
-
     private void quickSortSwap (ArrayList<Package> packageList, int i, int j){
         Package temp = packageList.get(i);
         packageList.set(i, packageList.get(j));
@@ -180,15 +179,13 @@ public class TextMenu {
                     if (menuOption == LIST_OVERDUE_PACKAGES){
                         if(isOverdue(sortedList.get(i).getExpectedDeliveryDate())){
                             packageCount++;
-                            System.out.println(sortedList.get(i).toString());
-                            System.out.println();
+                            printSinglePackage(i, sortedList);
                         }
 
                     } else if (menuOption == LIST_UPCOMING_PACKAGES) {
                         if(!isOverdue(sortedList.get(i).getExpectedDeliveryDate())){
                             packageCount++;
-                            System.out.println(sortedList.get(i).toString());
-                            System.out.println();
+                            printSinglePackage(i, sortedList);
                         }
                     }
 
