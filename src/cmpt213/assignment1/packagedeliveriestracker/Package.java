@@ -29,7 +29,7 @@ public class Package {
 
     public Package (String name, String notes, double price,
                     double weight, LocalDateTime date){
-        packageDateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm A");
+        packageDateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm a");
         this.isDelivered = false;
 
         this.name = name;

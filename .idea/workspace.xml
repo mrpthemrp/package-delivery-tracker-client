@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Remove warnings from TextMenu">
+    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Implement try-catch method in TextMenu">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment1/packagedeliveriestracker/Package.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment1/packagedeliveriestracker/Package.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment1/packagedeliveriestracker/TextMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment1/packagedeliveriestracker/TextMenu.java" afterDir="false" />
@@ -249,7 +249,14 @@
       <option name="project" value="LOCAL" />
       <updated>1653686800985</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="Implement try-catch method in TextMenu">
+      <created>1653688694730</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1653688694730</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -265,7 +272,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Initial Commit" />
     <MESSAGE value="Refactor src to ' cmpt213.assignment1.packagedeliveriestracker' and add main Class" />
     <MESSAGE value="Refactor files" />
     <MESSAGE value="Add Package and TextMenu Classes" />
@@ -290,6 +296,7 @@
     <MESSAGE value="Implement toString override in Package class" />
     <MESSAGE value="Optimize print lines in TextMenu" />
     <MESSAGE value="Remove warnings from TextMenu" />
-    <option name="LAST_COMMIT_MESSAGE" value="Remove warnings from TextMenu" />
+    <MESSAGE value="Implement try-catch method in TextMenu" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implement try-catch method in TextMenu" />
   </component>
 </project>

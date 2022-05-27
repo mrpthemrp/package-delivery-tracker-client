@@ -19,7 +19,7 @@ public class TextMenu {
     public TextMenu(String menuTitle) {
         this.menuTitle = menuTitle;
         this.currentTime = LocalDateTime.now();
-        monthDateYear = DateTimeFormatter.ofPattern("MMM dd, yyyy");
+        monthDateYear = DateTimeFormatter.ofPattern("MMM dd, yyyy | hh:mm a");
 
         //initialize ArrayList
         menuOptions = new ArrayList<>();
@@ -78,9 +78,8 @@ public class TextMenu {
         boolean control = false;
 
         do {
-
+            System.out.print(question);
             try {
-                System.out.print(question);
                 if (isDouble) {
                     finalNumber = Double.parseDouble(input.nextLine());
                 } else {
@@ -88,9 +87,9 @@ public class TextMenu {
                 }
                 System.out.println();
 
-                control = true; // only comes here when price is formatted correctly
+                control = true;
             } catch (NumberFormatException nfe) {
-                System.err.println(errorLine);
+                System.err.println(errorLine+"\n");
             }
 
         } while (!control);
