@@ -15,21 +15,21 @@ public class Package {
     @Override
     public String toString() {
         String deliveryStatus = "Not delivered.";
-        if(this.isDelivered){
+        if (this.isDelivered) {
             deliveryStatus = "Delivered.";
         }
 
-        return ("Package Name: "+this.name+"\n" +
-                "Notes: "+this.notes+"\n" +
-                "Price (CAD): $"+ this.price +"\n" +
-                "Weight (kg): "+ this.weight +"kg\n" +
-                "Expected Delivery Date: "+this.expectedDeliveryDate.format(packageDateFormat)+"\n" +
-                "Delivery Status: "+deliveryStatus);
+        return ("Package Name: " + this.name + "\n" +
+                "Notes: " + this.notes + "\n" +
+                "Price (CAD): $" + this.price + "\n" +
+                "Weight (kg): " + this.weight + "kg\n" +
+                "Expected Delivery Date: " + this.expectedDeliveryDate.format(packageDateFormat) + "\n" +
+                "Delivery Status: " + deliveryStatus);
     }
 
-    public Package (String name, String notes, double price,
-                    double weight, LocalDateTime date){
-        packageDateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm a");
+    public Package(String name, String notes, double price,
+                   double weight, LocalDateTime date) {
+        packageDateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm");
         this.isDelivered = false;
 
         this.name = name;
@@ -40,7 +40,7 @@ public class Package {
     }
 
     //GETTERS, SETTER
-    public void setDeliveryStatus(boolean newStatus){
+    public void setDeliveryStatus(boolean newStatus) {
         this.isDelivered = newStatus;
     }
 

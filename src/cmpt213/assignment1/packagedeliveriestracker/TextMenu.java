@@ -109,7 +109,7 @@ public class TextMenu {
 
                 this.control = true;
             } catch (NumberFormatException nfe) {
-                System.err.println(errorLine+"\n");
+                System.err.println(errorLine + "\n");
             }
 
         } while (!this.control);
@@ -125,13 +125,13 @@ public class TextMenu {
             System.out.print("Enter the name of your package: ");
             name = input.nextLine();
 
-            if(name.isEmpty() || name.isBlank()){
+            if (name.isEmpty() || name.isBlank()) {
                 System.out.println("name cannot be empty, please enter a name");
-            } else{
+            } else {
                 System.out.println();
                 this.control = true;
             }
-        }while (!this.control);
+        } while (!this.control);
 
         System.out.print("Enter any notes for your package: ");
         String notes = input.nextLine();
@@ -160,6 +160,7 @@ public class TextMenu {
 
         LocalDateTime deliveryDate = LocalDateTime.of(year, month, day, hour, minute);
 
+        System.out.println(name + " has been added to the list.");
         return new Package(name, notes, price, weight, deliveryDate);
     }
 
@@ -189,25 +190,24 @@ public class TextMenu {
         if (listOfPackages.size() == 0) {
             System.out.println(NO_PACKAGE_MESSAGE);
         } else {
+            quickSortPackageList(listOfPackages, 0, listOfPackages.size() - 1);
             for (int i = 0; i < listOfPackages.size(); i++) {
 
                 if (menuOption == LIST_PACKAGES) {
                     printSinglePackage(i, listOfPackages);
 
                 } else {
-                    ArrayList<Package> sortedList = new ArrayList<>(listOfPackages);
-                    quickSortPackageList(sortedList, 0, sortedList.size() - 1);
                     int packageCount = 0;
                     if (menuOption == LIST_OVERDUE_PACKAGES) {
-                        if (isOverdue(sortedList.get(i).getExpectedDeliveryDate())) {
+                        if (isOverdue(listOfPackages.get(i).getExpectedDeliveryDate())) {
                             packageCount++;
-                            printSinglePackage(i, sortedList);
+                            printSinglePackage(i, listOfPackages);
                         }
 
                     } else if (menuOption == LIST_UPCOMING_PACKAGES) {
-                        if (!isOverdue(sortedList.get(i).getExpectedDeliveryDate())) {
+                        if (!isOverdue(listOfPackages.get(i).getExpectedDeliveryDate())) {
                             packageCount++;
-                            printSinglePackage(i, sortedList);
+                            printSinglePackage(i, listOfPackages);
                         }
                     }
 
@@ -226,15 +226,15 @@ public class TextMenu {
         return packageDate.isBefore(currentTime);
     }
 
-    public void removeAPackage (ArrayList<Package> packageList) throws NumberFormatException{
-        if(packageList.size() ==0){
+    public void removeAPackage(ArrayList<Package> packageList) throws NumberFormatException {
+        if (packageList.size() == 0) {
             System.out.println(NO_PACKAGE_MESSAGE);
             return;
         }
 
         this.control = false;
-        do{
-            try{
+        do {
+            try {
                 System.out.println("\nList of packages:");
                 listPackages(1, packageList);
                 System.out.println();
@@ -244,20 +244,20 @@ public class TextMenu {
                 System.out.print("Remove package # ");
                 int packageNumber = Integer.parseInt(input.nextLine());
 
-                if (packageNumber == 0){
+                if (packageNumber == 0) {
                     System.out.println("Cancel selected.\nReturning to Main Menu.");
                     control = true;
                 }
 
                 packageNumber--; //to get package index
                 if (packageNumber >= 0 && packageNumber < packageList.size()) {
-                    System.out.println("Removed Package #"+(packageNumber+1));
+                    System.out.println("Removed Package #" + (packageNumber + 1));
                     packageList.remove(packageNumber);
                     this.control = true;
                 } else {
                     throw new NumberFormatException();
                 }
-            } catch(NumberFormatException nfe){
+            } catch (NumberFormatException nfe) {
                 System.err.println("Package does not exist, try again.");
             }
         } while (!control);

@@ -10,14 +10,14 @@ public class PackageDeliveryTracker {
 
         int userInput;
         boolean endProgram = false;
-        while(!endProgram){
+        while (!endProgram) {
             System.out.println();
             menu.displayMenu();
             userInput = menu.getMenuInput();
-            menu.printMenuOption(userInput-1);
+            menu.printMenuOption(userInput - 1);
 
             switch (userInput) {
-                case 1,4,5 -> menu.listPackages(userInput, listOfPackages);
+                case 1, 4, 5 -> menu.listPackages(userInput, listOfPackages);
                 case 2 -> listOfPackages.add(menu.createPackage());
                 case 3 -> menu.removeAPackage(listOfPackages);
                 case 6 -> System.out.println("case 6");
