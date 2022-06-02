@@ -4,6 +4,16 @@ import java.util.*;
 
 public class PackageDeliveryTracker {
 
+    public static class PackageComparator implements Comparator<Package>{
+        @Override
+        public int compare(Package o1, Package o2) {
+            if(o1.getExpectedDeliveryDate().isBefore(o2.getExpectedDeliveryDate())){
+                return -1;
+            }
+            return 0;
+        }
+    }
+
     public static void main(String[] args) {
         TextMenu menu = new TextMenu("Package Menu");
         ArrayList<Package> listOfPackages = new ArrayList<>();
@@ -11,6 +21,7 @@ public class PackageDeliveryTracker {
         int userInput;
         boolean endProgram = false;
         while (!endProgram) {
+            listOfPackages.sort(new PackageComparator());
             System.out.println();
             menu.displayMenu();
             userInput = menu.getMenuInput();
@@ -29,4 +40,5 @@ public class PackageDeliveryTracker {
 
         }
     }
+
 }

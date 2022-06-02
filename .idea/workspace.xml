@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Implement try-catch for LocalDateTime">
+    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Bugs in finalDateTryCatch">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment1/packagedeliveriestracker/PackageDeliveryTracker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment1/packagedeliveriestracker/PackageDeliveryTracker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment1/packagedeliveriestracker/TextMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment1/packagedeliveriestracker/TextMenu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -311,7 +312,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654137329238</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Bugs in finalDateTryCatch">
+      <created>1654138279741</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1654138279741</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -327,7 +335,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Implement switch case in PackageDeliveryTracker" />
     <MESSAGE value="Debug switch case in PackageDeliveryTracker" />
     <MESSAGE value="Rewrite switch in PackageDeliveryTracker to enhanced switch" />
     <MESSAGE value="Added createPackage in Text Menu, need to replace input Scanner with Buffered Scanner" />
@@ -352,6 +359,7 @@
     <MESSAGE value="Start case 6" />
     <MESSAGE value="Add TODO in TextMenu" />
     <MESSAGE value="Implement try-catch for LocalDateTime" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implement try-catch for LocalDateTime" />
+    <MESSAGE value="Bugs in finalDateTryCatch" />
+    <option name="LAST_COMMIT_MESSAGE" value="Bugs in finalDateTryCatch" />
   </component>
 </project>

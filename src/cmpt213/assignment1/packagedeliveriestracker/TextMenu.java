@@ -37,40 +37,6 @@ public class TextMenu {
         menuOptions.add("Exit");
     }
 
-    //QUICKSORT
-    //reference from: https://www.geeksforgeeks.org/quick-sort/
-    private void quickSortSwap(ArrayList<Package> packageList, int i, int j) {
-        Package temp = packageList.get(i);
-        packageList.set(i, packageList.get(j));
-        packageList.set(j, temp);
-    }
-
-    private int quickSortPartition(ArrayList<Package> packageList, int low, int high) {
-        //set pivot
-        LocalDateTime pivot = packageList.get(high).getExpectedDeliveryDate();
-
-        int i = (low - 1);
-
-        for (int j = low; j <= (high - 1); j++) {
-            if (packageList.get(j).getExpectedDeliveryDate().isBefore(pivot)) {
-                i++;
-                quickSortSwap(packageList, i, j);
-            }
-        }
-        quickSortSwap(packageList, i + 1, high);
-        return (i + 1);
-    }
-
-    //sorts by LocalDateTime field!
-    private void quickSortPackageList(ArrayList<Package> unsortedList, int low, int high) {
-        if (low < high) {
-            int partitionIndex = quickSortPartition(unsortedList, low, high);
-
-            quickSortPackageList(unsortedList, low, partitionIndex - 1);
-            quickSortPackageList(unsortedList, partitionIndex + 1, high);
-        }
-    }
-
     //INPUT
     public int getMenuInput() throws NumberFormatException {
         control = false;
@@ -153,12 +119,12 @@ public class TextMenu {
 
         while (!control) {
             try {
-                if(hour == EMPTY_VALUE){
+                if (hour == EMPTY_VALUE) {
                     System.out.print("Enter the hour of the expected delivery date (0-23): ");
                     hour = Integer.parseInt(input.nextLine());
                     finalDate = LocalDateTime.of(year, month, day, hour, 1);
                 }
-                if (minute == EMPTY_VALUE ){
+                if (minute == EMPTY_VALUE) {
                     System.out.print("Enter the minute of the expected delivery date (0-59): ");
                     minute = Integer.parseInt(input.nextLine());
                     finalDate = LocalDateTime.of(year, month, day, hour, minute);
@@ -167,11 +133,11 @@ public class TextMenu {
                 System.out.println();
                 control = true;
             } catch (DateTimeException dte) {
-                if(hour!=EMPTY_VALUE){
+                if (hour != EMPTY_VALUE) {
                     hour = EMPTY_VALUE;
                 }
 
-                if(minute!=EMPTY_VALUE){
+                if (minute != EMPTY_VALUE) {
                     minute = EMPTY_VALUE;
                 }
                 System.out.println("Error: this time does not exist.");
@@ -243,7 +209,6 @@ public class TextMenu {
         if (listOfPackages.size() == 0) {
             System.out.println(NO_PACKAGE_MESSAGE);
         } else {
-            quickSortPackageList(listOfPackages, 0, listOfPackages.size() - 1);
             for (int i = 0; i < listOfPackages.size(); i++) {
 
                 if (menuOption == LIST_PACKAGES) {
@@ -320,5 +285,4 @@ public class TextMenu {
             }
         } while (!control);
     }
-
 } // TextMenu.java
