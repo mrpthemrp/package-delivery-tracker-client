@@ -73,21 +73,21 @@ public class TextMenu {
 
     //INPUT
     public int getMenuInput() throws NumberFormatException {
-        boolean correctInput = false;
+        control = false;
         int userInput = 0;
 
-        while (!correctInput) {
+        while (!control) {
             try {
                 System.out.println("Choose a menu option by entering" +
                         " a whole number between 1 and 7.");
                 System.out.print("Your input: ");
                 userInput = Integer.parseInt(input.nextLine());
 
-                if (userInput > 0 && userInput <= 7) {
-                    correctInput = true;
-                } else {
+                if (userInput < 0 || userInput > 7) {
                     throw new NumberFormatException();
                 }
+
+                control = true;
             } catch (NumberFormatException nfe) {
                 System.out.println("Invalid input. Enter a number between 1 and 7");
             }
@@ -145,29 +145,42 @@ public class TextMenu {
         return value;
     }
 
-    private int timeTryCatch(String question, int year, int month, int day, int hour){
-        int value =0;
+    private LocalDateTime finalDateTryCatch(int year, int month, int day) {
+        LocalDateTime finalDate = LocalDateTime.now();
+        int hour = EMPTY_VALUE;
+        int minute = EMPTY_VALUE;
         control = false;
 
-        while(!control){
-            try{
-                System.out.println(question);
-                value = Integer.parseInt(input.nextLine());
-
+        while (!control) {
+            try {
                 if(hour == EMPTY_VALUE){
-                    LocalDateTime.of(year, month, day, value, 1);
-                } else {
-                    LocalDateTime.of(year, month, day, hour, value);
+                    System.out.print("Enter the hour of the expected delivery date (0-23): ");
+                    hour = Integer.parseInt(input.nextLine());
+                    finalDate = LocalDateTime.of(year, month, day, hour, 1);
                 }
+                if (minute == EMPTY_VALUE ){
+                    System.out.print("Enter the minute of the expected delivery date (0-59): ");
+                    minute = Integer.parseInt(input.nextLine());
+                    finalDate = LocalDateTime.of(year, month, day, hour, minute);
+                }
+
                 System.out.println();
                 control = true;
-            }catch (DateTimeException dte){
+            } catch (DateTimeException dte) {
+                if(hour!=EMPTY_VALUE){
+                    hour = EMPTY_VALUE;
+                }
+
+                if(minute!=EMPTY_VALUE){
+                    minute = EMPTY_VALUE;
+                }
                 System.out.println("Error: this time does not exist.");
             }
         }
 
-        return value;
+        return finalDate;
     }
+
     public Package createPackage() throws NumberFormatException, DateTimeException {
 
         control = false;
@@ -194,13 +207,11 @@ public class TextMenu {
         double weight = inputTryCatch("Enter the weight of your package (in kg): ",
                 "Negative weight does not exist! Try again.");
 
-        int year = dateTryCatch("Enter the year of the expected delivery date: ",EMPTY_VALUE,EMPTY_VALUE);
-        int month = dateTryCatch("Enter the month of the expected delivery date (1-12): ",year,EMPTY_VALUE);
-        int day = dateTryCatch("Enter the day of the expected delivery date (1-28/29/30/31): ",year,month);
-        int hour = timeTryCatch("Enter the hour of the expected delivery date (0-23): ",year,month,day,EMPTY_VALUE);
-        int minute = timeTryCatch("Enter the minute of the expected delivery date (0-59): ",year,month,day,hour);
+        int year = dateTryCatch("Enter the year of the expected delivery date: ", EMPTY_VALUE, EMPTY_VALUE);
+        int month = dateTryCatch("Enter the month of the expected delivery date (1-12): ", year, EMPTY_VALUE);
+        int day = dateTryCatch("Enter the day of the expected delivery date (1-28/29/30/31): ", year, month);
 
-        LocalDateTime deliveryDate = LocalDateTime.of(year, month, day, hour, minute);
+        LocalDateTime deliveryDate = finalDateTryCatch(year, month, day);
 
         System.out.println(name + " has been added to the list.");
         return new Package(name, notes, price, weight, deliveryDate);
@@ -272,7 +283,6 @@ public class TextMenu {
     /* - create list of packages not delivered (by boolean)
         - finish case 6
         - debug case 3,4,5
-        - DateTimeFormat exception for case 2
     */
     public void changeAPackage(ArrayList<Package> packageList, String question,
                                String prompt, int listType) throws NumberFormatException {
