@@ -1,16 +1,21 @@
 package cmpt213.assignment1.packagedeliveriestracker;
 
+import com.google.gson.JsonElement;
+import com.google.gson.JsonPrimitive;
+import com.google.gson.JsonSerializationContext;
+import com.google.gson.JsonSerializer;
+
+import java.lang.reflect.Type;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class Package {
+public class Package  {
     private final String name;
     private final String notes;
     private final double price;
     private final double weight;
     private boolean isDelivered;
     private final LocalDateTime expectedDeliveryDate;
-    private final DateTimeFormatter packageDateFormat;
 
     @Override
     public String toString() {
@@ -23,13 +28,12 @@ public class Package {
                 "Notes: " + this.notes + "\n" +
                 "Price (CAD): $" + this.price + "\n" +
                 "Weight (kg): " + this.weight + "kg\n" +
-                "Expected Delivery Date: " + this.expectedDeliveryDate.format(packageDateFormat) + "\n" +
+                "Expected Delivery Date: " + this.expectedDeliveryDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm a")) + "\n" +
                 "Delivery Status: " + deliveryStatus);
     }
 
     public Package(String name, String notes, double price,
                    double weight, LocalDateTime date) {
-        packageDateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
         this.isDelivered = false;
 
         this.name = name;
@@ -51,4 +55,6 @@ public class Package {
     public LocalDateTime getExpectedDeliveryDate() {
         return expectedDeliveryDate;
     }
+
+
 }
