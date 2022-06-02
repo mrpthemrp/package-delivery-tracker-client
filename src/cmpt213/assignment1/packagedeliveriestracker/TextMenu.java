@@ -1,5 +1,7 @@
 package cmpt213.assignment1.packagedeliveriestracker;
 
+import java.time.DateTimeException;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -10,6 +12,7 @@ public class TextMenu {
     private static final int LIST_OVERDUE_PACKAGES = 4;
     private static final int LIST_UPCOMING_PACKAGES = 5;
     private static final String NO_PACKAGE_MESSAGE = "No packages to show";
+    private static final int EMPTY_VALUE = 0;
     private final String menuTitle;
     private boolean control;
     private final ArrayList<String> menuOptions;
@@ -93,31 +96,79 @@ public class TextMenu {
         return userInput;
     }
 
-    private double inputTryCatch(String question, String errorLine, boolean isDouble) {
+    private double inputTryCatch(String question, String errorLine) {
         double finalNumber = 0.0;
         this.control = false;
 
-        do {
+        while (!control) {
             System.out.print(question);
             try {
-                if (isDouble) {
-                    finalNumber = Double.parseDouble(input.nextLine());
-                } else {
-                    finalNumber = Integer.parseInt(input.nextLine());
+                finalNumber = Double.parseDouble(input.nextLine());
+
+                if (finalNumber < 0) {
+                    throw new NumberFormatException();
                 }
+
                 System.out.println();
 
                 this.control = true;
             } catch (NumberFormatException nfe) {
-                System.err.println(errorLine + "\n");
+                System.out.println(errorLine);
             }
-
-        } while (!this.control);
+        }
 
         return finalNumber;
     }
 
-    public Package createPackage() throws NumberFormatException {
+    private int dateTryCatch(String question, int year, int month) {
+        int value = 0;
+        control = false;
+        while (!this.control) {
+            try {
+                System.out.print(question);
+                value = Integer.parseInt(input.nextLine());
+
+                if (year == EMPTY_VALUE) {
+                    LocalDate.of(value, 1, 1);
+                } else if (month == EMPTY_VALUE) {
+                    LocalDate.of(year, value, 1);
+                } else {
+                    LocalDate.of(year, month, value);
+                }
+
+                System.out.println();
+                control = true;
+            } catch (DateTimeException dte) {
+                System.out.println("Error: this date does not exist.");
+            }
+        }
+        return value;
+    }
+
+    private int timeTryCatch(String question, int year, int month, int day, int hour){
+        int value =0;
+        control = false;
+
+        while(!control){
+            try{
+                System.out.println(question);
+                value = Integer.parseInt(input.nextLine());
+
+                if(hour == EMPTY_VALUE){
+                    LocalDateTime.of(year, month, day, value, 1);
+                } else {
+                    LocalDateTime.of(year, month, day, hour, value);
+                }
+                System.out.println();
+                control = true;
+            }catch (DateTimeException dte){
+                System.out.println("Error: this time does not exist.");
+            }
+        }
+
+        return value;
+    }
+    public Package createPackage() throws NumberFormatException, DateTimeException {
 
         control = false;
         String name;
@@ -138,25 +189,16 @@ public class TextMenu {
         System.out.println();
 
         double price = inputTryCatch("Enter the price for your package (in dollars): $",
-                "Incorrect Input! Try again.", true);
+                "Negative price does not exist! Try again.");
 
         double weight = inputTryCatch("Enter the weight of your package (in kg): ",
-                "Incorrect Input! Try again.", true);
+                "Negative weight does not exist! Try again.");
 
-        int year = (int) (inputTryCatch("Enter the year of the expected delivery date: ",
-                "error", false));
-
-        int month = (int) (inputTryCatch("Enter the month of the expected delivery date (1 - 12): ",
-                "error", false));
-
-        int day = (int) (inputTryCatch("Enter the day of the expected delivery date (1 - 28/29/30/31): ",
-                "error", false));
-
-        int hour = (int) (inputTryCatch("Enter the hour of the expected delivery date (0 - 23): ",
-                "error", false));
-
-        int minute = (int) (inputTryCatch("Enter the minute of the expected delivery date (0 - 59): ",
-                "error", false));
+        int year = dateTryCatch("Enter the year of the expected delivery date: ",EMPTY_VALUE,EMPTY_VALUE);
+        int month = dateTryCatch("Enter the month of the expected delivery date (1-12): ",year,EMPTY_VALUE);
+        int day = dateTryCatch("Enter the day of the expected delivery date (1-28/29/30/31): ",year,month);
+        int hour = timeTryCatch("Enter the hour of the expected delivery date (0-23): ",year,month,day,EMPTY_VALUE);
+        int minute = timeTryCatch("Enter the minute of the expected delivery date (0-59): ",year,month,day,hour);
 
         LocalDateTime deliveryDate = LocalDateTime.of(year, month, day, hour, minute);
 
@@ -246,7 +288,7 @@ public class TextMenu {
                 listPackages(listType, packageList);
                 System.out.println();
 
-                System.out.println(question+"\nEnter 0 to cancel.");
+                System.out.println(question + "\nEnter 0 to cancel.");
                 System.out.print(prompt);
                 int packageNumber = Integer.parseInt(input.nextLine());
 
