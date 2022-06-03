@@ -44,7 +44,7 @@ public class PackageDeliveryTracker implements Comparator<Package> {
         gsonFile = new File("src\\cmpt213\\assignment1\\packagedeliveriestracker\\gsondata\\list.json");
     }
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         PackageDeliveryTracker pkgTrkr = new PackageDeliveryTracker();
         TextMenu menu = new TextMenu("Package Menu");
         ArrayList<Package> listOfPackages = pkgTrkr.loadData();
@@ -85,25 +85,20 @@ public class PackageDeliveryTracker implements Comparator<Package> {
                 newArray = gson.fromJson(fileRead, type);
                 fileRead.close();
             } catch (IOException e) {
-                throw new RuntimeException(e);
+                System.out.println("Could not load data!");
             }
         }
-
         return newArray;
-
     }
 
-    public void saveData(ArrayList<Package> listOfPackages) throws IOException {
-        if (!gsonFile.exists()) {
-            gsonFile.createNewFile();
-        }
+    public void saveData(ArrayList<Package> listOfPackages) {
 
         try {
             FileWriter fileWrite = new FileWriter(gsonFile);
             gson.toJson(listOfPackages, fileWrite);
             fileWrite.close();
         } catch (IOException e) {
-            throw new IOException();
+            System.out.println("Could not save data!");
         }
 
     }
