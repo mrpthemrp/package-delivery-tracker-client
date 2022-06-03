@@ -31,12 +31,16 @@ public class PackageDeliveryTracker implements Comparator<Package> {
 
     private static Gson gson;
     private static File gsonFile;
+    private static ArrayList<Package> listOfPackages;
 
     /**
-     * Constructor for PackageDeliveryTracker Class;
-     * initializes GSON object and File object for data saving.
+     * Constructor for PackageDeliveryTracker Class; initializes GSON object,
+     * File object for data saving, and an ArrayList object.
      */
     public PackageDeliveryTracker() {
+
+        listOfPackages = loadData();
+        gsonFile = new File("src\\cmpt213\\assignment1\\packagedeliveriestracker\\gsondata\\list.json");
 
         gson = new GsonBuilder()
                 .registerTypeAdapter(LocalDateTime.class, new TypeAdapter<LocalDateTime>() {
@@ -50,8 +54,6 @@ public class PackageDeliveryTracker implements Comparator<Package> {
                         return LocalDateTime.parse(jsonReader.nextString());
                     }
                 }).create();
-
-        gsonFile = new File("src\\cmpt213\\assignment1\\packagedeliveriestracker\\gsondata\\list.json");
     }
 
     /**
@@ -64,7 +66,6 @@ public class PackageDeliveryTracker implements Comparator<Package> {
 
         PackageDeliveryTracker pkgTrkr = new PackageDeliveryTracker();
         TextMenu menu = new TextMenu("Package Options Menu");
-        ArrayList<Package> listOfPackages = pkgTrkr.loadData();
 
         int userInput;
         boolean endProgram = false;
@@ -89,7 +90,7 @@ public class PackageDeliveryTracker implements Comparator<Package> {
                         "Delivered package # ", 6);
                 case 7 -> {
                     System.out.println("Saving data ...");
-                    pkgTrkr.saveData(listOfPackages);
+                    pkgTrkr.saveData();
                     System.out.println("Data saved!\n");
                     System.out.println("Thank you for using this program!\nProgram will now exit.");
                     endProgram = true;
@@ -143,11 +144,8 @@ public class PackageDeliveryTracker implements Comparator<Package> {
     /**
      * Saves data from parameter to JSON format and then to JSON file;
      * creates new File if there is no existing JSON file.
-     *
-     * @param listOfPackages ArrayList<Package> object that holds
-     *                       data from current program run.
      */
-    public void saveData(ArrayList<Package> listOfPackages) {
+    public void saveData() {
 
         try {
             FileWriter fileWrite = new FileWriter(gsonFile);
