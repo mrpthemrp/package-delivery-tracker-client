@@ -4,60 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="JavaDoc generated">
-      <change afterPath="$PROJECT_DIR$/javadocs/allclasses-index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadocs/allpackages-index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadocs/cmpt213/assignment1/packagedeliveriestracker/Package.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadocs/cmpt213/assignment1/packagedeliveriestracker/PackageDeliveryTracker.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadocs/cmpt213/assignment1/packagedeliveriestracker/TextMenu.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadocs/cmpt213/assignment1/packagedeliveriestracker/package-summary.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadocs/cmpt213/assignment1/packagedeliveriestracker/package-tree.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadocs/copy.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadocs/element-list" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadocs/help-doc.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadocs/index-files/index-1.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadocs/index-files/index-2.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadocs/index-files/index-3.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadocs/index-files/index-4.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadocs/index-files/index-5.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadocs/index-files/index-6.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadocs/index-files/index-7.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadocs/index-files/index-8.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadocs/index.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadocs/jquery-ui.overrides.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadocs/legal/ADDITIONAL_LICENSE_INFO" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadocs/legal/ASSEMBLY_EXCEPTION" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadocs/legal/LICENSE" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadocs/legal/jquery.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadocs/legal/jqueryUI.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadocs/member-search-index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadocs/module-search-index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadocs/overview-tree.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadocs/package-search-index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadocs/resources/glass.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadocs/resources/x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadocs/script-dir/images/ui-bg_glass_55_fbf9ee_1x400.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadocs/script-dir/images/ui-bg_glass_65_dadada_1x400.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadocs/script-dir/images/ui-bg_glass_75_dadada_1x400.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadocs/script-dir/images/ui-bg_glass_75_e6e6e6_1x400.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadocs/script-dir/images/ui-bg_glass_95_fef1ec_1x400.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadocs/script-dir/images/ui-bg_highlight-soft_75_cccccc_1x100.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadocs/script-dir/images/ui-icons_222222_256x240.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadocs/script-dir/images/ui-icons_2e83ff_256x240.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadocs/script-dir/images/ui-icons_454545_256x240.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadocs/script-dir/images/ui-icons_888888_256x240.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadocs/script-dir/images/ui-icons_cd0a0a_256x240.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadocs/script-dir/jquery-3.5.1.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadocs/script-dir/jquery-ui.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadocs/script-dir/jquery-ui.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadocs/script-dir/jquery-ui.structure.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadocs/script.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadocs/search.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadocs/stylesheet.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadocs/tag-search-index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/javadocs/type-search-index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment1/packagedeliveriestracker/TextMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment1/packagedeliveriestracker/TextMenu.java" afterDir="false" />
+    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="JavaDoc">
+      <change afterPath="$PROJECT_DIR$/src/cmpt213/assignment1/packagedeliveriestracker/gsondata/list.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,13 +78,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1652723361815</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Fill in basics of Package class">
-      <created>1653070018756</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1653070018756</updated>
     </task>
     <task id="LOCAL-00006" summary="Refactor package files">
       <created>1653078380720</created>
@@ -474,7 +415,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654288745337</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="JavaDoc">
+      <created>1654289040865</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1654289040865</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -490,7 +438,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Implement Remove Package in TextMenu" />
     <MESSAGE value="Add name of package must not be blank catch" />
     <MESSAGE value="Reformat code" />
     <MESSAGE value="Start case 6" />
@@ -515,6 +462,7 @@
     <MESSAGE value="Reorder methods in TextMenu" />
     <MESSAGE value="Fix JavaDoc bug and add Java doc folder" />
     <MESSAGE value="JavaDoc generated" />
-    <option name="LAST_COMMIT_MESSAGE" value="JavaDoc generated" />
+    <MESSAGE value="JavaDoc" />
+    <option name="LAST_COMMIT_MESSAGE" value="JavaDoc" />
   </component>
 </project>
