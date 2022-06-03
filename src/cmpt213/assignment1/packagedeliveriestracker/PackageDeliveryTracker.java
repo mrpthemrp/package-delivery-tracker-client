@@ -102,7 +102,7 @@ public class PackageDeliveryTracker implements Comparator<Package> {
     }
 
     /**
-     * Override compare method to implement Comparator<Package>;
+     * Override compare method to implement Comparator;
      * compares if a package's delivery date is older or newer.
      *
      * @param o1 the first object to be compared.
@@ -121,7 +121,7 @@ public class PackageDeliveryTracker implements Comparator<Package> {
      * LoadData method checks for any previously saved
      * data and loads it into ArrayList, otherwise initializes new ArrayList.
      *
-     * @return Returns an ArrayList<Package> object.
+     * @return Returns an ArrayList object.
      */
     public ArrayList<Package> loadData() {
         ArrayList<Package> newArray = new ArrayList<>();
