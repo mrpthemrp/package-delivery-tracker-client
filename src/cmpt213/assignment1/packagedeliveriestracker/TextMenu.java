@@ -50,7 +50,6 @@ public class TextMenu {
     }
 
     /**
-     *
      * @return
      * @throws NumberFormatException
      */
@@ -79,7 +78,6 @@ public class TextMenu {
     }
 
     /**
-     *
      * @param question
      * @param errorLine
      * @return
@@ -109,7 +107,6 @@ public class TextMenu {
     }
 
     /**
-     *
      * @param question
      * @param year
      * @param month
@@ -147,7 +144,6 @@ public class TextMenu {
     }
 
     /**
-     *
      * @return
      * @throws NumberFormatException
      * @throws DateTimeException
@@ -206,30 +202,42 @@ public class TextMenu {
     }
 
     /**
-     *
      * @param option
      */
     public void printMenuOption(int option) {
-        System.out.println("\n" + menuOptions.get(option));
+        System.out.println("\n" + menuOptions.get(option) + "\n");
     }
 
     /**
-     *
      * @param index
      * @param listOfPackages
      */
     private void printSinglePackage(int index, ArrayList<Package> listOfPackages) {
+
         long daysLeft = currentTime.until(
                 listOfPackages.get(index).getExpectedDeliveryDate(),
                 ChronoUnit.DAYS);
 
+        String daysLeftPrompt = "\nTime left until delivery date: " + daysLeft + " days\n";
+
+
+        //If delivered, then there is no prompt for days left
+        if (listOfPackages.get(index).getDeliveryStatus()) {
+            daysLeftPrompt = "\n";
+
+        } else {
+            //If daysLeft is negative, then the package is overdue
+            if (daysLeft < 0) {
+                daysLeft *= (-1);//make it not negative
+                daysLeftPrompt = "\nDelivery is overdue by " + daysLeft + " days\n";
+            }
+        }
+
         System.out.println("Package #" + (index + 1) + "\n" +
-                listOfPackages.get(index).toString() + "\n" +
-                "Days left until delivery date: "+ daysLeft);
+                listOfPackages.get(index).toString() + daysLeftPrompt);
     }
 
     /**
-     *
      * @param menuOption
      * @param listOfPackages
      */
@@ -271,7 +279,6 @@ public class TextMenu {
     }
 
     /**
-     *
      * @param packageDate
      * @return
      */
@@ -280,7 +287,6 @@ public class TextMenu {
     }
 
     /**
-     *
      * @param packageList
      * @param question
      * @param prompt
