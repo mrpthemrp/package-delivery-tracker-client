@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="SCOPE_TYPE" value="3" />
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Ready for JavaDocs and testing">
+    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Write JavaDoc for Package class">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment1/packagedeliveriestracker/Package.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment1/packagedeliveriestracker/Package.java" afterDir="false" />
     </list>
@@ -360,7 +363,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654220376174</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="Write JavaDoc for Package class">
+      <created>1654221974690</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1654221974690</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -376,7 +386,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Fix LocalDateTime bug in Package" />
     <MESSAGE value="Fix isOverdue bug in TextMenu" />
     <MESSAGE value="Fix sortedList copy clone bug in TextMenu" />
     <MESSAGE value="Add GSON Library to project structure" />
@@ -401,6 +410,7 @@
     <MESSAGE value="Implement GSON save and write" />
     <MESSAGE value="Fix bugs in try catches" />
     <MESSAGE value="Ready for JavaDocs and testing" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ready for JavaDocs and testing" />
+    <MESSAGE value="Write JavaDoc for Package class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Write JavaDoc for Package class" />
   </component>
 </project>
