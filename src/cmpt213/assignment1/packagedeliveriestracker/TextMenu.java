@@ -7,6 +7,11 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * TextMenu class ...
+ *
+ * @author Deborah Wang
+ */
 public class TextMenu {
     private static final int LIST_PACKAGES = 1;
     private static final int LIST_OVERDUE_PACKAGES = 4;
@@ -15,12 +20,17 @@ public class TextMenu {
     private static final String NO_PACKAGE_MESSAGE = "No packages to show";
     private static final int EMPTY_VALUE = -1;
     private final String menuTitle;
-    private boolean control;
     private final ArrayList<String> menuOptions;
     private final LocalDateTime currentTime;
     private final DateTimeFormatter monthDateYear;
     private final Scanner input = new Scanner(System.in);
+    private boolean control;
 
+    /**
+     * Constructor for class
+     *
+     * @param menuTitle
+     */
     public TextMenu(String menuTitle) {
         this.menuTitle = menuTitle;
         this.control = false;
@@ -38,7 +48,11 @@ public class TextMenu {
         menuOptions.add("Exit");
     }
 
-    //INPUT
+    /**
+     *
+     * @return
+     * @throws NumberFormatException
+     */
     public int getMenuInput() throws NumberFormatException {
         control = false;
         int userInput = 0;
@@ -63,6 +77,12 @@ public class TextMenu {
         return userInput;
     }
 
+    /**
+     *
+     * @param question
+     * @param errorLine
+     * @return
+     */
     private double inputDoubleTryCatch(String question, String errorLine) {
         double finalNumber = 0.0;
         this.control = false;
@@ -87,6 +107,15 @@ public class TextMenu {
         return finalNumber;
     }
 
+    /**
+     *
+     * @param question
+     * @param year
+     * @param month
+     * @param day
+     * @param hour
+     * @return
+     */
     private int dateTryCatch(String question, int year, int month, int day, int hour) {
         int value = 0;
         control = false;
@@ -116,6 +145,12 @@ public class TextMenu {
         return value;
     }
 
+    /**
+     *
+     * @return
+     * @throws NumberFormatException
+     * @throws DateTimeException
+     */
     public Package createPackage() throws NumberFormatException, DateTimeException {
 
         this.control = false;
@@ -154,7 +189,9 @@ public class TextMenu {
         return new Package(name, notes, price, weight, deliveryDate);
     }
 
-    //PRINT
+    /**
+     *
+     */
     public void displayMenu() {
         String hashTags = "####";// to account for spaces
         for (int i = 0; i < menuTitle.length(); i++) {
@@ -167,15 +204,29 @@ public class TextMenu {
         }
     }
 
+    /**
+     *
+     * @param option
+     */
     public void printMenuOption(int option) {
-        System.out.println("\n"+menuOptions.get(option));
+        System.out.println("\n" + menuOptions.get(option));
     }
 
+    /**
+     *
+     * @param index
+     * @param listOfPackages
+     */
     private void printSinglePackage(int index, ArrayList<Package> listOfPackages) {
         System.out.println("Package #" + (index + 1) + "\n" +
                 listOfPackages.get(index).toString() + "\n");
     }
 
+    /**
+     *
+     * @param menuOption
+     * @param listOfPackages
+     */
     public void listPackages(int menuOption, ArrayList<Package> listOfPackages) {
         if (listOfPackages.size() == 0) {
             System.out.println(NO_PACKAGE_MESSAGE);
@@ -188,7 +239,7 @@ public class TextMenu {
                     printSinglePackage(i, listOfPackages);
 
                 } else {
-                    if (menuOption == LIST_OVERDUE_PACKAGES  && !pkg.getDeliveryStatus()) {
+                    if (menuOption == LIST_OVERDUE_PACKAGES && !pkg.getDeliveryStatus()) {
                         if (isOverdue(pkg.getExpectedDeliveryDate())) {
                             packageCount++;
                             printSinglePackage(i, listOfPackages);
@@ -213,11 +264,23 @@ public class TextMenu {
         }
     }
 
-    //OTHER -to be organized
+    /**
+     *
+     * @param packageDate
+     * @return
+     */
     private boolean isOverdue(LocalDateTime packageDate) {
         return packageDate.isBefore(currentTime);
     }
 
+    /**
+     *
+     * @param packageList
+     * @param question
+     * @param prompt
+     * @param listType
+     * @throws NumberFormatException
+     */
     public void changeAPackage(ArrayList<Package> packageList, String question,
                                String prompt, int listType) throws NumberFormatException {
         if (packageList.size() == 0) {
@@ -263,4 +326,5 @@ public class TextMenu {
             }
         }
     }
+
 } // TextMenu.java
