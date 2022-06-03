@@ -39,9 +39,7 @@ public class PackageDeliveryTracker implements Comparator<Package> {
      */
     public PackageDeliveryTracker() {
 
-        listOfPackages = loadData();
         gsonFile = new File("src\\cmpt213\\assignment1\\packagedeliveriestracker\\gsondata\\list.json");
-
         gson = new GsonBuilder()
                 .registerTypeAdapter(LocalDateTime.class, new TypeAdapter<LocalDateTime>() {
                     @Override
@@ -54,6 +52,8 @@ public class PackageDeliveryTracker implements Comparator<Package> {
                         return LocalDateTime.parse(jsonReader.nextString());
                     }
                 }).create();
+
+        listOfPackages = loadData();
     }
 
     /**
@@ -70,6 +70,7 @@ public class PackageDeliveryTracker implements Comparator<Package> {
         int userInput;
         boolean endProgram = false;
         while (!endProgram) {
+            //Update list order to reflect changes
             listOfPackages.sort(pkgTrkr);
 
             //Print Menu to screen and get input
