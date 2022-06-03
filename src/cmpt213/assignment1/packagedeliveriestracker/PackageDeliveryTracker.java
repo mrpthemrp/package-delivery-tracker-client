@@ -17,11 +17,13 @@ import java.util.ArrayList;
 import java.util.Comparator;
 
 /**
- * PackageDeliveryTracker class ..
+ * PackageDeliveryTracker class models a delivery tracker and
+ * input can be read in and saved as data to a JSON file.
  * <p>
- * implements
+ * Implements custom Comparator to sort Package objects
+ * from oldest to newest delivery date (LocalDateTime).
  * <p>
- * GSON from victor: <a href="https://www.youtube.com/watch?v=kooiBuJlcFg"></a>
+ * GSON Reference (Dr. Victor Cheung): <a href="https://www.youtube.com/watch?v=kooiBuJlcFg"></a>
  *
  * @author Deborah Wang
  */
@@ -31,7 +33,8 @@ public class PackageDeliveryTracker implements Comparator<Package> {
     private static File gsonFile;
 
     /**
-     * Constructor for PackageDeliveryTracker Class
+     * Constructor for PackageDeliveryTracker Class;
+     * initializes GSON object and File object for data saving.
      */
     public PackageDeliveryTracker() {
 
@@ -52,29 +55,38 @@ public class PackageDeliveryTracker implements Comparator<Package> {
     }
 
     /**
-     * @param args
+     * Main method loads any previous data, asks for user input,
+     * sorts the data list after each case, and saves data after system exits.
+     *
+     * @param args Console input from user is taken as a String.
      */
     public static void main(String[] args) {
+
         PackageDeliveryTracker pkgTrkr = new PackageDeliveryTracker();
-        TextMenu menu = new TextMenu("Package Menu");
+        TextMenu menu = new TextMenu("Package Options Menu");
         ArrayList<Package> listOfPackages = pkgTrkr.loadData();
 
         int userInput;
         boolean endProgram = false;
         while (!endProgram) {
             listOfPackages.sort(pkgTrkr);
+
+            //Print Menu to screen and get input
             System.out.println();
             menu.displayMenu();
             userInput = menu.getMenuInput();
-            menu.printMenuOption(userInput - 1);
+            menu.printMenuOption(userInput - 1); //-1 to account for indexing in array
 
+            //Handle correct input
             switch (userInput) {
                 case 1, 4, 5 -> menu.listPackages(userInput, listOfPackages);
                 case 2 -> listOfPackages.add(menu.createPackage());
-                case 3 ->
-                        menu.changeAPackage(listOfPackages, "Which package would you like to remove?", "Remove package # ", 1);
-                case 6 ->
-                        menu.changeAPackage(listOfPackages, "Which package has been delivered?", "Delivered package # ", 6);
+                case 3 -> menu.changeAPackage(listOfPackages,
+                        "Which package would you like to remove?",
+                        "Remove package # ", 1);
+                case 6 -> menu.changeAPackage(listOfPackages,
+                        "Which package has been delivered?",
+                        "Delivered package # ", 6);
                 case 7 -> {
                     pkgTrkr.saveData(listOfPackages);
                     System.out.println("Program will now exit.");
@@ -86,9 +98,12 @@ public class PackageDeliveryTracker implements Comparator<Package> {
     }
 
     /**
+     * Override compare method to implement Comparator<Package>;
+     * compares if a package's delivery date is older or newer.
+     *
      * @param o1 the first object to be compared.
      * @param o2 the second object to be compared.
-     * @return
+     * @return Returns negative is o1 is older than o2, returns 0 if o1 is newer.
      */
     @Override
     public int compare(Package o1, Package o2) {
@@ -99,26 +114,36 @@ public class PackageDeliveryTracker implements Comparator<Package> {
     }
 
     /**
-     * @return an initialized ArrayList<Package> object
+     * LoadData method checks for any previously saved
+     * data and loads it into ArrayList, otherwise initializes new ArrayList.
+     *
+     * @return Returns an ArrayList<Package> object.
      */
     public ArrayList<Package> loadData() {
         ArrayList<Package> newArray = new ArrayList<>();
+
         if (gsonFile.exists()) {
             try {
                 FileReader fileRead = new FileReader(gsonFile);
                 Type type = new TypeToken<ArrayList<Package>>() {
                 }.getType();
+
                 newArray = gson.fromJson(fileRead, type);
                 fileRead.close();
             } catch (IOException e) {
                 System.out.println("Could not load data!");
             }
         }
+
         return newArray;
     }
 
     /**
-     * @param listOfPackages
+     * Saves data from parameter to JSON format and then to JSON file;
+     * creates new File if there is no existing JSON file.
+     *
+     * @param listOfPackages ArrayList<Package> object that holds
+     *                       data from current program run.
      */
     public void saveData(ArrayList<Package> listOfPackages) {
 
