@@ -175,7 +175,7 @@ public class TextMenu {
                     }
 
                 } catch (NumberFormatException nfe) {
-                    System.err.println("Package does not exist, try again.");
+                    System.out.println("\nPackage does not exist, try again.\n");
                 }
             }
         }

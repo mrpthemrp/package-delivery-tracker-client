@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"cmpt213.assignment1.packagedeliveriestracker","l":"Package"},{"p":"cmpt213.assignment1.packagedeliveriestracker","l":"PackageDeliveryTracker"},{"p":"cmpt213.assignment1.packagedeliveriestracker","l":"TextMenu"}];updateSearchResults();
