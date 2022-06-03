@@ -88,8 +88,10 @@ public class PackageDeliveryTracker implements Comparator<Package> {
                         "Which package has been delivered?",
                         "Delivered package # ", 6);
                 case 7 -> {
+                    System.out.println("Saving data ...");
                     pkgTrkr.saveData(listOfPackages);
-                    System.out.println("Program will now exit.");
+                    System.out.println("Data saved!\n");
+                    System.out.println("Thank you for using this program!\nProgram will now exit.");
                     endProgram = true;
                 }
             }

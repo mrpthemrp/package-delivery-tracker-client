@@ -7,10 +7,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Implement Days left until delivery in TextMenu class">
-      <change afterPath="$PROJECT_DIR$/src/cmpt213/assignment1/packagedeliveriestracker/gsondata/list.json" afterDir="false" />
+    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Finish Days left until delivery in TextMenu class">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment1/packagedeliveriestracker/TextMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment1/packagedeliveriestracker/TextMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment1/packagedeliveriestracker/PackageDeliveryTracker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment1/packagedeliveriestracker/PackageDeliveryTracker.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -406,7 +405,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654279931879</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="Finish Days left until delivery in TextMenu class">
+      <created>1654280803480</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1654280803480</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -422,7 +428,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Fix Scanner bug in TextMenu" />
     <MESSAGE value="Implement toString override in Package class" />
     <MESSAGE value="Optimize print lines in TextMenu" />
     <MESSAGE value="Remove warnings from TextMenu" />
@@ -447,6 +452,7 @@
     <MESSAGE value="Finish JavaDoc for PackageDeliveryTracker class" />
     <MESSAGE value="Implement JavaDoc for TextMenu class" />
     <MESSAGE value="Implement Days left until delivery in TextMenu class" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implement Days left until delivery in TextMenu class" />
+    <MESSAGE value="Finish Days left until delivery in TextMenu class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finish Days left until delivery in TextMenu class" />
   </component>
 </project>
