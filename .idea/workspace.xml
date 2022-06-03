@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Fix bugs in try catches">
+    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Ready for JavaDocs and testing">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment1/packagedeliveriestracker/PackageDeliveryTracker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment1/packagedeliveriestracker/PackageDeliveryTracker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment1/packagedeliveriestracker/gsondata/list.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment1/packagedeliveriestracker/Package.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment1/packagedeliveriestracker/Package.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -354,7 +353,14 @@
       <option name="project" value="LOCAL" />
       <updated>1654220059557</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="Ready for JavaDocs and testing">
+      <created>1654220376174</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1654220376174</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -370,7 +376,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Implement quicksort in TextMenu" />
     <MESSAGE value="Fix LocalDateTime bug in Package" />
     <MESSAGE value="Fix isOverdue bug in TextMenu" />
     <MESSAGE value="Fix sortedList copy clone bug in TextMenu" />
@@ -395,6 +400,7 @@
     <MESSAGE value="Implement File saver and writer" />
     <MESSAGE value="Implement GSON save and write" />
     <MESSAGE value="Fix bugs in try catches" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix bugs in try catches" />
+    <MESSAGE value="Ready for JavaDocs and testing" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ready for JavaDocs and testing" />
   </component>
 </project>
