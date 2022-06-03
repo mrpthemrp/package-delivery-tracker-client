@@ -1,1 +1,1 @@
-[{"name":"dsf","notes":"sd","price":2.0,"weight":2.0,"isDelivered":false,"expectedDeliveryDate":"0002-02-02T02:02"},{"name":"dsf","notes":"sdf","price":3.0,"weight":3.0,"isDelivered":false,"expectedDeliveryDate":"0003-03-03T03:03"}]
+[{"name":"sdaf","notes":"safd","price":3.0,"weight":0.0,"isDelivered":true,"expectedDeliveryDate":"2022-02-02T02:02"}]

@@ -51,4 +51,7 @@ public class Package  {
     }
 
 
+    public String getName() {
+        return this.name;
+    }
 }

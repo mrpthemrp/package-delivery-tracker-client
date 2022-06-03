@@ -27,6 +27,7 @@ public class PackageDeliveryTracker implements Comparator<Package> {
     }
 
     public PackageDeliveryTracker() {
+
         gson = new GsonBuilder()
                 .registerTypeAdapter(LocalDateTime.class, new TypeAdapter<LocalDateTime>() {
                     @Override
@@ -63,7 +64,7 @@ public class PackageDeliveryTracker implements Comparator<Package> {
                 case 3 ->
                         menu.changeAPackage(listOfPackages, "Which package would you like to remove?", "Remove package # ", 1);
                 case 6 ->
-                        menu.changeAPackage(listOfPackages, "Which package has been delivered?", "Delivered package # ", 5);
+                        menu.changeAPackage(listOfPackages, "Which package has been delivered?", "Delivered package # ", 6);
                 case 7 -> {
                     pkgTrkr.saveData(listOfPackages);
                     System.out.println("Program will now exit.");
