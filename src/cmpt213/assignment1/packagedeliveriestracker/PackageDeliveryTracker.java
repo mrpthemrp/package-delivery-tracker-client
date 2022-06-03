@@ -7,25 +7,32 @@ import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.lang.reflect.Type;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Comparator;
-//GSON from victor: https://www.youtube.com/watch?v=kooiBuJlcFg
+
+/**
+ * PackageDeliveryTracker class ..
+ * <p>
+ * implements
+ * <p>
+ * GSON from victor: <a href="https://www.youtube.com/watch?v=kooiBuJlcFg"></a>
+ *
+ * @author Deborah Wang
+ */
 public class PackageDeliveryTracker implements Comparator<Package> {
 
     private static Gson gson;
     private static File gsonFile;
 
-    @Override
-    public int compare(Package o1, Package o2) {
-        if (o1.getExpectedDeliveryDate().isBefore(o2.getExpectedDeliveryDate())) {
-            return -1;
-        }
-        return 0;
-    }
-
+    /**
+     * Constructor for PackageDeliveryTracker Class
+     */
     public PackageDeliveryTracker() {
 
         gson = new GsonBuilder()
@@ -44,6 +51,9 @@ public class PackageDeliveryTracker implements Comparator<Package> {
         gsonFile = new File("src\\cmpt213\\assignment1\\packagedeliveriestracker\\gsondata\\list.json");
     }
 
+    /**
+     * @param args
+     */
     public static void main(String[] args) {
         PackageDeliveryTracker pkgTrkr = new PackageDeliveryTracker();
         TextMenu menu = new TextMenu("Package Menu");
@@ -75,6 +85,22 @@ public class PackageDeliveryTracker implements Comparator<Package> {
         }
     }
 
+    /**
+     * @param o1 the first object to be compared.
+     * @param o2 the second object to be compared.
+     * @return
+     */
+    @Override
+    public int compare(Package o1, Package o2) {
+        if (o1.getExpectedDeliveryDate().isBefore(o2.getExpectedDeliveryDate())) {
+            return -1;
+        }
+        return 0;
+    }
+
+    /**
+     * @return an initialized ArrayList<Package> object
+     */
     public ArrayList<Package> loadData() {
         ArrayList<Package> newArray = new ArrayList<>();
         if (gsonFile.exists()) {
@@ -91,6 +117,9 @@ public class PackageDeliveryTracker implements Comparator<Package> {
         return newArray;
     }
 
+    /**
+     * @param listOfPackages
+     */
     public void saveData(ArrayList<Package> listOfPackages) {
 
         try {
