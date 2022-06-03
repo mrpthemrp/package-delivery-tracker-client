@@ -4,6 +4,7 @@ import java.time.DateTimeException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -218,8 +219,13 @@ public class TextMenu {
      * @param listOfPackages
      */
     private void printSinglePackage(int index, ArrayList<Package> listOfPackages) {
+        long daysLeft = currentTime.until(
+                listOfPackages.get(index).getExpectedDeliveryDate(),
+                ChronoUnit.DAYS);
+
         System.out.println("Package #" + (index + 1) + "\n" +
-                listOfPackages.get(index).toString() + "\n");
+                listOfPackages.get(index).toString() + "\n" +
+                "Days left until delivery date: "+ daysLeft);
     }
 
     /**
