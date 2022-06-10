@@ -4,8 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Delete Json file">
+    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Add docs folder with necessary files">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadocs/cmpt213/assignment1/packagedeliveriestracker/Package.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadocs/cmpt213/assignment1/packagedeliveriestracker/Package.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadocs/cmpt213/assignment1/packagedeliveriestracker/PackageDeliveryTracker.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadocs/cmpt213/assignment1/packagedeliveriestracker/PackageDeliveryTracker.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadocs/cmpt213/assignment1/packagedeliveriestracker/TextMenu.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadocs/cmpt213/assignment1/packagedeliveriestracker/TextMenu.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/javadocs/index-files/index-1.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadocs/index-files/index-1.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment1/packagedeliveriestracker/Package.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/Package.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment1/packagedeliveriestracker/PackageDeliveryTracker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/PackageDeliveryTracker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment1/packagedeliveriestracker/TextMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/TextMenu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,23 +40,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Downloaded.Files.Path.Enabled": "true",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "C:/Users/debor/IdeaProjects/CMPT213-A1",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.lookFeel"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;true&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/debor/IdeaProjects/CMPT213-A1&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\debor\IdeaProjects\CMPT213-A1\src\cmpt213\assignment1\packagedeliveriestracker\gsondata" />
@@ -58,18 +65,13 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration name="cmpt213.assignment1.packagedeliveriestracker.PackageDeliveryTracker" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="cmpt213.assignment1.packagedeliveriestracker.PackageDeliveryTracker" />
+    <configuration name="PackageDeliveryTracker" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cmpt213.assignment2.packagedeliveriestracker.PackageDeliveryTracker" />
       <module name="CMPT213-A1" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.cmpt213.assignment1.packagedeliveriestracker.PackageDeliveryTracker" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -79,20 +81,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1652723361815</updated>
-    </task>
-    <task id="LOCAL-00007" summary="Fill in basics for TextMenu class">
-      <created>1653082791259</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1653082791259</updated>
-    </task>
-    <task id="LOCAL-00008" summary="TextMenu constructor half-finish">
-      <created>1653084892901</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1653084892901</updated>
     </task>
     <task id="LOCAL-00009" summary="try catch in TextMenu almost implemented">
       <created>1653086208940</created>
@@ -423,7 +411,21 @@
       <option name="project" value="LOCAL" />
       <updated>1654289127242</updated>
     </task>
-    <option name="localTasksCounter" value="56" />
+    <task id="LOCAL-00056" summary="Add docs folder with necessary files">
+      <created>1654874611872</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1654874611872</updated>
+    </task>
+    <task id="LOCAL-00057" summary="Add docs folder with necessary files">
+      <created>1654874621947</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1654874621947</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -439,7 +441,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Reformat code" />
     <MESSAGE value="Start case 6" />
     <MESSAGE value="Add TODO in TextMenu" />
     <MESSAGE value="Implement try-catch for LocalDateTime" />
@@ -464,6 +465,7 @@
     <MESSAGE value="JavaDoc generated" />
     <MESSAGE value="JavaDoc" />
     <MESSAGE value="Delete Json file" />
-    <option name="LAST_COMMIT_MESSAGE" value="Delete Json file" />
+    <MESSAGE value="Add docs folder with necessary files" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add docs folder with necessary files" />
   </component>
 </project>

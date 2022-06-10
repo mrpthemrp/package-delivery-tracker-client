@@ -1,4 +1,4 @@
-package cmpt213.assignment1.packagedeliveriestracker;
+package cmpt213.assignment2.packagedeliveriestracker;
 
 import java.time.DateTimeException;
 import java.time.LocalDate;

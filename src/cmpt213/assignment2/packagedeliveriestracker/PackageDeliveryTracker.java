@@ -1,4 +1,4 @@
-package cmpt213.assignment1.packagedeliveriestracker;
+package cmpt213.assignment2.packagedeliveriestracker;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -39,7 +39,7 @@ public class PackageDeliveryTracker implements Comparator<Package> {
      */
     public PackageDeliveryTracker() {
 
-        gsonFile = new File("src\\cmpt213\\assignment1\\packagedeliveriestracker\\gsondata\\list.json");
+        gsonFile = new File("src\\cmpt213\\assignment2\\packagedeliveriestracker\\model\\list.json");
         gson = new GsonBuilder()
                 .registerTypeAdapter(LocalDateTime.class, new TypeAdapter<LocalDateTime>() {
                     @Override
