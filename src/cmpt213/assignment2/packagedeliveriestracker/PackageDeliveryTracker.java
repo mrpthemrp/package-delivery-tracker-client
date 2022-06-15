@@ -37,7 +37,7 @@ public class PackageDeliveryTracker implements Comparator<Package> {
      * Constructor for PackageDeliveryTracker Class; initializes GSON object,
      * File object for data saving, and an ArrayList object.
      */
-    public PackageDeliveryTracker() {
+    private PackageDeliveryTracker() {
 
         gsonFile = new File("src\\cmpt213\\assignment2\\packagedeliveriestracker\\model\\list.json");
         gson = new GsonBuilder()
@@ -123,7 +123,7 @@ public class PackageDeliveryTracker implements Comparator<Package> {
      *
      * @return Returns an ArrayList object.
      */
-    public ArrayList<Package> loadData() {
+    private ArrayList<Package> loadData() {
         ArrayList<Package> newArray = new ArrayList<>();
 
         if (gsonFile.exists()) {
@@ -146,7 +146,7 @@ public class PackageDeliveryTracker implements Comparator<Package> {
      * Saves data from parameter to JSON format and then to JSON file;
      * creates new File if there is no existing JSON file.
      */
-    public void saveData() {
+    private void saveData() {
 
         try {
             FileWriter fileWrite = new FileWriter(gsonFile);
