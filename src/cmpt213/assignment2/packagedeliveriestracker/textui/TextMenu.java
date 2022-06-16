@@ -1,4 +1,7 @@
-package cmpt213.assignment2.packagedeliveriestracker;
+package cmpt213.assignment2.packagedeliveriestracker.textui;
+
+import cmpt213.assignment2.packagedeliveriestracker.model.Package;
+import cmpt213.assignment2.packagedeliveriestracker.model.PackageFactory;
 
 import java.time.DateTimeException;
 import java.time.LocalDate;
@@ -15,22 +18,22 @@ import java.util.Scanner;
  * @author Deborah Wang
  */
 public class TextMenu {
+    public static final String TYPE_BOOK = "BOOK";
+    public static final String TYPE_ELECTRONIC = "ELECTRONIC";
+    public static final String TYPE_PERISHABLE = "PERISHABLE";
     private static final int LIST_PACKAGES = 1;
     private static final int LIST_OVERDUE_PACKAGES = 4;
     private static final int LIST_UPCOMING_PACKAGES = 5;
     private static final int LIST_UNDELIVERED_PACKAGES = 6;
     private static final String NO_PACKAGE_MESSAGE = "No packages to show";
-    public static final String TYPE_BOOK = "BOOK";
-    public static final String TYPE_ELECTRONIC = "ELECTRONIC";
-    public static final String TYPE_PERISHABLE = "PERISHABLE";
     private static final int EMPTY_VALUE = -1;
     private final String menuTitle;
     private final ArrayList<String> menuOptions;
     private final DateTimeFormatter monthDateYear;
     private final Scanner input = new Scanner(System.in);
+    private final PackageFactory pkgFactory;
     private LocalDateTime currentTime;
     private boolean control;
-    private final PackageFactory pkgFactory;
 
     /**
      * Constructor for TextMenu, initializes fields,

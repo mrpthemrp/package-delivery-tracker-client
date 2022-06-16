@@ -1,5 +1,7 @@
 package cmpt213.assignment2.packagedeliveriestracker;
 
+import cmpt213.assignment2.packagedeliveriestracker.model.Package;
+import cmpt213.assignment2.packagedeliveriestracker.textui.TextMenu;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.TypeAdapter;
@@ -14,7 +16,6 @@ import java.io.IOException;
 import java.lang.reflect.Type;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Comparator;
 
 /**
  * PackageDeliveryTracker class models a delivery tracker and

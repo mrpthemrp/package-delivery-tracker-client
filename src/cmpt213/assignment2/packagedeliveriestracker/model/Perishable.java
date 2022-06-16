@@ -1,38 +1,28 @@
-package cmpt213.assignment2.packagedeliveriestracker;
+package cmpt213.assignment2.packagedeliveriestracker.model;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class Book implements Package{
-
+public class Perishable implements Package{
     private final String name;
-    private final String authorName;
     private final String notes;
     private final double price;
     private final double weight;
     private final LocalDateTime expectedDeliveryDate;
+    private final LocalDateTime expiryDate;
     private boolean isDelivered;
 
-    public Book(String name, String notes, double price,
-                   double weight, LocalDateTime date, String authorName) {
+    public Perishable(String name, String notes, double price,
+                double weight, LocalDateTime date, LocalDateTime expiryDate) {
         this.isDelivered = false;
 
         this.name = name;
-        this.authorName = authorName;
         this.notes = notes;
         this.price = price;
         this.weight = weight;
         this.expectedDeliveryDate = date;
+        this.expiryDate = expiryDate;
     }
-
-    @Override
-    public int compare(Package o1, Package o2) {
-        if (o1.getExpectedDeliveryDate().isBefore(o2.getExpectedDeliveryDate())) {
-            return -1;
-        }
-        return 0;
-    }
-
     @Override
     public String toString() {
 
@@ -71,7 +61,11 @@ public class Book implements Package{
         return this.name;
     }
 
-    public String getAuthor(){
-        return this.authorName;
+    @Override
+    public int compare(Package o1, Package o2) {
+        if (o1.getExpectedDeliveryDate().isBefore(o2.getExpectedDeliveryDate())) {
+            return -1;
+        }
+        return 0;
     }
 }

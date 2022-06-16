@@ -1,9 +1,9 @@
-package cmpt213.assignment2.packagedeliveriestracker;
+package cmpt213.assignment2.packagedeliveriestracker.model;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class Electronic implements Package{
+public class Electronic implements Package {
     private final String name;
     private final String notes;
     private final double price;

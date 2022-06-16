@@ -1,6 +1,4 @@
-package cmpt213.assignment2.packagedeliveriestracker;
-
-import java.time.LocalDateTime;
+package cmpt213.assignment2.packagedeliveriestracker.model;
 
 public class PackageFactory {
     private String extraField;

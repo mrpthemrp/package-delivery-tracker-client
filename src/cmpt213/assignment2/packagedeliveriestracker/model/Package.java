@@ -1,4 +1,4 @@
-package cmpt213.assignment2.packagedeliveriestracker;
+package cmpt213.assignment2.packagedeliveriestracker.model;
 
 import java.time.LocalDateTime;
 import java.util.Comparator;
