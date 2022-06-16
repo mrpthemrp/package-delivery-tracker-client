@@ -27,7 +27,7 @@ import java.util.Comparator;
  *
  * @author Deborah Wang
  */
-public class PackageDeliveryTracker implements Comparator<Package> {
+public class PackageDeliveryTracker {
 
     private static Gson gson;
     private static File gsonFile;
@@ -71,7 +71,6 @@ public class PackageDeliveryTracker implements Comparator<Package> {
         boolean endProgram = false;
         while (!endProgram) {
             //Update list order to reflect changes
-            listOfPackages.sort(pkgTrkr);
 
             //Print Menu to screen and get input
             System.out.println();
@@ -99,22 +98,6 @@ public class PackageDeliveryTracker implements Comparator<Package> {
             }
 
         }
-    }
-
-    /**
-     * Override compare method to implement Comparator;
-     * compares if a package's delivery date is older or newer.
-     *
-     * @param o1 the first object to be compared.
-     * @param o2 the second object to be compared.
-     * @return Returns negative is o1 is older than o2, returns 0 if o1 is newer.
-     */
-    @Override
-    public int compare(Package o1, Package o2) {
-        if (o1.getExpectedDeliveryDate().isBefore(o2.getExpectedDeliveryDate())) {
-            return -1;
-        }
-        return 0;
     }
 
     /**

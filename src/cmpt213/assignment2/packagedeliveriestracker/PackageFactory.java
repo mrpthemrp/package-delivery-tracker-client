@@ -1,6 +1,10 @@
 package cmpt213.assignment2.packagedeliveriestracker;
 
+import java.time.LocalDateTime;
+
 public class PackageFactory {
+    private String extraField;
+
     public Package getInstance(String packageType){
 
         if(packageType == null){
@@ -18,6 +22,6 @@ public class PackageFactory {
 //        if(packageType == "ELECTRONIC"){
 //            return new Electronic();
 //        }
-        return Book();
+        return null;
     }
 }

@@ -60,4 +60,12 @@ public class Perishable implements Package{
     public String getName() {
         return this.name;
     }
+
+    @Override
+    public int compare(Package o1, Package o2) {
+        if (o1.getExpectedDeliveryDate().isBefore(o2.getExpectedDeliveryDate())) {
+            return -1;
+        }
+        return 0;
+    }
 }

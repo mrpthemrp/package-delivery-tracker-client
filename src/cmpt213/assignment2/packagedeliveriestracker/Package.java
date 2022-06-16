@@ -1,6 +1,7 @@
 package cmpt213.assignment2.packagedeliveriestracker;
 
 import java.time.LocalDateTime;
+import java.util.Comparator;
 
 /**
  * Package class that is modelled after a package; stores
@@ -8,7 +9,9 @@ import java.time.LocalDateTime;
  *
  * @author Deborah Wang
  */
-public interface Package {
+public interface Package extends Comparator<Package> {
+    @Override
+    int compare(Package o1, Package o2);
     @Override
     String toString();
 

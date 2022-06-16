@@ -20,6 +20,9 @@ public class TextMenu {
     private static final int LIST_UPCOMING_PACKAGES = 5;
     private static final int LIST_UNDELIVERED_PACKAGES = 6;
     private static final String NO_PACKAGE_MESSAGE = "No packages to show";
+    public static final String TYPE_BOOK = "BOOK";
+    public static final String TYPE_ELECTRONIC = "ELECTRONIC";
+    public static final String TYPE_PERISHABLE = "PERISHABLE";
     private static final int EMPTY_VALUE = -1;
     private final String menuTitle;
     private final ArrayList<String> menuOptions;
@@ -27,6 +30,7 @@ public class TextMenu {
     private final Scanner input = new Scanner(System.in);
     private LocalDateTime currentTime;
     private boolean control;
+    private final PackageFactory pkgFactory;
 
     /**
      * Constructor for TextMenu, initializes fields,
@@ -38,7 +42,9 @@ public class TextMenu {
         this.menuTitle = menuTitle;
         this.control = false;
         this.currentTime = LocalDateTime.now();
-        monthDateYear = DateTimeFormatter.ofPattern("MMM dd, yyyy | hh:mm a");
+        this.monthDateYear = DateTimeFormatter.ofPattern("MMM dd, yyyy | hh:mm a");
+        this.pkgFactory = new PackageFactory();
+
 
         //initialize ArrayList
         menuOptions = new ArrayList<>();
@@ -80,13 +86,6 @@ public class TextMenu {
         System.out.println("\n" + menuOptions.get(option) + "\n");
     }
 
-    /**
-     * Method prints a list of Packages depending
-     * on the menu option, handles most parts of menu options.
-     *
-     * @param menuOption     An Integer that indicates which option was selected.
-     * @param listOfPackages An ArrayList of Packages that system prints from.
-     */
     public void listPackages(int menuOption, ArrayList<Package> listOfPackages) {
         //Checks for empty list
         if (listOfPackages.size() == 0) {
@@ -125,16 +124,6 @@ public class TextMenu {
         }
     }
 
-    /**
-     * Method modifies a package: change delivery status or
-     * remove a package. Input from user required, if 0, method exits.
-     *
-     * @param packageList An ArrayList of Packages.
-     * @param question    A String that asks a question to user.
-     * @param prompt      A String that holds an input prompt depending on option.
-     * @param menuOption  An Integer that holds the menu option selected.
-     * @throws NumberFormatException Exception thrown if invalid index is entered.
-     */
     public void changeAPackage(ArrayList<Package> packageList, String question,
                                String prompt, int menuOption) throws NumberFormatException {
         if (packageList.size() == 0) {
@@ -181,20 +170,10 @@ public class TextMenu {
         }
     }
 
-    /**
-     * Method updates current time so that time is not static.
-     */
     private void updateCurrentTime() {
         this.currentTime = LocalDateTime.now();
     }
 
-    /**
-     * Method prints contents of a single package and
-     * days left until delivery in correct format.
-     *
-     * @param index          An Integer that holds the Package index number.
-     * @param listOfPackages An ArrayList of Packages the program prints from.
-     */
     private void printSinglePackage(int index, ArrayList<Package> listOfPackages) {
 
         long daysLeft = currentTime.until(
@@ -220,17 +199,11 @@ public class TextMenu {
                 listOfPackages.get(index).toString() + daysLeftPrompt);
     }
 
-    /**
-     * Method creates a Package object, handles user input,
-     * relies on other methods to complete object creation.
-     *
-     * @return Returns a Package object.
-     * @throws NumberFormatException Exception thrown from inputDoubleTryCatch()
-     * @throws DateTimeException     Exception Thrown from dateTryCatch()
-     */
     public Package createPackage() throws NumberFormatException, DateTimeException {
 
         this.control = false;
+        String packageType = TYPE_BOOK;//CHANGE
+
 
         //String Inputs
         String name;
@@ -268,16 +241,12 @@ public class TextMenu {
         LocalDateTime deliveryDate = LocalDateTime.of(year, month, day, hour, minute);
 
         System.out.println(name + " has been added to the list.");
-        return new Package(name, notes, price, weight, deliveryDate);
+
+        Package newPackage = pkgFactory.getInstance(packageType); //CHANGE!
+
+        return newPackage;
     }
 
-    /**
-     * Method handles input for menu options from user.
-     * Valid menu options range from 1 to 7 (integers).
-     *
-     * @return An integer with a valid menu option.
-     * @throws NumberFormatException Exception thrown if input is invalid.
-     */
     public int getMenuInput() throws NumberFormatException {
         control = false;
         int userInput = 0;
@@ -302,15 +271,6 @@ public class TextMenu {
         return userInput;
     }
 
-    /**
-     * Method handles input for Package's price and weight,
-     * input must be a Double that is greater or equal to 0.
-     *
-     * @param question  A String that holds the question to ask the user.
-     * @param errorLine A String that hold the error message.
-     * @return Returns a valid Double to be stored in a Package's field.
-     * @throws NumberFormatException Exception thrown if input is invalid.
-     */
     private double inputDoubleTryCatch(String question, String errorLine)
             throws NumberFormatException {
         double finalNumber = 0.0;
@@ -336,21 +296,6 @@ public class TextMenu {
         return finalNumber;
     }
 
-    /**
-     * Method handles input for fields that create a LocalDateTime object.
-     * Input must be an integer, and for certain uses, must be non-negative.
-     * <p>
-     * Any Integer fields that are EMPTY_VALUE means the field has not been inputted yet.
-     *
-     * @param question A String that holds the question to ask the user.
-     * @param year     Integer that holds a LocalDateTime object's year, or EMPTY_VALUE
-     * @param month    Integer that holds a LocalDateTime object's month, or EMPTY_VALUE
-     * @param day      Integer that holds a LocalDateTime object's day, or EMPTY_VALUE
-     * @param hour     Integer that holds a LocalDateTime object's hour, or EMPTY_VALUE
-     * @return Returns a valid Integer that can be used to create a LocalDateTime object.
-     * @throws DateTimeException Exception is thrown if input
-     *                           does not pass LocalDateTime.of() method.
-     */
     private int dateTryCatch(String question, int year, int month, int day, int hour)
             throws DateTimeException {
 
@@ -386,13 +331,6 @@ public class TextMenu {
         return inputValue;
     }
 
-    /**
-     * Method that checks if a Package object is overdue,
-     * compares object's delivery date to current day's time.
-     *
-     * @param packageDate The delivery date of the Package.
-     * @return Returns true if package is overdue, false otherwise.
-     */
     private boolean isOverdue(LocalDateTime packageDate) {
         return packageDate.isBefore(currentTime);
     }

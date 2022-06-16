@@ -25,6 +25,14 @@ public class Electronic implements Package{
     }
 
     @Override
+    public int compare(Package o1, Package o2) {
+        if (o1.getExpectedDeliveryDate().isBefore(o2.getExpectedDeliveryDate())) {
+            return -1;
+        }
+        return 0;
+    }
+
+    @Override
     public String toString() {
 
         String deliveryStatus = "Not delivered.";
