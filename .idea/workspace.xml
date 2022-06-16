@@ -4,9 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Remove javadocs fodler contents">
+    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Methods in PackageDeliveryTracker are all private except for main">
+      <change afterPath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/Book.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/Electronic.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/PackageFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/Perishable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/PackageDeliveryTracker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/PackageDeliveryTracker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/Package.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/Package.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,6 +20,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -75,13 +80,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1652723361815</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Debug switch case in PackageDeliveryTracker">
-      <created>1653087217798</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1653087217798</updated>
     </task>
     <task id="LOCAL-00012" summary="Rewrite switch in PackageDeliveryTracker to enhanced switch">
       <created>1653087634931</created>
@@ -419,7 +417,14 @@
       <option name="project" value="LOCAL" />
       <updated>1655336415029</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="Methods in PackageDeliveryTracker are all private except for main">
+      <created>1655336565743</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1655336565743</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -435,7 +440,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Implement try-catch for LocalDateTime" />
     <MESSAGE value="Bugs in finalDateTryCatch" />
     <MESSAGE value="Implement Comparator&lt;Package&gt;, QuickSort delete" />
     <MESSAGE value="Implement File saver and writer" />
@@ -460,6 +464,7 @@
     <MESSAGE value="Add docs folder with necessary files" />
     <MESSAGE value="Refactor gsondata package" />
     <MESSAGE value="Remove javadocs fodler contents" />
-    <option name="LAST_COMMIT_MESSAGE" value="Remove javadocs fodler contents" />
+    <MESSAGE value="Methods in PackageDeliveryTracker are all private except for main" />
+    <option name="LAST_COMMIT_MESSAGE" value="Methods in PackageDeliveryTracker are all private except for main" />
   </component>
 </project>
