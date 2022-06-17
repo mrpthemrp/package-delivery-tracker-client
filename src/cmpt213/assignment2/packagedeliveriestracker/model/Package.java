@@ -12,8 +12,6 @@ import java.util.Comparator;
 public interface Package extends Comparator<Package> {
     @Override
     int compare(Package o1, Package o2);
-    @Override
-    String toString();
 
     boolean getDeliveryStatus();
 

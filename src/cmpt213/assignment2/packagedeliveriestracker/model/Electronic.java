@@ -3,33 +3,14 @@ package cmpt213.assignment2.packagedeliveriestracker.model;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class Electronic implements Package {
-    private final String name;
-    private final String notes;
-    private final double price;
+public class Electronic extends PackageSuper {
     private final double handleFee;
-    private final double weight;
-    private final LocalDateTime expectedDeliveryDate;
-    private boolean isDelivered;
 
     public Electronic(String name, String notes, double price,
                 double weight, LocalDateTime date, double handleFee) {
+        super(name, notes, price, weight, date);
         this.isDelivered = false;
-
-        this.name = name;
-        this.notes = notes;
-        this.price = price;
         this.handleFee = handleFee;
-        this.weight = weight;
-        this.expectedDeliveryDate = date;
-    }
-
-    @Override
-    public int compare(Package o1, Package o2) {
-        if (o1.getExpectedDeliveryDate().isBefore(o2.getExpectedDeliveryDate())) {
-            return -1;
-        }
-        return 0;
     }
 
     @Override
@@ -48,25 +29,5 @@ public class Electronic implements Package {
                 "Expected Delivery Date: " +
                 this.expectedDeliveryDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm a")) +
                 "\nDelivery Status: " + deliveryStatus);
-    }
-
-    @Override
-    public boolean getDeliveryStatus() {
-        return this.isDelivered;
-    }
-
-    @Override
-    public void setDeliveryStatus(boolean newStatus) {
-        this.isDelivered = newStatus;
-    }
-
-    @Override
-    public LocalDateTime getExpectedDeliveryDate() {
-        return this.expectedDeliveryDate;
-    }
-
-    @Override
-    public String getName() {
-        return this.name;
     }
 }

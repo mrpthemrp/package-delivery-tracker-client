@@ -3,34 +3,15 @@ package cmpt213.assignment2.packagedeliveriestracker.model;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class Book implements Package {
+public class Book extends PackageSuper {
 
-    private final String name;
+
     private final String authorName;
-    private final String notes;
-    private final double price;
-    private final double weight;
-    private final LocalDateTime expectedDeliveryDate;
-    private boolean isDelivered;
 
     public Book(String name, String notes, double price,
                    double weight, LocalDateTime date, String authorName) {
-        this.isDelivered = false;
-
-        this.name = name;
+        super(name, notes, price, weight, date);
         this.authorName = authorName;
-        this.notes = notes;
-        this.price = price;
-        this.weight = weight;
-        this.expectedDeliveryDate = date;
-    }
-
-    @Override
-    public int compare(Package o1, Package o2) {
-        if (o1.getExpectedDeliveryDate().isBefore(o2.getExpectedDeliveryDate())) {
-            return -1;
-        }
-        return 0;
     }
 
     @Override
@@ -49,26 +30,6 @@ public class Book implements Package {
                 "Expected Delivery Date: " +
                 this.expectedDeliveryDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm a")) +
                 "\nDelivery Status: " + deliveryStatus);
-    }
-
-    @Override
-    public boolean getDeliveryStatus() {
-        return this.isDelivered;
-    }
-
-    @Override
-    public void setDeliveryStatus(boolean newStatus) {
-        this.isDelivered = newStatus;
-    }
-
-    @Override
-    public LocalDateTime getExpectedDeliveryDate() {
-        return this.expectedDeliveryDate;
-    }
-
-    @Override
-    public String getName() {
-        return this.name;
     }
 
     public String getAuthor(){
