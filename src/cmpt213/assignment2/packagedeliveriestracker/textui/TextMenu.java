@@ -160,9 +160,13 @@ public class TextMenu {
                                 throw new NumberFormatException();
                             }
                         } else if (menuOption == LIST_UNDELIVERED_PACKAGES) {
-                            packageList.get(packageNumber).setDeliveryStatus(true);
-                            System.out.println(packageList.get(packageNumber).getName() + " has been delivered.");
-                            this.control = true;
+                            if(packageNumber > packageList.size()){ //  chedckkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
+                                throw new NumberFormatException();
+                            } else {
+                                packageList.get(packageNumber).setDeliveryStatus(true);
+                                System.out.println(packageList.get(packageNumber).getName() + " has been delivered.");
+                                this.control = true;
+                            }
                         }
                     }
 

@@ -2,7 +2,7 @@ package cmpt213.assignment2.packagedeliveriestracker.model;
 
 import java.time.LocalDateTime;
 
-public class PackageSuper implements Package{
+public class PackageBase implements Package{
     protected final String name;
     protected final String notes;
     protected final double price;
@@ -10,7 +10,7 @@ public class PackageSuper implements Package{
     protected final LocalDateTime expectedDeliveryDate;
     protected boolean isDelivered;
 
-    public PackageSuper(String name, String notes, double price, double weight, LocalDateTime expectedDeliveryDate) {
+    public PackageBase(String name, String notes, double price, double weight, LocalDateTime expectedDeliveryDate) {
         this.name = name;
         this.notes = notes;
         this.price = price;

@@ -1,7 +1,6 @@
 package cmpt213.assignment2.packagedeliveriestracker.model;
 
 public class PackageFactory {
-    private String extraField;
 
     public Package getInstance(String packageType){
 

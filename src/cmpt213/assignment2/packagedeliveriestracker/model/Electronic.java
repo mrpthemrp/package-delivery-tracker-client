@@ -3,7 +3,7 @@ package cmpt213.assignment2.packagedeliveriestracker.model;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class Electronic extends PackageSuper {
+public class Electronic extends PackageBase {
     private final double handleFee;
 
     public Electronic(String name, String notes, double price,

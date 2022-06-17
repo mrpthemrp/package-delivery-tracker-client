@@ -3,8 +3,7 @@ package cmpt213.assignment2.packagedeliveriestracker.model;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class Book extends PackageSuper {
-
+public class Book extends PackageBase {
 
     private final String authorName;
 

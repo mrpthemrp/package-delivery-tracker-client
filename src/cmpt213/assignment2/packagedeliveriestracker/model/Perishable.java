@@ -3,7 +3,7 @@ package cmpt213.assignment2.packagedeliveriestracker.model;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-public class Perishable extends PackageSuper{
+public class Perishable extends PackageBase {
     private final LocalDateTime expiryDate;
 
     public Perishable(String name, String notes, double price,
