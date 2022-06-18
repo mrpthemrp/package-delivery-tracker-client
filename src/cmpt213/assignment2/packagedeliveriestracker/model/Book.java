@@ -1,16 +1,15 @@
 package cmpt213.assignment2.packagedeliveriestracker.model;
 
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 public class Book extends PackageBase {
 
-    private final String authorName;
+    private String authorName;
 
     public Book(String name, String notes, double price,
-                   double weight, LocalDateTime date, String authorName) {
-        super(name, notes, price, weight, date);
-        this.authorName = authorName;
+                   double weight, LocalDateTime date, String extraField) {
+        super(name, notes, price, weight, date, extraField);
+        setExtraField(extraField);
     }
 
     @Override
@@ -23,15 +22,22 @@ public class Book extends PackageBase {
         }
 
         return ("Package Name: " + this.name + "\n" +
+                "Package Type: Book\n" +
                 "Notes: " + this.notes + "\n" +
                 "Price (CAD): $" + this.price + "\n" +
                 "Weight (kg): " + this.weight + "kg\n" +
                 "Expected Delivery Date: " +
-                this.expectedDeliveryDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm a")) +
-                "\nDelivery Status: " + deliveryStatus);
+                this.expectedDeliveryDate.format(dateFormat) +
+                "\nDelivery Status: " + deliveryStatus + "\n" +
+                "Author name: "+ this.authorName + "\n");
     }
 
     public String getAuthor(){
         return this.authorName;
+    }
+
+    @Override
+    protected void setExtraField(String field) {
+        this.authorName = field;
     }
 }

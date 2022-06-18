@@ -1,16 +1,14 @@
 package cmpt213.assignment2.packagedeliveriestracker.model;
 
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 public class Perishable extends PackageBase {
-    private final LocalDateTime expiryDate;
+    private LocalDateTime expiryDate;
 
     public Perishable(String name, String notes, double price,
-                double weight, LocalDateTime date, LocalDateTime expiryDate) {
-        super(name, notes, price, weight, date);
-        this.isDelivered = false;
-        this.expiryDate = expiryDate;
+                double weight, LocalDateTime deliveryDate, String extraField) {
+        super(name, notes, price, weight, deliveryDate, extraField);
+        setExtraField(extraField);
     }
     @Override
     public String toString() {
@@ -22,11 +20,26 @@ public class Perishable extends PackageBase {
         }
 
         return ("Package Name: " + this.name + "\n" +
+                "Package Type: Perishable\n" +
                 "Notes: " + this.notes + "\n" +
                 "Price (CAD): $" + this.price + "\n" +
                 "Weight (kg): " + this.weight + "kg\n" +
                 "Expected Delivery Date: " +
-                this.expectedDeliveryDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm a")) +
-                "\nDelivery Status: " + deliveryStatus);
+                this.expectedDeliveryDate.format(dateFormat) +
+                "\nDelivery Status: " + deliveryStatus+ "\n" +
+                "Product Expiry Date: "+ this.expiryDate.format(dateFormat) + "\n");
+    }
+
+    @Override
+    protected void setExtraField(String field) {
+        int[] tempArr = {0,0,0,0,0};
+
+        String[] temp = field.split(",");
+
+        for (int i =0; i < temp.length; i++){
+            tempArr[i] = Integer.parseInt(temp[i]);
+        }
+
+        this.expiryDate = LocalDateTime.of(tempArr[0], tempArr[1], tempArr[2], tempArr[3],tempArr[4]);
     }
 }

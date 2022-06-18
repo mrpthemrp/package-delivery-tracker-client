@@ -1,16 +1,14 @@
 package cmpt213.assignment2.packagedeliveriestracker.model;
 
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 public class Electronic extends PackageBase {
-    private final double handleFee;
+    private double handleFee;
 
     public Electronic(String name, String notes, double price,
-                double weight, LocalDateTime date, double handleFee) {
-        super(name, notes, price, weight, date);
-        this.isDelivered = false;
-        this.handleFee = handleFee;
+                double weight, LocalDateTime date, String extraField) {
+        super(name, notes, price, weight, date, extraField);
+        setExtraField(extraField);
     }
 
     @Override
@@ -23,11 +21,18 @@ public class Electronic extends PackageBase {
         }
 
         return ("Package Name: " + this.name + "\n" +
+                "Package Type: Electronic\n" +
                 "Notes: " + this.notes + "\n" +
                 "Price (CAD): $" + this.price + "\n" +
                 "Weight (kg): " + this.weight + "kg\n" +
                 "Expected Delivery Date: " +
-                this.expectedDeliveryDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm a")) +
-                "\nDelivery Status: " + deliveryStatus);
+                this.expectedDeliveryDate.format(dateFormat) +
+                "\nDelivery Status: " + deliveryStatus+ "\n" +
+                "Environmental Handling Fee: "+ this.handleFee + "\n");
+    }
+
+    @Override
+    protected void setExtraField(String field) {
+        this.handleFee = Double.parseDouble(field);
     }
 }

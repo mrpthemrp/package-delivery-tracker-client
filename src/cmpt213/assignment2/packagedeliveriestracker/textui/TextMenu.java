@@ -1,6 +1,7 @@
 package cmpt213.assignment2.packagedeliveriestracker.textui;
 
 import cmpt213.assignment2.packagedeliveriestracker.model.Package;
+import cmpt213.assignment2.packagedeliveriestracker.model.PackageBase;
 import cmpt213.assignment2.packagedeliveriestracker.model.PackageFactory;
 
 import java.time.DateTimeException;
@@ -18,9 +19,6 @@ import java.util.Scanner;
  * @author Deborah Wang
  */
 public class TextMenu {
-    public static final String TYPE_BOOK = "BOOK";
-    public static final String TYPE_ELECTRONIC = "ELECTRONIC";
-    public static final String TYPE_PERISHABLE = "PERISHABLE";
     private static final int LIST_PACKAGES = 1;
     private static final int LIST_OVERDUE_PACKAGES = 4;
     private static final int LIST_UPCOMING_PACKAGES = 5;
@@ -209,22 +207,24 @@ public class TextMenu {
     public Package createPackage() throws NumberFormatException, DateTimeException {
 
         this.control = false;
-        String packageType = TYPE_BOOK;//CHANGE
+        //PackageType
+        PackageFactory.PackageType packageType = PackageFactory.PackageType.BOOK;
+        while (!control){
+            int userInputPkgType = inputIntegerTryCatch(1,3,"Enter the type of package (" +
+                    "1: Book, 2: Perishable, 3: Electronic): ","Input must be an integer between 1 and 3");
 
+            if (userInputPkgType == 2) {
+                packageType = PackageFactory.PackageType.PERISHABLE;
 
-        //String Inputs
-        String name;
-        do {
-            System.out.print("Enter the name of your package: ");
-            name = input.nextLine();
-
-            if (name.isEmpty() || name.isBlank()) {
-                System.out.println("Name cannot be empty, please enter a name");
-            } else {
-                System.out.println();
-                this.control = true;
+            } else if (userInputPkgType == 3) {
+                packageType = PackageFactory.PackageType.ELECTRONIC;
             }
-        } while (!this.control);
+            control = true;
+        }
+
+        this.control = false;
+        //String Inputs
+        String name = inputStringTryCatch("name");
 
         System.out.print("Enter any notes for your package: ");
         String notes = input.nextLine();
@@ -238,40 +238,80 @@ public class TextMenu {
                 "Negative weight does not exist! Try again.");
 
         //Integer Inputs for LocalDateTime
-        int year = dateTryCatch("Enter the year of the expected delivery date: ", EMPTY_VALUE, EMPTY_VALUE, EMPTY_VALUE, EMPTY_VALUE);
-        int month = dateTryCatch("Enter the month of the expected delivery date (1-12): ", year, EMPTY_VALUE, EMPTY_VALUE, EMPTY_VALUE);
-        int day = dateTryCatch("Enter the day of the expected delivery date (1-28/29/30/31): ", year, month, EMPTY_VALUE, EMPTY_VALUE);
-        int hour = dateTryCatch("Enter the hour of the expected delivery date (0-23): ", year, month, day, EMPTY_VALUE);
-        int minute = dateTryCatch("Enter the minute of the expected delivery date (0-59): ", year, month, day, hour);
+        System.out.println("\nFollowing inputted numbers are for EXPECTED delivery date.\n");
+        int deliveryYear = dateSetterHelper("expected", EMPTY_VALUE, EMPTY_VALUE, EMPTY_VALUE, EMPTY_VALUE);
+        int deliveryMonth = dateSetterHelper("expected", deliveryYear, EMPTY_VALUE, EMPTY_VALUE, EMPTY_VALUE);
+        int deliveryDay = dateSetterHelper("expected", deliveryYear, deliveryMonth, EMPTY_VALUE, EMPTY_VALUE);
+        int deliveryHour = dateSetterHelper("expected", deliveryYear, deliveryMonth, deliveryDay, EMPTY_VALUE);
+        int deliveryMinute = dateSetterHelper("expected", deliveryYear, deliveryMonth, deliveryDay, deliveryHour);
+
 
         //LocalDateTime object will always be created properly, fields will always be valid
-        LocalDateTime deliveryDate = LocalDateTime.of(year, month, day, hour, minute);
+        LocalDateTime deliveryDate = LocalDateTime.of( deliveryYear, deliveryMonth, deliveryDay, deliveryHour, deliveryMinute);
+
+        //Set extra field
+        String extraField = "";
+        switch (packageType){
+            case BOOK  -> extraField = inputStringTryCatch("author's name");
+            case PERISHABLE -> {
+                System.out.println("\nFollowing inputted numbers are for EXPIRY delivery date.\n");
+                int expiryYear = dateSetterHelper("expiry", EMPTY_VALUE, EMPTY_VALUE, EMPTY_VALUE, EMPTY_VALUE);
+                int expiryMonth = dateSetterHelper("expiry", expiryYear, EMPTY_VALUE, EMPTY_VALUE, EMPTY_VALUE);
+                int expiryDay = dateSetterHelper("expiry", expiryYear, expiryMonth, EMPTY_VALUE, EMPTY_VALUE);
+                int expiryHour = dateSetterHelper("expiry", expiryYear, expiryMonth, expiryDay, EMPTY_VALUE);
+                int expiryMinute = dateSetterHelper("expiry", expiryYear, expiryMonth, expiryDay, expiryHour);
+
+                extraField = (expiryYear+","+expiryMonth+","+expiryDay+","+expiryHour+","+expiryMinute);
+            }
+            case ELECTRONIC  -> extraField = Double.toString(
+                    inputDoubleTryCatch("Enter the environmental handling fee of your package (in dollars): $",
+                    "Negative weight does not exist! Try again."));
+        }
+
+        //new package created
+        PackageBase newPackage = pkgFactory.getInstance(packageType, name, notes, price, weight, deliveryDate, extraField);
 
         System.out.println(name + " has been added to the list.");
-
-        Package newPackage = pkgFactory.getInstance(packageType); //CHANGE!
 
         return newPackage;
     }
 
-    public int getMenuInput() throws NumberFormatException {
+    private String inputStringTryCatch(String nameType) {
+        this.control = false;
+        String name;
+        do {
+            System.out.print("Enter the "+nameType+" of your package: ");
+            name = input.nextLine();
+
+            if (name.isEmpty() || name.isBlank()) {
+                System.out.println("Cannot be empty, please enter a "+nameType);
+            } else {
+                System.out.println();
+                this.control = true;
+            }
+        } while (!this.control);
+
+        return name;
+    }
+
+
+    public int inputIntegerTryCatch(int lowerBound, int upperBound, String question, String errorLine) throws NumberFormatException {
         control = false;
         int userInput = 0;
 
         while (!control) {
             try {
-                System.out.println("Choose a menu option by entering" +
-                        " a whole number between 1 and 7.");
+                System.out.println(question);
                 System.out.print("Your input: ");
                 userInput = Integer.parseInt(input.nextLine());
 
-                if (userInput < 1 || userInput > 7) {
+                if (userInput < lowerBound || userInput > upperBound) {
                     throw new NumberFormatException();
                 }
 
                 control = true;
             } catch (NumberFormatException nfe) {
-                System.out.println("Invalid input. Enter a number between 1 and 7");
+                System.out.println(errorLine);
             }
         }
 
@@ -301,6 +341,20 @@ public class TextMenu {
         }
 
         return finalNumber;
+    }
+
+    private int dateSetterHelper (String dateType, int year, int month, int day, int hour){
+        if (year == EMPTY_VALUE) {
+            return dateTryCatch(("Enter the year of the "+dateType+" delivery date: "), year, month, day, hour);
+        } else if (month == EMPTY_VALUE) {
+            return dateTryCatch(("Enter the month of the "+dateType+" delivery date (1-12): "), year, month, day, hour);
+        } else if (day == EMPTY_VALUE) {
+            return dateTryCatch(("Enter the day of the "+dateType+" delivery date (1-28/29/30/31): "), year, month, day, hour);
+        } else if (hour == EMPTY_VALUE) {
+            return dateTryCatch(("Enter the hour of the "+dateType+" delivery date (0-23): "), year, month, day, hour);
+        } else {
+            return dateTryCatch(("Enter the minute of the "+dateType+" delivery date (1-59): "), year, month, day, hour);
+        }
     }
 
     private int dateTryCatch(String question, int year, int month, int day, int hour)

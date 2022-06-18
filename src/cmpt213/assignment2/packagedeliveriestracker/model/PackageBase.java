@@ -1,8 +1,9 @@
 package cmpt213.assignment2.packagedeliveriestracker.model;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
-public class PackageBase implements Package{
+public abstract class PackageBase implements Package{
     protected final String name;
     protected final String notes;
     protected final double price;
@@ -10,7 +11,10 @@ public class PackageBase implements Package{
     protected final LocalDateTime expectedDeliveryDate;
     protected boolean isDelivered;
 
-    public PackageBase(String name, String notes, double price, double weight, LocalDateTime expectedDeliveryDate) {
+    protected final DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm a");
+
+    public PackageBase(String name, String notes, double price, double weight,
+                       LocalDateTime expectedDeliveryDate, String extraField) {
         this.name = name;
         this.notes = notes;
         this.price = price;
@@ -47,5 +51,7 @@ public class PackageBase implements Package{
     public String getName() {
         return this.name;
     }
+
+    protected abstract void setExtraField(String field);
 
 }
