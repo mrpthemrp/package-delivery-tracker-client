@@ -87,7 +87,7 @@ public class TextMenu {
         System.out.println("\n" + menuOptions.get(option) + "\n");
     }
 
-    public void listPackages(int menuOption, ArrayList<Package> listOfPackages) {
+    public void listPackages(int menuOption, ArrayList<PackageBase> listOfPackages) {
         //Checks for empty list
         if (listOfPackages.size() == 0) {
             System.out.println(NO_PACKAGE_MESSAGE);
@@ -125,7 +125,7 @@ public class TextMenu {
         }
     }
 
-    public void changeAPackage(ArrayList<Package> packageList, String question,
+    public void changeAPackage(ArrayList<PackageBase> packageList, String question,
                                String prompt, int menuOption) throws NumberFormatException {
         if (packageList.size() == 0) {
             System.out.println(NO_PACKAGE_MESSAGE);
@@ -179,7 +179,7 @@ public class TextMenu {
         this.currentTime = LocalDateTime.now();
     }
 
-    private void printSinglePackage(int index, ArrayList<Package> listOfPackages) {
+    private void printSinglePackage(int index, ArrayList<PackageBase> listOfPackages) {
 
         long daysLeft = currentTime.until(
                 listOfPackages.get(index).getExpectedDeliveryDate(),
@@ -204,7 +204,7 @@ public class TextMenu {
                 listOfPackages.get(index).toString() + daysLeftPrompt);
     }
 
-    public Package createPackage() throws NumberFormatException, DateTimeException {
+    public PackageBase createPackage() throws NumberFormatException, DateTimeException {
 
         this.control = false;
         //PackageType

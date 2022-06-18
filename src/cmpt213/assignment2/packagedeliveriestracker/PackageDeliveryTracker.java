@@ -1,6 +1,6 @@
 package cmpt213.assignment2.packagedeliveriestracker;
+import cmpt213.assignment2.packagedeliveriestracker.model.*;
 
-import cmpt213.assignment2.packagedeliveriestracker.model.Package;
 import cmpt213.assignment2.packagedeliveriestracker.textui.TextMenu;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -30,9 +30,12 @@ import java.util.ArrayList;
  */
 public class PackageDeliveryTracker {
 
+    private final static int DATA_SAVE = 1;
+    private final static int DATA_LOAD = 2;
+
     private static Gson gson;
     private static File gsonFile;
-    private static ArrayList<Package> listOfPackages;
+    private static ArrayList<PackageBase> listOfPackages;
 
     /**
      * Constructor for PackageDeliveryTracker Class; initializes GSON object,
@@ -40,7 +43,12 @@ public class PackageDeliveryTracker {
      */
     private PackageDeliveryTracker() {
 
-        gsonFile = new File("src\\cmpt213\\assignment2\\packagedeliveriestracker\\model\\list.json");
+        //code taken from email from TA Divye
+        String fs = File.separator;
+        String[] pathNames = { "src", "cmpt213", "assignment2", "packagedeliveriestracker", "model" };
+        String path = String.join(fs, pathNames);
+        gsonFile = new File(path + fs + "list.json");
+
         gson = new GsonBuilder()
                 .registerTypeAdapter(LocalDateTime.class, new TypeAdapter<LocalDateTime>() {
                     @Override
@@ -54,7 +62,8 @@ public class PackageDeliveryTracker {
                     }
                 }).create();
 
-        listOfPackages = loadData();
+        listOfPackages = new ArrayList<>();
+        arrayData(DATA_LOAD);
     }
 
     /**
@@ -92,7 +101,7 @@ public class PackageDeliveryTracker {
                         "Delivered package # ", 6);
                 case 7 -> {
                     System.out.println("Saving data ...");
-                    pkgTrkr.saveData();
+                    pkgTrkr.arrayData(DATA_SAVE);
                     System.out.println("Data saved!\n");
                     System.out.println("Thank you for using this program!\nProgram will now exit.");
                     endProgram = true;
@@ -102,45 +111,35 @@ public class PackageDeliveryTracker {
         }
     }
 
-    /**
-     * LoadData method checks for any previously saved
-     * data and loads it into ArrayList, otherwise initializes new ArrayList.
-     *
-     * @return Returns an ArrayList object.
-     */
-    private ArrayList<Package> loadData() {
-        ArrayList<Package> newArray = new ArrayList<>();
-
-        if (gsonFile.exists()) {
+    private void arrayData(int bob) {
+        ArrayList<PackageBase> newArray = new ArrayList<>();
+        
+        if(bob == DATA_SAVE){
             try {
-                FileReader fileRead = new FileReader(gsonFile);
-                Type type = new TypeToken<ArrayList<Package>>() {
-                }.getType();
-
-                newArray = gson.fromJson(fileRead, type);
-                fileRead.close();
+                FileWriter fileWrite = new FileWriter(gsonFile);
+                gson.toJson(listOfPackages, fileWrite);
+                fileWrite.close();
             } catch (IOException e) {
-                System.out.println("Could not load data!");
+                System.out.println("Could not save data!");
             }
+            
+        } else if (bob == DATA_LOAD) {
+            if (gsonFile.exists()) {
+                try {
+                    FileReader fileRead = new FileReader(gsonFile);
+                    Type type = new TypeToken<ArrayList<PackageBase>>() {
+                    }.getType();
+
+                    newArray = gson.fromJson(fileRead, type);
+                    fileRead.close();
+                } catch (IOException e) {
+                    System.out.println("Could not load data!");
+                }
+            }
+
+            listOfPackages = newArray;
         }
 
-        return newArray;
-    }
-
-    /**
-     * Saves data from parameter to JSON format and then to JSON file;
-     * creates new File if there is no existing JSON file.
-     */
-    private void saveData() {
-
-        try {
-            FileWriter fileWrite = new FileWriter(gsonFile);
-            gson.toJson(listOfPackages, fileWrite);
-            fileWrite.close();
-        } catch (IOException e) {
-            System.out.println("Could not save data!");
-        }
 
     }
-
 }

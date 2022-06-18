@@ -4,14 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Debug boolean incorrect package number in option 6">
+    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Implement abstract class, subclasses, interface; TextMenu updated">
+      <change afterPath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/model/list.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/PackageDeliveryTracker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/PackageDeliveryTracker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/model/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/model/Book.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/model/Electronic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/model/Electronic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/model/PackageBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/model/PackageBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/model/PackageFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/model/PackageFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/model/Perishable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/model/Perishable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/textui/TextMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/textui/TextMenu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -86,13 +82,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1652723361815</updated>
-    </task>
-    <task id="LOCAL-00017" summary="Fix isOverdue bug in TextMenu">
-      <created>1653345741682</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1653345741682</updated>
     </task>
     <task id="LOCAL-00018" summary="Fix sortedList copy clone bug in TextMenu">
       <created>1653346182150</created>
@@ -430,7 +419,14 @@
       <option name="project" value="LOCAL" />
       <updated>1655505875533</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="Implement abstract class, subclasses, interface; TextMenu updated">
+      <created>1655532191273</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1655532191273</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -446,7 +442,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Ready for JavaDocs and testing" />
     <MESSAGE value="Write JavaDoc for Package class" />
     <MESSAGE value="Finish JavaDoc for Package class" />
     <MESSAGE value="Implement JavaDoc for PackageDeliveryTracker class" />
@@ -471,6 +466,7 @@
     <MESSAGE value="Refactor classes into Java packages" />
     <MESSAGE value="Add PackageSuper class and pull methods/fields of subclasses up" />
     <MESSAGE value="Debug boolean incorrect package number in option 6" />
-    <option name="LAST_COMMIT_MESSAGE" value="Debug boolean incorrect package number in option 6" />
+    <MESSAGE value="Implement abstract class, subclasses, interface; TextMenu updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implement abstract class, subclasses, interface; TextMenu updated" />
   </component>
 </project>
