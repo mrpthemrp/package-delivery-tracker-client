@@ -4,14 +4,14 @@ import java.time.LocalDateTime;
 import java.util.Comparator;
 
 /**
- * Package class that is modelled after a package; stores
- * name, notes, price, weight, date, and delivery status.
+ * Package interface that ?
  *
  * @author Deborah Wang
  */
-public interface Package extends Comparator<Package> {
+public interface Package extends Comparable<Package>{
+
     @Override
-    int compare(Package o1, Package o2);
+    int compareTo(Package p);
 
     boolean getDeliveryStatus();
 

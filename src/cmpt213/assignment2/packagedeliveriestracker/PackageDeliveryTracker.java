@@ -81,6 +81,7 @@ public class PackageDeliveryTracker {
         boolean endProgram = false;
         while (!endProgram) {
             //Update list order to reflect changes
+            menu.updateList(listOfPackages);
 
             //Print Menu to screen and get input
             System.out.println();

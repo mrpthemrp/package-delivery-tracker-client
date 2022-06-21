@@ -4,12 +4,13 @@ import java.time.LocalDateTime;
 
 public class Book extends PackageBase {
 
-    private String authorName;
+    private final String authorName;
 
     public Book(String name, String notes, double price,
-                   double weight, LocalDateTime date, String extraField) {
-        super(name, notes, price, weight, date, extraField);
-        setExtraField(extraField);
+                double weight, LocalDateTime date, String authorName) {
+
+        super(name, notes, price, weight, date);
+        this.authorName = authorName;
     }
 
     @Override
@@ -29,15 +30,7 @@ public class Book extends PackageBase {
                 "Expected Delivery Date: " +
                 this.expectedDeliveryDate.format(dateFormat) +
                 "\nDelivery Status: " + deliveryStatus + "\n" +
-                "Author name: "+ this.authorName + "\n");
+                "Author name: " + this.authorName + "\n");
     }
 
-    public String getAuthor(){
-        return this.authorName;
-    }
-
-    @Override
-    protected void setExtraField(String field) {
-        this.authorName = field;
-    }
 }

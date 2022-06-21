@@ -3,7 +3,7 @@ package cmpt213.assignment2.packagedeliveriestracker.model;
 import java.time.LocalDateTime;
 
 public class PackageFactory {
-    public static enum PackageType {
+    public enum PackageType {
         BOOK, PERISHABLE, ELECTRONIC
     }
 
@@ -15,8 +15,8 @@ public class PackageFactory {
         }
         return switch (packageType) {
             case BOOK -> new Book(name, notes, price, weight, deliveryDate, extraField);
-            case PERISHABLE -> new Perishable(name, notes, price, weight, deliveryDate, extraField);
-            case ELECTRONIC -> new Electronic(name, notes, price, weight, deliveryDate, extraField);
+            case PERISHABLE -> new Perishable(name, notes, price, weight, deliveryDate, LocalDateTime.parse(extraField));
+            case ELECTRONIC -> new Electronic(name, notes, price, weight, deliveryDate, Double.parseDouble(extraField));
         };
     }
 

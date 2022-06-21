@@ -10,6 +10,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 /**
@@ -158,7 +159,7 @@ public class TextMenu {
                                 throw new NumberFormatException();
                             }
                         } else if (menuOption == LIST_UNDELIVERED_PACKAGES) {
-                            if(packageNumber > packageList.size()){ //  chedckkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
+                            if (packageNumber > packageList.size()) { //  chedckkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
                                 throw new NumberFormatException();
                             } else {
                                 packageList.get(packageNumber).setDeliveryStatus(true);
@@ -209,9 +210,9 @@ public class TextMenu {
         this.control = false;
         //PackageType
         PackageFactory.PackageType packageType = PackageFactory.PackageType.BOOK;
-        while (!control){
-            int userInputPkgType = inputIntegerTryCatch(1,3,"Enter the type of package (" +
-                    "1: Book, 2: Perishable, 3: Electronic): ","Input must be an integer between 1 and 3");
+        while (!control) {
+            int userInputPkgType = inputIntegerTryCatch(1, 3, "Enter the type of package (" +
+                    "1: Book, 2: Perishable, 3: Electronic): ", "Input must be an integer between 1 and 3");
 
             if (userInputPkgType == 2) {
                 packageType = PackageFactory.PackageType.PERISHABLE;
@@ -237,54 +238,47 @@ public class TextMenu {
         double weight = inputDoubleTryCatch("Enter the weight of your package (in kg): ",
                 "Negative weight does not exist! Try again.");
 
-        //Integer Inputs for LocalDateTime
-        System.out.println("\nFollowing inputted numbers are for EXPECTED delivery date.\n");
-        int deliveryYear = dateSetterHelper("expected", EMPTY_VALUE, EMPTY_VALUE, EMPTY_VALUE, EMPTY_VALUE);
-        int deliveryMonth = dateSetterHelper("expected", deliveryYear, EMPTY_VALUE, EMPTY_VALUE, EMPTY_VALUE);
-        int deliveryDay = dateSetterHelper("expected", deliveryYear, deliveryMonth, EMPTY_VALUE, EMPTY_VALUE);
-        int deliveryHour = dateSetterHelper("expected", deliveryYear, deliveryMonth, deliveryDay, EMPTY_VALUE);
-        int deliveryMinute = dateSetterHelper("expected", deliveryYear, deliveryMonth, deliveryDay, deliveryHour);
-
-
         //LocalDateTime object will always be created properly, fields will always be valid
-        LocalDateTime deliveryDate = LocalDateTime.of( deliveryYear, deliveryMonth, deliveryDay, deliveryHour, deliveryMinute);
+        LocalDateTime deliveryDate = setDate("expected");
 
         //Set extra field
-        String extraField = "";
-        switch (packageType){
-            case BOOK  -> extraField = inputStringTryCatch("author's name");
-            case PERISHABLE -> {
-                System.out.println("\nFollowing inputted numbers are for EXPIRY delivery date.\n");
-                int expiryYear = dateSetterHelper("expiry", EMPTY_VALUE, EMPTY_VALUE, EMPTY_VALUE, EMPTY_VALUE);
-                int expiryMonth = dateSetterHelper("expiry", expiryYear, EMPTY_VALUE, EMPTY_VALUE, EMPTY_VALUE);
-                int expiryDay = dateSetterHelper("expiry", expiryYear, expiryMonth, EMPTY_VALUE, EMPTY_VALUE);
-                int expiryHour = dateSetterHelper("expiry", expiryYear, expiryMonth, expiryDay, EMPTY_VALUE);
-                int expiryMinute = dateSetterHelper("expiry", expiryYear, expiryMonth, expiryDay, expiryHour);
-
-                extraField = (expiryYear+","+expiryMonth+","+expiryDay+","+expiryHour+","+expiryMinute);
+        PackageBase newPackage;
+        switch (packageType) {
+            case BOOK -> {
+                String authorName = inputStringTryCatch("author's name");
+                newPackage = pkgFactory.getInstance(packageType, name, notes, price, weight, deliveryDate, authorName);
+                System.out.println("Book: " + name + " has been added to the list.");
+                return newPackage;
             }
-            case ELECTRONIC  -> extraField = Double.toString(
-                    inputDoubleTryCatch("Enter the environmental handling fee of your package (in dollars): $",
-                    "Negative weight does not exist! Try again."));
+            case PERISHABLE -> {
+                LocalDateTime expiryDate = setDate("expiry");
+                newPackage = pkgFactory.getInstance(packageType, name, notes, price, weight, deliveryDate, expiryDate.toString());
+                System.out.println("Perishable: " + name + " has been added to the list.");
+                return newPackage;
+            }
+            case ELECTRONIC -> {
+                String handleFee = Double.toString(
+                        inputDoubleTryCatch("Enter the environmental handling fee of your package (in dollars): $",
+                                "Negative weight does not exist! Try again."));
+                newPackage = pkgFactory.getInstance(packageType, name, notes, price, weight, deliveryDate, handleFee);
+                System.out.println("Electronic: " + name + " has been added to the list.");
+                return newPackage;
+
+            }
         }
 
-        //new package created
-        PackageBase newPackage = pkgFactory.getInstance(packageType, name, notes, price, weight, deliveryDate, extraField);
-
-        System.out.println(name + " has been added to the list.");
-
-        return newPackage;
+        return null;
     }
 
     private String inputStringTryCatch(String nameType) {
         this.control = false;
         String name;
         do {
-            System.out.print("Enter the "+nameType+" of your package: ");
+            System.out.print("Enter the " + nameType + " of your package: ");
             name = input.nextLine();
 
             if (name.isEmpty() || name.isBlank()) {
-                System.out.println("Cannot be empty, please enter a "+nameType);
+                System.out.println("Cannot be empty, please enter a " + nameType);
             } else {
                 System.out.println();
                 this.control = true;
@@ -343,17 +337,29 @@ public class TextMenu {
         return finalNumber;
     }
 
-    private int dateSetterHelper (String dateType, int year, int month, int day, int hour){
+    private LocalDateTime setDate(String dateType) {
+        System.out.println("\nFollowing inputted numbers are for " + dateType.toUpperCase() + " delivery date.\n");
+
+        int year = dateSetterHelper(dateType, EMPTY_VALUE, EMPTY_VALUE, EMPTY_VALUE, EMPTY_VALUE);
+        int month = dateSetterHelper(dateType, year, EMPTY_VALUE, EMPTY_VALUE, EMPTY_VALUE);
+        int day = dateSetterHelper(dateType, year, month, EMPTY_VALUE, EMPTY_VALUE);
+        int hour = dateSetterHelper(dateType, year, month, day, EMPTY_VALUE);
+        int minute = dateSetterHelper(dateType, year, month, day, hour);
+
+        return LocalDateTime.of(year, month, day, hour, minute);
+    }
+
+    private int dateSetterHelper(String dateType, int year, int month, int day, int hour) {
         if (year == EMPTY_VALUE) {
-            return dateTryCatch(("Enter the year of the "+dateType+" delivery date: "), year, month, day, hour);
+            return dateTryCatch(("Enter the year of the " + dateType + " delivery date: "), year, month, day, hour);
         } else if (month == EMPTY_VALUE) {
-            return dateTryCatch(("Enter the month of the "+dateType+" delivery date (1-12): "), year, month, day, hour);
+            return dateTryCatch(("Enter the month of the " + dateType + " delivery date (1-12): "), year, month, day, hour);
         } else if (day == EMPTY_VALUE) {
-            return dateTryCatch(("Enter the day of the "+dateType+" delivery date (1-28/29/30/31): "), year, month, day, hour);
+            return dateTryCatch(("Enter the day of the " + dateType + " delivery date (1-28/29/30/31): "), year, month, day, hour);
         } else if (hour == EMPTY_VALUE) {
-            return dateTryCatch(("Enter the hour of the "+dateType+" delivery date (0-23): "), year, month, day, hour);
+            return dateTryCatch(("Enter the hour of the " + dateType + " delivery date (0-23): "), year, month, day, hour);
         } else {
-            return dateTryCatch(("Enter the minute of the "+dateType+" delivery date (1-59): "), year, month, day, hour);
+            return dateTryCatch(("Enter the minute of the " + dateType + " delivery date (1-59): "), year, month, day, hour);
         }
     }
 
@@ -394,6 +400,10 @@ public class TextMenu {
 
     private boolean isOverdue(LocalDateTime packageDate) {
         return packageDate.isBefore(currentTime);
+    }
+
+    public final void updateList(ArrayList<PackageBase> listOfPackages){
+        Collections.sort(listOfPackages);
     }
 
 } // TextMenu.java
