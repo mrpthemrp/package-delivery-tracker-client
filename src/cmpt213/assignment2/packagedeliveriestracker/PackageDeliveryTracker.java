@@ -87,7 +87,7 @@ public class PackageDeliveryTracker {
             System.out.println();
             menu.displayMenu();
             userInput = menu.inputIntegerTryCatch(1,7 ,"Choose a menu option by entering" +
-                    " a whole number between 1 and 7." ,"Invalid input. Enter a number between 1 and 7" );
+                    " a whole number between 1 and 7." ,"Invalid input. Enter a number between 1 and 7", "Your input: " );
             menu.printMenuOption(userInput - 1); //-1 to account for indexing in array
 
             //Handle correct input

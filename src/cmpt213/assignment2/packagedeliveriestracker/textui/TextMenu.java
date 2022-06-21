@@ -138,37 +138,26 @@ public class TextMenu {
                 listPackages(menuOption, packageList);
                 System.out.println();
 
-                System.out.println(question + "\nEnter 0 to cancel.");
-                System.out.print(prompt);
-                try {
-                    int packageNumber = Integer.parseInt(input.nextLine());
+                int packageNumber = inputIntegerTryCatch(0, packageList.size(), (question + "\nEnter 0 to cancel."),
+                        "\nPackage does not exist, try again.\n", prompt);
+                this.control = false;
+                if (packageNumber == 0) {
+                    System.out.println("Cancel selected.\nReturning to Main Menu.");
+                    this.control = true;
+                } else {
+                    packageNumber--; //to get package index
 
-                    if (packageNumber == 0) {
-                        System.out.println("Cancel selected.\nReturning to Main Menu.");
-                        this.control = true;
-                    } else if (packageNumber > packageList.size()) {
-                        throw new NumberFormatException();
-                    } else {
-
-                        packageNumber--; //to get package index
-
-                        if (menuOption == LIST_PACKAGES) {
-                            if (packageNumber >= 0 && packageNumber < packageList.size()) {
-                                System.out.println(packageList.get(packageNumber).getName() + " has been removed from the list.");
-                                packageList.remove(packageNumber);
-                                this.control = true;
-                            } else {
-                                throw new NumberFormatException();
-                            }
-                        } else if (menuOption == LIST_UNDELIVERED_PACKAGES) {
-                                packageList.get(packageNumber).setDeliveryStatus(true);
-                                System.out.println(packageList.get(packageNumber).getName() + " has been delivered.");
-                                this.control = true;
+                    if (menuOption == LIST_PACKAGES) {
+                        if (packageNumber >= 0 && packageNumber < packageList.size()) {
+                            System.out.println(packageList.get(packageNumber).getName() + " has been removed from the list.");
+                            packageList.remove(packageNumber);
+                            this.control = true;
                         }
+                    } else if (menuOption == LIST_UNDELIVERED_PACKAGES) {
+                        packageList.get(packageNumber).setDeliveryStatus(true);
+                        System.out.println(packageList.get(packageNumber).getName() + " has been delivered.");
+                        this.control = true;
                     }
-
-                } catch (NumberFormatException nfe) {
-                    System.out.println("\nPackage does not exist, try again.\n");
                 }
             }
         }
@@ -210,7 +199,7 @@ public class TextMenu {
         PackageFactory.PackageType packageType = PackageFactory.PackageType.BOOK;
         while (!control) {
             int userInputPkgType = inputIntegerTryCatch(1, 3, "Enter the type of package (" +
-                    "1: Book, 2: Perishable, 3: Electronic): ", "Input must be an integer between 1 and 3");
+                    "1: Book, 2: Perishable, 3: Electronic): ", "Input must be an integer between 1 and 3", "Your input: ");
 
             if (userInputPkgType == 2) {
                 packageType = PackageFactory.PackageType.PERISHABLE;
@@ -287,14 +276,14 @@ public class TextMenu {
     }
 
 
-    public int inputIntegerTryCatch(int lowerBound, int upperBound, String question, String errorLine) throws NumberFormatException {
+    public int inputIntegerTryCatch(int lowerBound, int upperBound, String question, String errorLine, String prompt) throws NumberFormatException {
         control = false;
         int userInput = 0;
 
         while (!control) {
             try {
                 System.out.println(question);
-                System.out.print("Your input: ");
+                System.out.print(prompt);
                 userInput = Integer.parseInt(input.nextLine());
 
                 if (userInput < lowerBound || userInput > upperBound) {
@@ -400,7 +389,7 @@ public class TextMenu {
         return packageDate.isBefore(currentTime);
     }
 
-    public final void updateList(ArrayList<PackageBase> listOfPackages){
+    public final void updateList(ArrayList<PackageBase> listOfPackages) {
         Collections.sort(listOfPackages);
     }
 
