@@ -146,6 +146,8 @@ public class TextMenu {
                     if (packageNumber == 0) {
                         System.out.println("Cancel selected.\nReturning to Main Menu.");
                         this.control = true;
+                    } else if (packageNumber > packageList.size()) {
+                        throw new NumberFormatException();
                     } else {
 
                         packageNumber--; //to get package index
@@ -159,13 +161,9 @@ public class TextMenu {
                                 throw new NumberFormatException();
                             }
                         } else if (menuOption == LIST_UNDELIVERED_PACKAGES) {
-                            if (packageNumber > packageList.size()) { //  chedckkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
-                                throw new NumberFormatException();
-                            } else {
                                 packageList.get(packageNumber).setDeliveryStatus(true);
                                 System.out.println(packageList.get(packageNumber).getName() + " has been delivered.");
                                 this.control = true;
-                            }
                         }
                     }
 
