@@ -4,13 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Add TypeAdaterFactory in main class">
+    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Code will break">
+      <change afterPath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/gson/list.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/PackageDeliveryTracker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/PackageDeliveryTracker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/model/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/model/Book.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/model/Electronic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/model/Electronic.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/model/PackageBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/model/PackageBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/model/Perishable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/model/Perishable.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,23 +38,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Downloaded.Files.Path.Enabled": "true",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "C:/Users/debor/Desktop/CMPT 213/A1/CMPT213-A1",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.lookFeel"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;true&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/debor/Desktop/CMPT 213/A1/CMPT213-A1&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\debor\IdeaProjects\CMPT213-A1\src\cmpt213\assignment1\packagedeliveriestracker\gsondata" />
@@ -84,13 +83,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1652723361815</updated>
-    </task>
-    <task id="LOCAL-00027" summary="Fix bugs in try-catch method and DateTimeFormatter variables in TextMenu">
-      <created>1653689074237</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1653689074237</updated>
     </task>
     <task id="LOCAL-00028" summary="Reorganize methods in TextMenu">
       <created>1653689286147</created>
@@ -428,7 +420,14 @@
       <option name="project" value="LOCAL" />
       <updated>1655956052309</updated>
     </task>
-    <option name="localTasksCounter" value="76" />
+    <task id="LOCAL-00076" summary="Code will break">
+      <created>1655961001831</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1655961001831</updated>
+    </task>
+    <option name="localTasksCounter" value="77" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -444,7 +443,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Reorder methods in TextMenu" />
     <MESSAGE value="Fix JavaDoc bug and add Java doc folder" />
     <MESSAGE value="JavaDoc generated" />
     <MESSAGE value="JavaDoc" />
@@ -469,7 +467,8 @@
     <MESSAGE value="Implement RuntimeTypeAdapterFactory class" />
     <MESSAGE value="Add license in RuntimeTypeAdapterFactory class" />
     <MESSAGE value="Add TypeAdaterFactory in main class" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add TypeAdaterFactory in main class" />
+    <MESSAGE value="Code will break" />
+    <option name="LAST_COMMIT_MESSAGE" value="Code will break" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -12,7 +12,7 @@ public abstract class PackageBase implements Package {
     protected final LocalDateTime expectedDeliveryDate;
     protected boolean isDelivered;
 
-    protected final DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm a");
+    protected static final DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm a");
 
     public PackageBase(String name, String notes, double price, double weight,
                        LocalDateTime expectedDeliveryDate) {

@@ -3,9 +3,7 @@ package cmpt213.assignment2.packagedeliveriestracker.model;
 import java.time.LocalDateTime;
 
 public class Book extends PackageBase {
-
     private final String authorName;
-
     public Book(String name, String notes, double price,
                 double weight, LocalDateTime date, String authorName) {
 

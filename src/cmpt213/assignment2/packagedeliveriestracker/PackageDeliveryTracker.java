@@ -19,6 +19,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.lang.reflect.Type;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 /**
@@ -66,7 +67,17 @@ public class PackageDeliveryTracker {
                 .registerSubtype(Electronic.class, "Electronic");
 
         gson = new GsonBuilder()
-                .setPrettyPrinting()
+                .registerTypeAdapter(DateTimeFormatter.class, new TypeAdapter<DateTimeFormatter>() {
+                    @Override
+                    public void write(JsonWriter jsonWriter, DateTimeFormatter dateTimeFormatter) throws IOException {
+                        jsonWriter.jsonValue(dateTimeFormatter.toString());
+                    }
+
+                    @Override
+                    public DateTimeFormatter read(JsonReader jsonReader) throws IOException {
+                        return DateTimeFormatter.ofPattern(jsonReader.nextString());
+                    }
+                })
                 .registerTypeAdapter(LocalDateTime.class, new TypeAdapter<LocalDateTime>() {
                     @Override
                     public void write(JsonWriter jsonWriter, LocalDateTime localDateTime) throws IOException {
@@ -79,6 +90,7 @@ public class PackageDeliveryTracker {
                     }
                 })
                 .registerTypeAdapterFactory(packageAdapterFactory)
+                .setPrettyPrinting()
                 .create();
     }
 
@@ -148,6 +160,7 @@ public class PackageDeliveryTracker {
                     }.getType();
 
                     newArray = gson.fromJson(fileRead, type);
+
                     fileRead.close();
                 } catch (IOException e) {
                     System.out.println("Could not load data!");
@@ -161,9 +174,9 @@ public class PackageDeliveryTracker {
     private void parseList(FileWriter fw, int dataMode) {
         for (PackageBase p : listOfPackages) {
             if(dataMode == DATA_SAVE){
-                gson.toJson(p,PackageBase.class); //converts to JSOn
-//                Syst2
-//                Json(jsonString, fw); // writes to file
+                System.out.println("first:"+p);
+                String json = gson.toJson(p,PackageBase.class);
+                gson.toJson(json,fw);
             } else if (dataMode == DATA_LOAD) {
 
             }
