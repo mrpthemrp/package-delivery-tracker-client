@@ -45,7 +45,7 @@ public class PackageDeliveryTracker {
 
         //code taken from email from TA Divye
         String fs = File.separator;
-        String[] pathNames = { "src", "cmpt213", "assignment2", "packagedeliveriestracker", "model" };
+        String[] pathNames = { "src", "cmpt213", "assignment2", "packagedeliveriestracker", "gson" };
         String path = String.join(fs, pathNames);
         gsonFile = new File(path + fs + "list.json");
 

@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Fix bug: index greater than array size in changeAPackage">
+    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Fix bug with 0 not returning to menu">
+      <change afterPath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/gson/list.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/PackageDeliveryTracker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/PackageDeliveryTracker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/textui/TextMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/textui/TextMenu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,13 +81,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1652723361815</updated>
-    </task>
-    <task id="LOCAL-00021" summary="Resolve minor warnings in TextMenu">
-      <created>1653503496345</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1653503496345</updated>
     </task>
     <task id="LOCAL-00022" summary="Fix Scanner bug in TextMenu">
       <created>1653685706408</created>
@@ -425,7 +418,14 @@
       <option name="project" value="LOCAL" />
       <updated>1655770044215</updated>
     </task>
-    <option name="localTasksCounter" value="70" />
+    <task id="LOCAL-00070" summary="Fix bug with 0 not returning to menu">
+      <created>1655771022381</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1655771022381</updated>
+    </task>
+    <option name="localTasksCounter" value="71" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -441,7 +441,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Implement JavaDoc for TextMenu class" />
     <MESSAGE value="Implement Days left until delivery in TextMenu class" />
     <MESSAGE value="Finish Days left until delivery in TextMenu class" />
     <MESSAGE value="Updated sout in main class" />
@@ -466,6 +465,7 @@
     <MESSAGE value="Refactor extraField in abstract superclass" />
     <MESSAGE value="Extend Comparable interface in Package interface" />
     <MESSAGE value="Fix bug: index greater than array size in changeAPackage" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix bug: index greater than array size in changeAPackage" />
+    <MESSAGE value="Fix bug with 0 not returning to menu" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix bug with 0 not returning to menu" />
   </component>
 </project>
