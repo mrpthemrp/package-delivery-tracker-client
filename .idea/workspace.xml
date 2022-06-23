@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Add RuntimeTypeAdapterFactory class to gson.extra package">
+    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Implement RuntimeTypeAdapterFactory class">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/gson/extras/RuntimeTypeAdapterFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/gson/extras/RuntimeTypeAdapterFactory.java" afterDir="false" />
     </list>
@@ -80,13 +80,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1652723361815</updated>
-    </task>
-    <task id="LOCAL-00024" summary="Optimize print lines in TextMenu">
-      <created>1653686748667</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1653686748667</updated>
     </task>
     <task id="LOCAL-00025" summary="Remove warnings from TextMenu">
       <created>1653686800985</created>
@@ -424,7 +417,14 @@
       <option name="project" value="LOCAL" />
       <updated>1655955168779</updated>
     </task>
-    <option name="localTasksCounter" value="73" />
+    <task id="LOCAL-00073" summary="Implement RuntimeTypeAdapterFactory class">
+      <created>1655955531578</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1655955531578</updated>
+    </task>
+    <option name="localTasksCounter" value="74" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -440,7 +440,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Updated sout in main class" />
     <MESSAGE value="Change arrayList to field from variable in main class" />
     <MESSAGE value="Finish JavaDoc in TextMenu" />
     <MESSAGE value="Reorder methods in TextMenu" />
@@ -465,6 +464,7 @@
     <MESSAGE value="Fix bug with 0 not returning to menu" />
     <MESSAGE value="Add gson package and .extra package extension" />
     <MESSAGE value="Add RuntimeTypeAdapterFactory class to gson.extra package" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add RuntimeTypeAdapterFactory class to gson.extra package" />
+    <MESSAGE value="Implement RuntimeTypeAdapterFactory class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implement RuntimeTypeAdapterFactory class" />
   </component>
 </project>
