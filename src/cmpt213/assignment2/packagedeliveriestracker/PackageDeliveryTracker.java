@@ -36,7 +36,8 @@ public class PackageDeliveryTracker {
 
     private final static int DATA_SAVE = 1;
     private final static int DATA_LOAD = 2;
-    private static Gson gson;
+    public static Gson gson;
+    private static RuntimeTypeAdapterFactory<PackageBase> packageAdapterFactory;
     private static File gsonFile;
     private static ArrayList<PackageBase> listOfPackages;
 
@@ -44,7 +45,9 @@ public class PackageDeliveryTracker {
      * Constructor for PackageDeliveryTracker Class; initializes GSON object,
      * File object for data saving, and an ArrayList object.
      */
-    private PackageDeliveryTracker() {
+    public PackageDeliveryTracker() {
+
+        listOfPackages = new ArrayList<>();
 
         //code taken from email from TA Divye
         String fs = File.separator;
@@ -52,27 +55,31 @@ public class PackageDeliveryTracker {
         String path = String.join(fs, pathNames);
         gsonFile = new File(path + fs + "list.json");
 
-        RuntimeTypeAdapterFactory<PackageBase> packageAdapterFactory = RuntimeTypeAdapterFactory.of(PackageBase.class, "type")
+        setGsonBuilder();
+        arrayData(DATA_LOAD);
+    }
+
+    private void setGsonBuilder() {
+        packageAdapterFactory = RuntimeTypeAdapterFactory.of(PackageBase.class, "type")
                 .registerSubtype(Book.class, "Book")
                 .registerSubtype(Perishable.class, "Perishable")
                 .registerSubtype(Electronic.class, "Electronic");
 
         gson = new GsonBuilder()
-                .registerTypeAdapterFactory(packageAdapterFactory)
+                .setPrettyPrinting()
                 .registerTypeAdapter(LocalDateTime.class, new TypeAdapter<LocalDateTime>() {
                     @Override
                     public void write(JsonWriter jsonWriter, LocalDateTime localDateTime) throws IOException {
-                        jsonWriter.value(localDateTime.toString());
+                        jsonWriter.jsonValue(localDateTime.toString());
                     }
 
                     @Override
                     public LocalDateTime read(JsonReader jsonReader) throws IOException {
                         return LocalDateTime.parse(jsonReader.nextString());
                     }
-                }).create();
-
-        listOfPackages = new ArrayList<>();
-        arrayData(DATA_LOAD);
+                })
+                .registerTypeAdapterFactory(packageAdapterFactory)
+                .create();
     }
 
     /**
@@ -121,20 +128,20 @@ public class PackageDeliveryTracker {
         }
     }
 
-    private void arrayData(int bob) {
+    private void arrayData(int dataMode) {
         ArrayList<PackageBase> newArray = new ArrayList<>();
 
-        if (bob == DATA_SAVE) {
+        if (dataMode == DATA_SAVE) {
             try {
                 FileWriter fileWrite = new FileWriter(gsonFile);
-                gson.toJson(listOfPackages, fileWrite);
+                parseList(fileWrite, dataMode);
                 fileWrite.close();
             } catch (IOException e) {
                 System.out.println("Could not save data!");
             }
 
-        } else if (bob == DATA_LOAD) {
-            if (gsonFile.exists()) {
+        } else if (dataMode == DATA_LOAD) {
+            if (!gsonFile.exists()) {
                 try {
                     FileReader fileRead = new FileReader(gsonFile);
                     Type type = new TypeToken<ArrayList<PackageBase>>() {
@@ -149,7 +156,18 @@ public class PackageDeliveryTracker {
 
             listOfPackages = newArray;
         }
+    }
 
+    private void parseList(FileWriter fw, int dataMode) {
+        for (PackageBase p : listOfPackages) {
+            if(dataMode == DATA_SAVE){
+                gson.toJson(p,PackageBase.class); //converts to JSOn
+//                Syst2
+//                Json(jsonString, fw); // writes to file
+            } else if (dataMode == DATA_LOAD) {
+
+            }
+        }
 
     }
 }

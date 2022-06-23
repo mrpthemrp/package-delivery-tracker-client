@@ -10,6 +10,7 @@ public class Perishable extends PackageBase {
 
         super(name, notes, price, weight, deliveryDate);
         this.expiryDate = expiryDate;
+        this.type = "Perishable";
     }
 
     @Override

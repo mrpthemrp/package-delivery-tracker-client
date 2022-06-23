@@ -10,6 +10,7 @@ public class Electronic extends PackageBase {
 
         super(name, notes, price, weight, date);
         this.handleFee = handleFee;
+        this.type = "Electronic";
     }
 
     @Override
