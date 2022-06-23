@@ -1,6 +1,10 @@
 package cmpt213.assignment2.packagedeliveriestracker;
-import cmpt213.assignment2.packagedeliveriestracker.model.*;
 
+import cmpt213.assignment2.packagedeliveriestracker.gson.extras.RuntimeTypeAdapterFactory;
+import cmpt213.assignment2.packagedeliveriestracker.model.Book;
+import cmpt213.assignment2.packagedeliveriestracker.model.Electronic;
+import cmpt213.assignment2.packagedeliveriestracker.model.PackageBase;
+import cmpt213.assignment2.packagedeliveriestracker.model.Perishable;
 import cmpt213.assignment2.packagedeliveriestracker.textui.TextMenu;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -32,7 +36,6 @@ public class PackageDeliveryTracker {
 
     private final static int DATA_SAVE = 1;
     private final static int DATA_LOAD = 2;
-
     private static Gson gson;
     private static File gsonFile;
     private static ArrayList<PackageBase> listOfPackages;
@@ -45,11 +48,17 @@ public class PackageDeliveryTracker {
 
         //code taken from email from TA Divye
         String fs = File.separator;
-        String[] pathNames = { "src", "cmpt213", "assignment2", "packagedeliveriestracker", "gson" };
+        String[] pathNames = {"src", "cmpt213", "assignment2", "packagedeliveriestracker", "gson"};
         String path = String.join(fs, pathNames);
         gsonFile = new File(path + fs + "list.json");
 
+        RuntimeTypeAdapterFactory<PackageBase> packageAdapterFactory = RuntimeTypeAdapterFactory.of(PackageBase.class, "type")
+                .registerSubtype(Book.class, "Book")
+                .registerSubtype(Perishable.class, "Perishable")
+                .registerSubtype(Electronic.class, "Electronic");
+
         gson = new GsonBuilder()
+                .registerTypeAdapterFactory(packageAdapterFactory)
                 .registerTypeAdapter(LocalDateTime.class, new TypeAdapter<LocalDateTime>() {
                     @Override
                     public void write(JsonWriter jsonWriter, LocalDateTime localDateTime) throws IOException {
@@ -86,8 +95,8 @@ public class PackageDeliveryTracker {
             //Print Menu to screen and get input
             System.out.println();
             menu.displayMenu();
-            userInput = menu.inputIntegerTryCatch(1,7 ,"Choose a menu option by entering" +
-                    " a whole number between 1 and 7." ,"Invalid input. Enter a number between 1 and 7", "Your input: " );
+            userInput = menu.inputIntegerTryCatch(1, 7, "Choose a menu option by entering" +
+                    " a whole number between 1 and 7.", "Invalid input. Enter a number between 1 and 7", "Your input: ");
             menu.printMenuOption(userInput - 1); //-1 to account for indexing in array
 
             //Handle correct input
@@ -114,8 +123,8 @@ public class PackageDeliveryTracker {
 
     private void arrayData(int bob) {
         ArrayList<PackageBase> newArray = new ArrayList<>();
-        
-        if(bob == DATA_SAVE){
+
+        if (bob == DATA_SAVE) {
             try {
                 FileWriter fileWrite = new FileWriter(gsonFile);
                 gson.toJson(listOfPackages, fileWrite);
@@ -123,7 +132,7 @@ public class PackageDeliveryTracker {
             } catch (IOException e) {
                 System.out.println("Could not save data!");
             }
-            
+
         } else if (bob == DATA_LOAD) {
             if (gsonFile.exists()) {
                 try {
