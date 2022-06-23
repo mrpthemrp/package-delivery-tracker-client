@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Fix bug with 0 not returning to menu">
-      <change afterPath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/gson/list.json" afterDir="false" />
+    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Add gson package and .extra package extension">
+      <change afterPath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/gson/extras/RuntimeTypeAdapterFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/PackageDeliveryTracker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/PackageDeliveryTracker.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,13 +80,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1652723361815</updated>
-    </task>
-    <task id="LOCAL-00022" summary="Fix Scanner bug in TextMenu">
-      <created>1653685706408</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1653685706408</updated>
     </task>
     <task id="LOCAL-00023" summary="Implement toString override in Package class">
       <created>1653686568596</created>
@@ -425,7 +417,14 @@
       <option name="project" value="LOCAL" />
       <updated>1655771022381</updated>
     </task>
-    <option name="localTasksCounter" value="71" />
+    <task id="LOCAL-00071" summary="Add gson package and .extra package extension">
+      <created>1655955080612</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1655955080612</updated>
+    </task>
+    <option name="localTasksCounter" value="72" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -441,7 +440,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Implement Days left until delivery in TextMenu class" />
     <MESSAGE value="Finish Days left until delivery in TextMenu class" />
     <MESSAGE value="Updated sout in main class" />
     <MESSAGE value="Change arrayList to field from variable in main class" />
@@ -466,6 +464,7 @@
     <MESSAGE value="Extend Comparable interface in Package interface" />
     <MESSAGE value="Fix bug: index greater than array size in changeAPackage" />
     <MESSAGE value="Fix bug with 0 not returning to menu" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix bug with 0 not returning to menu" />
+    <MESSAGE value="Add gson package and .extra package extension" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add gson package and .extra package extension" />
   </component>
 </project>
