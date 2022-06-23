@@ -28,8 +28,10 @@ public abstract class PackageBase implements Package {
 
     @Override
     public int compareTo(Package p) {
-        if (p.getExpectedDeliveryDate().isBefore(this.expectedDeliveryDate)) {
-            return 1;
+        if(p!=null){
+            if (p.getExpectedDeliveryDate().isBefore(this.expectedDeliveryDate)) {
+                return 1;
+            }
         }
         return -1;
     }

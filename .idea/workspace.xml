@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Code will break">
-      <change afterPath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/gson/list.json" afterDir="false" />
+    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Add DateTimeFormatter type adapter to main class to fix bug">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/PackageDeliveryTracker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/PackageDeliveryTracker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/model/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/model/Book.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/gson/list.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/model/PackageBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/model/PackageBase.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -83,13 +82,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1652723361815</updated>
-    </task>
-    <task id="LOCAL-00028" summary="Reorganize methods in TextMenu">
-      <created>1653689286147</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1653689286147</updated>
     </task>
     <task id="LOCAL-00029" summary="Implement Remove Package in TextMenu">
       <created>1653691350423</created>
@@ -427,7 +419,14 @@
       <option name="project" value="LOCAL" />
       <updated>1655961001831</updated>
     </task>
-    <option name="localTasksCounter" value="77" />
+    <task id="LOCAL-00077" summary="Add DateTimeFormatter type adapter to main class to fix bug">
+      <created>1656023507921</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1656023507922</updated>
+    </task>
+    <option name="localTasksCounter" value="78" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -443,7 +442,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Fix JavaDoc bug and add Java doc folder" />
     <MESSAGE value="JavaDoc generated" />
     <MESSAGE value="JavaDoc" />
     <MESSAGE value="Delete Json file" />
@@ -468,7 +466,8 @@
     <MESSAGE value="Add license in RuntimeTypeAdapterFactory class" />
     <MESSAGE value="Add TypeAdaterFactory in main class" />
     <MESSAGE value="Code will break" />
-    <option name="LAST_COMMIT_MESSAGE" value="Code will break" />
+    <MESSAGE value="Add DateTimeFormatter type adapter to main class to fix bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add DateTimeFormatter type adapter to main class to fix bug" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
