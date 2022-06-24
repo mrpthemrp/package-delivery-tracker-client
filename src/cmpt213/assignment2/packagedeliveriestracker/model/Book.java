@@ -9,7 +9,6 @@ public class Book extends PackageBase {
 
         super(name, notes, price, weight, date);
         this.authorName = authorName;
-        this.type = "Book";
     }
 
     @Override

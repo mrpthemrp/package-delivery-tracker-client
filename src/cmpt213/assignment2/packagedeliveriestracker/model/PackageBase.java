@@ -4,7 +4,6 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public abstract class PackageBase implements Package {
-    protected String type;
     protected final String name;
     protected final String notes;
     protected final double price;
@@ -23,7 +22,6 @@ public abstract class PackageBase implements Package {
         this.expectedDeliveryDate = expectedDeliveryDate;
 
         this.isDelivered = false;
-        this.type = "PackageBase";
     }
 
     @Override

@@ -4,10 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Figure out error">
-      <change afterPath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/gson/list.json" afterDir="false" />
+    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="?">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/PackageDeliveryTracker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/PackageDeliveryTracker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/gson/list.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/model/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/model/Book.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/model/Electronic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/model/Electronic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/model/PackageBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/model/PackageBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/model/Perishable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/model/Perishable.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,13 +85,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1652723361815</updated>
-    </task>
-    <task id="LOCAL-00030" summary="Add name of package must not be blank catch">
-      <created>1653691609016</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1653691609016</updated>
     </task>
     <task id="LOCAL-00031" summary="Reformat code">
       <created>1653691953263</created>
@@ -425,7 +422,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656025197245</updated>
     </task>
-    <option name="localTasksCounter" value="79" />
+    <task id="LOCAL-00079" summary="?">
+      <created>1656083438070</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1656083438070</updated>
+    </task>
+    <option name="localTasksCounter" value="80" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -441,7 +445,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="JavaDoc" />
     <MESSAGE value="Delete Json file" />
     <MESSAGE value="Add docs folder with necessary files" />
     <MESSAGE value="Refactor gsondata package" />
@@ -466,7 +469,8 @@
     <MESSAGE value="Code will break" />
     <MESSAGE value="Add DateTimeFormatter type adapter to main class to fix bug" />
     <MESSAGE value="Figure out error" />
-    <option name="LAST_COMMIT_MESSAGE" value="Figure out error" />
+    <MESSAGE value="?" />
+    <option name="LAST_COMMIT_MESSAGE" value="?" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -146,10 +146,11 @@ public class PackageDeliveryTracker {
         if (dataMode == DATA_SAVE) {
             try {
                 FileWriter fileWrite = new FileWriter(gsonFile);
+                gson.toJson("[",fileWrite);
                 for (PackageBase p : listOfPackages) {
-                    String json = gson.toJson(p);
-                    gson.toJson(json,fileWrite);
+                    gson.toJson(gson.toJson(p, PackageBase.class),fileWrite);
                 }
+                gson.toJson("]", fileWrite);
                 fileWrite.close();
             } catch (IOException e) {
                 System.out.println("Could not save data!");
@@ -159,9 +160,7 @@ public class PackageDeliveryTracker {
             if (gsonFile.exists()) {
                 try {
                     FileReader fileRead = new FileReader(gsonFile);
-                    PackageBase bob = gson.fromJson(fileRead, type);
-                    newArray.add(bob);
-
+                    newArray.add(gson.fromJson(fileRead, PackageBase.class));
                     fileRead.close();
                 } catch (IOException e) {
                     System.out.println("Could not load data!");
