@@ -3,12 +3,11 @@ package cmpt213.assignment2.packagedeliveriestracker;
 import cmpt213.assignment2.packagedeliveriestracker.gson.extras.RuntimeTypeAdapterFactory;
 import cmpt213.assignment2.packagedeliveriestracker.model.Book;
 import cmpt213.assignment2.packagedeliveriestracker.model.Electronic;
+import cmpt213.assignment2.packagedeliveriestracker.model.Package;
 import cmpt213.assignment2.packagedeliveriestracker.model.PackageBase;
 import cmpt213.assignment2.packagedeliveriestracker.model.Perishable;
 import cmpt213.assignment2.packagedeliveriestracker.textui.TextMenu;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import com.google.gson.TypeAdapter;
+import com.google.gson.*;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
@@ -146,11 +145,13 @@ public class PackageDeliveryTracker {
         if (dataMode == DATA_SAVE) {
             try {
                 FileWriter fileWrite = new FileWriter(gsonFile);
-                gson.toJson("[",fileWrite);
+                JsonArray toJsonArray = new JsonArray();
                 for (PackageBase p : listOfPackages) {
-                    gson.toJson(gson.toJson(p, PackageBase.class),fileWrite);
+                    if(p!=null){
+                        toJsonArray.add(gson.toJsonTree(p,PackageBase.class));
+                    }
                 }
-                gson.toJson("]", fileWrite);
+                gson.toJson(toJsonArray,fileWrite);
                 fileWrite.close();
             } catch (IOException e) {
                 System.out.println("Could not save data!");
@@ -160,7 +161,10 @@ public class PackageDeliveryTracker {
             if (gsonFile.exists()) {
                 try {
                     FileReader fileRead = new FileReader(gsonFile);
-                    newArray.add(gson.fromJson(fileRead, PackageBase.class));
+                    JsonArray jsonArray = gson.fromJson(fileRead, JsonArray.class);
+                    for(int i =0;i< jsonArray.size();i++){
+                        newArray.add(gson.fromJson(jsonArray.get(i),PackageBase.class));
+                    }
                     fileRead.close();
                 } catch (IOException e) {
                     System.out.println("Could not load data!");

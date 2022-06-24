@@ -1,6 +1,5 @@
 package cmpt213.assignment2.packagedeliveriestracker.textui;
 
-import cmpt213.assignment2.packagedeliveriestracker.model.Package;
 import cmpt213.assignment2.packagedeliveriestracker.model.PackageBase;
 import cmpt213.assignment2.packagedeliveriestracker.model.PackageFactory;
 
@@ -15,7 +14,7 @@ import java.util.Scanner;
 
 /**
  * TextMenu class manages menu options, handles input,
- * prints to screen, and creates Package object
+ * prints to screen, and creates PackageBase object
  *
  * @author Deborah Wang
  */
@@ -90,14 +89,14 @@ public class TextMenu {
 
     public void listPackages(int menuOption, ArrayList<PackageBase> listOfPackages) {
         //Checks for empty list
-        if (listOfPackages.size() == 0) {
+        if (listOfPackages.size() == 0 || listOfPackages == null) {
             System.out.println(NO_PACKAGE_MESSAGE);
         } else {
             int packageCount = 0;
 
             for (int i = 0; i < listOfPackages.size(); i++) {
 
-                Package tempPkg = listOfPackages.get(i);
+                PackageBase tempPkg = listOfPackages.get(i);
 
                 if (menuOption == LIST_PACKAGES) {
                     packageCount++;
@@ -253,7 +252,6 @@ public class TextMenu {
 
             }
         }
-
         return null;
     }
 
@@ -390,6 +388,7 @@ public class TextMenu {
     }
 
     public final void updateList(ArrayList<PackageBase> listOfPackages) {
+        System.out.println(listOfPackages);//to del
         Collections.sort(listOfPackages);
     }
 

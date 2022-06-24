@@ -25,7 +25,7 @@ public abstract class PackageBase implements Package {
     }
 
     @Override
-    public int compareTo(Package p) {
+    public int compareTo(PackageBase p) {
         if(p!=null){
             if (p.getExpectedDeliveryDate().isBefore(this.expectedDeliveryDate)) {
                 return 1;

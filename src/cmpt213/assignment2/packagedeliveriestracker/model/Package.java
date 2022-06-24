@@ -8,10 +8,10 @@ import java.util.Comparator;
  *
  * @author Deborah Wang
  */
-public interface Package extends Comparable<Package>{
+public interface Package extends Comparable<PackageBase>{
 
     @Override
-    int compareTo(Package p);
+    int compareTo(PackageBase p);
 
     boolean getDeliveryStatus();
 
