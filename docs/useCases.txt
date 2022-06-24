@@ -1,0 +1,46 @@
+Use Cases of Menu Options 1, 2, 3
+
+Notes/Assumptions:
+-   Assuming that LocalDateTime will always have an integer input.
+    Integer input can be incorrect (negative). Assuming LocalDateTime will not have String/Char input.
+
+Option 1 - List Packages
+
+    Normal Case (Without Errors):
+    1.	User wants to see all packages listed
+    2.	Run program to get to main menu
+    3.	User enters "1" and presses "enter"
+    4.	Main menu reads in 1 and goes to option 1 list all packages
+    5.	List of packages are printed to screen
+    6.	Program returns to main menu
+
+    Variation 1 - Incorrect Input (Number)
+    3.1  User enters a number between 2 and 7 and presses "enter"
+    3.2  System will take user to option that is not List All Packages
+    3.3  User needs to press 0 to escape
+
+    Variation 2 - Incorrect Input (Number Out Of Range, String, Char)
+    1.	User enters number that is out of range and presses "enter"
+    2.	System will print message ""
+    3.	User will be prompted to input a correct input
+    4.	Continue to step 4
+
+Option 2 - Add A Package
+
+    Normal Case (Without Errors):
+    1.
+
+    Variation 1 - No Name Inputted
+    Variation 2 - Incorrect Input for Price
+    Variation 3 - Incorrect Input for Weight
+    Variation 4 - Incorrect Input for Extra Field
+    Variation 5 - Incorrect Input for LocalDateTime
+
+Option 3 - Remove A Package
+
+    Normal Case (Without Errors):
+    1.
+
+    Variation 1 - Do Not Want To Remove Package
+    Variation 2 - Incorrect Input - Out of Range
+    Variation 3 - Incorrect Input - Input is Not Integer

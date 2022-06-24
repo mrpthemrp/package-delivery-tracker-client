@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="File saves and loads properly">
+    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Clean I/O of main class">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/PackageDeliveryTracker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/PackageDeliveryTracker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/gson/list.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/gson/list.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/textui/TextMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/textui/TextMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/useCases.txt" beforeDir="false" afterPath="$PROJECT_DIR$/docs/useCases.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,13 +80,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1652723361815</updated>
-    </task>
-    <task id="LOCAL-00033" summary="Add TODO in TextMenu">
-      <created>1653692551113</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1653692551113</updated>
     </task>
     <task id="LOCAL-00034" summary="Implement try-catch for LocalDateTime">
       <created>1654137329238</created>
@@ -426,7 +417,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656094080833</updated>
     </task>
-    <option name="localTasksCounter" value="82" />
+    <task id="LOCAL-00082" summary="Clean I/O of main class">
+      <created>1656094457014</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1656094457014</updated>
+    </task>
+    <option name="localTasksCounter" value="83" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -442,7 +440,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Refactor gsondata package" />
     <MESSAGE value="Remove javadocs fodler contents" />
     <MESSAGE value="Methods in PackageDeliveryTracker are all private except for main" />
     <MESSAGE value="Code will break, interface implementation started" />
@@ -467,7 +464,8 @@
     <MESSAGE value="?" />
     <MESSAGE value="Fix type error" />
     <MESSAGE value="File saves and loads properly" />
-    <option name="LAST_COMMIT_MESSAGE" value="File saves and loads properly" />
+    <MESSAGE value="Clean I/O of main class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Clean I/O of main class" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
