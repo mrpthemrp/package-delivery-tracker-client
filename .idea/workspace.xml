@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Clean I/O of main class">
+    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Start useCases.txt">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/useCases.txt" beforeDir="false" afterPath="$PROJECT_DIR$/docs/useCases.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,13 +79,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1652723361815</updated>
-    </task>
-    <task id="LOCAL-00034" summary="Implement try-catch for LocalDateTime">
-      <created>1654137329238</created>
-      <option name="number" value="00034" />
-      <option name="presentableId" value="LOCAL-00034" />
-      <option name="project" value="LOCAL" />
-      <updated>1654137329238</updated>
     </task>
     <task id="LOCAL-00035" summary="Bugs in finalDateTryCatch">
       <created>1654138279741</created>
@@ -424,7 +416,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656094457014</updated>
     </task>
-    <option name="localTasksCounter" value="83" />
+    <task id="LOCAL-00083" summary="Start useCases.txt">
+      <created>1656111138548</created>
+      <option name="number" value="00083" />
+      <option name="presentableId" value="LOCAL-00083" />
+      <option name="project" value="LOCAL" />
+      <updated>1656111138548</updated>
+    </task>
+    <option name="localTasksCounter" value="84" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -440,7 +439,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Remove javadocs fodler contents" />
     <MESSAGE value="Methods in PackageDeliveryTracker are all private except for main" />
     <MESSAGE value="Code will break, interface implementation started" />
     <MESSAGE value="Implement Package interface basics" />
@@ -465,7 +463,8 @@
     <MESSAGE value="Fix type error" />
     <MESSAGE value="File saves and loads properly" />
     <MESSAGE value="Clean I/O of main class" />
-    <option name="LAST_COMMIT_MESSAGE" value="Clean I/O of main class" />
+    <MESSAGE value="Start useCases.txt" />
+    <option name="LAST_COMMIT_MESSAGE" value="Start useCases.txt" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
