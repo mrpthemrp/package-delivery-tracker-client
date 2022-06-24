@@ -3,12 +3,10 @@ package cmpt213.assignment2.packagedeliveriestracker;
 import cmpt213.assignment2.packagedeliveriestracker.gson.extras.RuntimeTypeAdapterFactory;
 import cmpt213.assignment2.packagedeliveriestracker.model.Book;
 import cmpt213.assignment2.packagedeliveriestracker.model.Electronic;
-import cmpt213.assignment2.packagedeliveriestracker.model.Package;
 import cmpt213.assignment2.packagedeliveriestracker.model.PackageBase;
 import cmpt213.assignment2.packagedeliveriestracker.model.Perishable;
 import cmpt213.assignment2.packagedeliveriestracker.textui.TextMenu;
 import com.google.gson.*;
-import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
@@ -16,7 +14,6 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.lang.reflect.Type;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -138,8 +135,6 @@ public class PackageDeliveryTracker {
     }
 
     private void arrayData(int dataMode) {
-        Type type = new TypeToken<ArrayList<PackageBase>>() {
-        }.getType();
         ArrayList<PackageBase> newArray = new ArrayList<>();
 
         if (dataMode == DATA_SAVE) {
@@ -162,8 +157,10 @@ public class PackageDeliveryTracker {
                 try {
                     FileReader fileRead = new FileReader(gsonFile);
                     JsonArray jsonArray = gson.fromJson(fileRead, JsonArray.class);
-                    for(int i =0;i< jsonArray.size();i++){
-                        newArray.add(gson.fromJson(jsonArray.get(i),PackageBase.class));
+                    if(jsonArray!=null){
+                        for(int i =0;i< jsonArray.size();i++){
+                            newArray.add(gson.fromJson(jsonArray.get(i),PackageBase.class));
+                        }
                     }
                     fileRead.close();
                 } catch (IOException e) {

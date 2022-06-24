@@ -89,7 +89,7 @@ public class TextMenu {
 
     public void listPackages(int menuOption, ArrayList<PackageBase> listOfPackages) {
         //Checks for empty list
-        if (listOfPackages.size() == 0 || listOfPackages == null) {
+        if (listOfPackages.size() == 0) {
             System.out.println(NO_PACKAGE_MESSAGE);
         } else {
             int packageCount = 0;
@@ -388,7 +388,6 @@ public class TextMenu {
     }
 
     public final void updateList(ArrayList<PackageBase> listOfPackages) {
-        System.out.println(listOfPackages);//to del
         Collections.sort(listOfPackages);
     }
 
