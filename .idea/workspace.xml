@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Add DateTimeFormatter type adapter to main class to fix bug">
+    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Figure out error">
+      <change afterPath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/gson/list.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/PackageDeliveryTracker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/PackageDeliveryTracker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/gson/list.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/model/PackageBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/model/PackageBase.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,13 +81,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1652723361815</updated>
-    </task>
-    <task id="LOCAL-00029" summary="Implement Remove Package in TextMenu">
-      <created>1653691350423</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1653691350423</updated>
     </task>
     <task id="LOCAL-00030" summary="Add name of package must not be blank catch">
       <created>1653691609016</created>
@@ -426,7 +418,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656023507922</updated>
     </task>
-    <option name="localTasksCounter" value="78" />
+    <task id="LOCAL-00078" summary="Figure out error">
+      <created>1656025197245</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1656025197245</updated>
+    </task>
+    <option name="localTasksCounter" value="79" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -442,7 +441,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="JavaDoc generated" />
     <MESSAGE value="JavaDoc" />
     <MESSAGE value="Delete Json file" />
     <MESSAGE value="Add docs folder with necessary files" />
@@ -467,7 +465,8 @@
     <MESSAGE value="Add TypeAdaterFactory in main class" />
     <MESSAGE value="Code will break" />
     <MESSAGE value="Add DateTimeFormatter type adapter to main class to fix bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add DateTimeFormatter type adapter to main class to fix bug" />
+    <MESSAGE value="Figure out error" />
+    <option name="LAST_COMMIT_MESSAGE" value="Figure out error" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

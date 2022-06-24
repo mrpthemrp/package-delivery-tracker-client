@@ -38,7 +38,6 @@ public class PackageDeliveryTracker {
     private final static int DATA_SAVE = 1;
     private final static int DATA_LOAD = 2;
     public static Gson gson;
-    private static RuntimeTypeAdapterFactory<PackageBase> packageAdapterFactory;
     private static File gsonFile;
     private static ArrayList<PackageBase> listOfPackages;
 
@@ -61,7 +60,7 @@ public class PackageDeliveryTracker {
     }
 
     private void setGsonBuilder() {
-        packageAdapterFactory = RuntimeTypeAdapterFactory.of(PackageBase.class, "type")
+        RuntimeTypeAdapterFactory<PackageBase> packageAdapterFactory = RuntimeTypeAdapterFactory.of(PackageBase.class, "type")
                 .registerSubtype(Book.class, "Book")
                 .registerSubtype(Perishable.class, "Perishable")
                 .registerSubtype(Electronic.class, "Electronic");
@@ -160,9 +159,8 @@ public class PackageDeliveryTracker {
             if (gsonFile.exists()) {
                 try {
                     FileReader fileRead = new FileReader(gsonFile);
-
-
-                    newArray.add(gson.fromJson(fileRead, type));
+                    PackageBase bob = gson.fromJson(fileRead, type);
+                    newArray.add(bob);
 
                     fileRead.close();
                 } catch (IOException e) {

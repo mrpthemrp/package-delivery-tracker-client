@@ -1,0 +1,10 @@
+[{
+    "authorName":"dfg",
+    "type":"Book",
+    "name":"sfd",
+    "notes":"sdf",
+    "price":4.0,
+    "weight":3.0,
+    "expectedDeliveryDate":"0003-03-03T03:03",
+    "isDelivered":false
+}]
