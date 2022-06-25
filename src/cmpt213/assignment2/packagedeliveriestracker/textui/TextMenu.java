@@ -12,12 +12,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
 
-/**
- * TextMenu class manages menu options, handles input,
- * prints to screen, and creates PackageBase object
- *
- * @author Deborah Wang
- */
 public class TextMenu {
     private static final int LIST_PACKAGES = 1;
     private static final int LIST_OVERDUE_PACKAGES = 4;
@@ -33,12 +27,6 @@ public class TextMenu {
     private LocalDateTime currentTime;
     private boolean control;
 
-    /**
-     * Constructor for TextMenu, initializes fields,
-     * adds menu options to an arrayList.
-     *
-     * @param menuTitle A String that is the menu's name.
-     */
     public TextMenu(String menuTitle) {
         this.menuTitle = menuTitle;
         this.control = false;
@@ -58,9 +46,6 @@ public class TextMenu {
         menuOptions.add("Exit");
     }
 
-    /**
-     * Method prints menu to console with proper format.
-     */
     public void displayMenu() {
         updateCurrentTime();
         //Header lines
@@ -77,12 +62,6 @@ public class TextMenu {
         }
     }
 
-    /**
-     * Method gets and prints the menu option from user.
-     *
-     * @param option An Integer that holds a menu option,
-     *               is already an index number for array access.
-     */
     public void printMenuOption(int option) {
         System.out.println("\n" + menuOptions.get(option) + "\n");
     }
@@ -272,7 +251,6 @@ public class TextMenu {
 
         return name;
     }
-
 
     public int inputIntegerTryCatch(int lowerBound, int upperBound, String question, String errorLine, String prompt) throws NumberFormatException {
         control = false;

@@ -4,14 +4,13 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public abstract class PackageBase implements Package {
+    protected static final DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm a");
     protected final String name;
     protected final String notes;
     protected final double price;
     protected final double weight;
     protected final LocalDateTime expectedDeliveryDate;
     protected boolean isDelivered;
-
-    protected static final DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm a");
 
     public PackageBase(String name, String notes, double price, double weight,
                        LocalDateTime expectedDeliveryDate) {
@@ -26,7 +25,7 @@ public abstract class PackageBase implements Package {
 
     @Override
     public int compareTo(PackageBase p) {
-        if(p!=null){
+        if (p != null) {
             if (p.getExpectedDeliveryDate().isBefore(this.expectedDeliveryDate)) {
                 return 1;
             }

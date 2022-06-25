@@ -6,7 +6,10 @@ import cmpt213.assignment2.packagedeliveriestracker.model.Electronic;
 import cmpt213.assignment2.packagedeliveriestracker.model.PackageBase;
 import cmpt213.assignment2.packagedeliveriestracker.model.Perishable;
 import cmpt213.assignment2.packagedeliveriestracker.textui.TextMenu;
-import com.google.gson.*;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.TypeAdapter;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
@@ -18,17 +21,6 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
-/**
- * PackageDeliveryTracker class models a delivery tracker and
- * input can be read in and saved as data to a JSON file.
- * <p>
- * Implements custom Comparator to sort Package objects
- * from oldest to newest delivery date (LocalDateTime).
- * <p>
- * GSON Reference (Dr. Victor Cheung): <a href="https://www.youtube.com/watch?v=kooiBuJlcFg"></a>
- *
- * @author Deborah Wang
- */
 public class PackageDeliveryTracker {
 
     private final static int DATA_SAVE = 1;
@@ -37,11 +29,7 @@ public class PackageDeliveryTracker {
     private static File gsonFile;
     private static ArrayList<PackageBase> listOfPackages;
 
-    /**
-     * Constructor for PackageDeliveryTracker Class; initializes GSON object,
-     * File object for data saving, and an ArrayList object.
-     */
-    public PackageDeliveryTracker() {
+    private PackageDeliveryTracker() {
 
         listOfPackages = new ArrayList<>();
 
@@ -55,45 +43,6 @@ public class PackageDeliveryTracker {
         arrayData(DATA_LOAD);
     }
 
-    private void setGsonBuilder() {
-        RuntimeTypeAdapterFactory<PackageBase> packageAdapterFactory = RuntimeTypeAdapterFactory.of(PackageBase.class, "type")
-                .registerSubtype(Book.class, "Book")
-                .registerSubtype(Perishable.class, "Perishable")
-                .registerSubtype(Electronic.class, "Electronic");
-
-        gson = new GsonBuilder()
-                .registerTypeAdapter(DateTimeFormatter.class, new TypeAdapter<DateTimeFormatter>() {
-                    @Override
-                    public void write(JsonWriter jsonWriter, DateTimeFormatter dateTimeFormatter) throws IOException {
-                        jsonWriter.value(dateTimeFormatter.toString());
-                    }
-
-                    @Override
-                    public DateTimeFormatter read(JsonReader jsonReader) throws IOException {
-                        return DateTimeFormatter.ofPattern(jsonReader.nextString());
-                    }
-                })
-                .registerTypeAdapter(LocalDateTime.class, new TypeAdapter<LocalDateTime>() {
-                    @Override
-                    public void write(JsonWriter jsonWriter, LocalDateTime localDateTime) throws IOException {
-                        jsonWriter.value(localDateTime.toString());
-                    }
-
-                    @Override
-                    public LocalDateTime read(JsonReader jsonReader) throws IOException {
-                        return LocalDateTime.parse(jsonReader.nextString());
-                    }
-                })
-                .registerTypeAdapterFactory(packageAdapterFactory)
-                .create();
-    }
-
-    /**
-     * Main method loads any previous data, asks for user input,
-     * sorts the data list after each case, and saves data after system exits.
-     *
-     * @param args Console input from user is taken as a String.
-     */
     public static void main(String[] args) {
 
         PackageDeliveryTracker pkgTrkr = new PackageDeliveryTracker();
@@ -134,6 +83,39 @@ public class PackageDeliveryTracker {
         }
     }
 
+    private void setGsonBuilder() {
+        RuntimeTypeAdapterFactory<PackageBase> packageAdapterFactory = RuntimeTypeAdapterFactory.of(PackageBase.class, "type")
+                .registerSubtype(Book.class, "Book")
+                .registerSubtype(Perishable.class, "Perishable")
+                .registerSubtype(Electronic.class, "Electronic");
+
+        gson = new GsonBuilder()
+                .registerTypeAdapter(DateTimeFormatter.class, new TypeAdapter<DateTimeFormatter>() {
+                    @Override
+                    public void write(JsonWriter jsonWriter, DateTimeFormatter dateTimeFormatter) throws IOException {
+                        jsonWriter.value(dateTimeFormatter.toString());
+                    }
+
+                    @Override
+                    public DateTimeFormatter read(JsonReader jsonReader) throws IOException {
+                        return DateTimeFormatter.ofPattern(jsonReader.nextString());
+                    }
+                })
+                .registerTypeAdapter(LocalDateTime.class, new TypeAdapter<LocalDateTime>() {
+                    @Override
+                    public void write(JsonWriter jsonWriter, LocalDateTime localDateTime) throws IOException {
+                        jsonWriter.value(localDateTime.toString());
+                    }
+
+                    @Override
+                    public LocalDateTime read(JsonReader jsonReader) throws IOException {
+                        return LocalDateTime.parse(jsonReader.nextString());
+                    }
+                })
+                .registerTypeAdapterFactory(packageAdapterFactory)
+                .create();
+    }
+
     private void arrayData(int dataMode) {
         ArrayList<PackageBase> newArray = new ArrayList<>();
 
@@ -141,12 +123,13 @@ public class PackageDeliveryTracker {
             try {
                 FileWriter fileWrite = new FileWriter(gsonFile);
                 JsonArray toJsonArray = new JsonArray();
+                //convert each object to Json string
                 for (PackageBase p : listOfPackages) {
-                    if(p!=null){
-                        toJsonArray.add(gson.toJsonTree(p,PackageBase.class));
+                    if (p != null) {
+                        toJsonArray.add(gson.toJsonTree(p, PackageBase.class));
                     }
                 }
-                gson.toJson(toJsonArray,fileWrite);
+                gson.toJson(toJsonArray, fileWrite);
                 fileWrite.close();
             } catch (IOException e) {
                 System.out.println("Could not save data!");
@@ -157,9 +140,9 @@ public class PackageDeliveryTracker {
                 try {
                     FileReader fileRead = new FileReader(gsonFile);
                     JsonArray jsonArray = gson.fromJson(fileRead, JsonArray.class);
-                    if(jsonArray!=null){
-                        for(int i =0;i< jsonArray.size();i++){
-                            newArray.add(gson.fromJson(jsonArray.get(i),PackageBase.class));
+                    if (jsonArray != null) {
+                        for (int i = 0; i < jsonArray.size(); i++) {
+                            newArray.add(gson.fromJson(jsonArray.get(i), PackageBase.class));
                         }
                     }
                     fileRead.close();
