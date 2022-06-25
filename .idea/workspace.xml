@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Add CRC image">
+    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Finish useCases.txt">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docs/OODexplained.txt" beforeDir="false" afterPath="$PROJECT_DIR$/docs/OODexplained.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/useCases.txt" beforeDir="false" afterPath="$PROJECT_DIR$/docs/useCases.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/gson/list.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/gson/list.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,13 +80,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1652723361815</updated>
-    </task>
-    <task id="LOCAL-00036" summary="Implement Comparator&lt;Package&gt;, QuickSort delete">
-      <created>1654140214482</created>
-      <option name="number" value="00036" />
-      <option name="presentableId" value="LOCAL-00036" />
-      <option name="project" value="LOCAL" />
-      <updated>1654140214482</updated>
     </task>
     <task id="LOCAL-00037" summary="Implement File saver and writer">
       <created>1654211503612</created>
@@ -426,7 +417,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656111767789</updated>
     </task>
-    <option name="localTasksCounter" value="85" />
+    <task id="LOCAL-00085" summary="Finish useCases.txt">
+      <created>1656115684178</created>
+      <option name="number" value="00085" />
+      <option name="presentableId" value="LOCAL-00085" />
+      <option name="project" value="LOCAL" />
+      <updated>1656115684178</updated>
+    </task>
+    <option name="localTasksCounter" value="86" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -442,7 +440,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Code will break, interface implementation started" />
     <MESSAGE value="Implement Package interface basics" />
     <MESSAGE value="Refactor classes into Java packages" />
     <MESSAGE value="Add PackageSuper class and pull methods/fields of subclasses up" />
@@ -467,7 +464,8 @@
     <MESSAGE value="Clean I/O of main class" />
     <MESSAGE value="Start useCases.txt" />
     <MESSAGE value="Add CRC image" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add CRC image" />
+    <MESSAGE value="Finish useCases.txt" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finish useCases.txt" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
