@@ -4,20 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Add UML to docs">
-      <change afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/gson/list.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMPT213-A2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/CMPT213-A3.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/PackageDeliveryTracker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/PackageDeliveryTracker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/gson/extras/RuntimeTypeAdapterFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/gson/extras/RuntimeTypeAdapterFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/model/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/model/Book.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/model/Electronic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/model/Electronic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/model/Package.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/model/Package.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/model/PackageBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/model/PackageBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/model/PackageFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/model/PackageFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/model/Perishable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/model/Perishable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment2/packagedeliveriestracker/textui/TextMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/TextMenu.java" afterDir="false" />
+    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="A3 Start - refactor names and packages">
+      <change beforePath="$PROJECT_DIR$/docs/CRCcards.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/OODexplained.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/classDiagram.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/useCases.txt" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -98,13 +89,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1652723361815</updated>
-    </task>
-    <task id="LOCAL-00041" summary="Write JavaDoc for Package class">
-      <created>1654221974690</created>
-      <option name="number" value="00041" />
-      <option name="presentableId" value="LOCAL-00041" />
-      <option name="project" value="LOCAL" />
-      <updated>1654221974690</updated>
     </task>
     <task id="LOCAL-00042" summary="Finish JavaDoc for Package class">
       <created>1654277153711</created>
@@ -442,7 +426,14 @@
       <option name="project" value="LOCAL" />
       <updated>1656140160269</updated>
     </task>
-    <option name="localTasksCounter" value="90" />
+    <task id="LOCAL-00090" summary="A3 Start - refactor names and packages">
+      <created>1657224722350</created>
+      <option name="number" value="00090" />
+      <option name="presentableId" value="LOCAL-00090" />
+      <option name="project" value="LOCAL" />
+      <updated>1657224722350</updated>
+    </task>
+    <option name="localTasksCounter" value="91" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -458,8 +449,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Add file separator for multiple OS run" />
-    <MESSAGE value="Refactor extraField in abstract superclass" />
     <MESSAGE value="Extend Comparable interface in Package interface" />
     <MESSAGE value="Fix bug: index greater than array size in changeAPackage" />
     <MESSAGE value="Fix bug with 0 not returning to menu" />
@@ -483,7 +472,9 @@
     <MESSAGE value="Reformat code" />
     <MESSAGE value="Remove json file" />
     <MESSAGE value="Add UML to docs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add UML to docs" />
+    <MESSAGE value="A# Start - refactor names and packages" />
+    <MESSAGE value="A3 Start - refactor names and packages" />
+    <option name="LAST_COMMIT_MESSAGE" value="A3 Start - refactor names and packages" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
