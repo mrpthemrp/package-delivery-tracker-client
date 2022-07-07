@@ -1,7 +1,7 @@
-package cmpt213.assignment2.packagedeliveriestracker.textui;
+package cmpt213.assignment3.packagedeliveriestracker;
 
-import cmpt213.assignment2.packagedeliveriestracker.model.PackageBase;
-import cmpt213.assignment2.packagedeliveriestracker.model.PackageFactory;
+import cmpt213.assignment3.packagedeliveriestracker.model.PackageBase;
+import cmpt213.assignment3.packagedeliveriestracker.model.PackageFactory;
 
 import java.time.DateTimeException;
 import java.time.LocalDate;

@@ -1,11 +1,10 @@
-package cmpt213.assignment2.packagedeliveriestracker;
+package cmpt213.assignment3.packagedeliveriestracker;
 
-import cmpt213.assignment2.packagedeliveriestracker.gson.extras.RuntimeTypeAdapterFactory;
-import cmpt213.assignment2.packagedeliveriestracker.model.Book;
-import cmpt213.assignment2.packagedeliveriestracker.model.Electronic;
-import cmpt213.assignment2.packagedeliveriestracker.model.PackageBase;
-import cmpt213.assignment2.packagedeliveriestracker.model.Perishable;
-import cmpt213.assignment2.packagedeliveriestracker.textui.TextMenu;
+import cmpt213.assignment3.packagedeliveriestracker.gson.extras.RuntimeTypeAdapterFactory;
+import cmpt213.assignment3.packagedeliveriestracker.model.Book;
+import cmpt213.assignment3.packagedeliveriestracker.model.Electronic;
+import cmpt213.assignment3.packagedeliveriestracker.model.PackageBase;
+import cmpt213.assignment3.packagedeliveriestracker.model.Perishable;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
@@ -35,7 +34,7 @@ public class PackageDeliveryTracker {
 
         //code taken from email from TA Divye
         String fs = File.separator;
-        String[] pathNames = {"src", "cmpt213", "assignment2", "packagedeliveriestracker", "gson"};
+        String[] pathNames = {"src", "cmpt213", "assignment3", "packagedeliveriestracker", "gson"};
         String path = String.join(fs, pathNames);
         gsonFile = new File(path + fs + "list.json");
 
