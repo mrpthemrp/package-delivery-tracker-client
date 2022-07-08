@@ -17,8 +17,12 @@ public class PackageDeliveryGUI implements ActionListener, ItemListener {
     private double xSize = (screenSize.getWidth() / 2);
     private double ySize = (screenSize.getHeight() / 2);
     private JFrame appFrame;
+    private JPanel appPanel;
 
     public PackageDeliveryGUI() {
+        //set up panel
+        appPanel = new JPanel();
+        
         //set up frame
         appFrame = new JFrame("Package Delivery Tracker");//change string input later
         appFrame.setSize((int) xSize, (int) ySize);
@@ -26,9 +30,10 @@ public class PackageDeliveryGUI implements ActionListener, ItemListener {
 
         //set up components
         startBtn = new JButton("Click to start");//change inner later
-        appFrame.add(startBtn);
+        appPanel.add(startBtn);
 
         //complete frame setup
+        appFrame.add(appPanel);
         appFrame.setVisible(true);
 
     }

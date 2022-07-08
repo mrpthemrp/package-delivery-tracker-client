@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Add PackageDeliveryGUI class and Action/Item Listeners">
+    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="JFrame template set up in MainApp">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/PackageDeliveryGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/PackageDeliveryGUI.java" afterDir="false" />
     </list>
@@ -87,13 +87,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1652723361815</updated>
-    </task>
-    <task id="LOCAL-00045" summary="Implement JavaDoc for TextMenu class">
-      <created>1654278731015</created>
-      <option name="number" value="00045" />
-      <option name="presentableId" value="LOCAL-00045" />
-      <option name="project" value="LOCAL" />
-      <updated>1654278731015</updated>
     </task>
     <task id="LOCAL-00046" summary="Implement Days left until delivery in TextMenu class">
       <created>1654279931879</created>
@@ -431,7 +424,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657313425805</updated>
     </task>
-    <option name="localTasksCounter" value="94" />
+    <task id="LOCAL-00094" summary="JFrame template set up in MainApp">
+      <created>1657314071795</created>
+      <option name="number" value="00094" />
+      <option name="presentableId" value="LOCAL-00094" />
+      <option name="project" value="LOCAL" />
+      <updated>1657314071795</updated>
+    </task>
+    <option name="localTasksCounter" value="95" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -447,7 +447,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Add gson package and .extra package extension" />
     <MESSAGE value="Add RuntimeTypeAdapterFactory class to gson.extra package" />
     <MESSAGE value="Implement RuntimeTypeAdapterFactory class" />
     <MESSAGE value="Add license in RuntimeTypeAdapterFactory class" />
@@ -472,7 +471,8 @@
     <MESSAGE value="Update docs folder and contents" />
     <MESSAGE value="Add MainApp class" />
     <MESSAGE value="Add PackageDeliveryGUI class and Action/Item Listeners" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add PackageDeliveryGUI class and Action/Item Listeners" />
+    <MESSAGE value="JFrame template set up in MainApp" />
+    <option name="LAST_COMMIT_MESSAGE" value="JFrame template set up in MainApp" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
