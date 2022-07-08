@@ -1,17 +1,19 @@
 package cmpt213.assignment3.packagedeliveriestracker;
 
+import cmpt213.assignment3.packagedeliveriestracker.CustomComponentFactory;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
-import java.io.Console;
-import java.util.logging.Logger;
 
 public class PackageDeliveryGUI implements ActionListener, ItemListener {
+
+
     //Components
-    private JButton startBtn;
+    private CustomComponentFactory.RoundButton startBtn;
 
 
     //Containers
@@ -31,14 +33,13 @@ public class PackageDeliveryGUI implements ActionListener, ItemListener {
         appFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         //set up components
-        startBtn = new JButton("Click to start");//change inner later
+        startBtn = new CustomComponentFactory.RoundButton("Click to start", 10, Color.CYAN);//change inner later
         startBtn.setActionCommand("START");
         startBtn.setAlignmentX(Component.CENTER_ALIGNMENT);
         startBtn.addActionListener(this);
-        startBtn.setBackground(Color.CYAN);
-        startBtn.setBorderPainted(false);
-        startBtn.setFocusPainted(false);//the weird box around the text
         appPanel.add(startBtn);
+
+        System.out.println("JButton width: "+startBtn.getWidth());
 
         //complete frame setup
         appFrame.setContentPane(appPanel);
