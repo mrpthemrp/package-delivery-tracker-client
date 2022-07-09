@@ -1,7 +1,5 @@
 package cmpt213.assignment3.packagedeliveriestracker;
 
-import cmpt213.assignment3.packagedeliveriestracker.CustomComponentFactory;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -10,52 +8,93 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 
 public class PackageDeliveryGUI implements ActionListener, ItemListener {
+    //CONSTANTS
 
-
-    //Components
-    private CustomComponentFactory.RoundButton startBtn;
+    //VARIABLES
 
 
     //Containers
-    private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-    private double xSize = (screenSize.getWidth() / 2);
-    private double ySize = (screenSize.getHeight() / 2);
-    private JFrame appFrame;
-    private JPanel appPanel;
-
+    private final Dimension screenSize;
+    private JPanel welcomePanel, mainPanel;
+    private final JFrame appFrame;
     public PackageDeliveryGUI() {
-        //set up panel
-        appPanel = new JPanel();
-        
+        //LOGIC
+        screenSize = new Dimension();
+        screenSize.setSize(Toolkit.getDefaultToolkit().getScreenSize().getWidth() / 2,
+                Toolkit.getDefaultToolkit().getScreenSize().getHeight() / 2);
+
         //set up frame
         appFrame = new JFrame("Package Delivery Tracker");//change string input later
-        appFrame.setSize((int) xSize, (int) ySize);
+        appFrame.setSize(screenSize);
         appFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        //set up components
-        startBtn = new CustomComponentFactory.RoundButton("Click to start", 10, Color.CYAN);//change inner later
-        startBtn.setActionCommand("START");
-        startBtn.setAlignmentX(Component.CENTER_ALIGNMENT);
-        startBtn.addActionListener(this);
-        appPanel.add(startBtn);
-
-        System.out.println("JButton width: "+startBtn.getWidth());
+        //set up panels
+        setWelcomePanel();
+        setMainPanel();
 
         //complete frame setup
-        appFrame.setContentPane(appPanel);
+        appFrame.setContentPane(welcomePanel);
         appFrame.setVisible(true);
 
     }
 
+    private void setMainPanel() {
+        mainPanel = new JPanel();
+        mainPanel.setPreferredSize(screenSize);
+        mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.X_AXIS));
+    }
+
+    private void setWelcomePanel() {
+        welcomePanel = new JPanel();
+        welcomePanel.setPreferredSize(screenSize);
+        welcomePanel.setLayout(new BoxLayout(welcomePanel, BoxLayout.X_AXIS));
+
+        //Components
+        JButton startBtn = new JButton("ENTER");//change inner later
+        startBtn.setActionCommand("START");
+        startBtn.setAlignmentX(Component.CENTER_ALIGNMENT);
+        startBtn.addActionListener(this);
+        welcomePanel.add(startBtn);
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getActionCommand().equals("START")){
+
+        //invoked only when start screen is in
+        if (e.getActionCommand().equals("START")) {
             System.out.println("Start was pressed");
+            updateScreenDisplay(SCREEN_STATE.MAIN_SCREEN);
+        }
+
+        //home screen
+
+    }
+
+    private void updateScreenDisplay(SCREEN_STATE newState) {
+        switch (newState) {
+            case MAIN_SCREEN -> {
+                appFrame.remove(welcomePanel);
+                appFrame.setContentPane(mainPanel);
+                appFrame.repaint();
+            }
+            case ADD_PACKAGE -> {
+                System.out.println("ADD PACKAGE");
+            }
+            case REMOVE_PACKAGE -> {
+                System.out.println("REMOVE PACKAGE");}
+            case LIST_OVERDUE -> {
+                System.out.println("LIST OVERDUE PACKAGES");}
+            case LIST_UPCOMING -> {
+                System.out.println("LIST UPCOMING PACKAGES");}
         }
     }
 
     @Override
     public void itemStateChanged(ItemEvent e) {
 
+    }
+
+    private static enum SCREEN_STATE {
+        WELCOME_SCREEN, MAIN_SCREEN, ADD_PACKAGE, REMOVE_PACKAGE, LIST_OVERDUE, LIST_UPCOMING;
     }
 }
