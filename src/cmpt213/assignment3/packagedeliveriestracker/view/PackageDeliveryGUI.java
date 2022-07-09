@@ -1,4 +1,4 @@
-package cmpt213.assignment3.packagedeliveriestracker;
+package cmpt213.assignment3.packagedeliveriestracker.view;
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,21 +10,30 @@ import java.awt.event.ItemListener;
 public class PackageDeliveryGUI implements ActionListener, ItemListener {
     //CONSTANTS
 
-    //VARIABLES
-
-
     //Containers
     private final Dimension screenSize;
-    private JPanel welcomePanel, mainPanel;
     private final JFrame appFrame;
+    //VARIABLES
+    private Color darkTeal;
+    private Color midTeal;
+    private Color lightTeal;
+    private Color lightBrown;
+    private Color darkBrown;
+    private Color ashRed;
+    private Color sageGreen;
+
+    private JPanel welcomePanel, mainPanel;
+
     public PackageDeliveryGUI() {
         //LOGIC
         screenSize = new Dimension();
         screenSize.setSize(Toolkit.getDefaultToolkit().getScreenSize().getWidth() / 2,
                 Toolkit.getDefaultToolkit().getScreenSize().getHeight() / 2);
+        setUpColors();
 
         //set up frame
         appFrame = new JFrame("Package Delivery Tracker");//change string input later
+        appFrame.setBackground(Color.WHITE);
         appFrame.setSize(screenSize);
         appFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -36,6 +45,16 @@ public class PackageDeliveryGUI implements ActionListener, ItemListener {
         appFrame.setContentPane(welcomePanel);
         appFrame.setVisible(true);
 
+    }
+
+    private void setUpColors() {
+        darkTeal = new Color(0, 109, 119);
+        midTeal = new Color(131, 197, 190);
+        lightTeal = new Color(237, 246, 249);
+        lightBrown = new Color(255, 221, 210);
+        darkBrown = new Color(226, 149, 120);
+        ashRed = new Color(233, 90, 90);
+        sageGreen = new Color(164, 226, 142);
     }
 
     private void setMainPanel() {
@@ -81,11 +100,14 @@ public class PackageDeliveryGUI implements ActionListener, ItemListener {
                 System.out.println("ADD PACKAGE");
             }
             case REMOVE_PACKAGE -> {
-                System.out.println("REMOVE PACKAGE");}
+                System.out.println("REMOVE PACKAGE");
+            }
             case LIST_OVERDUE -> {
-                System.out.println("LIST OVERDUE PACKAGES");}
+                System.out.println("LIST OVERDUE PACKAGES");
+            }
             case LIST_UPCOMING -> {
-                System.out.println("LIST UPCOMING PACKAGES");}
+                System.out.println("LIST UPCOMING PACKAGES");
+            }
         }
     }
 
