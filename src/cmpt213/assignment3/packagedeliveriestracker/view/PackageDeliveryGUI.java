@@ -1,5 +1,7 @@
 package cmpt213.assignment3.packagedeliveriestracker.view;
 
+import cmpt213.assignment3.packagedeliveriestracker.view.util.CustomComponentFactory;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -8,115 +10,52 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 
 public class PackageDeliveryGUI implements ActionListener, ItemListener {
-    //CONSTANTS
+
+
+    //Components
+    private CustomComponentFactory.RoundButton startBtn;
+
 
     //Containers
-    private final Dimension screenSize;
-    private final JFrame appFrame;
-    //VARIABLES
-    private Color darkTeal;
-    private Color midTeal;
-    private Color lightTeal;
-    private Color lightBrown;
-    private Color darkBrown;
-    private Color ashRed;
-    private Color sageGreen;
-
-    private JPanel welcomePanel, mainPanel;
+    private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+    private double xSize = (screenSize.getWidth() / 2);
+    private double ySize = (screenSize.getHeight() / 2);
+    private JFrame appFrame;
+    private JPanel appPanel;
 
     public PackageDeliveryGUI() {
-        //LOGIC
-        screenSize = new Dimension();
-        screenSize.setSize(Toolkit.getDefaultToolkit().getScreenSize().getWidth() / 2,
-                Toolkit.getDefaultToolkit().getScreenSize().getHeight() / 2);
-        setUpColors();
-
+        //set up panel
+        appPanel = new JPanel();
+        
         //set up frame
         appFrame = new JFrame("Package Delivery Tracker");//change string input later
-        appFrame.setBackground(Color.WHITE);
-        appFrame.setSize(screenSize);
+        appFrame.setSize((int) xSize, (int) ySize);
         appFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        //set up panels
-        setWelcomePanel();
-        setMainPanel();
+        //set up components
+        startBtn = new CustomComponentFactory.RoundButton("Click to start", 10, Color.CYAN);//change inner later
+        startBtn.setActionCommand("START");
+        startBtn.setAlignmentX(Component.CENTER_ALIGNMENT);
+        startBtn.addActionListener(this);
+        appPanel.add(startBtn);
+
+        System.out.println("JButton width: "+startBtn.getWidth());
 
         //complete frame setup
-        appFrame.setContentPane(welcomePanel);
+        appFrame.setContentPane(appPanel);
         appFrame.setVisible(true);
 
     }
 
-    private void setUpColors() {
-        darkTeal = new Color(0, 109, 119);
-        midTeal = new Color(131, 197, 190);
-        lightTeal = new Color(237, 246, 249);
-        lightBrown = new Color(255, 221, 210);
-        darkBrown = new Color(226, 149, 120);
-        ashRed = new Color(233, 90, 90);
-        sageGreen = new Color(164, 226, 142);
-    }
-
-    private void setMainPanel() {
-        mainPanel = new JPanel();
-        mainPanel.setPreferredSize(screenSize);
-        mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.X_AXIS));
-    }
-
-    private void setWelcomePanel() {
-        welcomePanel = new JPanel();
-        welcomePanel.setPreferredSize(screenSize);
-        welcomePanel.setLayout(new BoxLayout(welcomePanel, BoxLayout.X_AXIS));
-
-        //Components
-        JButton startBtn = new JButton("ENTER");//change inner later
-        startBtn.setActionCommand("START");
-        startBtn.setAlignmentX(Component.CENTER_ALIGNMENT);
-        startBtn.addActionListener(this);
-        welcomePanel.add(startBtn);
-    }
-
     @Override
     public void actionPerformed(ActionEvent e) {
-
-        //invoked only when start screen is in
-        if (e.getActionCommand().equals("START")) {
+        if(e.getActionCommand().equals("START")){
             System.out.println("Start was pressed");
-            updateScreenDisplay(SCREEN_STATE.MAIN_SCREEN);
-        }
-
-        //home screen
-
-    }
-
-    private void updateScreenDisplay(SCREEN_STATE newState) {
-        switch (newState) {
-            case MAIN_SCREEN -> {
-                appFrame.remove(welcomePanel);
-                appFrame.setContentPane(mainPanel);
-                appFrame.repaint();
-            }
-            case ADD_PACKAGE -> {
-                System.out.println("ADD PACKAGE");
-            }
-            case REMOVE_PACKAGE -> {
-                System.out.println("REMOVE PACKAGE");
-            }
-            case LIST_OVERDUE -> {
-                System.out.println("LIST OVERDUE PACKAGES");
-            }
-            case LIST_UPCOMING -> {
-                System.out.println("LIST UPCOMING PACKAGES");
-            }
         }
     }
 
     @Override
     public void itemStateChanged(ItemEvent e) {
 
-    }
-
-    private static enum SCREEN_STATE {
-        WELCOME_SCREEN, MAIN_SCREEN, ADD_PACKAGE, REMOVE_PACKAGE, LIST_OVERDUE, LIST_UPCOMING;
     }
 }
