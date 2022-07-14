@@ -1,6 +1,6 @@
-package cmpt213.assignment3.packagedeliveriestracker;
+package cmpt213.assignment3.packagedeliveriestracker.view;
 
-import cmpt213.assignment3.packagedeliveriestracker.CustomComponentFactory;
+import cmpt213.assignment3.packagedeliveriestracker.view.util.CustomComponentFactory;
 
 import javax.swing.*;
 import java.awt.*;
