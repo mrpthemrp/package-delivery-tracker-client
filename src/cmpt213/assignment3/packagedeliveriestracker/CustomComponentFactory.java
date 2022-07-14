@@ -1,4 +1,4 @@
-package cmpt213.assignment3.packagedeliveriestracker.view;
+package cmpt213.assignment3.packagedeliveriestracker;
 
 import javax.swing.*;
 import javax.swing.border.Border;
