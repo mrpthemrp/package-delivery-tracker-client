@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Add enum">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/CustomComponentFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/CustomComponentFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/MainApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/PackageDeliveryGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/PackageDeliveryGUI.java" afterDir="false" />
-    </list>
+    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Add CustomComponentFactory for custom JComponents" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -83,13 +78,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1652723361815</updated>
-    </task>
-    <task id="LOCAL-00050" summary="Finish JavaDoc in TextMenu">
-      <created>1654287314907</created>
-      <option name="number" value="00050" />
-      <option name="presentableId" value="LOCAL-00050" />
-      <option name="project" value="LOCAL" />
-      <updated>1654287314907</updated>
     </task>
     <task id="LOCAL-00051" summary="Reorder methods in TextMenu">
       <created>1654288356700</created>
@@ -427,7 +415,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657402459663</updated>
     </task>
-    <option name="localTasksCounter" value="99" />
+    <task id="LOCAL-00099" summary="Add CustomComponentFactory for custom JComponents">
+      <created>1657765832803</created>
+      <option name="number" value="00099" />
+      <option name="presentableId" value="LOCAL-00099" />
+      <option name="project" value="LOCAL" />
+      <updated>1657765832803</updated>
+    </task>
+    <option name="localTasksCounter" value="100" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -466,9 +461,9 @@
     <MESSAGE value="JFrame template set up in MainApp" />
     <MESSAGE value="Add JPanel in MainApp" />
     <MESSAGE value="Work on button in MainApp" />
-    <MESSAGE value="Add CustomComponentFactory for custom JComponents" />
     <MESSAGE value="Add enum" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add enum" />
+    <MESSAGE value="Add CustomComponentFactory for custom JComponents" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add CustomComponentFactory for custom JComponents" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
