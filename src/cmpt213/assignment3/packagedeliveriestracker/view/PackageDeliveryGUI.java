@@ -1,4 +1,4 @@
-package cmpt213.assignment3.packagedeliveriestracker;
+package cmpt213.assignment3.packagedeliveriestracker.view;
 
 import cmpt213.assignment3.packagedeliveriestracker.view.util.CustomComponentFactory;
 
@@ -13,7 +13,7 @@ public class PackageDeliveryGUI implements ActionListener, ItemListener {
 
 
     //Components
-    private CustomComponentFactory.RoundButton startBtn;
+    private JButton startBtn;
 
 
     //Containers
@@ -33,7 +33,7 @@ public class PackageDeliveryGUI implements ActionListener, ItemListener {
         appFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         //set up components
-        startBtn = new CustomComponentFactory.RoundButton("Click to start", 10, Color.CYAN);//change inner later
+        startBtn = new JButton("Click to start");//change inner later
         startBtn.setActionCommand("START");
         startBtn.setAlignmentX(Component.CENTER_ALIGNMENT);
         startBtn.addActionListener(this);
