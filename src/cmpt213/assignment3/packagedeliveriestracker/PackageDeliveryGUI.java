@@ -1,4 +1,4 @@
-package cmpt213.assignment3.packagedeliveriestracker.view;
+package cmpt213.assignment3.packagedeliveriestracker;
 
 import cmpt213.assignment3.packagedeliveriestracker.view.util.CustomComponentFactory;
 
