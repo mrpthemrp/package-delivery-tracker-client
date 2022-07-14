@@ -18,8 +18,8 @@ public class PackageDeliveryGUI implements ActionListener, ItemListener {
 
     //Containers
     private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-    private double xSize = (screenSize.getWidth() / 2);
-    private double ySize = (screenSize.getHeight() / 2);
+    private double xSize = (screenSize.getWidth() *0.75 );
+    private double ySize = (screenSize.getHeight() * 0.75);
     private JFrame appFrame;
     private JPanel appPanel;
 
