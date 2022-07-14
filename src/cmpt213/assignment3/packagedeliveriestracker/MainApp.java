@@ -1,5 +1,7 @@
 package cmpt213.assignment3.packagedeliveriestracker;
 
+import cmpt213.assignment3.packagedeliveriestracker.view.PackageDeliveryGUI;
+
 import javax.swing.*;
 
 public class MainApp {
