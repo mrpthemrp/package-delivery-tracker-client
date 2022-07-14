@@ -1,0 +1,50 @@
+Index: src/cmpt213/assignment3/packagedeliveriestracker/MainApp.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package cmpt213.assignment3.packagedeliveriestracker;\r\n\r\nimport cmpt213.assignment3.packagedeliveriestracker.view.PackageDeliveryGUI;\r\n\r\nimport javax.swing.*;\r\n\r\npublic class MainApp {\r\n    public static void main(String[] args) {\r\n        SwingUtilities.invokeLater(() -> new PackageDeliveryGUI());\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/cmpt213/assignment3/packagedeliveriestracker/MainApp.java b/src/cmpt213/assignment3/packagedeliveriestracker/MainApp.java
+--- a/src/cmpt213/assignment3/packagedeliveriestracker/MainApp.java	(revision a879ecb2f6b6a23637fde3dd8b322dbecf0a17e3)
++++ b/src/cmpt213/assignment3/packagedeliveriestracker/MainApp.java	(date 1657764515835)
+@@ -1,7 +1,5 @@
+ package cmpt213.assignment3.packagedeliveriestracker;
+ 
+-import cmpt213.assignment3.packagedeliveriestracker.view.PackageDeliveryGUI;
+-
+ import javax.swing.*;
+ 
+ public class MainApp {
+Index: src/cmpt213/assignment3/packagedeliveriestracker/view/CustomComponentFactory.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/cmpt213/assignment3/packagedeliveriestracker/view/CustomComponentFactory.java b/src/cmpt213/assignment3/packagedeliveriestracker/CustomComponentFactory.java
+rename from src/cmpt213/assignment3/packagedeliveriestracker/view/CustomComponentFactory.java
+rename to src/cmpt213/assignment3/packagedeliveriestracker/CustomComponentFactory.java
+--- a/src/cmpt213/assignment3/packagedeliveriestracker/view/CustomComponentFactory.java	(revision a879ecb2f6b6a23637fde3dd8b322dbecf0a17e3)
++++ b/src/cmpt213/assignment3/packagedeliveriestracker/CustomComponentFactory.java	(date 1657764515850)
+@@ -1,4 +1,4 @@
+-package cmpt213.assignment3.packagedeliveriestracker.view;
++package cmpt213.assignment3.packagedeliveriestracker;
+ 
+ import javax.swing.*;
+ import javax.swing.border.Border;
+Index: src/cmpt213/assignment3/packagedeliveriestracker/view/PackageDeliveryGUI.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/cmpt213/assignment3/packagedeliveriestracker/view/PackageDeliveryGUI.java b/src/cmpt213/assignment3/packagedeliveriestracker/PackageDeliveryGUI.java
+rename from src/cmpt213/assignment3/packagedeliveriestracker/view/PackageDeliveryGUI.java
+rename to src/cmpt213/assignment3/packagedeliveriestracker/PackageDeliveryGUI.java
+--- a/src/cmpt213/assignment3/packagedeliveriestracker/view/PackageDeliveryGUI.java	(revision a879ecb2f6b6a23637fde3dd8b322dbecf0a17e3)
++++ b/src/cmpt213/assignment3/packagedeliveriestracker/PackageDeliveryGUI.java	(date 1657764515819)
+@@ -1,4 +1,4 @@
+-package cmpt213.assignment3.packagedeliveriestracker.view;
++package cmpt213.assignment3.packagedeliveriestracker;
+ 
+ import javax.swing.*;
+ import java.awt.*;
