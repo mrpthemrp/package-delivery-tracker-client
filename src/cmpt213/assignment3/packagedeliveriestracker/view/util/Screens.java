@@ -37,9 +37,11 @@ public class Screens extends JPanel {
 
     private void createClock() {
         //set font
+//        this.clock.setFont(Util.clockFont);
         //set other things
         this.clock.setPreferredSize(new Dimension((int) (Util.screenSize.getWidth() * 0.15),
                 (int) (Util.screenSize.getHeight() * 0.25)));
+        this.clock.setBackground(Color.WHITE);
     }
 
     private void createStartPanel(ActionListener al) {

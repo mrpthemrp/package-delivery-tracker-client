@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 
-public class PackageDeliveryGUI implements ActionListener, ItemListener {
+public class PackageDeliveryGUI extends JFrame implements ActionListener, ItemListener {
 
     //STATES - to be moved?
     public enum SCREEN_STATE {
@@ -21,22 +21,21 @@ public class PackageDeliveryGUI implements ActionListener, ItemListener {
 
     private final Screens screen;
 
-    private final JFrame appFrame;
-
     public PackageDeliveryGUI() {
         currentState = SCREEN_STATE.START;
         screen = new Screens(this);
 
         //set up frame
-        appFrame = new JFrame("Package Delivery Tracker");//change string input later
+        this.setTitle("Package Delivery Tracker");//change string input later
         //Containers
-        appFrame.setSize((int) (Util.screenSize.getWidth() * 0.75), (int) (Util.screenSize.getHeight() * 0.75));
-        appFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setSize((int) (Util.screenSize.getWidth() * 0.75), (int) (Util.screenSize.getHeight() * 0.75));
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         //complete frame setup
-        appFrame.setContentPane(screen);
-        appFrame.setVisible(true);
+        this.setContentPane(screen);
+        this.setVisible(true);
     }
+
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -62,13 +61,13 @@ public class PackageDeliveryGUI implements ActionListener, ItemListener {
             case START -> {
                 screen.switchToMainScreen();
                 currentState = SCREEN_STATE.MAIN;
-                appFrame.setTitle("Package Delivery Tracker - Main");
-                appFrame.repaint();
+                this.setTitle("Package Delivery Tracker - Main");
+                this.repaint();
             }
             case MAIN -> {
                 System.out.println("in main");
             }
-            default -> appFrame.repaint();
+            default -> this.repaint();
         }
     }
 

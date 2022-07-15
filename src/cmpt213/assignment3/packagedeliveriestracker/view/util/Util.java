@@ -15,6 +15,8 @@ public final class Util {
     public static Color darkBrown = new Color(226,149,120);
     public static DateTimeFormatter clockFormat = DateTimeFormatter.ofPattern("HH:mm:ss a");
 
+    public static Font clockFont = new Font(Font.SANS_SERIF, Font.BOLD, (int) (0.9 * screenSize.getWidth()));
+
     public Font title, paragraph, subTitle, tinyText, numbers, date;
     private  Font boldRoboto, mediumRoboto, regularRoboto, italicRoboto;
 
