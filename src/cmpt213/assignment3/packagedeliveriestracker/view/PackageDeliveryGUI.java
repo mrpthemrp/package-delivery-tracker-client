@@ -4,6 +4,7 @@ import cmpt213.assignment3.packagedeliveriestracker.view.util.Screens;
 import cmpt213.assignment3.packagedeliveriestracker.view.util.Util;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
@@ -27,7 +28,7 @@ public class PackageDeliveryGUI extends JFrame implements ActionListener, ItemLi
         //set up frame
         this.setTitle("Package Delivery Tracker");//change string input later
         //Containers
-        this.setSize((int) (Util.screenSize.getWidth() * 0.75), (int) (Util.screenSize.getHeight() * 0.75));
+        this.setSize((int) (Util.screenWidth * 0.75), (int) (Util.screenHeight * 0.75));
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         //complete frame setup
@@ -35,6 +36,20 @@ public class PackageDeliveryGUI extends JFrame implements ActionListener, ItemLi
         this.setVisible(true);
     }
 
+    @Override
+    public void paint(Graphics g){
+        super.paint(g);
+
+        //draw line
+        if(currentState != SCREEN_STATE.START){
+            Graphics2D g2 = (Graphics2D) g;
+
+            g2.setColor(Util.midTeal);
+            g2.fillRoundRect((int)(Util.screenWidth * 0.30),(int)(Util.screenHeight * 0.11),
+                    4, (int) (Util.screenHeight * 0.55),3,3);
+        }
+
+    }
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getActionCommand().equals("SCREEN BUTTON")){
