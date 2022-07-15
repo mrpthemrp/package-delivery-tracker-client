@@ -19,7 +19,7 @@ public class Screens extends JPanel {
 
     public Screens(ActionListener al) {
 
-        this.btn = new RoundButton("E N T E R", "SCREEN BUTTON", al, Util.lightBrown, Util.darkBrown);
+        this.btn = new RoundButton("E N T E R", "SCREEN BUTTON", al, Util.lightTeal, Util.midTeal);
         this.title = new JLabel();
         this.subtitle = new JLabel();
         this.clock = new JLabel("", SwingConstants.CENTER);
@@ -30,6 +30,7 @@ public class Screens extends JPanel {
 
     public void switchToMainScreen() {
         this.btn.changeBtnText("A D D   P A C K A G E");
+        this.btn.changeColours(Util.lightBrown,Util.darkBrown);
         this.title.setText("today is");
         this.subtitle.setText("subtitle");
 
@@ -74,6 +75,7 @@ public class Screens extends JPanel {
     }
 
     private void createStartPanel() {
+        this.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
 
         //start button
         this.btn.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -82,15 +84,18 @@ public class Screens extends JPanel {
         this.title.setText("P A C K A G E   D E L I V E R Y   T R A C K E R");
         this.subtitle.setText("Click enter to start.");
         this.title.setFont(Util.titleFont);
-        this.title.setForeground(Color.GRAY);
+        this.title.setForeground(Color.BLACK);
         this.subtitle.setFont(Util.subTitleFont);
         this.title.setAlignmentX(Component.CENTER_ALIGNMENT);
         this.subtitle.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         //background stuff
-        this.add(btn);
+        this.add(Box.createRigidArea(new Dimension(0, (int) (Util.screenHeight*0.15))));
         this.add(title);
+        this.add(Box.createRigidArea(new Dimension(0, (int) (Util.screenHeight*0.04))));
         this.add(subtitle);
+        this.add(Box.createRigidArea(new Dimension(0,(int) (Util.screenHeight*0.04))));
+        this.add(btn);
         this.setBackground(Color.WHITE);
     }
 }
