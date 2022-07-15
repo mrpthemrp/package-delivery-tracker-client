@@ -1,5 +1,6 @@
 package cmpt213.assignment3.packagedeliveriestracker.view.util;
 
+import javax.swing.*;
 import java.awt.*;
 import java.time.format.DateTimeFormatter;
 
@@ -26,8 +27,7 @@ public final class Util {
     public static Font mainScreenDateFont = new Font(Font.SANS_SERIF, Font.BOLD, (int) (20 * (Util.screenSize.getWidth() * 0.0008)));
     public static Font btnTextFont = new Font(Font.SANS_SERIF, Font.BOLD, (int) (14 * (Util.screenSize.getWidth() * 0.0013)));
 
-    public static Font titleFont = new Font(Font.SANS_SERIF, Font.BOLD, (int) (15 * (Util.screenSize.getWidth() * 0.001)));
-    public static Font subTitleFont = new Font(Font.MONOSPACED, Font.BOLD, (int) (12 * (Util.screenSize.getWidth() * 0.001)));
+    public static Font titleFont = new Font(Font.SANS_SERIF, Font.BOLD, (int) (18 * (Util.screenSize.getWidth() * 0.001)));
+    public static Font subTitleFont = new Font(Font.SANS_SERIF, Font.PLAIN, (int) (12 * (Util.screenSize.getWidth() * 0.001)));
     public static Font bodyFont = new Font(Font.SANS_SERIF, Font.PLAIN, (int) (10 * (Util.screenSize.getWidth() * 0.001)));
-
 }

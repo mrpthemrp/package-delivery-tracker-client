@@ -35,6 +35,10 @@ public class Screens extends JPanel {
         this.subtitle.setText("subtitle");
 
         createTimeAndDate();
+        this.removeAll();
+        this.add(title);
+        this.add(subtitle);
+        this.add(btn);
         this.add(clock);
         this.add(currentDay);
 
@@ -90,11 +94,11 @@ public class Screens extends JPanel {
         this.subtitle.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         //background stuff
-        this.add(Box.createRigidArea(new Dimension(0, (int) (Util.screenHeight*0.15))));
+        this.add(Box.createRigidArea(new Dimension(0, (int) (Util.screenHeight*0.2))));
         this.add(title);
-        this.add(Box.createRigidArea(new Dimension(0, (int) (Util.screenHeight*0.04))));
+        this.add(Box.createRigidArea(new Dimension(0,(int) (Util.screenHeight*0.06))));
         this.add(subtitle);
-        this.add(Box.createRigidArea(new Dimension(0,(int) (Util.screenHeight*0.04))));
+        this.add(Box.createRigidArea(new Dimension(0,(int) (Util.screenHeight*0.06))));
         this.add(btn);
         this.setBackground(Color.WHITE);
     }
