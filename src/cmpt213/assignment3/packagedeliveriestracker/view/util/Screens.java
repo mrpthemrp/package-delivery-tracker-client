@@ -25,7 +25,7 @@ public class Screens extends JPanel {
         this.clock = new JLabel("", SwingConstants.CENTER);
         this.currentDay = new JLabel("", SwingConstants.CENTER);
 
-        createStartPanel(al);
+        createStartPanel();
     }
 
     public void switchToMainScreen() {
@@ -73,10 +73,10 @@ public class Screens extends JPanel {
         this.currentDay.setFont(Util.mainScreenDateFont);
     }
 
-    private void createStartPanel(ActionListener al) {
+    private void createStartPanel() {
 
         //start button
-        this.btn.setAlignmentX(JButton.BOTTOM);
+        this.btn.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         //text fields
         this.title.setText("P A C K A G E   D E L I V E R Y   T R A C K E R");
