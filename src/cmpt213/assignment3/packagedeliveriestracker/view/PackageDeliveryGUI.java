@@ -1,7 +1,6 @@
 package cmpt213.assignment3.packagedeliveriestracker.view;
 
 import cmpt213.assignment3.packagedeliveriestracker.view.util.Screens;
-import cmpt213.assignment3.packagedeliveriestracker.view.util.Util;
 
 import javax.swing.*;
 import java.awt.*;
@@ -14,58 +13,29 @@ public class PackageDeliveryGUI implements ActionListener, ItemListener {
 
     //STATES - to be moved?
     public enum SCREEN_STATE {
-        START, MAIN, ADD_PACKAGE, UPCOMING, OVERDUE;
+        START, MAIN, ADD_PACKAGE, UPCOMING, OVERDUE
     }
 
     private SCREEN_STATE currentState;
-    private Util util;
 
-    //Components
-    private JButton startBtn;
+    private final Screens screen;
 
-    private Screens screen;
-
-
-    //Containers
-    private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-    private double xSize = (screenSize.getWidth() *0.75 );
-    private double ySize = (screenSize.getHeight() * 0.75);
-    private JFrame appFrame;
+    private final JFrame appFrame;
 
     public PackageDeliveryGUI() {
-        this.util = new Util();
         currentState = SCREEN_STATE.START;
         screen = new Screens(this);
-        //set up buttons
-        setUpButtons();
-
-        setUpStartPanel();
 
         //set up frame
         appFrame = new JFrame("Package Delivery Tracker");//change string input later
-        appFrame.setSize((int) xSize, (int) ySize);
+        //Containers
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        appFrame.setSize((int) (screenSize.getWidth() * 0.75), (int) (screenSize.getHeight() * 0.75));
         appFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         //complete frame setup
         appFrame.setContentPane(screen);
         appFrame.setVisible(true);
-    }
-
-    private void setUpMainPanel() {
-    }
-
-    private void setUpStartPanel() {
-        //buttons
-
-        //text
-
-    }
-
-    private void setUpButtons() {
-
-        //add package button
-
-
     }
 
     @Override
@@ -87,11 +57,9 @@ public class PackageDeliveryGUI implements ActionListener, ItemListener {
         switch (currentState){
             case START -> {
                 screen.switchToMainScreen();
-                setUpMainPanel();
                 currentState = SCREEN_STATE.MAIN;
                 appFrame.setTitle("Package Delivery Tracker - Main");
                 appFrame.repaint();
-                break;
             }
             case MAIN -> {
                 System.out.println("in main");

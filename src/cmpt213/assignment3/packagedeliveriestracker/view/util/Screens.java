@@ -5,14 +5,11 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 
 public class Screens extends JPanel{
-
-    private Util util;
     private JButton btn;
     private JTextField title;
 
 
     public Screens(ActionListener al){
-        util = new Util();
 
         this.btn = new JButton();
         this.title = new JTextField();
@@ -22,7 +19,7 @@ public class Screens extends JPanel{
     }
 
     public void switchToMainScreen(){
-        this.setBackground(util.darkBrown);
+        this.setBackground(Util.darkBrown);
         this.btn.setText("ADD PACKAGE");
         this.title.setText("today is");
     }
@@ -34,7 +31,7 @@ public class Screens extends JPanel{
         this.btn.setActionCommand("SCREEN BUTTON");
         this.btn.setAlignmentX(Component.CENTER_ALIGNMENT);
         this.btn.addActionListener(al);
-        this.btn.setBackground(util.lightBrown);
+        this.btn.setBackground(Util.lightBrown);
 
         //text fields
         this.title = new JTextField("TITLE");

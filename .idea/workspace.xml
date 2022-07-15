@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Move JPanels to Screens.java">
+    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="JPanels handle by Screens">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/PackageDeliveryGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/PackageDeliveryGUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/util/Screens.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/util/Screens.java" afterDir="false" />
@@ -83,13 +83,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1652723361815</updated>
-    </task>
-    <task id="LOCAL-00053" summary="JavaDoc generated">
-      <created>1654288745337</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1654288745337</updated>
     </task>
     <task id="LOCAL-00054" summary="JavaDoc">
       <created>1654289040865</created>
@@ -427,7 +420,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657865760808</updated>
     </task>
-    <option name="localTasksCounter" value="102" />
+    <task id="LOCAL-00102" summary="JPanels handle by Screens">
+      <created>1657866604458</created>
+      <option name="number" value="00102" />
+      <option name="presentableId" value="LOCAL-00102" />
+      <option name="project" value="LOCAL" />
+      <updated>1657866604458</updated>
+    </task>
+    <option name="localTasksCounter" value="103" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -443,7 +443,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Figure out error" />
     <MESSAGE value="?" />
     <MESSAGE value="Fix type error" />
     <MESSAGE value="File saves and loads properly" />
@@ -468,7 +467,8 @@
     <MESSAGE value="Add CustomComponentFactory for custom JComponents" />
     <MESSAGE value="Add Util class, rename Button class, add back startPanel" />
     <MESSAGE value="Move JPanels to Screens.java" />
-    <option name="LAST_COMMIT_MESSAGE" value="Move JPanels to Screens.java" />
+    <MESSAGE value="JPanels handle by Screens" />
+    <option name="LAST_COMMIT_MESSAGE" value="JPanels handle by Screens" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
