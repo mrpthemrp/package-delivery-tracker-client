@@ -24,7 +24,7 @@ public class Screens extends JPanel{
         this.title.setText("today is");
     }
 
-    private JPanel createStartPanel(ActionListener al) {
+    private void createStartPanel(ActionListener al) {
 
         //start button
         this.btn.setText("ENTER");
@@ -41,6 +41,5 @@ public class Screens extends JPanel{
         this.add(btn);
         this.add(title);
         this.setBackground(Color.WHITE);
-        return new JPanel();
     }
 }
