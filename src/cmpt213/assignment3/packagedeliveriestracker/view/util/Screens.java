@@ -4,16 +4,18 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 
+//clock reference : https://www.tutorialsbuddy.com/create-a-digital-clock-in-java
+
 public class Screens extends JPanel{
     private JButton btn;
     private JTextField title;
-
+    private JLabel clock;
 
     public Screens(ActionListener al){
 
         this.btn = new JButton();
         this.title = new JTextField();
-        this.title.setEditable(false);
+        this.clock = new JLabel("",SwingConstants.CENTER);
 
         createStartPanel(al);
     }
@@ -24,6 +26,10 @@ public class Screens extends JPanel{
         this.title.setText("today is");
     }
 
+    private void createClock(){
+        this.clock.setPreferredSize(new Dimension());
+    }
+
     private void createStartPanel(ActionListener al) {
 
         //start button
@@ -31,11 +37,13 @@ public class Screens extends JPanel{
         this.btn.setActionCommand("SCREEN BUTTON");
         this.btn.setAlignmentX(Component.CENTER_ALIGNMENT);
         this.btn.addActionListener(al);
+        this.btn.setFocusPainted(false);
         this.btn.setBackground(Util.lightBrown);
 
         //text fields
         this.title = new JTextField("TITLE");
         this.title.setAlignmentX(Component.CENTER_ALIGNMENT);
+        this.title.setEditable(false);
 
         //background stuff
         this.add(btn);

@@ -4,6 +4,9 @@ import java.awt.*;
 
 public final class Util {
 
+
+    public static Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+
     public static Color darkTeal = new Color(0,109,119);
     public static Color midTeal = new Color(131,197,190);
     public static Color lightTeal = new Color(237,246,249);

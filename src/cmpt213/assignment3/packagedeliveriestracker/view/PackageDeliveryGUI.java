@@ -1,6 +1,7 @@
 package cmpt213.assignment3.packagedeliveriestracker.view;
 
 import cmpt213.assignment3.packagedeliveriestracker.view.util.Screens;
+import cmpt213.assignment3.packagedeliveriestracker.view.util.Util;
 
 import javax.swing.*;
 import java.awt.*;
@@ -29,8 +30,7 @@ public class PackageDeliveryGUI implements ActionListener, ItemListener {
         //set up frame
         appFrame = new JFrame("Package Delivery Tracker");//change string input later
         //Containers
-        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-        appFrame.setSize((int) (screenSize.getWidth() * 0.75), (int) (screenSize.getHeight() * 0.75));
+        appFrame.setSize((int) (Util.screenSize.getWidth() * 0.75), (int) (Util.screenSize.getHeight() * 0.75));
         appFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         //complete frame setup
