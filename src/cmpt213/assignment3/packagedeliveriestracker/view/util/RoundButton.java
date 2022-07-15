@@ -1,42 +1,65 @@
 package cmpt213.assignment3.packagedeliveriestracker.view.util;
 
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
+import java.awt.event.ActionListener;
 
-public class RoundButton extends JButton implements Border {
-    private int radius;
-    private String btnText;
-    private Color btnColor;
+// reference: https://www.javacodex.com/More-Examples/2/14
+public class RoundButton extends JButton {
+    private Dimension buttonDimension;
+    private String label, btnText;
+    private Color btnColor, btnColorDark;
 
-    public RoundButton(String btnText, int roundRadius, Color buttonCol) {
-        this.radius = radius;
+    public RoundButton(String btnText, String label, ActionListener al, Color btnColor, Color btnColorDark) {
+        this.label = label;
         this.btnText = btnText;
         this.btnColor = btnColor;
+        this.btnColorDark = btnColorDark;
 
-        initializeBtn();
+        setActionCommand(label);
+        setBackground(btnColor);
+        setText(btnText);
+        setFont(Util.btnTextFont);
+        setContentAreaFilled(false);
+        setFocusPainted(false);
+        addActionListener(al);
+        setBorderPainted(false);
     }
 
-    private void initializeBtn() {
-
-        this.setBackground(this.btnColor);
-        this.setBorder(this);
-        this.setFocusPainted(false);//the weird box around the text
-    }
-
-    @Override
-    public void paintBorder(Component c, Graphics g, int x, int y, int width, int height) {
-        g.fillRoundRect(x, y, width - 1, height - 1, radius, radius);
-
-    }
-
-    @Override
-    public Insets getBorderInsets(Component c) {
-        return new Insets(this.radius + 1, this.radius + 1, this.radius + 2, this.radius);
+    private void setUpDimensions(Graphics g) {
+        buttonDimension = new Dimension((int)(g.getFontMetrics().stringWidth(this.btnText)*1.4),
+                (int)(Util.screenHeight * 0.05));
+        setPreferredSize(buttonDimension);
     }
 
     @Override
-    public boolean isBorderOpaque() {
-        return false;
+    protected void paintBorder(Graphics g) {
+        g.setColor(btnColor);
+        g.drawRoundRect(0,0,getWidth(),getHeight(),6,6);
     }
+
+    @Override
+    public void paint(Graphics g) {
+        setUpDimensions(g);
+        super.paint(g);
+    }
+
+    @Override
+    protected void paintComponent(Graphics g) {
+        //button is pressed
+        if( getModel().isRollover() | getModel().isPressed()){
+            setBackground(btnColorDark);
+            setForeground(Color.WHITE);
+        } else{
+            setBackground(btnColor);
+            setForeground(Color.BLACK);
+        }
+        super.paintComponent(g);
+    }
+
+    public void changeBtnText(String newText){
+        setText(newText);
+        this.btnText = newText;
+    }
+
 }

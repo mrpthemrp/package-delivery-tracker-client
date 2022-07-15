@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 
 public class Screens extends JPanel {
     private LocalDate today;
-    private final JButton btn;
+    private final RoundButton btn;
     private final JLabel title;
     private final JLabel subtitle;
     private final JLabel clock;
@@ -19,7 +19,7 @@ public class Screens extends JPanel {
 
     public Screens(ActionListener al) {
 
-        this.btn = new JButton();
+        this.btn = new RoundButton("E N T E R", "SCREEN BUTTON", al, Util.lightBrown, Util.darkBrown);
         this.title = new JLabel();
         this.subtitle = new JLabel();
         this.clock = new JLabel("", SwingConstants.CENTER);
@@ -29,7 +29,7 @@ public class Screens extends JPanel {
     }
 
     public void switchToMainScreen() {
-        this.btn.setText("A D D   P A C K A G E");
+        this.btn.changeBtnText("A D D   P A C K A G E");
         this.title.setText("today is");
         this.subtitle.setText("subtitle");
 
@@ -76,14 +76,7 @@ public class Screens extends JPanel {
     private void createStartPanel(ActionListener al) {
 
         //start button
-        this.btn.setText("E N T E R");
-        this.btn.setActionCommand("SCREEN BUTTON");
-        this.btn.setAlignmentX(Component.CENTER_ALIGNMENT);
-        this.btn.setFocusPainted(false);
-        this.btn.addActionListener(al);
-        this.btn.setFont(Util.btnTextFont);
-        this.btn.setBorderPainted(false);
-        this.btn.setBackground(Util.lightBrown);
+        this.btn.setAlignmentX(JButton.BOTTOM);
 
         //text fields
         this.title.setText("P A C K A G E   D E L I V E R Y   T R A C K E R");
