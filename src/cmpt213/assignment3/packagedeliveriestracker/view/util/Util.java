@@ -5,7 +5,9 @@ import java.awt.*;
 public class Util {
 
     public Color darkTeal, midTeal, lightTeal, lightBrown, darkBrown;
-    public  Font boldRoboto, mediumRoboto, regularRoboto, italicRoboto;
+    public Font title, paragraph, subTitle, tinyText, numbers, date;
+    private  Font boldRoboto, mediumRoboto, regularRoboto, italicRoboto;
+
 
     public Util(){
         setUpColours();

@@ -14,7 +14,7 @@ public class PackageDeliveryGUI implements ActionListener, ItemListener {
 
     //STATES - to be moved?
     public enum SCREEN_STATE {
-        START, HOME, ADD_PACKAGE, UPCOMING, OVERDUE;
+        START, MAIN, ADD_PACKAGE, UPCOMING, OVERDUE;
     }
 
     private SCREEN_STATE currentState;
@@ -42,13 +42,12 @@ public class PackageDeliveryGUI implements ActionListener, ItemListener {
         setUpStartPanel();
 
         //set up frame
-        appFrame = new JFrame("Package Delivery Tracker - ");//change string input later
+        appFrame = new JFrame("Package Delivery Tracker");//change string input later
         appFrame.setSize((int) xSize, (int) ySize);
         appFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         //complete frame setup
         appFrame.setContentPane(screen);
-        appFrame.setUndecorated(true);
         appFrame.setVisible(true);
     }
 
@@ -72,10 +71,13 @@ public class PackageDeliveryGUI implements ActionListener, ItemListener {
     @Override
     public void actionPerformed(ActionEvent e) {
 
-        if(e.getActionCommand().equals("START")){
-            System.out.println("Start was pressed");
+        if(e.getActionCommand().equals("SCREEN BUTTON")){
+            if(currentState == SCREEN_STATE.START){
+                System.out.println("Start was pressed");
+            } else{
+                System.out.println("add button pressed");
+            }
         }
-
         updateGUI();
 
     }
@@ -84,11 +86,15 @@ public class PackageDeliveryGUI implements ActionListener, ItemListener {
 
         switch (currentState){
             case START -> {
-                screen.switchScreen();
+                screen.switchToMainScreen();
                 setUpMainPanel();
-                currentState = SCREEN_STATE.HOME;
+                currentState = SCREEN_STATE.MAIN;
+                appFrame.setTitle("Package Delivery Tracker - Main");
                 appFrame.repaint();
                 break;
+            }
+            case MAIN -> {
+                System.out.println("in main");
             }
             default -> appFrame.repaint();
         }
