@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Screens implement halfway">
+    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Move screen dimension to Util">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/PackageDeliveryGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/PackageDeliveryGUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/util/Screens.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/util/Screens.java" afterDir="false" />
@@ -83,13 +83,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1652723361815</updated>
-    </task>
-    <task id="LOCAL-00056" summary="Add docs folder with necessary files">
-      <created>1654874611872</created>
-      <option name="number" value="00056" />
-      <option name="presentableId" value="LOCAL-00056" />
-      <option name="project" value="LOCAL" />
-      <updated>1654874611872</updated>
     </task>
     <task id="LOCAL-00057" summary="Add docs folder with necessary files">
       <created>1654874621947</created>
@@ -427,7 +420,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657866967071</updated>
     </task>
-    <option name="localTasksCounter" value="105" />
+    <task id="LOCAL-00105" summary="Move screen dimension to Util">
+      <created>1657867438739</created>
+      <option name="number" value="00105" />
+      <option name="presentableId" value="LOCAL-00105" />
+      <option name="project" value="LOCAL" />
+      <updated>1657867438739</updated>
+    </task>
+    <option name="localTasksCounter" value="106" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -443,7 +443,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="File saves and loads properly" />
     <MESSAGE value="Clean I/O of main class" />
     <MESSAGE value="Start useCases.txt" />
     <MESSAGE value="Add CRC image" />
@@ -468,7 +467,8 @@
     <MESSAGE value="JPanels handle by Screens" />
     <MESSAGE value="Colors in Util is static access" />
     <MESSAGE value="Screens implement halfway" />
-    <option name="LAST_COMMIT_MESSAGE" value="Screens implement halfway" />
+    <MESSAGE value="Move screen dimension to Util" />
+    <option name="LAST_COMMIT_MESSAGE" value="Move screen dimension to Util" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

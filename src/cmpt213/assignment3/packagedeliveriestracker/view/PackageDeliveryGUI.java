@@ -40,6 +40,10 @@ public class PackageDeliveryGUI implements ActionListener, ItemListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        if(currentState!= SCREEN_STATE.START){
+            //update time
+            screen.updateClock();
+        }
 
         if(e.getActionCommand().equals("SCREEN BUTTON")){
             if(currentState == SCREEN_STATE.START){

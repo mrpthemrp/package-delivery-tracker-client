@@ -3,31 +3,43 @@ package cmpt213.assignment3.packagedeliveriestracker.view.util;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.time.LocalDateTime;
 
 //clock reference : https://www.tutorialsbuddy.com/create-a-digital-clock-in-java
 
-public class Screens extends JPanel{
+public class Screens extends JPanel {
     private JButton btn;
     private JTextField title;
     private JLabel clock;
 
-    public Screens(ActionListener al){
+    public Screens(ActionListener al) {
 
         this.btn = new JButton();
         this.title = new JTextField();
-        this.clock = new JLabel("",SwingConstants.CENTER);
+        this.clock = new JLabel("", SwingConstants.CENTER);
 
         createStartPanel(al);
     }
 
-    public void switchToMainScreen(){
+    public void switchToMainScreen() {
         this.setBackground(Util.darkBrown);
         this.btn.setText("ADD PACKAGE");
         this.title.setText("today is");
+        createClock();
+        this.add(clock);
+    }
+    public void updateClock(){
+        LocalDateTime now = LocalDateTime.now();
+        String formattedDateTime = now.format(Util.clockFormat);
+        formattedDateTime.toUpperCase();
+        clock.setText(formattedDateTime);
     }
 
-    private void createClock(){
-        this.clock.setPreferredSize(new Dimension());
+    private void createClock() {
+        //set font
+        //set other things
+        this.clock.setPreferredSize(new Dimension((int) (Util.screenSize.getWidth() * 0.15),
+                (int) (Util.screenSize.getHeight() * 0.25)));
     }
 
     private void createStartPanel(ActionListener al) {
