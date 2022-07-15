@@ -11,6 +11,7 @@ public class Screens extends JPanel {
     private JButton btn;
     private JTextField title;
     private JLabel clock;
+    private Timer clockTime;
 
     public Screens(ActionListener al) {
 
@@ -27,12 +28,20 @@ public class Screens extends JPanel {
         this.title.setText("today is");
         createClock();
         this.add(clock);
+
+
+        //start time for clock
+        startClock();
     }
-    public void updateClock(){
-        LocalDateTime now = LocalDateTime.now();
-        String formattedDateTime = now.format(Util.clockFormat);
-        formattedDateTime.toUpperCase();
-        clock.setText(formattedDateTime);
+    public void startClock(){
+        clockTime = new Timer(100, al -> {
+            LocalDateTime now = LocalDateTime.now();
+            String formattedDateTime = now.format(Util.clockFormat);
+            clock.setText(formattedDateTime.toUpperCase());
+        });
+
+
+        clockTime.start();
     }
 
     private void createClock() {

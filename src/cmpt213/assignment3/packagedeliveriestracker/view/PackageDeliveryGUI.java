@@ -4,7 +4,6 @@ import cmpt213.assignment3.packagedeliveriestracker.view.util.Screens;
 import cmpt213.assignment3.packagedeliveriestracker.view.util.Util;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
@@ -36,14 +35,8 @@ public class PackageDeliveryGUI extends JFrame implements ActionListener, ItemLi
         this.setVisible(true);
     }
 
-
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(currentState!= SCREEN_STATE.START){
-            //update time
-            screen.updateClock();
-        }
-
         if(e.getActionCommand().equals("SCREEN BUTTON")){
             if(currentState == SCREEN_STATE.START){
                 System.out.println("Start was pressed");

@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Implement clock">
+    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Screens extends JFrame">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/PackageDeliveryGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/PackageDeliveryGUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/util/Screens.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/util/Screens.java" afterDir="false" />
@@ -83,13 +83,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1652723361815</updated>
-    </task>
-    <task id="LOCAL-00058" summary="Refactor gsondata package">
-      <created>1654874959179</created>
-      <option name="number" value="00058" />
-      <option name="presentableId" value="LOCAL-00058" />
-      <option name="project" value="LOCAL" />
-      <updated>1654874959179</updated>
     </task>
     <task id="LOCAL-00059" summary="Remove javadocs fodler contents">
       <created>1655336415029</created>
@@ -427,7 +420,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657867865217</updated>
     </task>
-    <option name="localTasksCounter" value="107" />
+    <task id="LOCAL-00107" summary="Screens extends JFrame">
+      <created>1657868384637</created>
+      <option name="number" value="00107" />
+      <option name="presentableId" value="LOCAL-00107" />
+      <option name="project" value="LOCAL" />
+      <updated>1657868384637</updated>
+    </task>
+    <option name="localTasksCounter" value="108" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -443,7 +443,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Start useCases.txt" />
     <MESSAGE value="Add CRC image" />
     <MESSAGE value="Finish useCases.txt" />
     <MESSAGE value="Finish OODexplained.txt" />
@@ -468,7 +467,8 @@
     <MESSAGE value="Screens implement halfway" />
     <MESSAGE value="Move screen dimension to Util" />
     <MESSAGE value="Implement clock" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implement clock" />
+    <MESSAGE value="Screens extends JFrame" />
+    <option name="LAST_COMMIT_MESSAGE" value="Screens extends JFrame" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

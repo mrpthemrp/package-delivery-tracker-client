@@ -13,7 +13,7 @@ public final class Util {
     public static Color lightTeal = new Color(237,246,249);
     public static Color lightBrown = new Color(255,221,210);
     public static Color darkBrown = new Color(226,149,120);
-    public static DateTimeFormatter clockFormat = DateTimeFormatter.ofPattern("HH:mm:ss a");
+    public static DateTimeFormatter clockFormat = DateTimeFormatter.ofPattern("hh:mm:ss a");
 
     public static Font clockFont = new Font(Font.SANS_SERIF, Font.BOLD, (int) (0.9 * screenSize.getWidth()));
 
