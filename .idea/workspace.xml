@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Implement Round button dimensions">
+    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Fix Round button dimension bug">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/util/RoundButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/util/RoundButton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/util/Screens.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/util/Screens.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,13 +81,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1652723361815</updated>
-    </task>
-    <task id="LOCAL-00067" summary="Add file separator for multiple OS run">
-      <created>1655534171624</created>
-      <option name="number" value="00067" />
-      <option name="presentableId" value="LOCAL-00067" />
-      <option name="project" value="LOCAL" />
-      <updated>1655534171640</updated>
     </task>
     <task id="LOCAL-00068" summary="Extend Comparable interface in Package interface">
       <created>1655769605666</created>
@@ -426,7 +418,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657922779995</updated>
     </task>
-    <option name="localTasksCounter" value="116" />
+    <task id="LOCAL-00116" summary="Fix Round button dimension bug">
+      <created>1657923385613</created>
+      <option name="number" value="00116" />
+      <option name="presentableId" value="LOCAL-00116" />
+      <option name="project" value="LOCAL" />
+      <updated>1657923385613</updated>
+    </task>
+    <option name="localTasksCounter" value="117" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -442,7 +441,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Update docs folder and contents" />
     <MESSAGE value="Add MainApp class" />
     <MESSAGE value="Add PackageDeliveryGUI class and Action/Item Listeners" />
     <MESSAGE value="JFrame template set up in MainApp" />
@@ -467,7 +465,8 @@
     <MESSAGE value="Add more font styles to Util" />
     <MESSAGE value="Implement RoundButton" />
     <MESSAGE value="Implement Round button dimensions" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implement Round button dimensions" />
+    <MESSAGE value="Fix Round button dimension bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix Round button dimension bug" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
