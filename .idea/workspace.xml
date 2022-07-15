@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Update - laptop" />
+    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Implement line via Graphics2D">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/PackageDeliveryGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/PackageDeliveryGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/util/Screens.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/util/Screens.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/util/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/util/Util.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -78,69 +83,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1652723361815</updated>
-    </task>
-    <task id="LOCAL-00052" summary="Fix JavaDoc bug and add Java doc folder">
-      <created>1654288561368</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL-00052" />
-      <option name="project" value="LOCAL" />
-      <updated>1654288561368</updated>
-    </task>
-    <task id="LOCAL-00053" summary="JavaDoc generated">
-      <created>1654288745337</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1654288745337</updated>
-    </task>
-    <task id="LOCAL-00054" summary="JavaDoc">
-      <created>1654289040865</created>
-      <option name="number" value="00054" />
-      <option name="presentableId" value="LOCAL-00054" />
-      <option name="project" value="LOCAL" />
-      <updated>1654289040865</updated>
-    </task>
-    <task id="LOCAL-00055" summary="Delete Json file">
-      <created>1654289127242</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL-00055" />
-      <option name="project" value="LOCAL" />
-      <updated>1654289127242</updated>
-    </task>
-    <task id="LOCAL-00056" summary="Add docs folder with necessary files">
-      <created>1654874611872</created>
-      <option name="number" value="00056" />
-      <option name="presentableId" value="LOCAL-00056" />
-      <option name="project" value="LOCAL" />
-      <updated>1654874611872</updated>
-    </task>
-    <task id="LOCAL-00057" summary="Add docs folder with necessary files">
-      <created>1654874621947</created>
-      <option name="number" value="00057" />
-      <option name="presentableId" value="LOCAL-00057" />
-      <option name="project" value="LOCAL" />
-      <updated>1654874621947</updated>
-    </task>
-    <task id="LOCAL-00058" summary="Refactor gsondata package">
-      <created>1654874959179</created>
-      <option name="number" value="00058" />
-      <option name="presentableId" value="LOCAL-00058" />
-      <option name="project" value="LOCAL" />
-      <updated>1654874959179</updated>
-    </task>
-    <task id="LOCAL-00059" summary="Remove javadocs fodler contents">
-      <created>1655336415029</created>
-      <option name="number" value="00059" />
-      <option name="presentableId" value="LOCAL-00059" />
-      <option name="project" value="LOCAL" />
-      <updated>1655336415029</updated>
-    </task>
-    <task id="LOCAL-00060" summary="Methods in PackageDeliveryTracker are all private except for main">
-      <created>1655336565743</created>
-      <option name="number" value="00060" />
-      <option name="presentableId" value="LOCAL-00060" />
-      <option name="project" value="LOCAL" />
-      <updated>1655336565743</updated>
     </task>
     <task id="LOCAL-00061" summary="Code will break, interface implementation started">
       <created>1655338032531</created>
@@ -415,14 +357,77 @@
       <option name="project" value="LOCAL" />
       <updated>1657765832803</updated>
     </task>
-    <task id="LOCAL-00100" summary="Update - laptop">
-      <created>1657765910497</created>
+    <task id="LOCAL-00100" summary="Add Util class, rename Button class, add back startPanel">
+      <created>1657864399705</created>
       <option name="number" value="00100" />
       <option name="presentableId" value="LOCAL-00100" />
       <option name="project" value="LOCAL" />
-      <updated>1657765910497</updated>
+      <updated>1657864399705</updated>
     </task>
-    <option name="localTasksCounter" value="101" />
+    <task id="LOCAL-00101" summary="Move JPanels to Screens.java">
+      <created>1657865760808</created>
+      <option name="number" value="00101" />
+      <option name="presentableId" value="LOCAL-00101" />
+      <option name="project" value="LOCAL" />
+      <updated>1657865760808</updated>
+    </task>
+    <task id="LOCAL-00102" summary="JPanels handle by Screens">
+      <created>1657866604458</created>
+      <option name="number" value="00102" />
+      <option name="presentableId" value="LOCAL-00102" />
+      <option name="project" value="LOCAL" />
+      <updated>1657866604458</updated>
+    </task>
+    <task id="LOCAL-00103" summary="Colors in Util is static access">
+      <created>1657866924743</created>
+      <option name="number" value="00103" />
+      <option name="presentableId" value="LOCAL-00103" />
+      <option name="project" value="LOCAL" />
+      <updated>1657866924743</updated>
+    </task>
+    <task id="LOCAL-00104" summary="Screens implement halfway">
+      <created>1657866967071</created>
+      <option name="number" value="00104" />
+      <option name="presentableId" value="LOCAL-00104" />
+      <option name="project" value="LOCAL" />
+      <updated>1657866967071</updated>
+    </task>
+    <task id="LOCAL-00105" summary="Move screen dimension to Util">
+      <created>1657867438739</created>
+      <option name="number" value="00105" />
+      <option name="presentableId" value="LOCAL-00105" />
+      <option name="project" value="LOCAL" />
+      <updated>1657867438739</updated>
+    </task>
+    <task id="LOCAL-00106" summary="Implement clock">
+      <created>1657867865217</created>
+      <option name="number" value="00106" />
+      <option name="presentableId" value="LOCAL-00106" />
+      <option name="project" value="LOCAL" />
+      <updated>1657867865217</updated>
+    </task>
+    <task id="LOCAL-00107" summary="Screens extends JFrame">
+      <created>1657868384637</created>
+      <option name="number" value="00107" />
+      <option name="presentableId" value="LOCAL-00107" />
+      <option name="project" value="LOCAL" />
+      <updated>1657868384637</updated>
+    </task>
+    <task id="LOCAL-00108" summary="Clock works">
+      <created>1657869063776</created>
+      <option name="number" value="00108" />
+      <option name="presentableId" value="LOCAL-00108" />
+      <option name="project" value="LOCAL" />
+      <updated>1657869063776</updated>
+    </task>
+    <task id="LOCAL-00109" summary="Implement line via Graphics2D">
+      <created>1657873243439</created>
+      <option name="number" value="00109" />
+      <option name="presentableId" value="LOCAL-00109" />
+      <option name="project" value="LOCAL" />
+      <updated>1657873243439</updated>
+    </task>
+    <option name="localTasksCounter" value="110" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -438,16 +443,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Add DateTimeFormatter type adapter to main class to fix bug" />
-    <MESSAGE value="Figure out error" />
-    <MESSAGE value="?" />
-    <MESSAGE value="Fix type error" />
-    <MESSAGE value="File saves and loads properly" />
-    <MESSAGE value="Clean I/O of main class" />
-    <MESSAGE value="Start useCases.txt" />
-    <MESSAGE value="Add CRC image" />
-    <MESSAGE value="Finish useCases.txt" />
-    <MESSAGE value="Finish OODexplained.txt" />
     <MESSAGE value="Delete old JavaDocs comments" />
     <MESSAGE value="Reformat code" />
     <MESSAGE value="Remove json file" />
@@ -462,8 +457,18 @@
     <MESSAGE value="Work on button in MainApp" />
     <MESSAGE value="Add enum" />
     <MESSAGE value="Add CustomComponentFactory for custom JComponents" />
-    <MESSAGE value="Update - laptop" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update - laptop" />
+    <MESSAGE value="Add Util class, rename Button class, add back startPanel" />
+    <MESSAGE value="Move JPanels to Screens.java" />
+    <MESSAGE value="JPanels handle by Screens" />
+    <MESSAGE value="Colors in Util is static access" />
+    <MESSAGE value="Screens implement halfway" />
+    <MESSAGE value="Move screen dimension to Util" />
+    <MESSAGE value="Implement clock" />
+    <MESSAGE value="Screens extends JFrame" />
+    <MESSAGE value="Clock works" />
+    <MESSAGE value="Implement date on main screen" />
+    <MESSAGE value="Implement line via Graphics2D" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implement line via Graphics2D" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -477,5 +482,9 @@
         <breakpoint enabled="true" type="java-exception" />
       </default-breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
