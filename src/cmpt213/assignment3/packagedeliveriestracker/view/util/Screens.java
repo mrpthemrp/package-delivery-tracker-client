@@ -3,8 +3,6 @@ package cmpt213.assignment3.packagedeliveriestracker.view.util;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
-import java.awt.geom.Rectangle2D;
-import java.awt.geom.RoundRectangle2D;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -27,7 +25,7 @@ public class Screens extends JPanel {
     }
 
     public void switchToMainScreen() {
-        this.btn.setText("ADD PACKAGE");
+        this.btn.setText("A D D   P A C K A G E");
         this.title.setText("today is");
 
         createTimeAndDate();
@@ -67,16 +65,19 @@ public class Screens extends JPanel {
 
         //date
         this.currentDay.setText(today.format(Util.currentDayFormat));
+        this.currentDay.setFont(Util.mainScreenDateFont);
     }
 
     private void createStartPanel(ActionListener al) {
 
         //start button
-        this.btn.setText("ENTER");
+        this.btn.setText("E N T E R");
         this.btn.setActionCommand("SCREEN BUTTON");
         this.btn.setAlignmentX(Component.CENTER_ALIGNMENT);
         this.btn.setFocusPainted(false);
         this.btn.addActionListener(al);
+        this.btn.setFont(Util.btnTextFont);
+        this.btn.setBorderPainted(false);
         this.btn.setBackground(Util.lightBrown);
 
         //text fields

@@ -22,9 +22,10 @@ public final class Util {
     public static DateTimeFormatter clockFormat = DateTimeFormatter.ofPattern("hh:mm:ss a");
     public static DateTimeFormatter currentDayFormat = DateTimeFormatter.ofPattern("MMMM dd, yyyy");
 
-    public static Font clockFont = new Font(Font.SANS_SERIF, Font.BOLD, (int) (20 + (Util.screenSize.getWidth() * 0.025)));
+    public static Font clockFont = new Font(Font.SANS_SERIF, Font.BOLD, (int) (20 * (Util.screenSize.getWidth() * 0.0018)));
+    public static Font mainScreenDateFont = new Font(Font.SANS_SERIF, Font.BOLD, (int) (20 * (Util.screenSize.getWidth() * 0.0008)));
+    public static Font btnTextFont = new Font(Font.SANS_SERIF, Font.BOLD, (int) (13 * (Util.screenSize.getWidth() * 0.001)));
 
-    public Font title, paragraph, subTitle, tinyText, numbers, date;
-    private  Font boldRoboto, mediumRoboto, regularRoboto, italicRoboto;
+    public static Font title, paragraph, subTitle, tinyText, numbers, date;
 
 }
