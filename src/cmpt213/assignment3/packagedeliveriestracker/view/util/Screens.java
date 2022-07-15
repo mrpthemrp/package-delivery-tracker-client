@@ -27,7 +27,6 @@ public class Screens extends JPanel {
     }
 
     public void switchToMainScreen() {
-        this.setBackground(Util.darkBrown);
         this.btn.setText("ADD PACKAGE");
         this.title.setText("today is");
 
@@ -60,7 +59,7 @@ public class Screens extends JPanel {
         //clock
         //set font
         this.clock.setFont(Util.clockFont);
-        this.clock.setBorder(BorderFactory.createLineBorder(Color.WHITE));
+        this.clock.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         //set other things
         this.clock.setPreferredSize(new Dimension((int) (Util.screenWidth * 0.23),
                 (int) (Util.screenHeight * 0.054)));

@@ -2,6 +2,7 @@ package cmpt213.assignment3.packagedeliveriestracker.view;
 
 import cmpt213.assignment3.packagedeliveriestracker.view.util.Screens;
 import cmpt213.assignment3.packagedeliveriestracker.view.util.Util;
+import cmpt213.assignment3.packagedeliveriestracker.view.util.Util.SCREEN_STATE;
 
 import javax.swing.*;
 import java.awt.*;
@@ -12,16 +13,12 @@ import java.awt.event.ItemListener;
 
 public class PackageDeliveryGUI extends JFrame implements ActionListener, ItemListener {
 
-    //STATES - to be moved?
-    public enum SCREEN_STATE {
-        START, MAIN, ADD_PACKAGE, UPCOMING, OVERDUE
-    }
-
     private SCREEN_STATE currentState;
 
     private final Screens screen;
 
     public PackageDeliveryGUI() {
+        this.setResizable(false);
         currentState = SCREEN_STATE.START;
         screen = new Screens(this);
 
@@ -44,7 +41,7 @@ public class PackageDeliveryGUI extends JFrame implements ActionListener, ItemLi
         if(currentState != SCREEN_STATE.START){
             Graphics2D g2 = (Graphics2D) g;
 
-            g2.setColor(Util.midTeal);
+            g2.setColor(Util.lightTeal);
             g2.fillRoundRect((int)(Util.screenWidth * 0.30),(int)(Util.screenHeight * 0.11),
                     4, (int) (Util.screenHeight * 0.55),3,3);
         }

@@ -5,6 +5,9 @@ import java.time.format.DateTimeFormatter;
 
 public final class Util {
 
+    public enum SCREEN_STATE {
+        START, MAIN, ADD_PACKAGE, UPCOMING, OVERDUE
+    }
 
     public static Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 

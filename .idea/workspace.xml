@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Implement date on main screen">
+    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Implement line via Graphics2D">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/PackageDeliveryGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/PackageDeliveryGUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/util/Screens.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/util/Screens.java" afterDir="false" />
@@ -83,13 +83,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1652723361815</updated>
-    </task>
-    <task id="LOCAL-00060" summary="Methods in PackageDeliveryTracker are all private except for main">
-      <created>1655336565743</created>
-      <option name="number" value="00060" />
-      <option name="presentableId" value="LOCAL-00060" />
-      <option name="project" value="LOCAL" />
-      <updated>1655336565743</updated>
     </task>
     <task id="LOCAL-00061" summary="Code will break, interface implementation started">
       <created>1655338032531</created>
@@ -427,7 +420,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657869063776</updated>
     </task>
-    <option name="localTasksCounter" value="109" />
+    <task id="LOCAL-00109" summary="Implement line via Graphics2D">
+      <created>1657873243439</created>
+      <option name="number" value="00109" />
+      <option name="presentableId" value="LOCAL-00109" />
+      <option name="project" value="LOCAL" />
+      <updated>1657873243439</updated>
+    </task>
+    <option name="localTasksCounter" value="110" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -443,7 +443,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Finish OODexplained.txt" />
     <MESSAGE value="Delete old JavaDocs comments" />
     <MESSAGE value="Reformat code" />
     <MESSAGE value="Remove json file" />
@@ -468,7 +467,8 @@
     <MESSAGE value="Screens extends JFrame" />
     <MESSAGE value="Clock works" />
     <MESSAGE value="Implement date on main screen" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implement date on main screen" />
+    <MESSAGE value="Implement line via Graphics2D" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implement line via Graphics2D" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
