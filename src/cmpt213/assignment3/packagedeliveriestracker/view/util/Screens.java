@@ -10,14 +10,18 @@ import java.time.LocalDateTime;
 
 public class Screens extends JPanel {
     private LocalDate today;
-    private JButton btn;
-    private JLabel title, clock, currentDay;
+    private final JButton btn;
+    private final JLabel title;
+    private final JLabel subtitle;
+    private final JLabel clock;
+    private final JLabel currentDay;
 
 
     public Screens(ActionListener al) {
 
         this.btn = new JButton();
         this.title = new JLabel();
+        this.subtitle = new JLabel();
         this.clock = new JLabel("", SwingConstants.CENTER);
         this.currentDay = new JLabel("", SwingConstants.CENTER);
 
@@ -27,6 +31,7 @@ public class Screens extends JPanel {
     public void switchToMainScreen() {
         this.btn.setText("A D D   P A C K A G E");
         this.title.setText("today is");
+        this.subtitle.setText("subtitle");
 
         createTimeAndDate();
         this.add(clock);
@@ -81,12 +86,18 @@ public class Screens extends JPanel {
         this.btn.setBackground(Util.lightBrown);
 
         //text fields
-        this.title.setText("Start");
+        this.title.setText("P A C K A G E   D E L I V E R Y   T R A C K E R");
+        this.subtitle.setText("Click enter to start.");
+        this.title.setFont(Util.titleFont);
+        this.title.setForeground(Color.GRAY);
+        this.subtitle.setFont(Util.subTitleFont);
         this.title.setAlignmentX(Component.CENTER_ALIGNMENT);
+        this.subtitle.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         //background stuff
         this.add(btn);
         this.add(title);
+        this.add(subtitle);
         this.setBackground(Color.WHITE);
     }
 }

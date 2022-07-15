@@ -26,6 +26,8 @@ public final class Util {
     public static Font mainScreenDateFont = new Font(Font.SANS_SERIF, Font.BOLD, (int) (20 * (Util.screenSize.getWidth() * 0.0008)));
     public static Font btnTextFont = new Font(Font.SANS_SERIF, Font.BOLD, (int) (13 * (Util.screenSize.getWidth() * 0.001)));
 
-    public static Font title, paragraph, subTitle, tinyText, numbers, date;
+    public static Font titleFont = new Font(Font.SANS_SERIF, Font.BOLD, (int) (15 * (Util.screenSize.getWidth() * 0.001)));
+    public static Font subTitleFont = new Font(Font.MONOSPACED, Font.BOLD, (int) (12 * (Util.screenSize.getWidth() * 0.001)));
+    public static Font bodyFont = new Font(Font.SANS_SERIF, Font.PLAIN, (int) (10 * (Util.screenSize.getWidth() * 0.001)));
 
 }
