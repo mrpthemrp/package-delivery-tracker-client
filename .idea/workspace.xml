@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Add font package back">
+    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Custom fonts applied">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/util/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/util/Util.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/util/RoundButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/util/RoundButton.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,13 +82,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1652723361815</updated>
-    </task>
-    <task id="LOCAL-00071" summary="Add gson package and .extra package extension">
-      <created>1655955080612</created>
-      <option name="number" value="00071" />
-      <option name="presentableId" value="LOCAL-00071" />
-      <option name="project" value="LOCAL" />
-      <updated>1655955080612</updated>
     </task>
     <task id="LOCAL-00072" summary="Add RuntimeTypeAdapterFactory class to gson.extra package">
       <created>1655955168779</created>
@@ -426,7 +419,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657925907411</updated>
     </task>
-    <option name="localTasksCounter" value="120" />
+    <task id="LOCAL-00120" summary="Custom fonts applied">
+      <created>1657927052094</created>
+      <option name="number" value="00120" />
+      <option name="presentableId" value="LOCAL-00120" />
+      <option name="project" value="LOCAL" />
+      <updated>1657927052094</updated>
+    </task>
+    <option name="localTasksCounter" value="121" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -442,7 +442,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Add JPanel in MainApp" />
     <MESSAGE value="Work on button in MainApp" />
     <MESSAGE value="Add enum" />
     <MESSAGE value="Add CustomComponentFactory for custom JComponents" />
@@ -467,7 +466,8 @@
     <MESSAGE value="Finish Round button class implementation" />
     <MESSAGE value="Add change colour modifier to RoundButton" />
     <MESSAGE value="Add font package back" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add font package back" />
+    <MESSAGE value="Custom fonts applied" />
+    <option name="LAST_COMMIT_MESSAGE" value="Custom fonts applied" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

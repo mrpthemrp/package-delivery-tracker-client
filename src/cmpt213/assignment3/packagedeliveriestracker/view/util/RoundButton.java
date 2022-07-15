@@ -26,15 +26,18 @@ public class RoundButton extends JButton {
     }
 
     private void setUpDimensions(Graphics g) {
-        Dimension buttonDimension = new Dimension((int) (g.getFontMetrics().stringWidth(this.btnText) * 1.6),
-                (int) (Util.screenHeight * 0.1));
-        setPreferredSize(buttonDimension);
+        //makes sure that the width is not too long
+        double width = g.getFontMetrics().stringWidth(this.btnText) * 1.8;
+        if(width > g.getFontMetrics().stringWidth(this.btnText) + 80){
+            width = g.getFontMetrics().stringWidth(this.btnText) * 1.4;
+        }
+
+        this.setSize(new Dimension((int) (width), (int) (Util.screenHeight * 0.085)));
     }
 
     @Override
     protected void paintComponent(Graphics g) {
         setUpDimensions(g);
-
         //button is pressed
         if (getModel().isRollover() | getModel().isPressed()) {
             g.setColor(btnColorDark);
@@ -44,7 +47,8 @@ public class RoundButton extends JButton {
             g.setColor(btnColor);
             setForeground(Color.BLACK);
         }
-        g.fillRoundRect(0, 0, getWidth(), getHeight(), (int) (getWidth() * 0.13), (int) (getWidth() * 0.13));
+
+        g.fillRoundRect(0, 0, getSize().width, getSize().height, (int) (getSize().height * 0.8), (int) (getSize().height * 0.8));
 
         super.paintComponent(g);
     }
