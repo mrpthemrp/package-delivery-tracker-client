@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Add GridBagLayout to start panel">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/PackageDeliveryGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/PackageDeliveryGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/util/RoundButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/util/RoundButton.java" afterDir="false" />
+    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Add PackageDialog class">
       <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/util/Screens.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/util/Screens.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -84,20 +81,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1652723361815</updated>
-    </task>
-    <task id="LOCAL-00075" summary="Add TypeAdaterFactory in main class">
-      <created>1655956052309</created>
-      <option name="number" value="00075" />
-      <option name="presentableId" value="LOCAL-00075" />
-      <option name="project" value="LOCAL" />
-      <updated>1655956052309</updated>
-    </task>
-    <task id="LOCAL-00076" summary="Code will break">
-      <created>1655961001831</created>
-      <option name="number" value="00076" />
-      <option name="presentableId" value="LOCAL-00076" />
-      <option name="project" value="LOCAL" />
-      <updated>1655961001831</updated>
     </task>
     <task id="LOCAL-00077" summary="Add DateTimeFormatter type adapter to main class to fix bug">
       <created>1656023507921</created>
@@ -428,7 +411,21 @@
       <option name="project" value="LOCAL" />
       <updated>1657945700609</updated>
     </task>
-    <option name="localTasksCounter" value="124" />
+    <task id="LOCAL-00124" summary="In progress main screen">
+      <created>1657953374026</created>
+      <option name="number" value="00124" />
+      <option name="presentableId" value="LOCAL-00124" />
+      <option name="project" value="LOCAL" />
+      <updated>1657953374026</updated>
+    </task>
+    <task id="LOCAL-00125" summary="Add PackageDialog class">
+      <created>1657953546862</created>
+      <option name="number" value="00125" />
+      <option name="presentableId" value="LOCAL-00125" />
+      <option name="project" value="LOCAL" />
+      <updated>1657953546862</updated>
+    </task>
+    <option name="localTasksCounter" value="126" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -444,8 +441,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Add Util class, rename Button class, add back startPanel" />
-    <MESSAGE value="Move JPanels to Screens.java" />
     <MESSAGE value="JPanels handle by Screens" />
     <MESSAGE value="Colors in Util is static access" />
     <MESSAGE value="Screens implement halfway" />
@@ -469,7 +464,9 @@
     <MESSAGE value="Update RoundButton placement" />
     <MESSAGE value="Custom things done" />
     <MESSAGE value="Add GridBagLayout to start panel" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add GridBagLayout to start panel" />
+    <MESSAGE value="In progress main screen" />
+    <MESSAGE value="Add PackageDialog class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add PackageDialog class" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

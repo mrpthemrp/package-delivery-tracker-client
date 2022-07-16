@@ -14,6 +14,8 @@ public class Screens extends JPanel {
     private final JLabel subtitle;
     private final JLabel clock;
     private final JLabel currentDay;
+
+    private JScrollPane packageScroll;
     private final GridBagConstraints constraints;
     private LocalDate today;
 
@@ -25,6 +27,7 @@ public class Screens extends JPanel {
         this.subtitle = new JLabel();
         this.clock = new JLabel("", SwingConstants.CENTER);
         this.currentDay = new JLabel("", SwingConstants.CENTER);
+        this.packageScroll = new JScrollPane();
         this.constraints = new GridBagConstraints();
 
         this.setLayout(new GridBagLayout());
@@ -62,6 +65,8 @@ public class Screens extends JPanel {
         this.title.setText("today is");
         this.title.setFont(Util.subTitleFont);
         this.title.setAlignmentX(JLabel.CENTER);
+        this.packageScroll.createVerticalScrollBar();
+        this.packageScroll.setLayout(new ScrollPaneLayout());
 
         createTimeAndDate();
         this.removeAll();
@@ -98,8 +103,7 @@ public class Screens extends JPanel {
         resetConstraint(1, 6, GridBagConstraints.HORIZONTAL);
         this.add(Box.createRigidArea(new Dimension(0, (int) (Util.screenHeight * 0.06))), constraints);
         resetConstraint(2, 0, GridBagConstraints.HORIZONTAL);
-        this.add(Box.createRigidArea(new Dimension(500, (int) (Util.screenHeight * 0.06))), constraints);
-
+        this.add(packageScroll,constraints);
 
 
         //start time for clock
