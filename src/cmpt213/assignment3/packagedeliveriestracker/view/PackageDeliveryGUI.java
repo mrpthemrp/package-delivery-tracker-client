@@ -14,10 +14,9 @@ import java.awt.event.ItemListener;
 
 public class PackageDeliveryGUI extends JFrame implements ActionListener, ItemListener {
 
-    private SCREEN_STATE currentState;
-
     private final MainScreen mainPanel;
     private final StartScreen startPanel;
+    private SCREEN_STATE currentState;
 
     public PackageDeliveryGUI() {
         this.setResizable(false);
@@ -40,30 +39,33 @@ public class PackageDeliveryGUI extends JFrame implements ActionListener, ItemLi
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getActionCommand().equals("START")){
+        if (e.getActionCommand().equals("START")) {
             System.out.println("start was pressed");
-        } else if (e.getActionCommand().equals("ADD PACKAGE")){
+        }
+        if (e.getActionCommand().equals("ADD PACKAGE")) {
             System.out.println("add package was pressed");
         }
-        updateGUI();
+        updateStates();
 
     }
 
-    private void updateGUI() {
+    private void updateStates() {
 
-        switch (currentState){
+        switch (currentState) {
             case START -> {
-                this.setContentPane(mainPanel);
+                startPanel.hideScreen();
                 this.remove(startPanel);
-                this.repaint();
-                currentState = SCREEN_STATE.MAIN;
+                this.setContentPane(mainPanel);
                 this.setTitle("Package Delivery Tracker - Main");
+                currentState = SCREEN_STATE.MAIN;
             }
             case MAIN -> {
                 System.out.println("in main");
             }
             default -> this.repaint();
         }
+
+        this.repaint();
     }
 
     @Override

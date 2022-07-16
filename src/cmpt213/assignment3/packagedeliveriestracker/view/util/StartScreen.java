@@ -20,7 +20,7 @@ public class StartScreen extends JPanel {
     public StartScreen(ActionListener al) {
 
         this.setBackground(Color.WHITE);
-        this.setPreferredSize(new Dimension((int) (Util.screenWidth * 0.75), (int) (Util.screenHeight * 0.75)));
+        this.setSize(new Dimension((int) (Util.screenWidth * 0.75), (int) (Util.screenHeight * 0.75)));
         this.al = al;
         this.btn = new RoundButton("E N T E R", "ENTER", al, Util.midTeal, Util.darkTeal);
         this.title = new JLabel();
@@ -53,6 +53,14 @@ public class StartScreen extends JPanel {
         this.add(btn, constraints);
     }
 
+    public void hideScreen(){
+        this.remove(btn);
+        this.remove(title);
+        this.remove(subtitle);
+        this.setSize(new Dimension(0,0));
+        this.setVisible(false);
+        this.removeAll();
+    }
     private void resetConstraint(int x, int y, int gridBagConstant) {
         constraints.fill = gridBagConstant;
         constraints.gridx = x;
