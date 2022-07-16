@@ -15,14 +15,14 @@ public class RoundButton extends JButton {
         this.btnColor = btnColor;
         this.btnColorDark = btnColorDark;
 
+        addActionListener(al);
         setActionCommand(label);
         setBackground(btnColor);
-        setText(btnText);
-        setFont(Util.btnTextFont);
+        setBorderPainted(false);
         setContentAreaFilled(false);
         setFocusPainted(false);
-        addActionListener(al);
-        setBorderPainted(false);
+        setFont(Util.btnTextFont);
+        setText(btnText);
     }
 
     private void setUpDimensions(Graphics g) {
@@ -48,7 +48,8 @@ public class RoundButton extends JButton {
             setForeground(Color.BLACK);
         }
 
-        g.fillRoundRect(0, 0, getSize().width, getSize().height, (int) (getSize().height * 0.8), (int) (getSize().height * 0.8));
+        g.fillRoundRect(0, 0, getSize().width, getSize().height,
+                (int) (getSize().height * 0.8), (int) (getSize().height * 0.8));
 
         super.paintComponent(g);
     }

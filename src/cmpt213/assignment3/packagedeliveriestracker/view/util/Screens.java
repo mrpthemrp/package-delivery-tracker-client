@@ -15,6 +15,7 @@ public class Screens extends JPanel {
     private final JLabel subtitle;
     private final JLabel clock;
     private final JLabel currentDay;
+    private final GridBagConstraints constraints;
 
 
     public Screens(ActionListener al) {
@@ -24,7 +25,9 @@ public class Screens extends JPanel {
         this.subtitle = new JLabel();
         this.clock = new JLabel("", SwingConstants.CENTER);
         this.currentDay = new JLabel("", SwingConstants.CENTER);
+        this.constraints = new GridBagConstraints();
 
+        this.setLayout(new GridBagLayout());
         createStartPanel();
     }
 
@@ -79,7 +82,6 @@ public class Screens extends JPanel {
     }
 
     private void createStartPanel() {
-        this.setLayout(new GridBagLayout());
 
         //text fields
         this.title.setText("P A C K A G E   D E L I V E R Y   T R A C K E R");
@@ -88,13 +90,28 @@ public class Screens extends JPanel {
         this.title.setForeground(Color.BLACK);
         this.subtitle.setFont(Util.subTitleFont);
 
+        resetConstraint(0,0);
+
         //background stuff
-        this.add(Box.createRigidArea(new Dimension(0, (int) (Util.screenHeight*0.2))));
-        this.add(title);
-        this.add(Box.createRigidArea(new Dimension(0,(int) (Util.screenHeight*0.06))));
-        this.add(subtitle);
-        this.add(Box.createRigidArea(new Dimension(0,(int) (Util.screenHeight*0.06))));
-        this.add(btn);
+        this.add(Box.createRigidArea(new Dimension(0, (int) (Util.screenHeight*0.2))), constraints);
+        resetConstraint(0,0);
+        this.add(title, constraints);
+        resetConstraint(0,1);
+        this.add(Box.createRigidArea(new Dimension(0,(int) (Util.screenHeight*0.06))), constraints);
+        resetConstraint(0,2);
+        this.add(subtitle, constraints);
+        resetConstraint(0,3);
+        this.add(Box.createRigidArea(new Dimension(0,(int) (Util.screenHeight*0.06))), constraints);
+        resetConstraint(0,4);
+        this.add(btn, constraints);
+        resetConstraint(0,5);
         this.setBackground(Color.WHITE);
+    }
+
+    private void resetConstraint(int x, int y){
+
+        constraints.fill = GridBagConstraints.CENTER;
+        constraints.gridx = x;
+        constraints.gridy = y;
     }
 }
