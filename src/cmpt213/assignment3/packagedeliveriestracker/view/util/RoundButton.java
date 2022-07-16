@@ -54,14 +54,10 @@ public class RoundButton extends JButton {
         super.paintComponent(g);
     }
 
-    public void changeBtnText(String newText) {
-        setText(newText);
-        this.btnText = newText;
-    }
-
-    public void changeColours(Color newCol, Color newDarkCol){
-        this.btnColor = newCol;
-        this.btnColorDark = newDarkCol;
+    public void changeButtonStyle(String btnText, Color btnColor, Color btnColorDark){
+        this.btnText = btnText;
+        this.btnColor = btnColor;
+        this.btnColorDark = btnColorDark;
     }
 
 }

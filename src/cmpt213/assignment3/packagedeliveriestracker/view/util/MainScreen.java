@@ -9,44 +9,42 @@ import java.time.LocalDateTime;
 
 //clock reference : https://www.tutorialsbuddy.com/create-a-digital-clock-in-java
 
-public class Screens extends JPanel {
-    private final RoundButton btn;
+public class MainScreen extends JPanel {
     private final JLabel title;
-    private final JLabel subtitle;
     private final JLabel clock;
     private final JLabel currentDay;
-    private final GridBagConstraints constraints;
+    private final RoundButton btn;
     private JScrollPane packageScroll;
     private LocalDate today;
 
 
-    public Screens(ActionListener al) {
-
-        this.setPreferredSize(new Dimension((int)(Util.screenWidth*0.75),(int)(Util.screenHeight*0.75)));
-
-        this.btn = new RoundButton("E N T E R", "SCREEN BUTTON", al, Util.midTeal, Util.darkTeal);
-        this.title = new JLabel();
-        this.subtitle = new JLabel();
-        this.clock = new JLabel("", SwingConstants.CENTER);
-        this.currentDay = new JLabel("", SwingConstants.CENTER);
-        this.packageScroll = new JScrollPane();
-        this.constraints = new GridBagConstraints();
-
-        createStartPanel();
-    }
-
-    public void changeSubtitle(String newText) {
-        this.subtitle.setText(newText);
-    }
-
-    public void switchToMainScreen() {
-        this.removeAll();
+    public MainScreen(ActionListener al) {
         this.setLayout(new FlowLayout());
         this.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-        //Update components
-        this.btn.changeBtnText("A D D   P A C K A G E");
-        this.btn.changeColours(Util.lightBrown, Util.darkBrown);
+        this.setBackground(Color.WHITE);
+        this.setPreferredSize(new Dimension((int) (Util.screenWidth * 0.75), (int) (Util.screenHeight * 0.75)));
+        this.btn = new RoundButton("A D D   P A C K A G E", "SCREEN BUTTON", al, Util.lightBrown, Util.darkBrown);
+        this.title = new JLabel();
+        this.clock = new JLabel("", SwingConstants.CENTER);
+        this.currentDay = new JLabel("", SwingConstants.CENTER);
+        this.packageScroll = new JScrollPane();
+
+        createMainScreen();
+    }
+
+    @Override
+    public void paint(Graphics g) {
+        super.paint(g);
+        //draw line
+        Graphics2D g2 = (Graphics2D) g;
+
+        g2.setColor(Util.lightTeal);
+        g2.fillRoundRect((int) (Util.screenWidth * 0.30), (int) (Util.screenHeight * 0.11),
+                4, (int) (Util.screenHeight * 0.55), 3, 3);
+    }
+
+    public void createMainScreen() {
 
         this.title.setText("today is");
         this.title.setFont(Util.subTitleFont);
@@ -67,62 +65,30 @@ public class Screens extends JPanel {
         startClock();
     }
 
-    private void createStartPanel() {
-        this.setLayout(new GridBagLayout());
-
-        //text fields
-        this.title.setText("P A C K A G E   D E L I V E R Y   T R A C K E R");
-        this.subtitle.setText("Welcome to your personal package tracker! Click ENTER to start.");
-        this.title.setFont(Util.titleFont);
-        this.title.setForeground(Color.BLACK);
-        this.subtitle.setFont(Util.subTitleFont);
-
-        //background stuff
-        resetConstraint(0, 0, GridBagConstraints.CENTER);
-        this.add(title, constraints);
-        resetConstraint(0, 1, GridBagConstraints.CENTER);
-        this.add(Box.createRigidArea(new Dimension(0, (int) (Util.screenHeight * 0.06))), constraints);
-        resetConstraint(0, 2, GridBagConstraints.CENTER);
-        this.add(subtitle, constraints);
-        resetConstraint(0, 3, GridBagConstraints.CENTER);
-        this.add(Box.createRigidArea(new Dimension(0, (int) (Util.screenHeight * 0.06))), constraints);
-        resetConstraint(0, 4, GridBagConstraints.CENTER);
-        this.add(btn, constraints);
-        this.setBackground(Color.WHITE);
-    }
-
     private void createTimeAndDate() {
         today = LocalDate.now();
         //clock
         //set font
         this.clock.setFont(Util.clockFont);
-        this.clock.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         //set other things
         this.clock.setPreferredSize(new Dimension((int) (Util.screenWidth * 0.23),
                 (int) (Util.screenHeight * 0.054)));
         this.clock.setBackground(Color.WHITE);
-        this.clock.setAlignmentX(JLabel.RIGHT_ALIGNMENT);
 
         //date
         this.currentDay.setText(today.format(Util.currentDayFormat));
         this.currentDay.setFont(Util.mainScreenDateFont);
-        this.currentDay.setAlignmentX(JLabel.RIGHT_ALIGNMENT);
     }
 
-    private void resetConstraint(int x, int y, int gridBagConstant) {
-        constraints.fill = gridBagConstant;
-        constraints.gridx = x;
-        constraints.gridy = y;
-    }
 
     private void setUpMainScreenLayout() {
 
         JPanel leftGroup = new JPanel();
         leftGroup.setLayout(new BoxLayout(leftGroup, BoxLayout.Y_AXIS));
-        leftGroup.setBackground(new Color (255,255,255,0));
+        leftGroup.setBackground(new Color(255, 255, 255, 0));
         leftGroup.setAlignmentX(Component.LEFT_ALIGNMENT);
-        leftGroup.setPreferredSize(new Dimension((int) (Util.screenWidth/3.5), (int) (this.getHeight()*0.1)));
-        leftGroup.setBorder(new LineBorder(Color.BLACK,5));
+        leftGroup.setPreferredSize(new Dimension((int) (Util.screenWidth / 3.5), (int) (this.getHeight() * 0.98)));
+        leftGroup.setBorder(new LineBorder(Color.BLACK, 5));
         leftGroup.add(title);
         leftGroup.add(Box.createRigidArea(new Dimension(0, (int) (Util.screenHeight * 0.06))));
         leftGroup.add(currentDay);
@@ -133,10 +99,10 @@ public class Screens extends JPanel {
 
         JPanel rightGroup = new JPanel();
         rightGroup.setLayout(new BoxLayout(rightGroup, BoxLayout.Y_AXIS));
-        rightGroup.setBackground(new Color (255,255,255,0));
+        rightGroup.setBackground(new Color(255, 255, 255, 0));
         rightGroup.setAlignmentX(Component.RIGHT_ALIGNMENT);
-        rightGroup.setPreferredSize(new Dimension((int) (Util.screenWidth/2.3), (int) (this.getHeight()*0.1)));
-        rightGroup.setBorder(new LineBorder(Color.BLACK,5));
+        rightGroup.setPreferredSize(new Dimension((int) (Util.screenWidth / 2.3), (int) (this.getHeight() * 0.98)));
+        rightGroup.setBorder(new LineBorder(Color.BLACK, 5));
         rightGroup.add(packageScroll);
 
         this.add(leftGroup);

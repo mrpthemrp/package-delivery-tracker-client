@@ -1,6 +1,7 @@
 package cmpt213.assignment3.packagedeliveriestracker.view;
 
-import cmpt213.assignment3.packagedeliveriestracker.view.util.Screens;
+import cmpt213.assignment3.packagedeliveriestracker.view.util.MainScreen;
+import cmpt213.assignment3.packagedeliveriestracker.view.util.StartScreen;
 import cmpt213.assignment3.packagedeliveriestracker.view.util.Util;
 import cmpt213.assignment3.packagedeliveriestracker.view.util.Util.SCREEN_STATE;
 
@@ -15,12 +16,15 @@ public class PackageDeliveryGUI extends JFrame implements ActionListener, ItemLi
 
     private SCREEN_STATE currentState;
 
-    private final Screens screen;
+    private final MainScreen mainPanel;
+    private final StartScreen startPanel;
 
     public PackageDeliveryGUI() {
         this.setResizable(false);
+        this.setBackground(Color.WHITE);
         currentState = SCREEN_STATE.START;
-        screen = new Screens(this);
+        startPanel = new StartScreen(this);
+        mainPanel = new MainScreen(this);
 
         //set up frame
         this.setTitle("Package Delivery Tracker");//change string input later
@@ -30,24 +34,10 @@ public class PackageDeliveryGUI extends JFrame implements ActionListener, ItemLi
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         //complete frame setup
-        this.setContentPane(screen);
+        this.setContentPane(startPanel);
         this.setVisible(true);
     }
 
-    @Override
-    public void paint(Graphics g){
-        super.paint(g);
-
-        //draw line
-        if(currentState != SCREEN_STATE.START){
-            Graphics2D g2 = (Graphics2D) g;
-
-            g2.setColor(Util.lightTeal);
-            g2.fillRoundRect((int)(Util.screenWidth * 0.30),(int)(Util.screenHeight * 0.11),
-                    4, (int) (Util.screenHeight * 0.55),3,3);
-        }
-
-    }
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getActionCommand().equals("SCREEN BUTTON")){
@@ -65,10 +55,11 @@ public class PackageDeliveryGUI extends JFrame implements ActionListener, ItemLi
 
         switch (currentState){
             case START -> {
-                screen.switchToMainScreen();
+                this.remove(startPanel);
+                this.setContentPane(mainPanel);
+                this.repaint();
                 currentState = SCREEN_STATE.MAIN;
                 this.setTitle("Package Delivery Tracker - Main");
-                this.repaint();
             }
             case MAIN -> {
                 System.out.println("in main");
