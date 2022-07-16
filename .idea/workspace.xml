@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Add PackageDialog class">
+    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Start JScroll">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/util/Screens.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/util/Screens.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -81,13 +82,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1652723361815</updated>
-    </task>
-    <task id="LOCAL-00077" summary="Add DateTimeFormatter type adapter to main class to fix bug">
-      <created>1656023507921</created>
-      <option name="number" value="00077" />
-      <option name="presentableId" value="LOCAL-00077" />
-      <option name="project" value="LOCAL" />
-      <updated>1656023507922</updated>
     </task>
     <task id="LOCAL-00078" summary="Figure out error">
       <created>1656025197245</created>
@@ -425,7 +419,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657953546862</updated>
     </task>
-    <option name="localTasksCounter" value="126" />
+    <task id="LOCAL-00126" summary="Start JScroll">
+      <created>1657954186957</created>
+      <option name="number" value="00126" />
+      <option name="presentableId" value="LOCAL-00126" />
+      <option name="project" value="LOCAL" />
+      <updated>1657954186957</updated>
+    </task>
+    <option name="localTasksCounter" value="127" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -441,7 +442,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="JPanels handle by Screens" />
     <MESSAGE value="Colors in Util is static access" />
     <MESSAGE value="Screens implement halfway" />
     <MESSAGE value="Move screen dimension to Util" />
@@ -466,7 +466,8 @@
     <MESSAGE value="Add GridBagLayout to start panel" />
     <MESSAGE value="In progress main screen" />
     <MESSAGE value="Add PackageDialog class" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add PackageDialog class" />
+    <MESSAGE value="Start JScroll" />
+    <option name="LAST_COMMIT_MESSAGE" value="Start JScroll" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
