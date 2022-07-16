@@ -40,12 +40,10 @@ public class PackageDeliveryGUI extends JFrame implements ActionListener, ItemLi
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getActionCommand().equals("SCREEN BUTTON")){
-            if(currentState == SCREEN_STATE.START){
-                System.out.println("Start was pressed");
-            } else{
-                System.out.println("add button pressed");
-            }
+        if(e.getActionCommand().equals("START")){
+            System.out.println("start was pressed");
+        } else if (e.getActionCommand().equals("ADD PACKAGE")){
+            System.out.println("add package was pressed");
         }
         updateGUI();
 
@@ -55,8 +53,8 @@ public class PackageDeliveryGUI extends JFrame implements ActionListener, ItemLi
 
         switch (currentState){
             case START -> {
-                this.remove(startPanel);
                 this.setContentPane(mainPanel);
+                this.remove(startPanel);
                 this.repaint();
                 currentState = SCREEN_STATE.MAIN;
                 this.setTitle("Package Delivery Tracker - Main");

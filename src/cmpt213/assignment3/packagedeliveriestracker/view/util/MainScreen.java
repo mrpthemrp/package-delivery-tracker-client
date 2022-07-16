@@ -21,10 +21,10 @@ public class MainScreen extends JPanel {
     public MainScreen(ActionListener al) {
         this.setLayout(new FlowLayout());
         this.setAlignmentX(Component.CENTER_ALIGNMENT);
-
         this.setBackground(Color.WHITE);
         this.setPreferredSize(new Dimension((int) (Util.screenWidth * 0.75), (int) (Util.screenHeight * 0.75)));
-        this.btn = new RoundButton("A D D   P A C K A G E", "SCREEN BUTTON", al, Util.lightBrown, Util.darkBrown);
+
+        this.btn = new RoundButton("A D D   P A C K A G E", "ADD PACKAGE", al, Util.lightBrown, Util.darkBrown);
         this.title = new JLabel();
         this.clock = new JLabel("", SwingConstants.CENTER);
         this.currentDay = new JLabel("", SwingConstants.CENTER);
@@ -36,6 +36,7 @@ public class MainScreen extends JPanel {
     @Override
     public void paint(Graphics g) {
         super.paint(g);
+
         //draw line
         Graphics2D g2 = (Graphics2D) g;
 
@@ -87,8 +88,10 @@ public class MainScreen extends JPanel {
         leftGroup.setLayout(new BoxLayout(leftGroup, BoxLayout.Y_AXIS));
         leftGroup.setBackground(new Color(255, 255, 255, 0));
         leftGroup.setAlignmentX(Component.LEFT_ALIGNMENT);
-        leftGroup.setPreferredSize(new Dimension((int) (Util.screenWidth / 3.5), (int) (this.getHeight() * 0.98)));
+        leftGroup.setSize(new Dimension((int) (Util.screenWidth / 3.5), (int) (this.getHeight() * 0.98)));
+        leftGroup.setMaximumSize(new Dimension((int) (Util.screenWidth / 3.5), (int) (this.getHeight() * 0.98)));
         leftGroup.setBorder(new LineBorder(Color.BLACK, 5));
+
         leftGroup.add(title);
         leftGroup.add(Box.createRigidArea(new Dimension(0, (int) (Util.screenHeight * 0.06))));
         leftGroup.add(currentDay);
@@ -101,8 +104,10 @@ public class MainScreen extends JPanel {
         rightGroup.setLayout(new BoxLayout(rightGroup, BoxLayout.Y_AXIS));
         rightGroup.setBackground(new Color(255, 255, 255, 0));
         rightGroup.setAlignmentX(Component.RIGHT_ALIGNMENT);
-        rightGroup.setPreferredSize(new Dimension((int) (Util.screenWidth / 2.3), (int) (this.getHeight() * 0.98)));
+        rightGroup.setSize(new Dimension((int) (Util.screenWidth / 2.3), (int) (this.getHeight() * 0.98)));
+        rightGroup.setMaximumSize(new Dimension((int) (Util.screenWidth / 2.3), (int) (this.getHeight() * 0.98)));
         rightGroup.setBorder(new LineBorder(Color.BLACK, 5));
+
         rightGroup.add(packageScroll);
 
         this.add(leftGroup);
