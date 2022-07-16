@@ -37,7 +37,6 @@ public class RoundButton extends JButton {
 
     @Override
     protected void paintComponent(Graphics g) {
-        setUpDimensions(g);
         //button is pressed
         if (getModel().isRollover() | getModel().isPressed()) {
             g.setColor(btnColorDark);
@@ -48,6 +47,7 @@ public class RoundButton extends JButton {
             setForeground(Color.BLACK);
         }
 
+        setUpDimensions(g);
         g.fillRoundRect(0, 0, getSize().width, getSize().height,
                 (int) (getSize().height * 0.8), (int) (getSize().height * 0.8));
 

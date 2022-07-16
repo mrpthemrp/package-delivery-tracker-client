@@ -9,13 +9,13 @@ import java.time.LocalDateTime;
 //clock reference : https://www.tutorialsbuddy.com/create-a-digital-clock-in-java
 
 public class Screens extends JPanel {
-    private LocalDate today;
     private final RoundButton btn;
     private final JLabel title;
     private final JLabel subtitle;
     private final JLabel clock;
     private final JLabel currentDay;
     private final GridBagConstraints constraints;
+    private LocalDate today;
 
 
     public Screens(ActionListener al) {
@@ -31,25 +31,82 @@ public class Screens extends JPanel {
         createStartPanel();
     }
 
+    private void createStartPanel() {
+
+        //text fields
+        this.title.setText("P A C K A G E   D E L I V E R Y   T R A C K E R");
+        this.subtitle.setText("Welcome to your personal package tracker! Click ENTER to start.");
+        this.title.setFont(Util.titleFont);
+        this.title.setForeground(Color.BLACK);
+        this.subtitle.setFont(Util.subTitleFont);
+
+        //background stuff
+        resetConstraint(0, 0, GridBagConstraints.CENTER);
+        this.add(title, constraints);
+        resetConstraint(0, 1, GridBagConstraints.CENTER);
+        this.add(Box.createRigidArea(new Dimension(0, (int) (Util.screenHeight * 0.06))), constraints);
+        resetConstraint(0, 2, GridBagConstraints.CENTER);
+        this.add(subtitle, constraints);
+        resetConstraint(0, 3, GridBagConstraints.CENTER);
+        this.add(Box.createRigidArea(new Dimension(0, (int) (Util.screenHeight * 0.06))), constraints);
+        resetConstraint(0, 4, GridBagConstraints.CENTER);
+        this.add(btn, constraints);
+        this.setBackground(Color.WHITE);
+    }
+
+
     public void switchToMainScreen() {
         this.btn.changeBtnText("A D D   P A C K A G E");
-        this.btn.changeColours(Util.lightBrown,Util.darkBrown);
+        this.btn.changeColours(Util.lightBrown, Util.darkBrown);
+        this.btn.setAlignmentX(JButton.RIGHT_ALIGNMENT);
         this.title.setText("today is");
-        this.subtitle.setText("subtitle");
+        this.title.setFont(Util.subTitleFont);
+        this.title.setAlignmentX(JLabel.CENTER);
 
         createTimeAndDate();
         this.removeAll();
-        this.add(title);
-        this.add(subtitle);
-        this.add(btn);
-        this.add(clock);
-        this.add(currentDay);
+        this.setLayout(new GridBagLayout());
+        resetConstraint(0, 0, GridBagConstraints.HORIZONTAL);
+        this.add(title, constraints);
+        resetConstraint(0, 1, GridBagConstraints.HORIZONTAL);
+        this.add(Box.createRigidArea(new Dimension(0, (int) (Util.screenHeight * 0.001))), constraints);
+        resetConstraint(0, 2, GridBagConstraints.HORIZONTAL);
+        this.add(currentDay, constraints);
+        resetConstraint(0, 3, GridBagConstraints.HORIZONTAL);
+        this.add(Box.createRigidArea(new Dimension(0, (int) (Util.screenHeight * 0.001))), constraints);
+        resetConstraint(0, 4, GridBagConstraints.HORIZONTAL);
+        this.add(clock, constraints);
+        resetConstraint(0, 5, GridBagConstraints.HORIZONTAL);
+        this.add(Box.createRigidArea(new Dimension(0, (int) (Util.screenHeight * 0.001))), constraints);
+        resetConstraint(0, 6, GridBagConstraints.HORIZONTAL);
+        this.add(btn, constraints);
+
+
+        this.add(Box.createRigidArea(new Dimension(0, (int) (Util.screenHeight * 0.001))), constraints);
+        resetConstraint(1, 0, GridBagConstraints.HORIZONTAL);
+        this.add(Box.createRigidArea(new Dimension(0, (int) (Util.screenHeight * 0.08))), constraints);
+        resetConstraint(1, 1, GridBagConstraints.HORIZONTAL);
+        this.add(Box.createRigidArea(new Dimension(0, (int) (Util.screenHeight * 0.08))), constraints);
+        resetConstraint(1, 2, GridBagConstraints.HORIZONTAL);
+        this.add(Box.createRigidArea(new Dimension(0, (int) (Util.screenHeight * 0.06))), constraints);
+        resetConstraint(1, 3, GridBagConstraints.HORIZONTAL);
+        this.add(Box.createRigidArea(new Dimension(0, (int) (Util.screenHeight * 0.06))), constraints);
+        resetConstraint(1, 4, GridBagConstraints.HORIZONTAL);
+        this.add(Box.createRigidArea(new Dimension(0, (int) (Util.screenHeight * 0.06))), constraints);
+        resetConstraint(1, 5, GridBagConstraints.HORIZONTAL);
+        this.add(Box.createRigidArea(new Dimension(0, (int) (Util.screenHeight * 0.06))), constraints);
+        resetConstraint(1, 6, GridBagConstraints.HORIZONTAL);
+        this.add(Box.createRigidArea(new Dimension(0, (int) (Util.screenHeight * 0.06))), constraints);
+        resetConstraint(2, 0, GridBagConstraints.HORIZONTAL);
+        this.add(Box.createRigidArea(new Dimension(500, (int) (Util.screenHeight * 0.06))), constraints);
+
 
 
         //start time for clock
         startClock();
     }
-    public void startClock(){
+
+    public void startClock() {
         //update date if cross over to next day
         Timer clockTime = new Timer(100, al -> {
             String formattedDateTime = LocalDateTime.now().format(Util.clockFormat);
@@ -75,43 +132,21 @@ public class Screens extends JPanel {
         this.clock.setPreferredSize(new Dimension((int) (Util.screenWidth * 0.23),
                 (int) (Util.screenHeight * 0.054)));
         this.clock.setBackground(Color.WHITE);
+        this.clock.setAlignmentX(JLabel.RIGHT_ALIGNMENT);
 
         //date
         this.currentDay.setText(today.format(Util.currentDayFormat));
         this.currentDay.setFont(Util.mainScreenDateFont);
+        this.currentDay.setAlignmentX(JLabel.RIGHT_ALIGNMENT);
     }
 
-    private void createStartPanel() {
-
-        //text fields
-        this.title.setText("P A C K A G E   D E L I V E R Y   T R A C K E R");
-        this.subtitle.setText("Click enter to start.");
-        this.title.setFont(Util.titleFont);
-        this.title.setForeground(Color.BLACK);
-        this.subtitle.setFont(Util.subTitleFont);
-
-        resetConstraint(0,0);
-
-        //background stuff
-        this.add(Box.createRigidArea(new Dimension(0, (int) (Util.screenHeight*0.2))), constraints);
-        resetConstraint(0,0);
-        this.add(title, constraints);
-        resetConstraint(0,1);
-        this.add(Box.createRigidArea(new Dimension(0,(int) (Util.screenHeight*0.06))), constraints);
-        resetConstraint(0,2);
-        this.add(subtitle, constraints);
-        resetConstraint(0,3);
-        this.add(Box.createRigidArea(new Dimension(0,(int) (Util.screenHeight*0.06))), constraints);
-        resetConstraint(0,4);
-        this.add(btn, constraints);
-        resetConstraint(0,5);
-        this.setBackground(Color.WHITE);
-    }
-
-    private void resetConstraint(int x, int y){
-
-        constraints.fill = GridBagConstraints.CENTER;
+    private void resetConstraint(int x, int y, int gridBagConstant) {
+        constraints.fill = gridBagConstant;
         constraints.gridx = x;
         constraints.gridy = y;
+    }
+
+    public void changeSubtitle(String newText){
+        this.subtitle.setText(newText);
     }
 }

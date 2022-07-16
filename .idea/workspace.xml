@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Custom things done">
+    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Add GridBagLayout to start panel">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/PackageDeliveryGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/PackageDeliveryGUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/util/RoundButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/util/RoundButton.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/util/Screens.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/util/Screens.java" afterDir="false" />
     </list>
@@ -83,13 +84,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1652723361815</updated>
-    </task>
-    <task id="LOCAL-00074" summary="Add license in RuntimeTypeAdapterFactory class">
-      <created>1655955657326</created>
-      <option name="number" value="00074" />
-      <option name="presentableId" value="LOCAL-00074" />
-      <option name="project" value="LOCAL" />
-      <updated>1655955657326</updated>
     </task>
     <task id="LOCAL-00075" summary="Add TypeAdaterFactory in main class">
       <created>1655956052309</created>
@@ -427,7 +421,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657929706254</updated>
     </task>
-    <option name="localTasksCounter" value="123" />
+    <task id="LOCAL-00123" summary="Add GridBagLayout to start panel">
+      <created>1657945700609</created>
+      <option name="number" value="00123" />
+      <option name="presentableId" value="LOCAL-00123" />
+      <option name="project" value="LOCAL" />
+      <updated>1657945700609</updated>
+    </task>
+    <option name="localTasksCounter" value="124" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -443,7 +444,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Add CustomComponentFactory for custom JComponents" />
     <MESSAGE value="Add Util class, rename Button class, add back startPanel" />
     <MESSAGE value="Move JPanels to Screens.java" />
     <MESSAGE value="JPanels handle by Screens" />
@@ -468,7 +468,8 @@
     <MESSAGE value="Custom fonts applied" />
     <MESSAGE value="Update RoundButton placement" />
     <MESSAGE value="Custom things done" />
-    <option name="LAST_COMMIT_MESSAGE" value="Custom things done" />
+    <MESSAGE value="Add GridBagLayout to start panel" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add GridBagLayout to start panel" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

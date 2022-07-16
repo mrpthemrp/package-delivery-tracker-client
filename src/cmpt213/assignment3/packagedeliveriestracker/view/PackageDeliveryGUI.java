@@ -24,6 +24,7 @@ public class PackageDeliveryGUI extends JFrame implements ActionListener, ItemLi
 
         //set up frame
         this.setTitle("Package Delivery Tracker");//change string input later
+
         //Containers
         this.setSize((int) (Util.screenWidth * 0.75), (int) (Util.screenHeight * 0.75));
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
