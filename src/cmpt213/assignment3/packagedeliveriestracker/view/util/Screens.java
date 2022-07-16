@@ -79,10 +79,7 @@ public class Screens extends JPanel {
     }
 
     private void createStartPanel() {
-        this.setLayout(new BoxLayout(this, BoxLayout.PAGE_AXIS));
-
-        //start button
-        this.btn.setAlignmentX(Component.CENTER_ALIGNMENT);
+        this.setLayout(new GridBagLayout());
 
         //text fields
         this.title.setText("P A C K A G E   D E L I V E R Y   T R A C K E R");
@@ -90,8 +87,6 @@ public class Screens extends JPanel {
         this.title.setFont(Util.titleFont);
         this.title.setForeground(Color.BLACK);
         this.subtitle.setFont(Util.subTitleFont);
-        this.title.setAlignmentX(Component.CENTER_ALIGNMENT);
-        this.subtitle.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         //background stuff
         this.add(Box.createRigidArea(new Dimension(0, (int) (Util.screenHeight*0.2))));

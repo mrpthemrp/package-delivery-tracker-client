@@ -59,7 +59,7 @@ public final class Util {
 
     static {
         try {
-            titleFont = createCustomFont("Roboto-Bold.ttf", Font.BOLD, (int) (18 * (Util.screenSize.getWidth() * 0.001)));
+            titleFont = createCustomFont("Roboto-Bold.ttf", Font.BOLD, (int) (18 * (Util.screenSize.getWidth() * 0.00165)));
         } catch (IOException | FontFormatException e) {
             throw new RuntimeException(e);
         }
