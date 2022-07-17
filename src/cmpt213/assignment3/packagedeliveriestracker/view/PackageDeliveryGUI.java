@@ -7,23 +7,16 @@ import cmpt213.assignment3.packagedeliveriestracker.view.util.Util.SCREEN_STATE;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
+import java.awt.event.*;
 
 public class PackageDeliveryGUI extends JFrame implements ActionListener, ItemListener {
-
-    private final MainScreen mainPanel;
-    private final StartScreen startPanel;
     private SCREEN_STATE currentState;
 
     public PackageDeliveryGUI() {
         this.setResizable(false);
         this.setBackground(Color.WHITE);
         currentState = SCREEN_STATE.START;
-        startPanel = new StartScreen(this);
-        mainPanel = new MainScreen(this);
+        JPanel panel = new StartScreen(this);
 
         //set up frame
         this.setTitle("Package Delivery Tracker");//change string input later
@@ -33,7 +26,7 @@ public class PackageDeliveryGUI extends JFrame implements ActionListener, ItemLi
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         //complete frame setup
-        this.setContentPane(startPanel);
+        this.setContentPane(panel);
         this.setVisible(true);
     }
 
@@ -53,9 +46,8 @@ public class PackageDeliveryGUI extends JFrame implements ActionListener, ItemLi
 
         switch (currentState) {
             case START -> {
-                startPanel.hideScreen();
-                this.remove(startPanel);
-                this.setContentPane(mainPanel);
+                this.remove(this.getContentPane());
+                this.add(new MainScreen(this));
                 this.setTitle("Package Delivery Tracker - Main");
                 currentState = SCREEN_STATE.MAIN;
             }
