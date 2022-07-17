@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="In progress MainScreen part 2">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/PackageDeliveryGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/PackageDeliveryGUI.java" afterDir="false" />
-    </list>
+    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="In progress MainScreen part 3" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -82,13 +79,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1652723361815</updated>
-    </task>
-    <task id="LOCAL-00082" summary="Clean I/O of main class">
-      <created>1656094457014</created>
-      <option name="number" value="00082" />
-      <option name="presentableId" value="LOCAL-00082" />
-      <option name="project" value="LOCAL" />
-      <updated>1656094457014</updated>
     </task>
     <task id="LOCAL-00083" summary="Start useCases.txt">
       <created>1656111138548</created>
@@ -426,7 +416,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658010029641</updated>
     </task>
-    <option name="localTasksCounter" value="131" />
+    <task id="LOCAL-00131" summary="In progress MainScreen part 3">
+      <created>1658019018914</created>
+      <option name="number" value="00131" />
+      <option name="presentableId" value="LOCAL-00131" />
+      <option name="project" value="LOCAL" />
+      <updated>1658019018914</updated>
+    </task>
+    <option name="localTasksCounter" value="132" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -442,7 +439,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Screens extends JFrame" />
     <MESSAGE value="Clock works" />
     <MESSAGE value="Implement date on main screen" />
     <MESSAGE value="Implement line via Graphics2D" />
@@ -467,7 +463,8 @@
     <MESSAGE value="Split Screens into two classes" />
     <MESSAGE value="In progress MainScreen" />
     <MESSAGE value="In progress MainScreen part 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="In progress MainScreen part 2" />
+    <MESSAGE value="In progress MainScreen part 3" />
+    <option name="LAST_COMMIT_MESSAGE" value="In progress MainScreen part 3" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
