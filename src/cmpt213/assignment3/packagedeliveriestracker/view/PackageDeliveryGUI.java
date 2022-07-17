@@ -54,7 +54,7 @@ public class PackageDeliveryGUI extends JFrame implements ItemListener {
             default -> this.repaint();
         }
 
-        this.repaint();
+        repaint();
     }
 
     @Override
