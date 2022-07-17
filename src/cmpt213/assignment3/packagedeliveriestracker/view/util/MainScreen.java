@@ -7,8 +7,6 @@ import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.geom.RoundRectangle2D;
-import java.security.spec.EllipticCurve;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
@@ -108,16 +106,16 @@ public class MainScreen extends JPanel implements ActionListener {
         leftGroup.add(clock);
         leftGroup.add(Box.createRigidArea(new Dimension(0, (int) (Util.screenHeight * 0.04))));
         leftGroup.add(btn);
-        leftGroup.add(Box.createRigidArea(new Dimension(0, (int) (Util.screenHeight * 0.22))));
+        leftGroup.add(Box.createRigidArea(new Dimension((int) (Util.screenHeight * 0.07), (int) (Util.screenHeight * 0.22))));
 
         JPanel middleGroup = new JPanel();
         middleGroup.setLayout(new BoxLayout(middleGroup, BoxLayout.Y_AXIS));
         middleGroup.setBackground(new Color(255, 255, 255, 0));
         middleGroup.setAlignmentX(Component.RIGHT_ALIGNMENT);
-        middleGroup.setSize(new Dimension((int) (Util.screenWidth * 0.05), (int) (this.getHeight() * 0.98)));
-        middleGroup.setMaximumSize(new Dimension((int) (Util.screenWidth * 0.05), (int) (this.getHeight() * 0.98)));
+        middleGroup.setSize(new Dimension((int) (Util.screenWidth * 0.1), (int) (this.getHeight() * 0.98)));
+        middleGroup.setMaximumSize(new Dimension((int) (Util.screenWidth * 0.1), (int) (this.getHeight() * 0.98)));
 
-        middleGroup.add(Box.createRigidArea(new Dimension((int) (Util.screenWidth * 0.008), 0)));
+        middleGroup.add(Box.createRigidArea(new Dimension((int) (Util.screenWidth * 0.03), 0)));
 
         JPanel rightGroup = new JPanel();
         rightGroup.setLayout(new BoxLayout(rightGroup, BoxLayout.Y_AXIS));
