@@ -4,13 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Buttons in scroll are working">
+    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Scroll still not working">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/PackageDeliveryGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/PackageDeliveryGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/screens/MainScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/screens/MainScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/screens/StartScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/screens/StartScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/util/PackageItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/util/PackageItem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/util/PackageScrollPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/util/PackageScrollPane.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/util/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/util/Util.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,13 +88,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1652723361815</updated>
-    </task>
-    <task id="LOCAL-00091" summary="Update docs folder and contents">
-      <created>1657224856736</created>
-      <option name="number" value="00091" />
-      <option name="presentableId" value="LOCAL-00091" />
-      <option name="project" value="LOCAL" />
-      <updated>1657224856736</updated>
     </task>
     <task id="LOCAL-00092" summary="Add MainApp class">
       <created>1657312827900</created>
@@ -435,7 +425,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658037136062</updated>
     </task>
-    <option name="localTasksCounter" value="140" />
+    <task id="LOCAL-00140" summary="Card views in progress">
+      <created>1658038911213</created>
+      <option name="number" value="00140" />
+      <option name="presentableId" value="LOCAL-00140" />
+      <option name="project" value="LOCAL" />
+      <updated>1658038911213</updated>
+    </task>
+    <option name="localTasksCounter" value="141" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -451,8 +448,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Implement Round button dimensions" />
-    <MESSAGE value="Fix Round button dimension bug" />
     <MESSAGE value="Finish Round button class implementation" />
     <MESSAGE value="Add change colour modifier to RoundButton" />
     <MESSAGE value="Add font package back" />
@@ -476,7 +471,9 @@
     <MESSAGE value="JScroll figured out" />
     <MESSAGE value="Start package item UI" />
     <MESSAGE value="Buttons in scroll are working" />
-    <option name="LAST_COMMIT_MESSAGE" value="Buttons in scroll are working" />
+    <MESSAGE value="Card views in progress" />
+    <MESSAGE value="Scroll still not working" />
+    <option name="LAST_COMMIT_MESSAGE" value="Scroll still not working" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
