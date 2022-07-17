@@ -7,5 +7,7 @@ public class CustomScrollPane extends JScrollPane {
     public CustomScrollPane() {
         this.setSize(new Dimension(800,800));
         this.setMaximumSize(new Dimension(800,800));
+        this.add(new PackageItem());
+        this.add(new PackageItem());
     }
 }
