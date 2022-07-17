@@ -1,7 +1,7 @@
 package cmpt213.assignment3.packagedeliveriestracker.view.screens;
 
 import cmpt213.assignment3.packagedeliveriestracker.view.PackageDeliveryGUI;
-import cmpt213.assignment3.packagedeliveriestracker.view.util.CustomScrollPane;
+import cmpt213.assignment3.packagedeliveriestracker.view.util.PackageScrollPane;
 import cmpt213.assignment3.packagedeliveriestracker.view.util.RoundButton;
 import cmpt213.assignment3.packagedeliveriestracker.view.util.Util;
 
@@ -121,7 +121,7 @@ public class MainScreen extends JPanel implements ActionListener {
         rightGroup.setBorder(new LineBorder(Color.BLACK, 5));
 
         rightGroup.add(Box.createRigidArea(new Dimension(rightGroup.getWidth(), (int) (Util.screenHeight * 0.2))));
-        rightGroup.add(new CustomScrollPane(rightGroup.getWidth(), rightGroup.getHeight()));
+        rightGroup.add(new PackageScrollPane(rightGroup.getWidth(), rightGroup.getHeight(), this));
         rightGroup.add(Box.createRigidArea(new Dimension(0, (int) (Util.screenHeight * 0.2))));
 
         this.add(leftGroup);
@@ -150,6 +150,15 @@ public class MainScreen extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("ADD PACKAGE")) {
             System.out.println("add package was pressed");
+        }
+        else if(e.getActionCommand().equals("LIST ALL")){
+            System.out.println("list all view");
+        }
+        else if(e.getActionCommand().equals("OVERDUE")){
+            System.out.println("overdue view");
+        }
+        else if(e.getActionCommand().equals("UPCOMING")){
+            System.out.println("upcoming view");
         }
         repaint();
         frame.updateStates();
