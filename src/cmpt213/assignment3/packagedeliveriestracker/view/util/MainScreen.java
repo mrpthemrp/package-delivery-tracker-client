@@ -84,7 +84,7 @@ public class MainScreen extends JPanel implements ActionListener {
         Graphics2D g2 = (Graphics2D) g;
 
         g2.setColor(Util.midTeal);
-        g2.fillRoundRect((int) (Util.screenWidth * 0.267), (int) (Util.screenHeight * 0.11),
+        g2.fillRoundRect((int) (Util.screenWidth * 0.265), (int) (Util.screenHeight * 0.11),
                 4, (int) (Util.screenHeight * 0.55), 3, 3);
     }
 
@@ -96,7 +96,6 @@ public class MainScreen extends JPanel implements ActionListener {
         leftGroup.setAlignmentX(Component.LEFT_ALIGNMENT);
         leftGroup.setSize(new Dimension((int) (Util.screenWidth / 3.5), (int) (this.getHeight() * 0.98)));
         leftGroup.setMaximumSize(new Dimension((int) (Util.screenWidth / 3.5), (int) (this.getHeight() * 0.98)));
-        leftGroup.setBorder(new LineBorder(Color.BLACK, 5));
 
         leftGroup.add(Box.createRigidArea(new Dimension(0, (int) (Util.screenHeight * 0.2))));
         leftGroup.add(title);
@@ -106,7 +105,7 @@ public class MainScreen extends JPanel implements ActionListener {
         leftGroup.add(clock);
         leftGroup.add(Box.createRigidArea(new Dimension(0, (int) (Util.screenHeight * 0.04))));
         leftGroup.add(btn);
-        leftGroup.add(Box.createRigidArea(new Dimension((int) (Util.screenHeight * 0.07), (int) (Util.screenHeight * 0.22))));
+        leftGroup.add(Box.createRigidArea(new Dimension(0, (int) (Util.screenHeight * 0.22))));
 
         JPanel middleGroup = new JPanel();
         middleGroup.setLayout(new BoxLayout(middleGroup, BoxLayout.Y_AXIS));

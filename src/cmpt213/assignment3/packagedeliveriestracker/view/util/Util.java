@@ -28,7 +28,7 @@ public final class Util {
 
     static {
         try {
-            clockFont = createCustomFont("Roboto-Bold.ttf", Font.BOLD, (int) (20 * (Util.screenSize.getWidth() * 0.0018)));
+            clockFont = createCustomFont("Roboto-Bold.ttf", Font.BOLD, (int) (18 * (Util.screenSize.getWidth() * 0.0018)));
         } catch (IOException | FontFormatException e) {
             throw new RuntimeException(e);
         }

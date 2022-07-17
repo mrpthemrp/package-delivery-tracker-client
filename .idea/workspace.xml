@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Move line">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Align JPanels on main">
       <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/util/MainScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/util/MainScreen.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -82,13 +81,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1652723361815</updated>
-    </task>
-    <task id="LOCAL-00066" summary="Implement abstract class, subclasses, interface; TextMenu updated">
-      <created>1655532191273</created>
-      <option name="number" value="00066" />
-      <option name="presentableId" value="LOCAL-00066" />
-      <option name="project" value="LOCAL" />
-      <updated>1655532191273</updated>
     </task>
     <task id="LOCAL-00067" summary="Add file separator for multiple OS run">
       <created>1655534171624</created>
@@ -426,7 +418,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658026996637</updated>
     </task>
-    <option name="localTasksCounter" value="115" />
+    <task id="LOCAL-00115" summary="Align JPanels on main">
+      <created>1658027691418</created>
+      <option name="number" value="00115" />
+      <option name="presentableId" value="LOCAL-00115" />
+      <option name="project" value="LOCAL" />
+      <updated>1658027691418</updated>
+    </task>
+    <option name="localTasksCounter" value="116" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -442,7 +441,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="A3 Start - refactor names and packages" />
     <MESSAGE value="Update docs folder and contents" />
     <MESSAGE value="Add MainApp class" />
     <MESSAGE value="Add PackageDeliveryGUI class and Action/Item Listeners" />
@@ -467,7 +465,8 @@
     <MESSAGE value="Fix button shadow bug on mainscreen - remember to repaint() always!" />
     <MESSAGE value="Fix button Dimension problem" />
     <MESSAGE value="Move line" />
-    <option name="LAST_COMMIT_MESSAGE" value="Move line" />
+    <MESSAGE value="Align JPanels on main" />
+    <option name="LAST_COMMIT_MESSAGE" value="Align JPanels on main" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
