@@ -20,7 +20,6 @@ public class MainScreen extends JPanel implements ActionListener {
     private final JLabel clock;
     private final JLabel currentDay;
     private final RoundButton btn;
-    private final CustomScrollPane scrollPane;
     private LocalDate today;
     private final PackageDeliveryGUI frame;
 
@@ -37,7 +36,6 @@ public class MainScreen extends JPanel implements ActionListener {
         this.title = new JLabel();
         this.clock = new JLabel("", SwingConstants.CENTER);
         this.currentDay = new JLabel("", SwingConstants.CENTER);
-        this.scrollPane = new CustomScrollPane();
 
         createMainScreen();
     }
@@ -123,7 +121,7 @@ public class MainScreen extends JPanel implements ActionListener {
         rightGroup.setBorder(new LineBorder(Color.BLACK, 5));
 
         rightGroup.add(Box.createRigidArea(new Dimension(rightGroup.getWidth(), (int) (Util.screenHeight * 0.2))));
-        rightGroup.add(scrollPane);
+        rightGroup.add(new CustomScrollPane(rightGroup.getWidth(), rightGroup.getHeight()));
         rightGroup.add(Box.createRigidArea(new Dimension(0, (int) (Util.screenHeight * 0.2))));
 
         this.add(leftGroup);

@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Move classes to different packages and start JavaDoc in Util">
-      <change afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/util/PackageItem.java" afterDir="false" />
+    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Add PackageItem class">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/screens/MainScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/screens/MainScreen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/util/CustomScrollPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/util/CustomScrollPane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/util/PackageItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/util/PackageItem.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,13 +89,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1652723361815</updated>
-    </task>
-    <task id="LOCAL-00087" summary="Reformat code">
-      <created>1656117316856</created>
-      <option name="number" value="00087" />
-      <option name="presentableId" value="LOCAL-00087" />
-      <option name="project" value="LOCAL" />
-      <updated>1656117316856</updated>
     </task>
     <task id="LOCAL-00088" summary="Remove json file">
       <created>1656117367263</created>
@@ -432,7 +426,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658030438707</updated>
     </task>
-    <option name="localTasksCounter" value="136" />
+    <task id="LOCAL-00136" summary="Add PackageItem class">
+      <created>1658033270022</created>
+      <option name="number" value="00136" />
+      <option name="presentableId" value="LOCAL-00136" />
+      <option name="project" value="LOCAL" />
+      <updated>1658033270022</updated>
+    </task>
+    <option name="localTasksCounter" value="137" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -448,7 +449,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Remove Roboto font from system" />
     <MESSAGE value="Add font styles to Util" />
     <MESSAGE value="Add more font styles to Util" />
     <MESSAGE value="Implement RoundButton" />
@@ -473,7 +473,8 @@
     <MESSAGE value="Add transparent Color to Util" />
     <MESSAGE value="Create custom JScrollPane class" />
     <MESSAGE value="Move classes to different packages and start JavaDoc in Util" />
-    <option name="LAST_COMMIT_MESSAGE" value="Move classes to different packages and start JavaDoc in Util" />
+    <MESSAGE value="Add PackageItem class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add PackageItem class" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -5,8 +5,9 @@ import java.awt.*;
 
 public class PackageItem extends JPanel {
     public PackageItem(){
-        setSize(new Dimension(500,500));
-        setMaximumSize(new Dimension(500,500));
+        setSize(new Dimension(300,300));
+        setMaximumSize(new Dimension(300,300));
         setBackground(Util.darkBrown);
+        this.add(Box.createRigidArea(this.getSize()));
     }
 }
