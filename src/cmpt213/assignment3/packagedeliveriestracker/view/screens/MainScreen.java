@@ -80,8 +80,8 @@ public class MainScreen extends JPanel implements ActionListener {
         Graphics2D g2 = (Graphics2D) g;
 
         g2.setColor(Util.midTeal);
-        g2.fillRoundRect((int) (Util.screenWidth * 0.265), (int) (Util.screenHeight * 0.08),
-                4, (int) (Util.screenHeight * 0.55), 3, 3);
+        g2.fillRoundRect((int) (Util.screenWidth * 0.265), (int) (Util.screenHeight * 0.06),
+                4, (int) (Util.screenHeight * 0.6), 3, 3);
     }
 
     private void setUpMainScreenLayout() {

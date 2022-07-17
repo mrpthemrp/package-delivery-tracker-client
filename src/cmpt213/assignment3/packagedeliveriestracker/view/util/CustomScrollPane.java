@@ -26,5 +26,8 @@ public class CustomScrollPane extends JScrollPane {
 
     private void addPackages() {
         innerPanel.add(new PackageItem());
+        innerPanel.add(new PackageItem());
+        innerPanel.add(new PackageItem());
+        innerPanel.add(new PackageItem());
     }
 }
