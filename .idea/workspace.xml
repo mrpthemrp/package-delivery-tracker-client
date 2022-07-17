@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Update Leftgroup padding">
+    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Add transparent Color to Util">
+      <change afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/util/PackageScrollPane.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/util/MainScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/util/MainScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/util/StartScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/util/StartScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/util/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/util/Util.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,6 +54,9 @@
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="cmpt213.assignment3.packagedeliveriestracker.view.util" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\debor\IdeaProjects\CMPT213-A3\src\cmpt213\assignment3\packagedeliveriestracker\view\font" />
       <recent name="C:\Users\debor\IdeaProjects\CMPT213-A1\src\cmpt213\assignment1\packagedeliveriestracker\gsondata" />
@@ -84,13 +86,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1652723361815</updated>
-    </task>
-    <task id="LOCAL-00084" summary="Add CRC image">
-      <created>1656111767789</created>
-      <option name="number" value="00084" />
-      <option name="presentableId" value="LOCAL-00084" />
-      <option name="project" value="LOCAL" />
-      <updated>1656111767789</updated>
     </task>
     <task id="LOCAL-00085" summary="Finish useCases.txt">
       <created>1656115684178</created>
@@ -428,7 +423,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658028196419</updated>
     </task>
-    <option name="localTasksCounter" value="133" />
+    <task id="LOCAL-00133" summary="Add transparent Color to Util">
+      <created>1658029337201</created>
+      <option name="number" value="00133" />
+      <option name="presentableId" value="LOCAL-00133" />
+      <option name="project" value="LOCAL" />
+      <updated>1658029337201</updated>
+    </task>
+    <option name="localTasksCounter" value="134" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -444,7 +446,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Implement date on main screen" />
     <MESSAGE value="Implement line via Graphics2D" />
     <MESSAGE value="Update JDK in project structure" />
     <MESSAGE value="Remove Roboto font from system" />
@@ -469,7 +470,8 @@
     <MESSAGE value="In progress MainScreen part 2" />
     <MESSAGE value="In progress MainScreen part 3" />
     <MESSAGE value="Update Leftgroup padding" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update Leftgroup padding" />
+    <MESSAGE value="Add transparent Color to Util" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add transparent Color to Util" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

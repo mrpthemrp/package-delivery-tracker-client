@@ -17,6 +17,7 @@ public class MainScreen extends JPanel implements ActionListener {
     private final JLabel clock;
     private final JLabel currentDay;
     private final RoundButton btn;
+    private final PackageScrollPane scrollPane;
     private LocalDate today;
     private final PackageDeliveryGUI frame;
 
@@ -33,6 +34,7 @@ public class MainScreen extends JPanel implements ActionListener {
         this.title = new JLabel();
         this.clock = new JLabel("", SwingConstants.CENTER);
         this.currentDay = new JLabel("", SwingConstants.CENTER);
+        this.scrollPane = new PackageScrollPane();
 
         createMainScreen();
     }
@@ -118,36 +120,12 @@ public class MainScreen extends JPanel implements ActionListener {
         rightGroup.setBorder(new LineBorder(Color.BLACK, 5));
 
         rightGroup.add(Box.createRigidArea(new Dimension(rightGroup.getWidth(), (int) (Util.screenHeight * 0.2))));
-        JPanel scrollPane = setUpScrollPane(rightGroup);
         rightGroup.add(scrollPane);
         rightGroup.add(Box.createRigidArea(new Dimension(0, (int) (Util.screenHeight * 0.2))));
 
         this.add(leftGroup);
         this.add(middleGroup);
         this.add(rightGroup);
-    }
-
-    private JPanel setUpScrollPane(JPanel outermostPane) {
-        JPanel outerPane = new JPanel(new CardLayout());
-        outerPane.setSize(new Dimension(outermostPane.getWidth(), (int) (Util.screenHeight * 0.8)));
-        outerPane.setMaximumSize(new Dimension(outermostPane.getWidth(), (int) (Util.screenHeight * 0.8)));
-        outerPane.setBackground(Util.transparent);
-        JScrollBar scrollBar = new JScrollBar(JScrollBar.VERTICAL);
-
-        JScrollPane packageScroll = new JScrollPane();
-        packageScroll.setLayout(new ScrollPaneLayout());
-
-        scrollBar.setBackground(Color.blue);
-        scrollBar.setForeground(Color.cyan);
-        packageScroll.setSize(new Dimension(outermostPane.getWidth(), (int) (outermostPane.getHeight() * 0.25)));
-        packageScroll.setMaximumSize(new Dimension(outermostPane.getWidth(), (int) (outermostPane.getHeight() * 0.25)));
-        packageScroll.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
-        packageScroll.setVerticalScrollBar(scrollBar);
-        packageScroll.setBackground(Color.cyan);
-
-        outerPane.add(packageScroll);
-
-        return outerPane;
     }
 
     private void startClock() {
