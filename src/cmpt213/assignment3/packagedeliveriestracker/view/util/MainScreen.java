@@ -84,7 +84,7 @@ public class MainScreen extends JPanel implements ActionListener {
         Graphics2D g2 = (Graphics2D) g;
 
         g2.setColor(Util.midTeal);
-        g2.fillRoundRect((int) (Util.screenWidth * 0.265), (int) (Util.screenHeight * 0.11),
+        g2.fillRoundRect((int) (Util.screenWidth * 0.265), (int) (Util.screenHeight * 0.08),
                 4, (int) (Util.screenHeight * 0.55), 3, 3);
     }
 
@@ -97,7 +97,7 @@ public class MainScreen extends JPanel implements ActionListener {
         leftGroup.setSize(new Dimension((int) (Util.screenWidth / 3.5), (int) (this.getHeight() * 0.98)));
         leftGroup.setMaximumSize(new Dimension((int) (Util.screenWidth / 3.5), (int) (this.getHeight() * 0.98)));
 
-        leftGroup.add(Box.createRigidArea(new Dimension(0, (int) (Util.screenHeight * 0.2))));
+        leftGroup.add(Box.createRigidArea(new Dimension(0, (int) (Util.screenHeight * 0.18))));
         leftGroup.add(title);
         leftGroup.add(Box.createRigidArea(new Dimension(0, (int) (Util.screenHeight * 0.048))));
         leftGroup.add(currentDay);
