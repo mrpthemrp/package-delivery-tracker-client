@@ -29,7 +29,8 @@ public class MainScreen extends JPanel implements ActionListener{
         this.setBackground(Color.WHITE);
         this.setPreferredSize(new Dimension((int) (Util.screenWidth * 0.75), (int) (Util.screenHeight * 0.75)));
 
-        this.btn = new RoundButton("A D D   P A C K A G E", "ADD PACKAGE", this, Util.lightBrown, Util.darkBrown);
+        this.btn = new RoundButton("   A D D   P A C K A G E   ", "ADD PACKAGE", this, Util.lightBrown, Util.darkBrown);
+        this.btn.setFont(Util.btnTextFont2);
         this.title = new JLabel();
         this.clock = new JLabel("", SwingConstants.CENTER);
         this.currentDay = new JLabel("", SwingConstants.CENTER);
@@ -57,12 +58,13 @@ public class MainScreen extends JPanel implements ActionListener{
 
         this.packageScroll.createVerticalScrollBar();
         this.packageScroll.setLayout(new ScrollPaneLayout());
+        this.packageScroll.setSize(new Dimension(100,100));
 
         //set alignments
         this.title.setAlignmentX(Component.RIGHT_ALIGNMENT);
         this.currentDay.setAlignmentX(Component.RIGHT_ALIGNMENT);
         this.clock.setAlignmentX(Component.RIGHT_ALIGNMENT);
-        this.btn.setAlignmentX(Component.RIGHT_ALIGNMENT);
+        this.btn.setAlignmentX(Component.BOTTOM_ALIGNMENT);
         this.packageScroll.setAlignmentX(Component.RIGHT_ALIGNMENT);
 
         //Update screen
@@ -97,13 +99,15 @@ public class MainScreen extends JPanel implements ActionListener{
         leftGroup.setMaximumSize(new Dimension((int) (Util.screenWidth / 3.5), (int) (this.getHeight() * 0.98)));
         leftGroup.setBorder(new LineBorder(Color.BLACK, 5));
 
+        leftGroup.add(Box.createRigidArea(new Dimension(0, (int) (Util.screenHeight * 0.2))));
         leftGroup.add(title);
-        leftGroup.add(Box.createRigidArea(new Dimension(0, (int) (Util.screenHeight * 0.06))));
+        leftGroup.add(Box.createRigidArea(new Dimension(0, (int) (Util.screenHeight * 0.04))));
         leftGroup.add(currentDay);
-        leftGroup.add(Box.createRigidArea(new Dimension(0, (int) (Util.screenHeight * 0.06))));
+        leftGroup.add(Box.createRigidArea(new Dimension(0, (int) (Util.screenHeight * 0.03))));
         leftGroup.add(clock);
-        leftGroup.add(Box.createRigidArea(new Dimension(0, (int) (Util.screenHeight * 0.06))));
+        leftGroup.add(Box.createRigidArea(new Dimension(0, (int) (Util.screenHeight * 0.03))));
         leftGroup.add(btn);
+        leftGroup.add(Box.createRigidArea(new Dimension(0, (int) (Util.screenHeight * 0.2))));
 
         JPanel rightGroup = new JPanel();
         rightGroup.setLayout(new BoxLayout(rightGroup, BoxLayout.Y_AXIS));
@@ -113,7 +117,9 @@ public class MainScreen extends JPanel implements ActionListener{
         rightGroup.setMaximumSize(new Dimension((int) (Util.screenWidth / 2.3), (int) (this.getHeight() * 0.98)));
         rightGroup.setBorder(new LineBorder(Color.BLACK, 5));
 
+        rightGroup.add(Box.createRigidArea(new Dimension(0, (int) (Util.screenHeight * 0.15))));
         rightGroup.add(packageScroll);
+        rightGroup.add(Box.createRigidArea(new Dimension(0, (int) (Util.screenHeight * 0.15))));
 
         this.add(leftGroup);
         this.add(rightGroup);

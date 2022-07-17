@@ -25,7 +25,7 @@ public class StartScreen extends JPanel implements ActionListener {
         this.frame = frame;
         this.setBackground(Color.WHITE);
         this.setSize(new Dimension((int) (Util.screenWidth * 0.75), (int) (Util.screenHeight * 0.75)));
-        this.btn = new RoundButton("E N T E R", "ENTER", this, Util.midTeal, Util.darkTeal);
+        this.btn = new RoundButton("   E N T E R   ", "ENTER", this, Util.midTeal, Util.darkTeal);
         this.title = new JLabel();
         this.subtitle = new JLabel();
         this.constraints = new GridBagConstraints();
