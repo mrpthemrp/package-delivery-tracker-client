@@ -4,10 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Add transparent Color to Util">
-      <change afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/util/PackageScrollPane.java" afterDir="false" />
+    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Create custom JScrollPane class">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/util/MainScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/util/MainScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/PackageDeliveryGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/PackageDeliveryGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/util/MainScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/screens/MainScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/util/PackageDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/screens/PackageDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/util/PackageScrollPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/util/CustomScrollPane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/util/StartScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/screens/StartScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/util/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/util/Util.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,6 +68,8 @@
       <recent name="C:\Users\debor\IdeaProjects\CMPT213-A1\src" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="cmpt213.assignment3.packagedeliveriestracker.view.util" />
+      <recent name="cmpt213.assignment3.packagedeliveriestracker.view.custom" />
       <recent name="cmpt213.assignment2.packagedeliveriestracker" />
       <recent name="cmpt213.assignment2.packagedeliveriestracker.textui" />
       <recent name="cmpt213.assignment2.packagedeliveriestracker.model" />
@@ -86,13 +92,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1652723361815</updated>
-    </task>
-    <task id="LOCAL-00085" summary="Finish useCases.txt">
-      <created>1656115684178</created>
-      <option name="number" value="00085" />
-      <option name="presentableId" value="LOCAL-00085" />
-      <option name="project" value="LOCAL" />
-      <updated>1656115684178</updated>
     </task>
     <task id="LOCAL-00086" summary="Finish OODexplained.txt">
       <created>1656116918122</created>
@@ -430,7 +429,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658029337201</updated>
     </task>
-    <option name="localTasksCounter" value="134" />
+    <task id="LOCAL-00134" summary="Create custom JScrollPane class">
+      <created>1658030275268</created>
+      <option name="number" value="00134" />
+      <option name="presentableId" value="LOCAL-00134" />
+      <option name="project" value="LOCAL" />
+      <updated>1658030275268</updated>
+    </task>
+    <option name="localTasksCounter" value="135" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -446,7 +452,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Implement line via Graphics2D" />
     <MESSAGE value="Update JDK in project structure" />
     <MESSAGE value="Remove Roboto font from system" />
     <MESSAGE value="Add font styles to Util" />
@@ -471,7 +476,8 @@
     <MESSAGE value="In progress MainScreen part 3" />
     <MESSAGE value="Update Leftgroup padding" />
     <MESSAGE value="Add transparent Color to Util" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add transparent Color to Util" />
+    <MESSAGE value="Create custom JScrollPane class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Create custom JScrollPane class" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

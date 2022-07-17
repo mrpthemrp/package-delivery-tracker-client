@@ -1,6 +1,9 @@
-package cmpt213.assignment3.packagedeliveriestracker.view.util;
+package cmpt213.assignment3.packagedeliveriestracker.view.screens;
 
 import cmpt213.assignment3.packagedeliveriestracker.view.PackageDeliveryGUI;
+import cmpt213.assignment3.packagedeliveriestracker.view.util.CustomScrollPane;
+import cmpt213.assignment3.packagedeliveriestracker.view.util.RoundButton;
+import cmpt213.assignment3.packagedeliveriestracker.view.util.Util;
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;
@@ -17,7 +20,7 @@ public class MainScreen extends JPanel implements ActionListener {
     private final JLabel clock;
     private final JLabel currentDay;
     private final RoundButton btn;
-    private final PackageScrollPane scrollPane;
+    private final CustomScrollPane scrollPane;
     private LocalDate today;
     private final PackageDeliveryGUI frame;
 
@@ -34,7 +37,7 @@ public class MainScreen extends JPanel implements ActionListener {
         this.title = new JLabel();
         this.clock = new JLabel("", SwingConstants.CENTER);
         this.currentDay = new JLabel("", SwingConstants.CENTER);
-        this.scrollPane = new PackageScrollPane();
+        this.scrollPane = new CustomScrollPane();
 
         createMainScreen();
     }

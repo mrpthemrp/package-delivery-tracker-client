@@ -1,7 +1,7 @@
 package cmpt213.assignment3.packagedeliveriestracker.view;
 
-import cmpt213.assignment3.packagedeliveriestracker.view.util.MainScreen;
-import cmpt213.assignment3.packagedeliveriestracker.view.util.StartScreen;
+import cmpt213.assignment3.packagedeliveriestracker.view.screens.MainScreen;
+import cmpt213.assignment3.packagedeliveriestracker.view.screens.StartScreen;
 import cmpt213.assignment3.packagedeliveriestracker.view.util.Util;
 import cmpt213.assignment3.packagedeliveriestracker.view.util.Util.SCREEN_STATE;
 
