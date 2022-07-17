@@ -32,4 +32,7 @@ public class Electronic extends PackageBase {
                 "Environmental Handling Fee: " + this.handleFee + "\n");
     }
 
+    public double getHandleFee() {
+        return handleFee;
+    }
 }

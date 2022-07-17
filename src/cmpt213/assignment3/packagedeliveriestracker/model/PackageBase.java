@@ -52,4 +52,20 @@ public abstract class PackageBase implements Package {
     public String getName() {
         return this.name;
     }
+
+    public String getNotes() {
+        return notes;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public double getWeight() {
+        return weight;
+    }
+
+    public boolean isDelivered() {
+        return isDelivered;
+    }
 }

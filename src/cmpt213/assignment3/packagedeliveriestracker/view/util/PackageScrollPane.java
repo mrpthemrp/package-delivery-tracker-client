@@ -1,5 +1,8 @@
 package cmpt213.assignment3.packagedeliveriestracker.view.util;
 
+import cmpt213.assignment3.packagedeliveriestracker.control.PackageDeliveryTracker;
+import cmpt213.assignment3.packagedeliveriestracker.model.Book;
+
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 import java.awt.*;
@@ -19,8 +22,8 @@ public class PackageScrollPane extends JScrollPane {
         this.basePanel = new JPanel(new CardLayout());
         this.columnHeader = new JPanel();
 
-        basePanel.setSize(new Dimension((width), (height * 2)));
-        basePanel.setMaximumSize(new Dimension(width, (height * 2)));
+        basePanel.setSize(new Dimension((width), (height/2)));
+        basePanel.setMaximumSize(new Dimension(width, (height/2)));
         basePanel.setBorder(new LineBorder(Color.BLACK, 5));
 
         setUpViews(al);
@@ -58,7 +61,7 @@ public class PackageScrollPane extends JScrollPane {
         this.listAllBtn.setActionCommand("LIST ALL");
         this.listAllBtn.addActionListener(al);
 
-        listAllCard.add(new PackageItem(basePanel.getWidth()), Box.CENTER_ALIGNMENT);
+        listAllCard.add(new PackageItem(basePanel.getWidth(), PackageDeliveryTracker.getPackage(0)), Box.CENTER_ALIGNMENT);
     }
 
     private void setUpUpcoming(ActionListener al) {
@@ -68,7 +71,7 @@ public class PackageScrollPane extends JScrollPane {
         this.upcomingBtn.setActionCommand("UPCOMING");
         this.upcomingBtn.addActionListener(al);
 
-        upcomingCard.add(new PackageItem(basePanel.getWidth()), Box.CENTER_ALIGNMENT);
+//        upcomingCard.add(new PackageItem(basePanel.getWidth(), PackageDeliveryTracker.getPackage(0)), Box.CENTER_ALIGNMENT);
     }
 
     private void setUpOverdue(ActionListener al) {
@@ -78,7 +81,7 @@ public class PackageScrollPane extends JScrollPane {
         this.overdueBtn.setActionCommand("OVERDUE");
         this.overdueBtn.addActionListener(al);
 
-        this.overdueBtn.add(new PackageItem(basePanel.getWidth()), Box.CENTER_ALIGNMENT);
+//        this.overdueBtn.add(new PackageItem(basePanel.getWidth()), Box.CENTER_ALIGNMENT);
     }
 
     public static void switchView(Util.SCREEN_STATE newState) {

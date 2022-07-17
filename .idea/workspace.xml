@@ -4,10 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Scroll still not working">
+    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="PackageItem sizes correct">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/MainApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/PackageDeliveryTracker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/control/PackageDeliveryTracker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/TextMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/control/TextMenu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/gson/list.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/gson/list.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/model/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/model/Book.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/model/Electronic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/model/Electronic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/model/PackageBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/model/PackageBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/model/Perishable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/model/Perishable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/screens/MainScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/screens/MainScreen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/util/PackageItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/util/PackageItem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/util/PackageScrollPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/util/PackageScrollPane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/util/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/util/Util.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,14 +74,14 @@
       <recent name="C:\Users\debor\IdeaProjects\CMPT213-A1\src" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="cmpt213.assignment3.packagedeliveriestracker.control" />
       <recent name="cmpt213.assignment3.packagedeliveriestracker.view.util" />
       <recent name="cmpt213.assignment3.packagedeliveriestracker.view.custom" />
       <recent name="cmpt213.assignment2.packagedeliveriestracker" />
       <recent name="cmpt213.assignment2.packagedeliveriestracker.textui" />
-      <recent name="cmpt213.assignment2.packagedeliveriestracker.model" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.MainApp">
     <configuration name="MainApp" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="cmpt213.assignment3.packagedeliveriestracker.MainApp" />
       <module name="CMPT213-A3" />
@@ -79,6 +89,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="OldApp" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="cmpt213.assignment3.packagedeliveriestracker.control.PackageDeliveryTracker" />
+      <module name="CMPT213-A3" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.OldApp" />
+      <item itemvalue="Application.MainApp" />
+    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -88,13 +109,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1652723361815</updated>
-    </task>
-    <task id="LOCAL-00092" summary="Add MainApp class">
-      <created>1657312827900</created>
-      <option name="number" value="00092" />
-      <option name="presentableId" value="LOCAL-00092" />
-      <option name="project" value="LOCAL" />
-      <updated>1657312827900</updated>
     </task>
     <task id="LOCAL-00093" summary="Add PackageDeliveryGUI class and Action/Item Listeners">
       <created>1657313425805</created>
@@ -432,7 +446,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658038911213</updated>
     </task>
-    <option name="localTasksCounter" value="141" />
+    <task id="LOCAL-00141" summary="PackageItem sizes correct">
+      <created>1658039718244</created>
+      <option name="number" value="00141" />
+      <option name="presentableId" value="LOCAL-00141" />
+      <option name="project" value="LOCAL" />
+      <updated>1658039718244</updated>
+    </task>
+    <option name="localTasksCounter" value="142" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -448,7 +469,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Finish Round button class implementation" />
     <MESSAGE value="Add change colour modifier to RoundButton" />
     <MESSAGE value="Add font package back" />
     <MESSAGE value="Custom fonts applied" />
@@ -473,7 +493,8 @@
     <MESSAGE value="Buttons in scroll are working" />
     <MESSAGE value="Card views in progress" />
     <MESSAGE value="Scroll still not working" />
-    <option name="LAST_COMMIT_MESSAGE" value="Scroll still not working" />
+    <MESSAGE value="PackageItem sizes correct" />
+    <option name="LAST_COMMIT_MESSAGE" value="PackageItem sizes correct" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

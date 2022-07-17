@@ -32,4 +32,7 @@ public class Perishable extends PackageBase {
                 "Product Expiry Date: " + this.expiryDate.format(dateFormat) + "\n");
     }
 
+    public LocalDateTime getExpiryDate() {
+        return expiryDate;
+    }
 }

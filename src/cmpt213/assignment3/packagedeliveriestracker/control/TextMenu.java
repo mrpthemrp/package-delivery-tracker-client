@@ -1,4 +1,4 @@
-package cmpt213.assignment3.packagedeliveriestracker;
+package cmpt213.assignment3.packagedeliveriestracker.control;
 
 import cmpt213.assignment3.packagedeliveriestracker.model.PackageBase;
 import cmpt213.assignment3.packagedeliveriestracker.model.PackageFactory;

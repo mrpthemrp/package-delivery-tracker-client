@@ -32,4 +32,7 @@ public class Book extends PackageBase {
                 "Author name: " + this.authorName + "\n");
     }
 
+    public String getAuthorName() {
+        return authorName;
+    }
 }
