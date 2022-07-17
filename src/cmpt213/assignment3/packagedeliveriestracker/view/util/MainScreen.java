@@ -1,30 +1,35 @@
 package cmpt213.assignment3.packagedeliveriestracker.view.util;
 
+import cmpt213.assignment3.packagedeliveriestracker.view.PackageDeliveryGUI;
+
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 //clock reference : https://www.tutorialsbuddy.com/create-a-digital-clock-in-java
 
-public class MainScreen extends JPanel {
+public class MainScreen extends JPanel implements ActionListener{
     private final JLabel title;
     private final JLabel clock;
     private final JLabel currentDay;
     private final RoundButton btn;
     private JScrollPane packageScroll;
     private LocalDate today;
+    private final PackageDeliveryGUI frame;
 
 
-    public MainScreen(ActionListener al) {
+    public MainScreen(PackageDeliveryGUI frame) {
+        this.frame = frame;
         this.setLayout(new FlowLayout());
         this.setAlignmentX(Component.CENTER_ALIGNMENT);
         this.setBackground(Color.WHITE);
         this.setPreferredSize(new Dimension((int) (Util.screenWidth * 0.75), (int) (Util.screenHeight * 0.75)));
 
-        this.btn = new RoundButton("A D D   P A C K A G E", "ADD PACKAGE", al, Util.lightBrown, Util.darkBrown);
+        this.btn = new RoundButton("A D D   P A C K A G E", "ADD PACKAGE", this, Util.lightBrown, Util.darkBrown);
         this.title = new JLabel();
         this.clock = new JLabel("", SwingConstants.CENTER);
         this.currentDay = new JLabel("", SwingConstants.CENTER);
@@ -74,7 +79,7 @@ public class MainScreen extends JPanel {
         //set other things
         this.clock.setPreferredSize(new Dimension((int) (Util.screenWidth * 0.23),
                 (int) (Util.screenHeight * 0.054)));
-        this.clock.setBackground(Color.WHITE);
+        this.clock.setBackground(new Color(255,255,255,0));
 
         //date
         this.currentDay.setText(today.format(Util.currentDayFormat));
@@ -125,8 +130,17 @@ public class MainScreen extends JPanel {
                 today = LocalDate.now();
                 this.currentDay.setText(today.format(Util.currentDayFormat));
             }
+            repaint();
         });
 
         clockTime.start();
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getActionCommand().equals("ADD PACKAGE")) {
+            System.out.println("add package was pressed");
+        }
+        frame.updateStates();
     }
 }

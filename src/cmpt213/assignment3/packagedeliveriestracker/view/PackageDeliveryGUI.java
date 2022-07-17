@@ -9,45 +9,42 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class PackageDeliveryGUI extends JFrame implements ActionListener, ItemListener {
+public class PackageDeliveryGUI extends JFrame implements ItemListener {
     private SCREEN_STATE currentState;
+    private final JPanel basePanel;
+
+    private final StartScreen startPanel;
+    private final MainScreen mainPanel;
 
     public PackageDeliveryGUI() {
         this.setResizable(false);
         this.setBackground(Color.WHITE);
+        this.basePanel = new JPanel(new CardLayout());
         currentState = SCREEN_STATE.START;
-        JPanel panel = new StartScreen(this);
+        startPanel = new StartScreen(this);
+        mainPanel = new MainScreen(this);
+
 
         //set up frame
         this.setTitle("Package Delivery Tracker");//change string input later
 
         //Containers
         this.setSize((int) (Util.screenWidth * 0.75), (int) (Util.screenHeight * 0.75));
+        this.basePanel.setSize(new Dimension(this.getWidth(),this.getHeight()));
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         //complete frame setup
-        this.setContentPane(panel);
+        this.basePanel.add(startPanel);
+        this.setContentPane(basePanel);
         this.setVisible(true);
     }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        if (e.getActionCommand().equals("START")) {
-            System.out.println("start was pressed");
-        }
-        if (e.getActionCommand().equals("ADD PACKAGE")) {
-            System.out.println("add package was pressed");
-        }
-        updateStates();
-
-    }
-
-    private void updateStates() {
+    public void updateStates() {
 
         switch (currentState) {
             case START -> {
-                this.remove(this.getContentPane());
-                this.add(new MainScreen(this));
+                this.basePanel.removeAll();
+                this.basePanel.add(mainPanel);
                 this.setTitle("Package Delivery Tracker - Main");
                 currentState = SCREEN_STATE.MAIN;
             }
