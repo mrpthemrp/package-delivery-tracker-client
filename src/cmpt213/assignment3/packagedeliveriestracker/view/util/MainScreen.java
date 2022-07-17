@@ -17,7 +17,6 @@ public class MainScreen extends JPanel implements ActionListener {
     private final JLabel clock;
     private final JLabel currentDay;
     private final RoundButton btn;
-    private final JScrollPane packageScroll;
     private LocalDate today;
     private final PackageDeliveryGUI frame;
 
@@ -34,7 +33,6 @@ public class MainScreen extends JPanel implements ActionListener {
         this.title = new JLabel();
         this.clock = new JLabel("", SwingConstants.CENTER);
         this.currentDay = new JLabel("", SwingConstants.CENTER);
-        this.packageScroll = new JScrollPane();
 
         createMainScreen();
     }
@@ -44,16 +42,11 @@ public class MainScreen extends JPanel implements ActionListener {
         this.title.setText("today is");
         this.title.setFont(Util.subTitleFont);
 
-        this.packageScroll.createVerticalScrollBar();
-        this.packageScroll.setLayout(new ScrollPaneLayout());
-        this.packageScroll.setSize(new Dimension(800, 800));
-
         //set alignments
         this.title.setAlignmentX(Component.RIGHT_ALIGNMENT);
         this.currentDay.setAlignmentX(Component.RIGHT_ALIGNMENT);
         this.clock.setAlignmentX(Component.RIGHT_ALIGNMENT);
         this.btn.setAlignmentX(Component.RIGHT_ALIGNMENT);
-        this.packageScroll.setAlignmentX(Component.RIGHT_ALIGNMENT);
 
         //Update screen
         createTimeAndDate();
@@ -69,7 +62,7 @@ public class MainScreen extends JPanel implements ActionListener {
         //set other things
         this.clock.setPreferredSize(new Dimension((int) (Util.screenWidth * 0.23),
                 (int) (Util.screenHeight * 0.054)));
-        this.clock.setBackground(new Color(255, 255, 255, 0));
+        this.clock.setBackground(Util.transparent);
 
         //date
         this.currentDay.setText(today.format(Util.currentDayFormat));
@@ -92,7 +85,7 @@ public class MainScreen extends JPanel implements ActionListener {
 
         JPanel leftGroup = new JPanel();
         leftGroup.setLayout(new BoxLayout(leftGroup, BoxLayout.Y_AXIS));
-        leftGroup.setBackground(new Color(255, 255, 255, 0));
+        leftGroup.setBackground(Util.transparent);
         leftGroup.setAlignmentX(Component.LEFT_ALIGNMENT);
         leftGroup.setSize(new Dimension((int) (Util.screenWidth / 3.5), (int) (this.getHeight() * 0.98)));
         leftGroup.setMaximumSize(new Dimension((int) (Util.screenWidth / 3.5), (int) (this.getHeight() * 0.98)));
@@ -109,7 +102,7 @@ public class MainScreen extends JPanel implements ActionListener {
 
         JPanel middleGroup = new JPanel();
         middleGroup.setLayout(new BoxLayout(middleGroup, BoxLayout.Y_AXIS));
-        middleGroup.setBackground(new Color(255, 255, 255, 0));
+        middleGroup.setBackground(Util.transparent);
         middleGroup.setAlignmentX(Component.RIGHT_ALIGNMENT);
         middleGroup.setSize(new Dimension((int) (Util.screenWidth * 0.1), (int) (this.getHeight() * 0.98)));
         middleGroup.setMaximumSize(new Dimension((int) (Util.screenWidth * 0.1), (int) (this.getHeight() * 0.98)));
@@ -118,19 +111,43 @@ public class MainScreen extends JPanel implements ActionListener {
 
         JPanel rightGroup = new JPanel();
         rightGroup.setLayout(new BoxLayout(rightGroup, BoxLayout.Y_AXIS));
-        rightGroup.setBackground(new Color(255, 255, 255, 0));
+        rightGroup.setBackground(Util.transparent);
         rightGroup.setAlignmentX(Component.RIGHT_ALIGNMENT);
         rightGroup.setSize(new Dimension((int) (Util.screenWidth / 2.3), (int) (this.getHeight() * 0.98)));
         rightGroup.setMaximumSize(new Dimension((int) (Util.screenWidth / 2.3), (int) (this.getHeight() * 0.98)));
         rightGroup.setBorder(new LineBorder(Color.BLACK, 5));
 
         rightGroup.add(Box.createRigidArea(new Dimension(rightGroup.getWidth(), (int) (Util.screenHeight * 0.2))));
-        rightGroup.add(packageScroll);
+        JPanel scrollPane = setUpScrollPane(rightGroup);
+        rightGroup.add(scrollPane);
         rightGroup.add(Box.createRigidArea(new Dimension(0, (int) (Util.screenHeight * 0.2))));
 
         this.add(leftGroup);
         this.add(middleGroup);
         this.add(rightGroup);
+    }
+
+    private JPanel setUpScrollPane(JPanel outermostPane) {
+        JPanel outerPane = new JPanel(new CardLayout());
+        outerPane.setSize(new Dimension(outermostPane.getWidth(), (int) (Util.screenHeight * 0.8)));
+        outerPane.setMaximumSize(new Dimension(outermostPane.getWidth(), (int) (Util.screenHeight * 0.8)));
+        outerPane.setBackground(Util.transparent);
+        JScrollBar scrollBar = new JScrollBar(JScrollBar.VERTICAL);
+
+        JScrollPane packageScroll = new JScrollPane();
+        packageScroll.setLayout(new ScrollPaneLayout());
+
+        scrollBar.setBackground(Color.blue);
+        scrollBar.setForeground(Color.cyan);
+        packageScroll.setSize(new Dimension(outermostPane.getWidth(), (int) (outermostPane.getHeight() * 0.25)));
+        packageScroll.setMaximumSize(new Dimension(outermostPane.getWidth(), (int) (outermostPane.getHeight() * 0.25)));
+        packageScroll.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
+        packageScroll.setVerticalScrollBar(scrollBar);
+        packageScroll.setBackground(Color.cyan);
+
+        outerPane.add(packageScroll);
+
+        return outerPane;
     }
 
     private void startClock() {

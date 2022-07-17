@@ -16,6 +16,8 @@ public final class Util {
     public static Color lightTeal = new Color(237, 246, 249);
     public static Color lightBrown = new Color(255, 221, 210);
     public static Color darkBrown = new Color(226, 149, 120);
+
+    public static Color transparent = new Color (255,255,255,0);
     public static DateTimeFormatter clockFormat = DateTimeFormatter.ofPattern("hh:mm:ss a");
     public static DateTimeFormatter currentDayFormat = DateTimeFormatter.ofPattern("MMMM dd, yyyy");
     public static Font clockFont;

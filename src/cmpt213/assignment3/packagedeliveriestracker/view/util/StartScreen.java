@@ -3,17 +3,14 @@ package cmpt213.assignment3.packagedeliveriestracker.view.util;
 import cmpt213.assignment3.packagedeliveriestracker.view.PackageDeliveryGUI;
 
 import javax.swing.*;
-import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 //clock reference : https://www.tutorialsbuddy.com/create-a-digital-clock-in-java
 
 public class StartScreen extends JPanel implements ActionListener {
-    private RoundButton btn;
+    private final RoundButton btn;
     private final JLabel title;
     private final JLabel subtitle;
     private final GridBagConstraints constraints;
@@ -44,29 +41,21 @@ public class StartScreen extends JPanel implements ActionListener {
         this.subtitle.setFont(Util.subTitleFont);
 
         //background stuff
-        resetConstraint(0, 0, GridBagConstraints.CENTER);
+        resetConstraint(0);
         this.add(title, constraints);
-        resetConstraint(0, 1, GridBagConstraints.CENTER);
+        resetConstraint(1);
         this.add(Box.createRigidArea(new Dimension(0, (int) (Util.screenHeight * 0.06))), constraints);
-        resetConstraint(0, 2, GridBagConstraints.CENTER);
+        resetConstraint(2);
         this.add(subtitle, constraints);
-        resetConstraint(0, 3, GridBagConstraints.CENTER);
+        resetConstraint(3);
         this.add(Box.createRigidArea(new Dimension(0, (int) (Util.screenHeight * 0.06))), constraints);
-        resetConstraint(0, 4, GridBagConstraints.CENTER);
+        resetConstraint(4);
         this.add(btn, constraints);
     }
 
-    public void hideScreen(){
-        this.remove(btn);
-        this.remove(title);
-        this.remove(subtitle);
-        this.setSize(new Dimension(0,0));
-        this.setVisible(false);
-        this.removeAll();
-    }
-    private void resetConstraint(int x, int y, int gridBagConstant) {
-        constraints.fill = gridBagConstant;
-        constraints.gridx = x;
+    private void resetConstraint(int y) {
+        constraints.fill = GridBagConstraints.CENTER;
+        constraints.gridx = 0;
         constraints.gridy = y;
     }
 
