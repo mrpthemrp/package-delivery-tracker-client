@@ -21,13 +21,14 @@ public final class Util {
     public static Font clockFont;
     public static Font mainScreenDateFont;
     public static Font btnTextFont;
+    public static Font btnTextFont2;
     public static Font titleFont;
     public static Font subTitleFont;
     public static Font bodyFont = new Font(Font.SANS_SERIF, Font.PLAIN, (int) (10 * (Util.screenSize.getWidth() * 0.001)));
 
     static {
         try {
-            clockFont = createCustomFont("Roboto-Bold.ttf", Font.BOLD, (int) (20 * (Util.screenSize.getWidth() * 0.0018)));
+            clockFont = createCustomFont("Roboto-Bold.ttf", Font.BOLD, (int) (18 * (Util.screenSize.getWidth() * 0.0018)));
         } catch (IOException | FontFormatException e) {
             throw new RuntimeException(e);
         }
@@ -44,6 +45,14 @@ public final class Util {
     static {
         try {
             btnTextFont = createCustomFont("Roboto-Bold.ttf", Font.BOLD, (int) (14 * (Util.screenSize.getWidth() * 0.0013)));
+        } catch (IOException | FontFormatException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    static {
+        try {
+            btnTextFont2 = createCustomFont("Roboto-Bold.ttf", Font.BOLD, (int) (11 * (Util.screenSize.getWidth() * 0.0013)));
         } catch (IOException | FontFormatException e) {
             throw new RuntimeException(e);
         }

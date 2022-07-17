@@ -1,28 +1,31 @@
 package cmpt213.assignment3.packagedeliveriestracker.view.util;
 
+import cmpt213.assignment3.packagedeliveriestracker.view.PackageDeliveryGUI;
+
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 //clock reference : https://www.tutorialsbuddy.com/create-a-digital-clock-in-java
 
-public class StartScreen extends JPanel {
+public class StartScreen extends JPanel implements ActionListener {
     private RoundButton btn;
     private final JLabel title;
     private final JLabel subtitle;
     private final GridBagConstraints constraints;
-    private final ActionListener al;
 
+    private final PackageDeliveryGUI frame;
 
-    public StartScreen(ActionListener al) {
+    public StartScreen(PackageDeliveryGUI frame) {
 
+        this.frame = frame;
         this.setBackground(Color.WHITE);
         this.setSize(new Dimension((int) (Util.screenWidth * 0.75), (int) (Util.screenHeight * 0.75)));
-        this.al = al;
-        this.btn = new RoundButton("E N T E R", "ENTER", al, Util.midTeal, Util.darkTeal);
+        this.btn = new RoundButton("   E N T E R   ", "ENTER", this, Util.midTeal, Util.darkTeal);
         this.title = new JLabel();
         this.subtitle = new JLabel();
         this.constraints = new GridBagConstraints();
@@ -67,4 +70,12 @@ public class StartScreen extends JPanel {
         constraints.gridy = y;
     }
 
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getActionCommand().equals("ENTER")) {
+            System.out.println("start was pressed");
+        }
+
+        frame.updateStates();
+    }
 }

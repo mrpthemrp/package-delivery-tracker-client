@@ -6,14 +6,14 @@ import java.awt.event.ActionListener;
 
 // reference: https://www.javacodex.com/More-Examples/2/14
 public class RoundButton extends JButton {
-    private Color btnColor;
-    private Color btnColorDark;
-    private String btnText;
+    private final Color btnColor;
+    private final Color btnColorDark;
+    private final int height;
 
     public RoundButton(String btnText, String label, ActionListener al, Color btnColor, Color btnColorDark) {
-        this.btnText = btnText;
         this.btnColor = btnColor;
         this.btnColorDark = btnColorDark;
+        this.height = (int) (getHeight()+(Util.screenHeight*0.08));
 
         addActionListener(al);
         setActionCommand(label);
@@ -23,16 +23,7 @@ public class RoundButton extends JButton {
         setFocusPainted(false);
         setFont(Util.btnTextFont);
         setText(btnText);
-    }
 
-    private void setUpDimensions(Graphics g) {
-        //makes sure that the width is not too long
-        double width = g.getFontMetrics().stringWidth(this.btnText) * 1.8;
-        if(width > g.getFontMetrics().stringWidth(this.btnText) + 80){
-            width = g.getFontMetrics().stringWidth(this.btnText) * 1.4;
-        }
-
-        this.setSize(new Dimension((int) (width), (int) (Util.screenHeight * 0.085)));
     }
 
     @Override
@@ -46,12 +37,11 @@ public class RoundButton extends JButton {
             g.setColor(btnColor);
             setForeground(Color.BLACK);
         }
+        setSize(new Dimension(getWidth(), height));
 
-        setUpDimensions(g);
-        g.fillRoundRect(0, 0, getSize().width, getSize().height,
-                (int) (getSize().height * 0.8), (int) (getSize().height * 0.8));
+        g.fillRoundRect(0, 0, getWidth(), getHeight(),
+                (int) (getSize().height * 0.95), (int) (getSize().height * 0.95));
 
-        repaint();
         super.paintComponent(g);
     }
 
