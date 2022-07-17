@@ -11,20 +11,17 @@ import java.awt.event.ActionListener;
 
 //clock reference : https://www.tutorialsbuddy.com/create-a-digital-clock-in-java
 
-public class StartScreen extends JPanel implements ActionListener {
+public class StartScreen extends JPanel{
     private final RoundButton btn;
     private final JLabel title;
     private final JLabel subtitle;
     private final GridBagConstraints constraints;
 
-    private final PackageDeliveryGUI frame;
+    public StartScreen(ActionListener al) {
 
-    public StartScreen(PackageDeliveryGUI frame) {
-
-        this.frame = frame;
         this.setBackground(Color.WHITE);
         this.setSize(new Dimension((int) (Util.screenWidth * 0.75), (int) (Util.screenHeight * 0.75)));
-        this.btn = new RoundButton("   E N T E R   ", "ENTER", this, Util.midTeal, Util.darkTeal);
+        this.btn = new RoundButton("   E N T E R   ", "ENTER", al, Util.midTeal, Util.darkTeal);
         this.title = new JLabel();
         this.subtitle = new JLabel();
         this.constraints = new GridBagConstraints();
@@ -61,12 +58,4 @@ public class StartScreen extends JPanel implements ActionListener {
         constraints.gridy = y;
     }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        if (e.getActionCommand().equals("ENTER")) {
-            System.out.println("start was pressed");
-        }
-
-        frame.updateStates();
-    }
 }

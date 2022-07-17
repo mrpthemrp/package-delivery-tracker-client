@@ -1,6 +1,5 @@
 package cmpt213.assignment3.packagedeliveriestracker.view.screens;
 
-import cmpt213.assignment3.packagedeliveriestracker.view.PackageDeliveryGUI;
 import cmpt213.assignment3.packagedeliveriestracker.view.util.PackageScrollPane;
 import cmpt213.assignment3.packagedeliveriestracker.view.util.RoundButton;
 import cmpt213.assignment3.packagedeliveriestracker.view.util.Util;
@@ -15,23 +14,23 @@ import java.time.LocalDateTime;
 
 //clock reference : https://www.tutorialsbuddy.com/create-a-digital-clock-in-java
 
-public class MainScreen extends JPanel implements ActionListener {
+public class MainScreen extends JPanel {
     private final JLabel title;
     private final JLabel clock;
     private final JLabel currentDay;
     private final RoundButton btn;
     private LocalDate today;
-    private final PackageDeliveryGUI frame;
+    private ActionListener al;
 
 
-    public MainScreen(PackageDeliveryGUI frame) {
-        this.frame = frame;
+    public MainScreen(ActionListener al) {
+        this.al = al;
         this.setLayout(new FlowLayout());
         this.setAlignmentX(Component.CENTER_ALIGNMENT);
         this.setBackground(Color.WHITE);
         this.setPreferredSize(new Dimension((int) (Util.screenWidth * 0.75), (int) (Util.screenHeight * 0.75)));
 
-        this.btn = new RoundButton("   A D D   P A C K A G E   ", "ADD PACKAGE", this, Util.lightBrown, Util.darkBrown);
+        this.btn = new RoundButton("   A D D   P A C K A G E   ", "ADD PACKAGE", al, Util.lightBrown, Util.darkBrown);
         this.btn.setFont(Util.btnTextFont2);
         this.title = new JLabel();
         this.clock = new JLabel("", SwingConstants.CENTER);
@@ -121,7 +120,7 @@ public class MainScreen extends JPanel implements ActionListener {
         rightGroup.setBorder(new LineBorder(Color.BLACK, 5));
 
         rightGroup.add(Box.createRigidArea(new Dimension(rightGroup.getWidth(), (int) (Util.screenHeight * 0.2))));
-        rightGroup.add(new PackageScrollPane(rightGroup.getWidth(), rightGroup.getHeight(), this));
+        rightGroup.add(new PackageScrollPane(rightGroup.getWidth(), rightGroup.getHeight(), al));
         rightGroup.add(Box.createRigidArea(new Dimension(0, (int) (Util.screenHeight * 0.2))));
 
         this.add(leftGroup);
@@ -146,21 +145,5 @@ public class MainScreen extends JPanel implements ActionListener {
         clockTime.start();
     }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        if (e.getActionCommand().equals("ADD PACKAGE")) {
-            System.out.println("add package was pressed");
-        }
-        else if(e.getActionCommand().equals("LIST ALL")){
-            System.out.println("list all view");
-        }
-        else if(e.getActionCommand().equals("OVERDUE")){
-            System.out.println("overdue view");
-        }
-        else if(e.getActionCommand().equals("UPCOMING")){
-            System.out.println("upcoming view");
-        }
-        repaint();
-        frame.updateStates();
-    }
+
 }
