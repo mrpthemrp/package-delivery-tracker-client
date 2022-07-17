@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="In progress MainScreen part 2">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/PackageDeliveryGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/PackageDeliveryGUI.java" afterDir="false" />
-    </list>
+    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Move enum to Util" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -46,15 +43,14 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/debor/IdeaProjects/CMPT213-A3&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.build&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\debor\IdeaProjects\CMPT213-A3\src\cmpt213\assignment3\packagedeliveriestracker\view\font" />
       <recent name="C:\Users\debor\IdeaProjects\CMPT213-A1\src\cmpt213\assignment1\packagedeliveriestracker\gsondata" />
       <recent name="C:\Users\debor\IdeaProjects\CMPT213-A1\src\cmpt213\assignment1\packagedeliveriestracker" />
       <recent name="C:\Users\debor\IdeaProjects\CMPT213-A1\src" />
@@ -82,6 +78,146 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1652723361815</updated>
+    </task>
+    <task id="LOCAL-00062" summary="Implement Package interface basics">
+      <created>1655356927687</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1655356927703</updated>
+    </task>
+    <task id="LOCAL-00063" summary="Refactor classes into Java packages">
+      <created>1655357201053</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1655357201053</updated>
+    </task>
+    <task id="LOCAL-00064" summary="Add PackageSuper class and pull methods/fields of subclasses up">
+      <created>1655497421777</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1655497421777</updated>
+    </task>
+    <task id="LOCAL-00065" summary="Debug boolean incorrect package number in option 6">
+      <created>1655505875533</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1655505875533</updated>
+    </task>
+    <task id="LOCAL-00066" summary="Implement abstract class, subclasses, interface; TextMenu updated">
+      <created>1655532191273</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1655532191273</updated>
+    </task>
+    <task id="LOCAL-00067" summary="Add file separator for multiple OS run">
+      <created>1655534171624</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1655534171640</updated>
+    </task>
+    <task id="LOCAL-00068" summary="Extend Comparable interface in Package interface">
+      <created>1655769605666</created>
+      <option name="number" value="00068" />
+      <option name="presentableId" value="LOCAL-00068" />
+      <option name="project" value="LOCAL" />
+      <updated>1655769605666</updated>
+    </task>
+    <task id="LOCAL-00069" summary="Fix bug: index greater than array size in changeAPackage">
+      <created>1655770044215</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1655770044215</updated>
+    </task>
+    <task id="LOCAL-00070" summary="Fix bug with 0 not returning to menu">
+      <created>1655771022381</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1655771022381</updated>
+    </task>
+    <task id="LOCAL-00071" summary="Add gson package and .extra package extension">
+      <created>1655955080612</created>
+      <option name="number" value="00071" />
+      <option name="presentableId" value="LOCAL-00071" />
+      <option name="project" value="LOCAL" />
+      <updated>1655955080612</updated>
+    </task>
+    <task id="LOCAL-00072" summary="Add RuntimeTypeAdapterFactory class to gson.extra package">
+      <created>1655955168779</created>
+      <option name="number" value="00072" />
+      <option name="presentableId" value="LOCAL-00072" />
+      <option name="project" value="LOCAL" />
+      <updated>1655955168779</updated>
+    </task>
+    <task id="LOCAL-00073" summary="Implement RuntimeTypeAdapterFactory class">
+      <created>1655955531578</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1655955531578</updated>
+    </task>
+    <task id="LOCAL-00074" summary="Add license in RuntimeTypeAdapterFactory class">
+      <created>1655955657326</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1655955657326</updated>
+    </task>
+    <task id="LOCAL-00075" summary="Add TypeAdaterFactory in main class">
+      <created>1655956052309</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1655956052309</updated>
+    </task>
+    <task id="LOCAL-00076" summary="Code will break">
+      <created>1655961001831</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1655961001831</updated>
+    </task>
+    <task id="LOCAL-00077" summary="Add DateTimeFormatter type adapter to main class to fix bug">
+      <created>1656023507921</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1656023507922</updated>
+    </task>
+    <task id="LOCAL-00078" summary="Figure out error">
+      <created>1656025197245</created>
+      <option name="number" value="00078" />
+      <option name="presentableId" value="LOCAL-00078" />
+      <option name="project" value="LOCAL" />
+      <updated>1656025197245</updated>
+    </task>
+    <task id="LOCAL-00079" summary="?">
+      <created>1656083438070</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1656083438070</updated>
+    </task>
+    <task id="LOCAL-00080" summary="Fix type error">
+      <created>1656090244100</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1656090244100</updated>
+    </task>
+    <task id="LOCAL-00081" summary="File saves and loads properly">
+      <created>1656094080833</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1656094080833</updated>
     </task>
     <task id="LOCAL-00082" summary="Clean I/O of main class">
       <created>1656094457014</created>
@@ -279,154 +415,14 @@
       <option name="project" value="LOCAL" />
       <updated>1657873243439</updated>
     </task>
-    <task id="LOCAL-00110" summary="Update JDK in project structure">
-      <created>1657917583316</created>
+    <task id="LOCAL-00110" summary="Move enum to Util">
+      <created>1657873502551</created>
       <option name="number" value="00110" />
       <option name="presentableId" value="LOCAL-00110" />
       <option name="project" value="LOCAL" />
-      <updated>1657917583316</updated>
+      <updated>1657873502551</updated>
     </task>
-    <task id="LOCAL-00111" summary="Remove Roboto font from system">
-      <created>1657917691320</created>
-      <option name="number" value="00111" />
-      <option name="presentableId" value="LOCAL-00111" />
-      <option name="project" value="LOCAL" />
-      <updated>1657917691320</updated>
-    </task>
-    <task id="LOCAL-00112" summary="Add font styles to Util">
-      <created>1657918588800</created>
-      <option name="number" value="00112" />
-      <option name="presentableId" value="LOCAL-00112" />
-      <option name="project" value="LOCAL" />
-      <updated>1657918588800</updated>
-    </task>
-    <task id="LOCAL-00113" summary="Add more font styles to Util">
-      <created>1657919092276</created>
-      <option name="number" value="00113" />
-      <option name="presentableId" value="LOCAL-00113" />
-      <option name="project" value="LOCAL" />
-      <updated>1657919092276</updated>
-    </task>
-    <task id="LOCAL-00114" summary="Implement RoundButton">
-      <created>1657922574490</created>
-      <option name="number" value="00114" />
-      <option name="presentableId" value="LOCAL-00114" />
-      <option name="project" value="LOCAL" />
-      <updated>1657922574490</updated>
-    </task>
-    <task id="LOCAL-00115" summary="Implement Round button dimensions">
-      <created>1657922779995</created>
-      <option name="number" value="00115" />
-      <option name="presentableId" value="LOCAL-00115" />
-      <option name="project" value="LOCAL" />
-      <updated>1657922779995</updated>
-    </task>
-    <task id="LOCAL-00116" summary="Fix Round button dimension bug">
-      <created>1657923385613</created>
-      <option name="number" value="00116" />
-      <option name="presentableId" value="LOCAL-00116" />
-      <option name="project" value="LOCAL" />
-      <updated>1657923385613</updated>
-    </task>
-    <task id="LOCAL-00117" summary="Finish Round button class implementation">
-      <created>1657923496670</created>
-      <option name="number" value="00117" />
-      <option name="presentableId" value="LOCAL-00117" />
-      <option name="project" value="LOCAL" />
-      <updated>1657923496670</updated>
-    </task>
-    <task id="LOCAL-00118" summary="Add change colour modifier to RoundButton">
-      <created>1657924438407</created>
-      <option name="number" value="00118" />
-      <option name="presentableId" value="LOCAL-00118" />
-      <option name="project" value="LOCAL" />
-      <updated>1657924438407</updated>
-    </task>
-    <task id="LOCAL-00119" summary="Add font package back">
-      <created>1657925907411</created>
-      <option name="number" value="00119" />
-      <option name="presentableId" value="LOCAL-00119" />
-      <option name="project" value="LOCAL" />
-      <updated>1657925907411</updated>
-    </task>
-    <task id="LOCAL-00120" summary="Custom fonts applied">
-      <created>1657927052094</created>
-      <option name="number" value="00120" />
-      <option name="presentableId" value="LOCAL-00120" />
-      <option name="project" value="LOCAL" />
-      <updated>1657927052094</updated>
-    </task>
-    <task id="LOCAL-00121" summary="Update RoundButton placement">
-      <created>1657928989753</created>
-      <option name="number" value="00121" />
-      <option name="presentableId" value="LOCAL-00121" />
-      <option name="project" value="LOCAL" />
-      <updated>1657928989753</updated>
-    </task>
-    <task id="LOCAL-00122" summary="Custom things done">
-      <created>1657929706254</created>
-      <option name="number" value="00122" />
-      <option name="presentableId" value="LOCAL-00122" />
-      <option name="project" value="LOCAL" />
-      <updated>1657929706254</updated>
-    </task>
-    <task id="LOCAL-00123" summary="Add GridBagLayout to start panel">
-      <created>1657945700609</created>
-      <option name="number" value="00123" />
-      <option name="presentableId" value="LOCAL-00123" />
-      <option name="project" value="LOCAL" />
-      <updated>1657945700609</updated>
-    </task>
-    <task id="LOCAL-00124" summary="In progress main screen">
-      <created>1657953374026</created>
-      <option name="number" value="00124" />
-      <option name="presentableId" value="LOCAL-00124" />
-      <option name="project" value="LOCAL" />
-      <updated>1657953374026</updated>
-    </task>
-    <task id="LOCAL-00125" summary="Add PackageDialog class">
-      <created>1657953546862</created>
-      <option name="number" value="00125" />
-      <option name="presentableId" value="LOCAL-00125" />
-      <option name="project" value="LOCAL" />
-      <updated>1657953546862</updated>
-    </task>
-    <task id="LOCAL-00126" summary="Start JScroll">
-      <created>1657954186957</created>
-      <option name="number" value="00126" />
-      <option name="presentableId" value="LOCAL-00126" />
-      <option name="project" value="LOCAL" />
-      <updated>1657954186957</updated>
-    </task>
-    <task id="LOCAL-00127" summary="Set left and right group pane widths">
-      <created>1658005004481</created>
-      <option name="number" value="00127" />
-      <option name="presentableId" value="LOCAL-00127" />
-      <option name="project" value="LOCAL" />
-      <updated>1658005004481</updated>
-    </task>
-    <task id="LOCAL-00128" summary="Split Screens into two classes">
-      <created>1658008278292</created>
-      <option name="number" value="00128" />
-      <option name="presentableId" value="LOCAL-00128" />
-      <option name="project" value="LOCAL" />
-      <updated>1658008278292</updated>
-    </task>
-    <task id="LOCAL-00129" summary="In progress MainScreen">
-      <created>1658009140188</created>
-      <option name="number" value="00129" />
-      <option name="presentableId" value="LOCAL-00129" />
-      <option name="project" value="LOCAL" />
-      <updated>1658009140188</updated>
-    </task>
-    <task id="LOCAL-00130" summary="In progress MainScreen part 2">
-      <created>1658010029641</created>
-      <option name="number" value="00130" />
-      <option name="presentableId" value="LOCAL-00130" />
-      <option name="project" value="LOCAL" />
-      <updated>1658010029641</updated>
-    </task>
-    <option name="localTasksCounter" value="131" />
+    <option name="localTasksCounter" value="111" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -442,32 +438,32 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="Reformat code" />
+    <MESSAGE value="Remove json file" />
+    <MESSAGE value="Add UML to docs" />
+    <MESSAGE value="A# Start - refactor names and packages" />
+    <MESSAGE value="A3 Start - refactor names and packages" />
+    <MESSAGE value="Update docs folder and contents" />
+    <MESSAGE value="Add MainApp class" />
+    <MESSAGE value="Add PackageDeliveryGUI class and Action/Item Listeners" />
+    <MESSAGE value="JFrame template set up in MainApp" />
+    <MESSAGE value="Add JPanel in MainApp" />
+    <MESSAGE value="Work on button in MainApp" />
+    <MESSAGE value="Add enum" />
+    <MESSAGE value="Add CustomComponentFactory for custom JComponents" />
+    <MESSAGE value="Add Util class, rename Button class, add back startPanel" />
+    <MESSAGE value="Move JPanels to Screens.java" />
+    <MESSAGE value="JPanels handle by Screens" />
+    <MESSAGE value="Colors in Util is static access" />
+    <MESSAGE value="Screens implement halfway" />
+    <MESSAGE value="Move screen dimension to Util" />
+    <MESSAGE value="Implement clock" />
     <MESSAGE value="Screens extends JFrame" />
     <MESSAGE value="Clock works" />
     <MESSAGE value="Implement date on main screen" />
     <MESSAGE value="Implement line via Graphics2D" />
-    <MESSAGE value="Update JDK in project structure" />
-    <MESSAGE value="Remove Roboto font from system" />
-    <MESSAGE value="Add font styles to Util" />
-    <MESSAGE value="Add more font styles to Util" />
-    <MESSAGE value="Implement RoundButton" />
-    <MESSAGE value="Implement Round button dimensions" />
-    <MESSAGE value="Fix Round button dimension bug" />
-    <MESSAGE value="Finish Round button class implementation" />
-    <MESSAGE value="Add change colour modifier to RoundButton" />
-    <MESSAGE value="Add font package back" />
-    <MESSAGE value="Custom fonts applied" />
-    <MESSAGE value="Update RoundButton placement" />
-    <MESSAGE value="Custom things done" />
-    <MESSAGE value="Add GridBagLayout to start panel" />
-    <MESSAGE value="In progress main screen" />
-    <MESSAGE value="Add PackageDialog class" />
-    <MESSAGE value="Start JScroll" />
-    <MESSAGE value="Set left and right group pane widths" />
-    <MESSAGE value="Split Screens into two classes" />
-    <MESSAGE value="In progress MainScreen" />
-    <MESSAGE value="In progress MainScreen part 2" />
-    <option name="LAST_COMMIT_MESSAGE" value="In progress MainScreen part 2" />
+    <MESSAGE value="Move enum to Util" />
+    <option name="LAST_COMMIT_MESSAGE" value="Move enum to Util" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
