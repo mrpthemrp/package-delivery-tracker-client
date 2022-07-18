@@ -4,6 +4,7 @@ import cmpt213.assignment3.packagedeliveriestracker.view.custom.RoundButton;
 import cmpt213.assignment3.packagedeliveriestracker.view.custom.Util;
 
 import javax.swing.*;
+import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.time.LocalDate;
@@ -69,8 +70,6 @@ public class MainScreenLeft extends JPanel {
         this.currentDay.setFont(Util.mainScreenDateFont);
     }
 
-
-
     private void setUpMainScreenLayout() {
         this.add(Box.createRigidArea(new Dimension(0, (int) (Util.screenHeight * 0.09))));
         this.add(title);
@@ -99,19 +98,4 @@ public class MainScreenLeft extends JPanel {
         clockTime.start();
         repaint();
     }
-    @Override
-    public void paint(Graphics g) {
-        super.paint(g);
-
-            //draw line
-            Graphics2D g2 = (Graphics2D) g;
-
-            g2.setColor(Util.midTeal);
-            g2.fillRoundRect((int) (this.getWidth()), (int) (Util.screenHeight * 0.06),
-                    4, (int) (this.getHeight()), 3, 3);
-
-
-    }
-
-
 }
