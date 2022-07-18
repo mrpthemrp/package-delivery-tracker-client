@@ -1,20 +1,18 @@
 package cmpt213.assignment3.packagedeliveriestracker.view.screens;
 
-import cmpt213.assignment3.packagedeliveriestracker.view.util.PackageScrollPane;
 import cmpt213.assignment3.packagedeliveriestracker.view.util.RoundButton;
 import cmpt213.assignment3.packagedeliveriestracker.view.util.Util;
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 //clock reference : https://www.tutorialsbuddy.com/create-a-digital-clock-in-java
 
-public class MainScreen extends JPanel {
+public class MainScreenLeft extends JPanel {
     private final JLabel title;
     private final JLabel clock;
     private final JLabel currentDay;
@@ -23,13 +21,12 @@ public class MainScreen extends JPanel {
     private ActionListener al;
 
 
-    public MainScreen(ActionListener al) {
+    public MainScreenLeft(ActionListener al) {
         this.al = al;
-        this.setLayout(new FlowLayout());
         this.setAlignmentX(Component.CENTER_ALIGNMENT);
         this.setBackground(Color.WHITE);
-        this.setSize(new Dimension((int) (Util.screenWidth * 0.75 * 0.38), (int) (Util.screenHeight * 0.75)));
-        this.setMaximumSize(new Dimension((int) (Util.screenWidth * 0.75 * (0.38)), (int) (Util.screenHeight * 0.75)));
+        this.setSize(new Dimension((int) (Util.screenWidth * 0.75 ), (int) (Util.screenHeight * 0.75)));
+        this.setMaximumSize(new Dimension((int) (Util.screenWidth * 0.75 ), (int) (Util.screenHeight * 0.75)));
 
         this.btn = new RoundButton("   A D D   P A C K A G E   ", "ADD PACKAGE", al, Util.lightBrown, Util.darkBrown);
         this.btn.setFont(Util.btnTextFont2);

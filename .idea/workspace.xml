@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Working on packageitem UI">
+    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Confused">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/PackageDeliveryGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/PackageDeliveryGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/screens/MainScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/screens/MainScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/util/PackageScrollPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/util/PackageScrollPane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/screens/MainScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/screens/MainScreenLeft.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/util/PackageScrollPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/screens/MainScreenRight.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,11 +65,11 @@
       <recent name="C:\Users\debor\IdeaProjects\CMPT213-A1\src" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="cmpt213.assignment3.packagedeliveriestracker.view.screens" />
       <recent name="cmpt213.assignment3.packagedeliveriestracker.control" />
       <recent name="cmpt213.assignment3.packagedeliveriestracker.view.util" />
       <recent name="cmpt213.assignment3.packagedeliveriestracker.view.custom" />
       <recent name="cmpt213.assignment2.packagedeliveriestracker" />
-      <recent name="cmpt213.assignment2.packagedeliveriestracker.textui" />
     </key>
   </component>
   <component name="RunManager" selected="Application.MainApp">
@@ -100,13 +100,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1652723361815</updated>
-    </task>
-    <task id="LOCAL-00094" summary="JFrame template set up in MainApp">
-      <created>1657314071795</created>
-      <option name="number" value="00094" />
-      <option name="presentableId" value="LOCAL-00094" />
-      <option name="project" value="LOCAL" />
-      <updated>1657314071795</updated>
     </task>
     <task id="LOCAL-00095" summary="Add JPanel in MainApp">
       <created>1657314261884</created>
@@ -444,7 +437,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658041154444</updated>
     </task>
-    <option name="localTasksCounter" value="143" />
+    <task id="LOCAL-00143" summary="Confused">
+      <created>1658110901259</created>
+      <option name="number" value="00143" />
+      <option name="presentableId" value="LOCAL-00143" />
+      <option name="project" value="LOCAL" />
+      <updated>1658110901259</updated>
+    </task>
+    <option name="localTasksCounter" value="144" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -460,7 +460,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Add font package back" />
     <MESSAGE value="Custom fonts applied" />
     <MESSAGE value="Update RoundButton placement" />
     <MESSAGE value="Custom things done" />
@@ -485,7 +484,8 @@
     <MESSAGE value="Scroll still not working" />
     <MESSAGE value="PackageItem sizes correct" />
     <MESSAGE value="Working on packageitem UI" />
-    <option name="LAST_COMMIT_MESSAGE" value="Working on packageitem UI" />
+    <MESSAGE value="Confused" />
+    <option name="LAST_COMMIT_MESSAGE" value="Confused" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

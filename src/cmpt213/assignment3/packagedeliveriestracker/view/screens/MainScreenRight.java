@@ -1,36 +1,38 @@
-package cmpt213.assignment3.packagedeliveriestracker.view.util;
+package cmpt213.assignment3.packagedeliveriestracker.view.screens;
 
 import cmpt213.assignment3.packagedeliveriestracker.control.PackageDeliveryTracker;
+import cmpt213.assignment3.packagedeliveriestracker.view.util.PackageItem;
+import cmpt213.assignment3.packagedeliveriestracker.view.util.Util;
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.ActionListener;
 
-public class PackageScrollPane extends JScrollPane {
+public class MainScreenRight extends JPanel {
     private JButton listAllBtn, overdueBtn, upcomingBtn;
     private  JLabel listAllText, overdueText, upcomingText;
     private final JPanel basePanel;
     private static final JPanel listAllCard = new JPanel();
     private static final JPanel overdueCard = new JPanel();
     private static final JPanel upcomingCard = new JPanel();
-    private final JPanel columnHeader;
+    private JPanel columnHeader;
 
-    public PackageScrollPane(int width, int height, ActionListener al) {
+    public MainScreenRight(ActionListener al) {
 
         this.basePanel = new JPanel(new CardLayout());
-        this.columnHeader = new JPanel();
-
-        basePanel.setSize(new Dimension((width), (height)));
-        basePanel.setMaximumSize(new Dimension(width, (height)));
-        basePanel.setBorder(new LineBorder(Color.BLACK, 5));
-
-        setUpViews(al);
-        addCards();
+//        this.columnHeader = new JPanel();
+//        int width = 200;
+//        int height = 200;
+//        basePanel.setSize(new Dimension((width), (height)));
+//        basePanel.setMaximumSize(new Dimension(width, (height)));
+//        basePanel.setBorder(new LineBorder(Color.BLACK, 5));
+//
+//        setUpViews(al);
+//        addCards();
 
 //        this.getViewport().setSize(new Dimension (width,height));
 //        this.getViewport().setMaximumSize(new Dimension (width,height));
-        this.setViewportView(basePanel);
     }
 
     private void setUpViews(ActionListener al) {
