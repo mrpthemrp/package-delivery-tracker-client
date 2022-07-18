@@ -16,6 +16,7 @@ public class PackageDeliveryGUI extends JFrame implements ItemListener, ActionLi
     private final JScrollPane scrollPane;
 
     public PackageDeliveryGUI() {
+
         this.setResizable(false);
         this.setLayout(new BorderLayout());
         this.setBackground(Color.WHITE);

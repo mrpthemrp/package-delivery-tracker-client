@@ -118,7 +118,7 @@ public class MainScreenRight extends JPanel {
         Graphics2D g2 = (Graphics2D) g;
 
         g2.setColor(Util.midTeal);
-        g2.fillRoundRect(0, (int) (Util.screenHeight * 0.06),
+        g2.fillRoundRect((int)(Util.screenWidth*0.009), (int) (Util.screenHeight * 0.06),
                 4, (int) (Util.screenHeight * 0.6), 3, 3);
     }
 }
