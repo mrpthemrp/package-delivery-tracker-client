@@ -72,7 +72,6 @@ public class MainScreenLeft extends JPanel {
 
 
 
-
     private void setUpMainScreenLayout() {
         this.add(Box.createRigidArea(new Dimension((int) (Util.screenHeight * 0.05), 0)));
         this.add(Box.createRigidArea(new Dimension(0, (int) (Util.screenHeight * 0.2))));
@@ -103,6 +102,17 @@ public class MainScreenLeft extends JPanel {
         clockTime.start();
         repaint();
     }
+    @Override
+    public void paint(Graphics g) {
+        super.paint(g);
 
+        //draw line
+        Graphics2D g2 = (Graphics2D) g;
+
+        g2.setColor(Util.midTeal);
+        g2.fillRoundRect((int) (this.getWidth() * 0.97), (int) (Util.screenHeight * 0.06),
+                4, (int) (Util.screenHeight * 0.6), 3, 3);
+
+    }
 
 }

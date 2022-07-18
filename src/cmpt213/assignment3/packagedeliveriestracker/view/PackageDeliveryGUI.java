@@ -1,5 +1,6 @@
 package cmpt213.assignment3.packagedeliveriestracker.view;
 
+import cmpt213.assignment3.packagedeliveriestracker.control.TableOfPackages;
 import cmpt213.assignment3.packagedeliveriestracker.view.screens.*;
 import cmpt213.assignment3.packagedeliveriestracker.view.util.Util;
 import cmpt213.assignment3.packagedeliveriestracker.view.util.Util.SCREEN_STATE;
@@ -14,6 +15,7 @@ public class PackageDeliveryGUI extends JFrame implements ItemListener, ActionLi
     private final JSplitPane mainPanel;
     private final StartScreen startPanel;
     private final JScrollPane scrollPane;
+    private final MainScreenRight screenRight;
 
     public PackageDeliveryGUI() {
 
@@ -23,12 +25,16 @@ public class PackageDeliveryGUI extends JFrame implements ItemListener, ActionLi
         currentState = SCREEN_STATE.START;
         startPanel = new StartScreen(this);
 
-        scrollPane = new JScrollPane(new MainScreenRight(this));
+        screenRight = new MainScreenRight(this,(this.getWidth()), new TableOfPackages());
+        scrollPane = new JScrollPane(screenRight);
         scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
         scrollPane.getViewport().getView().setBackground(Color.WHITE);
+        scrollPane.getViewport().getView().setSize(new Dimension((int) (screenRight.getWidth()*0.8), (int) (screenRight.getHeight()*0.75)));
+        scrollPane.getViewport().getView().setMaximumSize(new Dimension((int) (screenRight.getWidth()*0.8), (int) (screenRight.getHeight()*0.75)));
         scrollPane.setBorder(BorderFactory.createEmptyBorder());
         scrollPane.setViewportBorder(new LineBorder(Util.transparent,0));
+        scrollPane.setColumnHeaderView(screenRight.getColumnHeader());
 
         mainPanel = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, new MainScreenLeft(this), scrollPane);
         mainPanel.setDividerLocation((int) (Util.screenWidth * 0.257));
@@ -65,6 +71,7 @@ public class PackageDeliveryGUI extends JFrame implements ItemListener, ActionLi
             default -> this.repaint();
         }
 
+        screenRight.changeColumnText(currentState);
         repaint();
     }
 
@@ -76,13 +83,13 @@ public class PackageDeliveryGUI extends JFrame implements ItemListener, ActionLi
             System.out.println("add package was pressed");
         } else if (e.getActionCommand().equals("LIST ALL")) {
             System.out.println("list all view");
-            MainScreenRight.switchView(Util.SCREEN_STATE.LIST_ALL);
+            this.currentState = Util.SCREEN_STATE.LIST_ALL;
         } else if (e.getActionCommand().equals("UPCOMING")) {
             System.out.println("upcoming view");
-            MainScreenRight.switchView(SCREEN_STATE.UPCOMING);
+            this.currentState = SCREEN_STATE.UPCOMING;
         } else if (e.getActionCommand().equals("OVERDUE")) {
             System.out.println("overdue view");
-            MainScreenRight.switchView(SCREEN_STATE.OVERDUE);
+            this.currentState = SCREEN_STATE.OVERDUE;
         }
 
         repaint();
@@ -95,4 +102,6 @@ public class PackageDeliveryGUI extends JFrame implements ItemListener, ActionLi
 
 
     }
+
+
 }

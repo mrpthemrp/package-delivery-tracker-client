@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Right pane coloration correct">
+    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Fixing scrollbar">
+      <change afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/control/TableOfPackages.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/PackageDeliveryGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/PackageDeliveryGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/screens/MainScreenLeft.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/screens/MainScreenLeft.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/screens/MainScreenRight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/screens/MainScreenRight.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -99,13 +101,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1652723361815</updated>
-    </task>
-    <task id="LOCAL-00098" summary="Add enum">
-      <created>1657402459663</created>
-      <option name="number" value="00098" />
-      <option name="presentableId" value="LOCAL-00098" />
-      <option name="project" value="LOCAL" />
-      <updated>1657402459663</updated>
     </task>
     <task id="LOCAL-00099" summary="Add CustomComponentFactory for custom JComponents">
       <created>1657765832803</created>
@@ -443,7 +438,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658120522424</updated>
     </task>
-    <option name="localTasksCounter" value="147" />
+    <task id="LOCAL-00147" summary="Fixing scrollbar">
+      <created>1658121476149</created>
+      <option name="number" value="00147" />
+      <option name="presentableId" value="LOCAL-00147" />
+      <option name="project" value="LOCAL" />
+      <updated>1658121476149</updated>
+    </task>
+    <option name="localTasksCounter" value="148" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -459,7 +461,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Add GridBagLayout to start panel" />
     <MESSAGE value="In progress main screen" />
     <MESSAGE value="Add PackageDialog class" />
     <MESSAGE value="Start JScroll" />
@@ -484,7 +485,8 @@
     <MESSAGE value="Split screen works!!!" />
     <MESSAGE value="Left pane works fully" />
     <MESSAGE value="Right pane coloration correct" />
-    <option name="LAST_COMMIT_MESSAGE" value="Right pane coloration correct" />
+    <MESSAGE value="Fixing scrollbar" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixing scrollbar" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
