@@ -23,10 +23,11 @@ public class MainScreenLeft extends JPanel {
 
     public MainScreenLeft(ActionListener al) {
         this.al = al;
-        this.setAlignmentX(Component.CENTER_ALIGNMENT);
+        this.setAlignmentX(Component.RIGHT_ALIGNMENT);
         this.setBackground(Color.WHITE);
-        this.setSize(new Dimension((int) (Util.screenWidth * 0.75 ), (int) (Util.screenHeight * 0.75)));
-        this.setMaximumSize(new Dimension((int) (Util.screenWidth * 0.75 ), (int) (Util.screenHeight * 0.75)));
+        this.setSize(new Dimension((int) (Util.screenWidth * 0.257), (int) (Util.screenHeight * 0.75)));
+        this.setMaximumSize(new Dimension((int) (Util.screenWidth * 0.257 ), (int) (Util.screenHeight * 0.75)));
+        this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
         this.btn = new RoundButton("   A D D   P A C K A G E   ", "ADD PACKAGE", al, Util.lightBrown, Util.darkBrown);
         this.btn.setFont(Util.btnTextFont2);
@@ -69,61 +70,20 @@ public class MainScreenLeft extends JPanel {
         this.currentDay.setFont(Util.mainScreenDateFont);
     }
 
-    @Override
-    public void paint(Graphics g) {
-        super.paint(g);
 
-        //draw line
-        Graphics2D g2 = (Graphics2D) g;
 
-        g2.setColor(Util.midTeal);
-        g2.fillRoundRect((int) (Util.screenWidth * 0.257), (int) (Util.screenHeight * 0.06),
-                4, (int) (Util.screenHeight * 0.6), 3, 3);
-    }
 
     private void setUpMainScreenLayout() {
-
-        JPanel leftGroup = new JPanel();
-        leftGroup.setLayout(new BoxLayout(leftGroup, BoxLayout.Y_AXIS));
-        leftGroup.setBackground(Util.transparent);
-        leftGroup.setAlignmentX(Component.LEFT_ALIGNMENT);
-        leftGroup.setSize(new Dimension((int) (Util.screenWidth / 3.5), (int) (this.getHeight() * 0.98)));
-        leftGroup.setMaximumSize(new Dimension((int) (Util.screenWidth / 3.5), (int) (this.getHeight() * 0.98)));
-        leftGroup.setBorder(new LineBorder(Color.BLACK,5));
-
-        leftGroup.add(Box.createRigidArea(new Dimension(0, (int) (Util.screenHeight * 0.18))));
-        leftGroup.add(title);
-        leftGroup.add(Box.createRigidArea(new Dimension(0, (int) (Util.screenHeight * 0.048))));
-        leftGroup.add(currentDay);
-        leftGroup.add(Box.createRigidArea(new Dimension(0, (int) (Util.screenHeight * 0.04))));
-        leftGroup.add(clock);
-        leftGroup.add(Box.createRigidArea(new Dimension(0, (int) (Util.screenHeight * 0.04))));
-        leftGroup.add(btn);
-        leftGroup.add(Box.createRigidArea(new Dimension(0, (int) (Util.screenHeight * 0.19))));
-
-        JPanel middleGroup = new JPanel();
-        middleGroup.setLayout(new BoxLayout(middleGroup, BoxLayout.Y_AXIS));
-        middleGroup.setBackground(Util.transparent);
-        middleGroup.setAlignmentX(Component.RIGHT_ALIGNMENT);
-        middleGroup.setSize(new Dimension((int) (Util.screenWidth * 0.1), (int) (this.getHeight() * 0.98)));
-        middleGroup.setMaximumSize(new Dimension((int) (Util.screenWidth * 0.1), (int) (this.getHeight() * 0.98)));
-        middleGroup.setBorder(new LineBorder(Color.BLACK,5));
-
-        middleGroup.add(Box.createRigidArea(new Dimension((int) (Util.screenWidth * 0.03), 0)));
-
-        JPanel rightGroup = new JPanel();
-        rightGroup.setLayout(new BoxLayout(rightGroup, BoxLayout.Y_AXIS));
-        rightGroup.setBackground(Util.transparent);
-        rightGroup.setAlignmentX(Component.RIGHT_ALIGNMENT);
-        rightGroup.setSize(new Dimension((int) (Util.screenWidth / 2.2), (int) (this.getHeight() * 0.98)));
-        rightGroup.setMaximumSize(new Dimension((int) (Util.screenWidth / 2.2), (int) (this.getHeight() * 0.98)));
-        rightGroup.setBorder(new LineBorder(Color.BLACK, 5));
-
-        rightGroup.add(Box.createRigidArea(new Dimension(rightGroup.getWidth(),rightGroup.getHeight())));
-
-        this.add(leftGroup);
-        this.add(middleGroup);
-//        this.add(rightGroup);
+        this.add(Box.createRigidArea(new Dimension((int) (Util.screenHeight * 0.05), 0)));
+        this.add(Box.createRigidArea(new Dimension(0, (int) (Util.screenHeight * 0.2))));
+        this.add(title);
+        this.add(Box.createRigidArea(new Dimension(0, (int) (Util.screenHeight * 0.048))));
+        this.add(currentDay);
+        this.add(Box.createRigidArea(new Dimension(0, (int) (Util.screenHeight * 0.04))));
+        this.add(clock);
+        this.add(Box.createRigidArea(new Dimension(0, (int) (Util.screenHeight * 0.04))));
+        this.add(btn);
+        this.add(Box.createRigidArea(new Dimension(0, (int) (Util.screenHeight * 0.2))));
     }
 
     private void startClock() {
@@ -141,6 +101,7 @@ public class MainScreenLeft extends JPanel {
         });
 
         clockTime.start();
+        repaint();
     }
 
 

@@ -13,6 +13,7 @@ public class PackageDeliveryGUI extends JFrame implements ItemListener, ActionLi
     private SCREEN_STATE currentState;
     private final JSplitPane mainPanel;
     private final StartScreen startPanel;
+    private final JScrollPane scrollPane;
 
     public PackageDeliveryGUI() {
         this.setResizable(false);
@@ -21,12 +22,18 @@ public class PackageDeliveryGUI extends JFrame implements ItemListener, ActionLi
         currentState = SCREEN_STATE.START;
         startPanel = new StartScreen(this);
 
-        mainPanel = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, new MainScreenLeft(this), new MainScreenRight(this));
-//        MainScreenLeft left = new MainScreenLeft(this);
-//        MainScreenRight right = new MainScreenRight(this);
-        mainPanel.setDividerLocation(150);
-        mainPanel.setBorder(new LineBorder(Color.BLACK, 5));
-        mainPanel.setBackground(Color.CYAN);
+        scrollPane = new JScrollPane(new MainScreenRight(this));
+        scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+//        scrollPane.getViewport().getView().setForeground(Color.WHITE);
+        scrollPane.getViewport().getView().setBackground(Color.WHITE);
+        scrollPane.setViewportBorder(new LineBorder(Util.transparent,0));
+
+        mainPanel = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, new MainScreenLeft(this), scrollPane);
+        mainPanel.setDividerLocation((int) (Util.screenWidth * 0.257));
+        mainPanel.setDividerSize(0);
+        mainPanel.setEnabled(false);
+        mainPanel.setBackground(Color.WHITE);
 
 
         //set up frame
@@ -83,6 +90,8 @@ public class PackageDeliveryGUI extends JFrame implements ItemListener, ActionLi
 
     @Override
     public void itemStateChanged(ItemEvent e) {
+
+
 
     }
 }

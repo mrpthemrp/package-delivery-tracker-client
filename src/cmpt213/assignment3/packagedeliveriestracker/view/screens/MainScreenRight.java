@@ -21,18 +21,16 @@ public class MainScreenRight extends JPanel {
     public MainScreenRight(ActionListener al) {
 
         this.basePanel = new JPanel(new CardLayout());
-//        this.columnHeader = new JPanel();
-//        int width = 200;
-//        int height = 200;
-//        basePanel.setSize(new Dimension((width), (height)));
-//        basePanel.setMaximumSize(new Dimension(width, (height)));
-//        basePanel.setBorder(new LineBorder(Color.BLACK, 5));
-//
-//        setUpViews(al);
-//        addCards();
+        this.columnHeader = new JPanel();
+        int width = 800;
+        int height = 800;
+        basePanel.setSize(new Dimension((width), (height)));
+        basePanel.setMaximumSize(new Dimension(width, (height)));
+        basePanel.setBackground(Color.WHITE);
 
-//        this.getViewport().setSize(new Dimension (width,height));
-//        this.getViewport().setMaximumSize(new Dimension (width,height));
+        setUpViews(al);
+        addCards();
+
     }
 
     private void setUpViews(ActionListener al) {
@@ -111,5 +109,16 @@ public class MainScreenRight extends JPanel {
             }
         }
 
+    }
+    @Override
+    public void paint(Graphics g) {
+        super.paint(g);
+
+        //draw line
+        Graphics2D g2 = (Graphics2D) g;
+
+        g2.setColor(Util.midTeal);
+        g2.fillRoundRect(0, (int) (Util.screenHeight * 0.06),
+                4, (int) (Util.screenHeight * 0.6), 3, 3);
     }
 }
