@@ -28,7 +28,8 @@ public class MainScreen extends JPanel {
         this.setLayout(new FlowLayout());
         this.setAlignmentX(Component.CENTER_ALIGNMENT);
         this.setBackground(Color.WHITE);
-        this.setPreferredSize(new Dimension((int) (Util.screenWidth * 0.75), (int) (Util.screenHeight * 0.75)));
+        this.setSize(new Dimension((int) (Util.screenWidth * 0.75 * 0.38), (int) (Util.screenHeight * 0.75)));
+        this.setMaximumSize(new Dimension((int) (Util.screenWidth * 0.75 * (0.38)), (int) (Util.screenHeight * 0.75)));
 
         this.btn = new RoundButton("   A D D   P A C K A G E   ", "ADD PACKAGE", al, Util.lightBrown, Util.darkBrown);
         this.btn.setFont(Util.btnTextFont2);
@@ -79,7 +80,7 @@ public class MainScreen extends JPanel {
         Graphics2D g2 = (Graphics2D) g;
 
         g2.setColor(Util.midTeal);
-        g2.fillRoundRect((int) (Util.screenWidth * 0.265), (int) (Util.screenHeight * 0.06),
+        g2.fillRoundRect((int) (Util.screenWidth * 0.257), (int) (Util.screenHeight * 0.06),
                 4, (int) (Util.screenHeight * 0.6), 3, 3);
     }
 
@@ -91,6 +92,7 @@ public class MainScreen extends JPanel {
         leftGroup.setAlignmentX(Component.LEFT_ALIGNMENT);
         leftGroup.setSize(new Dimension((int) (Util.screenWidth / 3.5), (int) (this.getHeight() * 0.98)));
         leftGroup.setMaximumSize(new Dimension((int) (Util.screenWidth / 3.5), (int) (this.getHeight() * 0.98)));
+        leftGroup.setBorder(new LineBorder(Color.BLACK,5));
 
         leftGroup.add(Box.createRigidArea(new Dimension(0, (int) (Util.screenHeight * 0.18))));
         leftGroup.add(title);
@@ -100,7 +102,7 @@ public class MainScreen extends JPanel {
         leftGroup.add(clock);
         leftGroup.add(Box.createRigidArea(new Dimension(0, (int) (Util.screenHeight * 0.04))));
         leftGroup.add(btn);
-        leftGroup.add(Box.createRigidArea(new Dimension(0, (int) (Util.screenHeight * 0.22))));
+        leftGroup.add(Box.createRigidArea(new Dimension(0, (int) (Util.screenHeight * 0.19))));
 
         JPanel middleGroup = new JPanel();
         middleGroup.setLayout(new BoxLayout(middleGroup, BoxLayout.Y_AXIS));
@@ -108,6 +110,7 @@ public class MainScreen extends JPanel {
         middleGroup.setAlignmentX(Component.RIGHT_ALIGNMENT);
         middleGroup.setSize(new Dimension((int) (Util.screenWidth * 0.1), (int) (this.getHeight() * 0.98)));
         middleGroup.setMaximumSize(new Dimension((int) (Util.screenWidth * 0.1), (int) (this.getHeight() * 0.98)));
+        middleGroup.setBorder(new LineBorder(Color.BLACK,5));
 
         middleGroup.add(Box.createRigidArea(new Dimension((int) (Util.screenWidth * 0.03), 0)));
 
@@ -115,17 +118,15 @@ public class MainScreen extends JPanel {
         rightGroup.setLayout(new BoxLayout(rightGroup, BoxLayout.Y_AXIS));
         rightGroup.setBackground(Util.transparent);
         rightGroup.setAlignmentX(Component.RIGHT_ALIGNMENT);
-        rightGroup.setSize(new Dimension((int) (Util.screenWidth / 2.3), (int) (this.getHeight() * 0.98)));
-        rightGroup.setMaximumSize(new Dimension((int) (Util.screenWidth / 2.3), (int) (this.getHeight() * 0.98)));
+        rightGroup.setSize(new Dimension((int) (Util.screenWidth / 2.2), (int) (this.getHeight() * 0.98)));
+        rightGroup.setMaximumSize(new Dimension((int) (Util.screenWidth / 2.2), (int) (this.getHeight() * 0.98)));
         rightGroup.setBorder(new LineBorder(Color.BLACK, 5));
 
-        rightGroup.add(Box.createRigidArea(new Dimension(rightGroup.getWidth(), (int) (Util.screenHeight * 0.2))));
-        rightGroup.add(new PackageScrollPane(rightGroup.getWidth(), rightGroup.getHeight(), al));
-        rightGroup.add(Box.createRigidArea(new Dimension(0, (int) (Util.screenHeight * 0.2))));
+        rightGroup.add(Box.createRigidArea(new Dimension(rightGroup.getWidth(),rightGroup.getHeight())));
 
         this.add(leftGroup);
         this.add(middleGroup);
-        this.add(rightGroup);
+//        this.add(rightGroup);
     }
 
     private void startClock() {

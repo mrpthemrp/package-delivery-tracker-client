@@ -1,7 +1,6 @@
 package cmpt213.assignment3.packagedeliveriestracker.view.util;
 
 import cmpt213.assignment3.packagedeliveriestracker.control.PackageDeliveryTracker;
-import cmpt213.assignment3.packagedeliveriestracker.model.Book;
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;
@@ -22,13 +21,15 @@ public class PackageScrollPane extends JScrollPane {
         this.basePanel = new JPanel(new CardLayout());
         this.columnHeader = new JPanel();
 
-        basePanel.setSize(new Dimension((width), (height/2)));
-        basePanel.setMaximumSize(new Dimension(width, (height/2)));
+        basePanel.setSize(new Dimension((width), (height)));
+        basePanel.setMaximumSize(new Dimension(width, (height)));
         basePanel.setBorder(new LineBorder(Color.BLACK, 5));
 
         setUpViews(al);
         addCards();
 
+//        this.getViewport().setSize(new Dimension (width,height));
+//        this.getViewport().setMaximumSize(new Dimension (width,height));
         this.setViewportView(basePanel);
     }
 
@@ -61,6 +62,10 @@ public class PackageScrollPane extends JScrollPane {
         this.listAllBtn.setActionCommand("LIST ALL");
         this.listAllBtn.addActionListener(al);
 
+        listAllCard.add(new PackageItem(basePanel.getWidth(), PackageDeliveryTracker.getPackage(0)), Box.CENTER_ALIGNMENT);
+        listAllCard.add(new PackageItem(basePanel.getWidth(), PackageDeliveryTracker.getPackage(0)), Box.CENTER_ALIGNMENT);
+        listAllCard.add(new PackageItem(basePanel.getWidth(), PackageDeliveryTracker.getPackage(0)), Box.CENTER_ALIGNMENT);
+        listAllCard.add(new PackageItem(basePanel.getWidth(), PackageDeliveryTracker.getPackage(0)), Box.CENTER_ALIGNMENT);
         listAllCard.add(new PackageItem(basePanel.getWidth(), PackageDeliveryTracker.getPackage(0)), Box.CENTER_ALIGNMENT);
     }
 

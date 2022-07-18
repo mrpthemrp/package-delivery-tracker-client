@@ -7,6 +7,8 @@ import cmpt213.assignment3.packagedeliveriestracker.view.util.Util;
 import cmpt213.assignment3.packagedeliveriestracker.view.util.Util.SCREEN_STATE;
 
 import javax.swing.*;
+import javax.swing.border.Border;
+import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.*;
 
@@ -17,6 +19,7 @@ public class PackageDeliveryGUI extends JFrame implements ItemListener, ActionLi
 
     public PackageDeliveryGUI() {
         this.setResizable(false);
+        this.setLayout(new BorderLayout());
         this.setBackground(Color.WHITE);
         this.basePanel = new JPanel(new CardLayout());
         currentState = SCREEN_STATE.START;
@@ -29,7 +32,8 @@ public class PackageDeliveryGUI extends JFrame implements ItemListener, ActionLi
 
         //Containers
         this.setSize((int) (Util.screenWidth * 0.75), (int) (Util.screenHeight * 0.75));
-        this.basePanel.setSize(new Dimension(this.getWidth(), this.getHeight()));
+        this.basePanel.setSize(new Dimension((this.getWidth()), this.getHeight()));
+        this.basePanel.setMaximumSize(new Dimension( this.getWidth(), this.getHeight()));
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         //complete frame setup
@@ -43,7 +47,12 @@ public class PackageDeliveryGUI extends JFrame implements ItemListener, ActionLi
         switch (currentState) {
             case START -> {
                 this.basePanel.removeAll();
+                this.basePanel.setSize(new Dimension(mainPanel.getSize()));
                 this.basePanel.add(mainPanel);
+                PackageScrollPane packageScroll = new PackageScrollPane((int) (Util.screenWidth / 2.2), (int) (this.getHeight() * 0.98), this);
+//                packageScroll.setBorder(new LineBorder(Color.BLACK, 5));
+                this.add(basePanel, BorderLayout.WEST);
+                this.add(packageScroll, BorderLayout.EAST);
                 this.setTitle("Package Delivery Tracker - Home");
                 currentState = SCREEN_STATE.MAIN;
             }
