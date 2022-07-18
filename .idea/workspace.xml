@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="In progress MainScreen part 3" />
+    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Laptop Testing" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -79,13 +79,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1652723361815</updated>
-    </task>
-    <task id="LOCAL-00083" summary="Start useCases.txt">
-      <created>1656111138548</created>
-      <option name="number" value="00083" />
-      <option name="presentableId" value="LOCAL-00083" />
-      <option name="project" value="LOCAL" />
-      <updated>1656111138548</updated>
     </task>
     <task id="LOCAL-00084" summary="Add CRC image">
       <created>1656111767789</created>
@@ -423,7 +416,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658019018914</updated>
     </task>
-    <option name="localTasksCounter" value="132" />
+    <task id="LOCAL-00132" summary="Laptop Testing">
+      <created>1658027898801</created>
+      <option name="number" value="00132" />
+      <option name="presentableId" value="LOCAL-00132" />
+      <option name="project" value="LOCAL" />
+      <updated>1658027898802</updated>
+    </task>
+    <option name="localTasksCounter" value="133" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -439,7 +439,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Clock works" />
     <MESSAGE value="Implement date on main screen" />
     <MESSAGE value="Implement line via Graphics2D" />
     <MESSAGE value="Update JDK in project structure" />
@@ -464,7 +463,8 @@
     <MESSAGE value="In progress MainScreen" />
     <MESSAGE value="In progress MainScreen part 2" />
     <MESSAGE value="In progress MainScreen part 3" />
-    <option name="LAST_COMMIT_MESSAGE" value="In progress MainScreen part 3" />
+    <MESSAGE value="Laptop Testing" />
+    <option name="LAST_COMMIT_MESSAGE" value="Laptop Testing" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
