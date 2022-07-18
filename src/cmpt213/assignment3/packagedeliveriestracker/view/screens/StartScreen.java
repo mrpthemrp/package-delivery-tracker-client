@@ -1,31 +1,27 @@
-package cmpt213.assignment3.packagedeliveriestracker.view.util;
+package cmpt213.assignment3.packagedeliveriestracker.view.screens;
 
 import cmpt213.assignment3.packagedeliveriestracker.view.PackageDeliveryGUI;
+import cmpt213.assignment3.packagedeliveriestracker.view.util.RoundButton;
+import cmpt213.assignment3.packagedeliveriestracker.view.util.Util;
 
 import javax.swing.*;
-import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 //clock reference : https://www.tutorialsbuddy.com/create-a-digital-clock-in-java
 
-public class StartScreen extends JPanel implements ActionListener {
-    private RoundButton btn;
+public class StartScreen extends JPanel{
+    private final RoundButton btn;
     private final JLabel title;
     private final JLabel subtitle;
     private final GridBagConstraints constraints;
 
-    private final PackageDeliveryGUI frame;
+    public StartScreen(ActionListener al) {
 
-    public StartScreen(PackageDeliveryGUI frame) {
-
-        this.frame = frame;
         this.setBackground(Color.WHITE);
         this.setSize(new Dimension((int) (Util.screenWidth * 0.75), (int) (Util.screenHeight * 0.75)));
-        this.btn = new RoundButton("   E N T E R   ", "ENTER", this, Util.midTeal, Util.darkTeal);
+        this.btn = new RoundButton("   E N T E R   ", "ENTER", al, Util.midTeal, Util.darkTeal);
         this.title = new JLabel();
         this.subtitle = new JLabel();
         this.constraints = new GridBagConstraints();
@@ -44,38 +40,22 @@ public class StartScreen extends JPanel implements ActionListener {
         this.subtitle.setFont(Util.subTitleFont);
 
         //background stuff
-        resetConstraint(0, 0, GridBagConstraints.CENTER);
+        resetConstraint(0);
         this.add(title, constraints);
-        resetConstraint(0, 1, GridBagConstraints.CENTER);
+        resetConstraint(1);
         this.add(Box.createRigidArea(new Dimension(0, (int) (Util.screenHeight * 0.06))), constraints);
-        resetConstraint(0, 2, GridBagConstraints.CENTER);
+        resetConstraint(2);
         this.add(subtitle, constraints);
-        resetConstraint(0, 3, GridBagConstraints.CENTER);
+        resetConstraint(3);
         this.add(Box.createRigidArea(new Dimension(0, (int) (Util.screenHeight * 0.06))), constraints);
-        resetConstraint(0, 4, GridBagConstraints.CENTER);
+        resetConstraint(4);
         this.add(btn, constraints);
     }
 
-    public void hideScreen(){
-        this.remove(btn);
-        this.remove(title);
-        this.remove(subtitle);
-        this.setSize(new Dimension(0,0));
-        this.setVisible(false);
-        this.removeAll();
-    }
-    private void resetConstraint(int x, int y, int gridBagConstant) {
-        constraints.fill = gridBagConstant;
-        constraints.gridx = x;
+    private void resetConstraint(int y) {
+        constraints.fill = GridBagConstraints.CENTER;
+        constraints.gridx = 0;
         constraints.gridy = y;
     }
 
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        if (e.getActionCommand().equals("ENTER")) {
-            System.out.println("start was pressed");
-        }
-
-        frame.updateStates();
-    }
 }

@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Laptop Testing" />
+    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Right pane coloration correct">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/PackageDeliveryGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/PackageDeliveryGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/screens/MainScreenRight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveriestracker/view/screens/MainScreenRight.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -50,6 +54,9 @@
   }
 }</component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="cmpt213.assignment3.packagedeliveriestracker.view.util" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\debor\IdeaProjects\CMPT213-A3\src\cmpt213\assignment3\packagedeliveriestracker\view\font" />
       <recent name="C:\Users\debor\IdeaProjects\CMPT213-A1\src\cmpt213\assignment1\packagedeliveriestracker\gsondata" />
@@ -57,12 +64,14 @@
       <recent name="C:\Users\debor\IdeaProjects\CMPT213-A1\src" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="cmpt213.assignment3.packagedeliveriestracker.view.screens" />
+      <recent name="cmpt213.assignment3.packagedeliveriestracker.control" />
+      <recent name="cmpt213.assignment3.packagedeliveriestracker.view.util" />
+      <recent name="cmpt213.assignment3.packagedeliveriestracker.view.custom" />
       <recent name="cmpt213.assignment2.packagedeliveriestracker" />
-      <recent name="cmpt213.assignment2.packagedeliveriestracker.textui" />
-      <recent name="cmpt213.assignment2.packagedeliveriestracker.model" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.MainApp">
     <configuration name="MainApp" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="cmpt213.assignment3.packagedeliveriestracker.MainApp" />
       <module name="CMPT213-A3" />
@@ -70,6 +79,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="OldApp" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="cmpt213.assignment3.packagedeliveriestracker.control.PackageDeliveryTracker" />
+      <module name="CMPT213-A3" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.OldApp" />
+      <item itemvalue="Application.MainApp" />
+    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -79,104 +99,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1652723361815</updated>
-    </task>
-    <task id="LOCAL-00084" summary="Add CRC image">
-      <created>1656111767789</created>
-      <option name="number" value="00084" />
-      <option name="presentableId" value="LOCAL-00084" />
-      <option name="project" value="LOCAL" />
-      <updated>1656111767789</updated>
-    </task>
-    <task id="LOCAL-00085" summary="Finish useCases.txt">
-      <created>1656115684178</created>
-      <option name="number" value="00085" />
-      <option name="presentableId" value="LOCAL-00085" />
-      <option name="project" value="LOCAL" />
-      <updated>1656115684178</updated>
-    </task>
-    <task id="LOCAL-00086" summary="Finish OODexplained.txt">
-      <created>1656116918122</created>
-      <option name="number" value="00086" />
-      <option name="presentableId" value="LOCAL-00086" />
-      <option name="project" value="LOCAL" />
-      <updated>1656116918138</updated>
-    </task>
-    <task id="LOCAL-00087" summary="Reformat code">
-      <created>1656117316856</created>
-      <option name="number" value="00087" />
-      <option name="presentableId" value="LOCAL-00087" />
-      <option name="project" value="LOCAL" />
-      <updated>1656117316856</updated>
-    </task>
-    <task id="LOCAL-00088" summary="Remove json file">
-      <created>1656117367263</created>
-      <option name="number" value="00088" />
-      <option name="presentableId" value="LOCAL-00088" />
-      <option name="project" value="LOCAL" />
-      <updated>1656117367263</updated>
-    </task>
-    <task id="LOCAL-00089" summary="Add UML to docs">
-      <created>1656140160269</created>
-      <option name="number" value="00089" />
-      <option name="presentableId" value="LOCAL-00089" />
-      <option name="project" value="LOCAL" />
-      <updated>1656140160269</updated>
-    </task>
-    <task id="LOCAL-00090" summary="A3 Start - refactor names and packages">
-      <created>1657224722350</created>
-      <option name="number" value="00090" />
-      <option name="presentableId" value="LOCAL-00090" />
-      <option name="project" value="LOCAL" />
-      <updated>1657224722350</updated>
-    </task>
-    <task id="LOCAL-00091" summary="Update docs folder and contents">
-      <created>1657224856736</created>
-      <option name="number" value="00091" />
-      <option name="presentableId" value="LOCAL-00091" />
-      <option name="project" value="LOCAL" />
-      <updated>1657224856736</updated>
-    </task>
-    <task id="LOCAL-00092" summary="Add MainApp class">
-      <created>1657312827900</created>
-      <option name="number" value="00092" />
-      <option name="presentableId" value="LOCAL-00092" />
-      <option name="project" value="LOCAL" />
-      <updated>1657312827900</updated>
-    </task>
-    <task id="LOCAL-00093" summary="Add PackageDeliveryGUI class and Action/Item Listeners">
-      <created>1657313425805</created>
-      <option name="number" value="00093" />
-      <option name="presentableId" value="LOCAL-00093" />
-      <option name="project" value="LOCAL" />
-      <updated>1657313425805</updated>
-    </task>
-    <task id="LOCAL-00094" summary="JFrame template set up in MainApp">
-      <created>1657314071795</created>
-      <option name="number" value="00094" />
-      <option name="presentableId" value="LOCAL-00094" />
-      <option name="project" value="LOCAL" />
-      <updated>1657314071795</updated>
-    </task>
-    <task id="LOCAL-00095" summary="Add JPanel in MainApp">
-      <created>1657314261884</created>
-      <option name="number" value="00095" />
-      <option name="presentableId" value="LOCAL-00095" />
-      <option name="project" value="LOCAL" />
-      <updated>1657314261884</updated>
-    </task>
-    <task id="LOCAL-00096" summary="Work on button in MainApp">
-      <created>1657314928624</created>
-      <option name="number" value="00096" />
-      <option name="presentableId" value="LOCAL-00096" />
-      <option name="project" value="LOCAL" />
-      <updated>1657314928624</updated>
-    </task>
-    <task id="LOCAL-00097" summary="Add CustomComponentFactory for custom JComponents">
-      <created>1657316777025</created>
-      <option name="number" value="00097" />
-      <option name="presentableId" value="LOCAL-00097" />
-      <option name="project" value="LOCAL" />
-      <updated>1657316777025</updated>
     </task>
     <task id="LOCAL-00098" summary="Add enum">
       <created>1657402459663</created>
@@ -416,14 +338,112 @@
       <option name="project" value="LOCAL" />
       <updated>1658019018914</updated>
     </task>
-    <task id="LOCAL-00132" summary="Laptop Testing">
-      <created>1658027898801</created>
+    <task id="LOCAL-00132" summary="Update Leftgroup padding">
+      <created>1658028196419</created>
       <option name="number" value="00132" />
       <option name="presentableId" value="LOCAL-00132" />
       <option name="project" value="LOCAL" />
-      <updated>1658027898802</updated>
+      <updated>1658028196419</updated>
     </task>
-    <option name="localTasksCounter" value="133" />
+    <task id="LOCAL-00133" summary="Add transparent Color to Util">
+      <created>1658029337201</created>
+      <option name="number" value="00133" />
+      <option name="presentableId" value="LOCAL-00133" />
+      <option name="project" value="LOCAL" />
+      <updated>1658029337201</updated>
+    </task>
+    <task id="LOCAL-00134" summary="Create custom JScrollPane class">
+      <created>1658030275268</created>
+      <option name="number" value="00134" />
+      <option name="presentableId" value="LOCAL-00134" />
+      <option name="project" value="LOCAL" />
+      <updated>1658030275268</updated>
+    </task>
+    <task id="LOCAL-00135" summary="Move classes to different packages and start JavaDoc in Util">
+      <created>1658030438707</created>
+      <option name="number" value="00135" />
+      <option name="presentableId" value="LOCAL-00135" />
+      <option name="project" value="LOCAL" />
+      <updated>1658030438707</updated>
+    </task>
+    <task id="LOCAL-00136" summary="Add PackageItem class">
+      <created>1658033270022</created>
+      <option name="number" value="00136" />
+      <option name="presentableId" value="LOCAL-00136" />
+      <option name="project" value="LOCAL" />
+      <updated>1658033270022</updated>
+    </task>
+    <task id="LOCAL-00137" summary="JScroll figured out">
+      <created>1658035434177</created>
+      <option name="number" value="00137" />
+      <option name="presentableId" value="LOCAL-00137" />
+      <option name="project" value="LOCAL" />
+      <updated>1658035434193</updated>
+    </task>
+    <task id="LOCAL-00138" summary="Start package item UI">
+      <created>1658035700333</created>
+      <option name="number" value="00138" />
+      <option name="presentableId" value="LOCAL-00138" />
+      <option name="project" value="LOCAL" />
+      <updated>1658035700333</updated>
+    </task>
+    <task id="LOCAL-00139" summary="Buttons in scroll are working">
+      <created>1658037136062</created>
+      <option name="number" value="00139" />
+      <option name="presentableId" value="LOCAL-00139" />
+      <option name="project" value="LOCAL" />
+      <updated>1658037136062</updated>
+    </task>
+    <task id="LOCAL-00140" summary="Card views in progress">
+      <created>1658038911213</created>
+      <option name="number" value="00140" />
+      <option name="presentableId" value="LOCAL-00140" />
+      <option name="project" value="LOCAL" />
+      <updated>1658038911213</updated>
+    </task>
+    <task id="LOCAL-00141" summary="PackageItem sizes correct">
+      <created>1658039718244</created>
+      <option name="number" value="00141" />
+      <option name="presentableId" value="LOCAL-00141" />
+      <option name="project" value="LOCAL" />
+      <updated>1658039718244</updated>
+    </task>
+    <task id="LOCAL-00142" summary="Working on packageitem UI">
+      <created>1658041154444</created>
+      <option name="number" value="00142" />
+      <option name="presentableId" value="LOCAL-00142" />
+      <option name="project" value="LOCAL" />
+      <updated>1658041154444</updated>
+    </task>
+    <task id="LOCAL-00143" summary="Confused">
+      <created>1658110901259</created>
+      <option name="number" value="00143" />
+      <option name="presentableId" value="LOCAL-00143" />
+      <option name="project" value="LOCAL" />
+      <updated>1658110901259</updated>
+    </task>
+    <task id="LOCAL-00144" summary="Split screen works!!!">
+      <created>1658118504821</created>
+      <option name="number" value="00144" />
+      <option name="presentableId" value="LOCAL-00144" />
+      <option name="project" value="LOCAL" />
+      <updated>1658118504821</updated>
+    </task>
+    <task id="LOCAL-00145" summary="Left pane works fully">
+      <created>1658120410525</created>
+      <option name="number" value="00145" />
+      <option name="presentableId" value="LOCAL-00145" />
+      <option name="project" value="LOCAL" />
+      <updated>1658120410525</updated>
+    </task>
+    <task id="LOCAL-00146" summary="Right pane coloration correct">
+      <created>1658120522424</created>
+      <option name="number" value="00146" />
+      <option name="presentableId" value="LOCAL-00146" />
+      <option name="project" value="LOCAL" />
+      <updated>1658120522424</updated>
+    </task>
+    <option name="localTasksCounter" value="147" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -439,21 +459,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Implement date on main screen" />
-    <MESSAGE value="Implement line via Graphics2D" />
-    <MESSAGE value="Update JDK in project structure" />
-    <MESSAGE value="Remove Roboto font from system" />
-    <MESSAGE value="Add font styles to Util" />
-    <MESSAGE value="Add more font styles to Util" />
-    <MESSAGE value="Implement RoundButton" />
-    <MESSAGE value="Implement Round button dimensions" />
-    <MESSAGE value="Fix Round button dimension bug" />
-    <MESSAGE value="Finish Round button class implementation" />
-    <MESSAGE value="Add change colour modifier to RoundButton" />
-    <MESSAGE value="Add font package back" />
-    <MESSAGE value="Custom fonts applied" />
-    <MESSAGE value="Update RoundButton placement" />
-    <MESSAGE value="Custom things done" />
     <MESSAGE value="Add GridBagLayout to start panel" />
     <MESSAGE value="In progress main screen" />
     <MESSAGE value="Add PackageDialog class" />
@@ -463,8 +468,23 @@
     <MESSAGE value="In progress MainScreen" />
     <MESSAGE value="In progress MainScreen part 2" />
     <MESSAGE value="In progress MainScreen part 3" />
-    <MESSAGE value="Laptop Testing" />
-    <option name="LAST_COMMIT_MESSAGE" value="Laptop Testing" />
+    <MESSAGE value="Update Leftgroup padding" />
+    <MESSAGE value="Add transparent Color to Util" />
+    <MESSAGE value="Create custom JScrollPane class" />
+    <MESSAGE value="Move classes to different packages and start JavaDoc in Util" />
+    <MESSAGE value="Add PackageItem class" />
+    <MESSAGE value="JScroll figured out" />
+    <MESSAGE value="Start package item UI" />
+    <MESSAGE value="Buttons in scroll are working" />
+    <MESSAGE value="Card views in progress" />
+    <MESSAGE value="Scroll still not working" />
+    <MESSAGE value="PackageItem sizes correct" />
+    <MESSAGE value="Working on packageitem UI" />
+    <MESSAGE value="Confused" />
+    <MESSAGE value="Split screen works!!!" />
+    <MESSAGE value="Left pane works fully" />
+    <MESSAGE value="Right pane coloration correct" />
+    <option name="LAST_COMMIT_MESSAGE" value="Right pane coloration correct" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -1,4 +1,4 @@
-package cmpt213.assignment3.packagedeliveriestracker;
+package cmpt213.assignment3.packagedeliveriestracker.control;
 
 import cmpt213.assignment3.packagedeliveriestracker.gson.extras.RuntimeTypeAdapterFactory;
 import cmpt213.assignment3.packagedeliveriestracker.model.Book;
@@ -28,7 +28,11 @@ public class PackageDeliveryTracker {
     private static File gsonFile;
     private static ArrayList<PackageBase> listOfPackages;
 
-    private PackageDeliveryTracker() {
+    public static PackageBase getPackage(int index){
+        return listOfPackages.get(index);
+    }
+
+    public PackageDeliveryTracker() {
 
         listOfPackages = new ArrayList<>();
 
