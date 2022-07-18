@@ -25,8 +25,8 @@ public class PackageDeliveryGUI extends JFrame implements ItemListener, ActionLi
         scrollPane = new JScrollPane(new MainScreenRight(this));
         scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-//        scrollPane.getViewport().getView().setForeground(Color.WHITE);
         scrollPane.getViewport().getView().setBackground(Color.WHITE);
+        scrollPane.setBorder(BorderFactory.createEmptyBorder());
         scrollPane.setViewportBorder(new LineBorder(Util.transparent,0));
 
         mainPanel = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, new MainScreenLeft(this), scrollPane);
