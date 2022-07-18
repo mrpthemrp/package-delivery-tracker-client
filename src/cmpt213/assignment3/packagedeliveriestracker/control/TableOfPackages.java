@@ -1,7 +1,6 @@
 package cmpt213.assignment3.packagedeliveriestracker.control;
 
 import javax.swing.event.TableModelListener;
-import javax.swing.table.AbstractTableModel;
 import javax.swing.table.TableModel;
 
 public class TableOfPackages implements TableModel {

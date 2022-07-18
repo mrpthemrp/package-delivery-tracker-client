@@ -1,4 +1,4 @@
-package cmpt213.assignment3.packagedeliveriestracker.view.screens;
+package cmpt213.assignment3.packagedeliveriestracker.view.custom;
 
 import javax.swing.*;
 

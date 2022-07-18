@@ -65,7 +65,4 @@ public abstract class PackageBase implements Package {
         return weight;
     }
 
-    public boolean isDelivered() {
-        return isDelivered;
-    }
 }

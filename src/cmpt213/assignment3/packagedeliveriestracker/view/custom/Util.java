@@ -1,4 +1,4 @@
-package cmpt213.assignment3.packagedeliveriestracker.view.util;
+package cmpt213.assignment3.packagedeliveriestracker.view.custom;
 
 import java.awt.*;
 import java.io.File;
@@ -29,6 +29,8 @@ public final class Util {
     public static Font btnTextFont;
     public static Font btnTextFont2;
     public static Font titleFont;
+    public static Font sortTitleFont;
+    public static Font sortBtnsFont;
     public static Font pkgDateFont;
     public static Font subTitleFont;
     public static Font bodyFont = new Font(Font.SANS_SERIF, Font.PLAIN, (int) (10 * (Util.screenSize.getWidth() * 0.001)));
@@ -52,6 +54,21 @@ public final class Util {
     static {
         try {
             btnTextFont = createCustomFont("Roboto-Bold.ttf", Font.BOLD, (int) (14 * (Util.screenSize.getWidth() * 0.0013)));
+        } catch (IOException | FontFormatException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    static {
+        try {
+            sortTitleFont = createCustomFont("Roboto-Bold.ttf", Font.BOLD, (int) (10 * (Util.screenSize.getWidth() * 0.0013)));
+        } catch (IOException | FontFormatException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    static {
+        try {
+            sortBtnsFont = createCustomFont("Roboto-Bold.ttf", Font.BOLD, (int) (7 * (Util.screenSize.getWidth() * 0.0013)));
         } catch (IOException | FontFormatException e) {
             throw new RuntimeException(e);
         }
