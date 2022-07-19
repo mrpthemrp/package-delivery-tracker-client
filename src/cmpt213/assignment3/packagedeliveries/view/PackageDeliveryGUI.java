@@ -1,12 +1,10 @@
 package cmpt213.assignment3.packagedeliveries.view;
 
-import cmpt213.assignment3.packagedeliveries.view.util.customUi.AddPackageDialogContent;
+import cmpt213.assignment3.packagedeliveries.view.util.customUi.AddPackageDialog;
 import cmpt213.assignment3.packagedeliveries.view.util.customUi.ColumnHeader;
 import cmpt213.assignment3.packagedeliveries.view.screens.*;
 import cmpt213.assignment3.packagedeliveries.view.util.Util;
 import cmpt213.assignment3.packagedeliveries.view.util.Util.SCREEN_STATE;
-import cmpt213.assignment3.packagedeliveries.view.util.customUi.CustomDialog;
-import cmpt213.assignment3.packagedeliveries.view.util.customUi.DialogContent;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -26,7 +24,7 @@ public class PackageDeliveryGUI extends JFrame implements ItemListener, ActionLi
     private final JScrollPane scrollPane;
     private final ColumnHeader columnHeader;
     private final JPanel header, leftBar, footer;
-    private final AddPackageDialogContent addPackageDialog;
+    private final AddPackageDialog addPackageDialog;
 
     public PackageDeliveryGUI() {
 
@@ -49,7 +47,7 @@ public class PackageDeliveryGUI extends JFrame implements ItemListener, ActionLi
         this.header = new JPanel();
         this.leftBar = new JPanel();
         this.footer = new JPanel();
-        this.addPackageDialog = new AddPackageDialogContent(this,"Package Delivery Tracker - Add Package",
+        this.addPackageDialog = new AddPackageDialog(this,"Package Delivery Tracker - Add Package",
                 "  C R E A T E  ","  C A N C E L  ");
 
         this.startPanel = new StartScreen(this);
