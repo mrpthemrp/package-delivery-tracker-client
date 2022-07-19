@@ -32,7 +32,7 @@ public class PackageItem extends JPanel implements ActionListener, ItemListener{
         notes = new JLabel(pkg.getNotes());
         price = new JLabel(Util.priceFormat.format(pkg.getPrice()));
         weight = new JLabel(Util.weightFormat.format(pkg.getWeight()));
-        date = new JLabel(pkg.getExpectedDeliveryDate().format(Util.packageDateFormat).toString().toUpperCase());
+        date = new JLabel(pkg.getExpectedDeliveryDate().format(Util.packageDateFormat).toUpperCase());
 
 
         removeButton = new RoundButton(" R E M O V E ", "REMOVE", this, Util.redLight, Util.redDark,
