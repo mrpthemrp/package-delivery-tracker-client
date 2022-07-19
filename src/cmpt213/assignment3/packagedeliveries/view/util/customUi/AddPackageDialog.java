@@ -7,19 +7,19 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class AddPackageDialogContent extends JDialog implements ActionListener {
+public class AddPackageDialog extends JDialog implements ActionListener {
     private final CustomDialog exitConfirmDialog;
     private final JPanel contentPane;
-    public AddPackageDialogContent(Frame parent, String title, String btnYesText, String btnNoText) {
+    public AddPackageDialog(Frame parent, String title, String btnYesText, String btnNoText) {
         super(parent, title, true);
         this.exitConfirmDialog = new CustomDialog(parent,"Remove Package Confirmation"
                         ,"  S T A Y  ","  E X I T  ", new DialogContent("Are you sure you want to exit?"));;
         this.setSize(new Dimension((int) (Util.screenWidth * 0.4), (int) (Util.screenHeight * 0.25)));
 
         JPanel buttonPane = new JPanel();
-        RoundButton yesBtn = new RoundButton(btnYesText, "YES", this, Util.greenLight, Util.greenDark
+        RoundButton yesBtn = new RoundButton(btnYesText, "YES", this, Util.midTeal, Util.darkTeal
                 , (int) (Util.screenHeight * 0.045), Util.dialogBtnsFont);
-        RoundButton noBtn = new RoundButton(btnNoText, "NO", this, Util.redLight, Util.redDark
+        RoundButton noBtn = new RoundButton(btnNoText, "NO", this, Util.lightBrown, Util.darkBrown
                 , (int) (Util.screenHeight * 0.045), Util.dialogBtnsFont);
 
         buttonPane.setBackground(Color.WHITE);
