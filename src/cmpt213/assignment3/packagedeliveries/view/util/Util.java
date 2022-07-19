@@ -20,7 +20,7 @@ public final class Util {
     public static Color lightBrown = new Color(255, 221, 210);
     public static Color darkBrown = new Color(226, 149, 120);
 
-    public static Color transparent = new Color (255,255,255,0);
+    public static Color transparent = new Color(255, 255, 255, 0);
     public static DateTimeFormatter clockFormat = DateTimeFormatter.ofPattern("hh:mm:ss a");
     public static DateTimeFormatter currentDayFormat = DateTimeFormatter.ofPattern("MMMM dd, yyyy");
     public static DateTimeFormatter packageDateFormat = DateTimeFormatter.ofPattern("MMMM dd, yyyy | hh:mm a");
@@ -58,6 +58,7 @@ public final class Util {
             throw new RuntimeException(e);
         }
     }
+
     static {
         try {
             sortTitleFont = createCustomFont("Roboto-Bold.ttf", Font.BOLD, (int) (10 * (Util.screenSize.getWidth() * 0.0013)));
@@ -97,6 +98,7 @@ public final class Util {
             throw new RuntimeException(e);
         }
     }
+
     static {
         try {
             titleFont = createCustomFont("Roboto-Bold.ttf", Font.BOLD, (int) (18 * (Util.screenSize.getWidth() * 0.00165)));

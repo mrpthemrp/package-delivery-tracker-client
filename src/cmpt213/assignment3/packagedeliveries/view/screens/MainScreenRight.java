@@ -12,18 +12,22 @@ public class MainScreenRight extends JPanel {
 
     public MainScreenRight(ActionListener al) {
         int arraySize = 7;
-        this.setLayout(new GridLayout(7,1,0,50));
+        this.setLayout(new GridLayout(arraySize,1,0,(int)(Util.screenHeight*0.004)));
 
-        this.setSize(new Dimension(200,200));
-        this.setMaximumSize(new Dimension(200,200));
-        this.add(new PackageItem(this.getWidth(),PackageDeliveryTracker.getPackage(0)));
-        this.add(new PackageItem(this.getWidth(),PackageDeliveryTracker.getPackage(0)));
-        this.add(new PackageItem(this.getWidth(),PackageDeliveryTracker.getPackage(0)));
-        this.add(new PackageItem(this.getWidth(),PackageDeliveryTracker.getPackage(0)));
-        this.add(new PackageItem(this.getWidth(),PackageDeliveryTracker.getPackage(0)));
-        this.add(new PackageItem(this.getWidth(),PackageDeliveryTracker.getPackage(0)));
-        this.add(new PackageItem(this.getWidth(),PackageDeliveryTracker.getPackage(0)));
+        this.setPreferredSize(new Dimension((int)(Util.screenWidth*0.351),(int)(Util.screenHeight*0.3)));
+        this.setMaximumSize(new Dimension((int)(Util.screenWidth*0.351),(int)(Util.screenHeight*0.3)));
+        testPackages();
 
         this.setVisible(true);
+    }
+
+    private void testPackages() {
+        this.add(new PackageItem(this.getWidth(),PackageDeliveryTracker.getPackage(0)));
+        this.add(new PackageItem(this.getWidth(),PackageDeliveryTracker.getPackage(0)));
+        this.add(new PackageItem(this.getWidth(),PackageDeliveryTracker.getPackage(0)));
+        this.add(new PackageItem(this.getWidth(),PackageDeliveryTracker.getPackage(0)));
+        this.add(new PackageItem(this.getWidth(),PackageDeliveryTracker.getPackage(0)));
+        this.add(new PackageItem(this.getWidth(),PackageDeliveryTracker.getPackage(0)));
+        this.add(new PackageItem(this.getWidth(),PackageDeliveryTracker.getPackage(0)));
     }
 }

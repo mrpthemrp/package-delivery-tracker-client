@@ -3,6 +3,7 @@ package cmpt213.assignment3.packagedeliveries.view.util.customUi;
 import cmpt213.assignment3.packagedeliveries.view.util.Util;
 
 import javax.swing.*;
+import javax.swing.border.MatteBorder;
 import java.awt.*;
 import java.awt.event.*;
 
@@ -13,19 +14,20 @@ public class ColumnHeader extends JPanel {
 
     public ColumnHeader(ActionListener al) {
 
-        sortTypeTitle = new JLabel(titles[0]);
-        sortTypeTitle.setFont(Util.sortTitleFont);
-        sortTypeTitle.setForeground(Util.midTeal);
-        sortTypeTitle.setBackground(Color.WHITE);
-
         this.setBackground(Color.WHITE);
+        this.setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
+        this.setBorder(BorderFactory.createMatteBorder(0,0,(int)(Util.screenHeight*0.004),0,Util.lightTeal));
+
+        this.sortTypeTitle = new JLabel(titles[0]);
+        this.sortTypeTitle.setFont(Util.sortTitleFont);
+        this.sortTypeTitle.setForeground(Util.midTeal);
+        this.sortTypeTitle.setBackground(Color.WHITE);
 
         this.listAllBtn = new HeaderButton("LIST ALL", al);
         this.upcomingBtn = new HeaderButton("UPCOMING", al);
         this.overdueBtn = new HeaderButton("OVERDUE", al);
 
-        //set up column header
-        this.setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
+        //add components
         this.add(sortTypeTitle, RIGHT_ALIGNMENT);
         this.add(Box.createHorizontalGlue());
         this.add(listAllBtn, LEFT_ALIGNMENT);

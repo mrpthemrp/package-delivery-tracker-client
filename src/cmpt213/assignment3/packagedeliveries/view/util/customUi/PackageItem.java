@@ -9,20 +9,16 @@ import java.awt.*;
 
 public class PackageItem extends JPanel {
     private final int width;
-    private final int height;
     private final PackageBase pkg;
     private final JLabel name,notes, price, weight;
     public PackageItem(int width, PackageBase pkg){
         this.width = width;
-        this.height = width/3;
         this.pkg = pkg;
 
-        this.setSize(new Dimension(this.width,height));
-        this.setMaximumSize(new Dimension(this.width,height));
-        setBackground(Util.darkBrown);
-        this.add(Box.createRigidArea(this.getSize()));
-        setBorder(new LineBorder(Util.lightBrown,5));
-        setLayout(new BoxLayout(this, BoxLayout.LINE_AXIS));
+        this.setSize(new Dimension(this.width,this.getHeight()));
+        this.setMaximumSize(new Dimension(this.width,this.getHeight()));
+        this.setBackground(Util.darkBrown);
+        this.setLayout(new BoxLayout(this, BoxLayout.LINE_AXIS));
 
         name = new JLabel(pkg.getName());
         notes = new JLabel(pkg.getNotes());

@@ -23,7 +23,6 @@ public class PackageDeliveryGUI extends JFrame implements ItemListener, ActionLi
     private final StartScreen startPanel;
     private final JScrollPane scrollPane;
     private final ColumnHeader columnHeader;
-    private final MainScreenRight screenRight;
     private final JPanel header, leftBar, footer;
 
     public PackageDeliveryGUI() {
@@ -49,10 +48,8 @@ public class PackageDeliveryGUI extends JFrame implements ItemListener, ActionLi
         this.footer = new JPanel();
 
         this.startPanel = new StartScreen(this);
-        this.screenRight = new MainScreenRight(this);
-        screenRight.setBorder(new LineBorder(Color.BLACK,5));
         this.columnHeader = new ColumnHeader(this);
-        this.scrollPane = new JScrollPane(this.screenRight);
+        this.scrollPane = new JScrollPane(new MainScreenRight(this));
         this.mainPanel = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT,
                 new MainScreenLeft(this), this.scrollPane);
 
@@ -113,7 +110,7 @@ public class PackageDeliveryGUI extends JFrame implements ItemListener, ActionLi
         this.scrollPane.setBorder(BorderFactory.createEmptyBorder());
         this.scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         this.scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-        this.scrollPane.getViewport().getView().setBackground(Color.CYAN);
+        this.scrollPane.getViewport().getView().setBackground(Util.lightTeal);
 
         //refernce for making up down buttons look invisible
         //https://stackoverflow.com/questions/7633354/how-to-hide-the-arrow-buttons-in-a-jscrollbar
@@ -131,14 +128,14 @@ public class PackageDeliveryGUI extends JFrame implements ItemListener, ActionLi
             @Override
             protected void paintThumb(Graphics g, JComponent c, Rectangle thumbBounds) {
                 Graphics2D g2 = (Graphics2D) g;
-                RoundRectangle2D customThumb = new RoundRectangle2D.Double(thumbBounds.x, thumbBounds.y,
+                RoundRectangle2D roundedThumb = new RoundRectangle2D.Double(thumbBounds.x, thumbBounds.y,
                         thumbBounds.width*0.9, thumbBounds.height,Util.screenWidth*0.01,Util.screenWidth*0.01);
                 if(isThumbRollover()){
                     g2.setColor(Util.lightTeal);
                 } else {
                     g2.setColor(Util.transparent);
                 }
-                g2.fill(customThumb);
+                g2.fill(roundedThumb);
 
             }
 
