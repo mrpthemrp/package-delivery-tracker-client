@@ -14,8 +14,8 @@ public class MainScreenRight extends JPanel {
         int arraySize = 7;
         this.setLayout(new GridLayout(arraySize,1,0,(int)(Util.screenHeight*0.004)));
 
-        this.setPreferredSize(new Dimension((int)(Util.screenWidth*0.351),(int)(Util.screenHeight*0.3)));
-        this.setMaximumSize(new Dimension((int)(Util.screenWidth*0.351),(int)(Util.screenHeight*0.3)));
+        this.setPreferredSize(new Dimension((int)(Util.screenWidth*0.34),(int)(Util.screenHeight*0.3)));
+        this.setMaximumSize(new Dimension((int)(Util.screenWidth*0.34),(int)(Util.screenHeight*0.3)));
         testPackages();
 
         this.setVisible(true);
