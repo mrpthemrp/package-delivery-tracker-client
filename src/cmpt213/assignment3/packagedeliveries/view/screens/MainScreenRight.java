@@ -18,7 +18,7 @@ public class MainScreenRight extends JPanel {
         this.setLayout(new GridBagLayout());
         gbc = new GridBagConstraints();
         gbc.gridwidth = GridBagConstraints.REMAINDER;
-        gbc.weightx = 1;
+        gbc.weightx = 550;
         gbc.weighty = 1;
 
         testPackages(al);
@@ -27,6 +27,10 @@ public class MainScreenRight extends JPanel {
     }
 
     private void testPackages(ActionListener al) {
+        this.add(new PackageItem(PackageDeliveryTracker.getPackage(0)),gbc,0);
+        this.add(new PackageItem(PackageDeliveryTracker.getPackage(0)),gbc,0);
+        this.add(new PackageItem(PackageDeliveryTracker.getPackage(0)),gbc,0);
+        this.add(new PackageItem(PackageDeliveryTracker.getPackage(0)),gbc,0);
         this.add(new PackageItem(PackageDeliveryTracker.getPackage(0)),gbc,0);
         this.add(new PackageItem(PackageDeliveryTracker.getPackage(0)),gbc,0);
         this.add(new PackageItem(PackageDeliveryTracker.getPackage(0)),gbc,0);

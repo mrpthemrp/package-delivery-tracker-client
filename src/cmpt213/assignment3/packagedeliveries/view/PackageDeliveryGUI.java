@@ -109,7 +109,7 @@ public class PackageDeliveryGUI extends JFrame implements ItemListener, ActionLi
         this.scrollPane.setBorder(BorderFactory.createEmptyBorder());
         this.scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         this.scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-        this.scrollPane.getViewport().getView().setBackground(Util.lightTeal);
+        this.scrollPane.getViewport().getView().setBackground(Color.WHITE);
 
         //refernce for making up down buttons look invisible
         //https://stackoverflow.com/questions/7633354/how-to-hide-the-arrow-buttons-in-a-jscrollbar
