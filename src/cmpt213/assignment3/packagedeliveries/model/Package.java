@@ -1,4 +1,4 @@
-package cmpt213.assignment3.packagedeliveriestracker.model;
+package cmpt213.assignment3.packagedeliveries.model;
 
 import java.time.LocalDateTime;
 

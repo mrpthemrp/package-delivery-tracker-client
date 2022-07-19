@@ -1,10 +1,10 @@
-package cmpt213.assignment3.packagedeliveriestracker.control;
+package cmpt213.assignment3.packagedeliveries.control;
 
-import cmpt213.assignment3.packagedeliveriestracker.gson.extras.RuntimeTypeAdapterFactory;
-import cmpt213.assignment3.packagedeliveriestracker.model.Book;
-import cmpt213.assignment3.packagedeliveriestracker.model.Electronic;
-import cmpt213.assignment3.packagedeliveriestracker.model.PackageBase;
-import cmpt213.assignment3.packagedeliveriestracker.model.Perishable;
+import cmpt213.assignment3.packagedeliveries.gson.extras.RuntimeTypeAdapterFactory;
+import cmpt213.assignment3.packagedeliveries.model.Book;
+import cmpt213.assignment3.packagedeliveries.model.Electronic;
+import cmpt213.assignment3.packagedeliveries.model.PackageBase;
+import cmpt213.assignment3.packagedeliveries.model.Perishable;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;

@@ -1,10 +1,9 @@
-package cmpt213.assignment3.packagedeliveriestracker.view.screens;
+package cmpt213.assignment3.packagedeliveries.view.screens;
 
-import cmpt213.assignment3.packagedeliveriestracker.control.TableOfPackages;
-import cmpt213.assignment3.packagedeliveriestracker.view.custom.Util;
+import cmpt213.assignment3.packagedeliveries.view.util.customUi.TableOfPackages;
+import cmpt213.assignment3.packagedeliveries.view.util.Util;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionListener;
 
 public class MainScreenRight extends JPanel {

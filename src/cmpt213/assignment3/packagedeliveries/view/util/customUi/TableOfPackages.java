@@ -1,4 +1,4 @@
-package cmpt213.assignment3.packagedeliveriestracker.control;
+package cmpt213.assignment3.packagedeliveries.view.util.customUi;
 
 import javax.swing.event.TableModelListener;
 import javax.swing.table.TableModel;

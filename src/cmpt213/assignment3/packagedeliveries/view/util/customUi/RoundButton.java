@@ -1,4 +1,6 @@
-package cmpt213.assignment3.packagedeliveriestracker.view.custom;
+package cmpt213.assignment3.packagedeliveries.view.util.customUi;
+
+import cmpt213.assignment3.packagedeliveries.view.util.Util;
 
 import javax.swing.*;
 import java.awt.*;

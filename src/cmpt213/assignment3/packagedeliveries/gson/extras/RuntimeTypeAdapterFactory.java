@@ -1,4 +1,4 @@
-package cmpt213.assignment3.packagedeliveriestracker.gson.extras;
+package cmpt213.assignment3.packagedeliveries.gson.extras;
 /*
 * THIS CLASS IS COPIED FROM THE FOLLOWING:
 * https://github.com/google/gson/blob/master/extras/src/main/java/com/google/gson/typeadapters/RuntimeTypeAdapterFactory.java

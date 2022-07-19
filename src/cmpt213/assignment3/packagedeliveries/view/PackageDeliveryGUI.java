@@ -1,14 +1,13 @@
-package cmpt213.assignment3.packagedeliveriestracker.view;
+package cmpt213.assignment3.packagedeliveries.view;
 
-import cmpt213.assignment3.packagedeliveriestracker.control.TableOfPackages;
-import cmpt213.assignment3.packagedeliveriestracker.view.custom.ColumnHeader;
-import cmpt213.assignment3.packagedeliveriestracker.view.screens.*;
-import cmpt213.assignment3.packagedeliveriestracker.view.custom.Util;
-import cmpt213.assignment3.packagedeliveriestracker.view.custom.Util.SCREEN_STATE;
+import cmpt213.assignment3.packagedeliveries.view.util.customUi.TableOfPackages;
+import cmpt213.assignment3.packagedeliveries.view.util.customUi.ColumnHeader;
+import cmpt213.assignment3.packagedeliveries.view.screens.*;
+import cmpt213.assignment3.packagedeliveries.view.util.Util;
+import cmpt213.assignment3.packagedeliveries.view.util.Util.SCREEN_STATE;
 
 import javax.swing.*;
 import javax.swing.border.Border;
-import javax.swing.border.LineBorder;
 import javax.swing.plaf.basic.BasicSplitPaneDivider;
 import javax.swing.plaf.basic.BasicSplitPaneUI;
 import java.awt.*;

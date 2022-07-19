@@ -1,7 +1,7 @@
-package cmpt213.assignment3.packagedeliveriestracker;
+package cmpt213.assignment3.packagedeliveries;
 
-import cmpt213.assignment3.packagedeliveriestracker.control.PackageDeliveryTracker;
-import cmpt213.assignment3.packagedeliveriestracker.view.PackageDeliveryGUI;
+import cmpt213.assignment3.packagedeliveries.control.PackageDeliveryTracker;
+import cmpt213.assignment3.packagedeliveries.view.PackageDeliveryGUI;
 
 import javax.swing.*;
 

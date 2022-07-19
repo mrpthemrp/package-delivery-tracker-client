@@ -1,10 +1,9 @@
-package cmpt213.assignment3.packagedeliveriestracker.view.screens;
+package cmpt213.assignment3.packagedeliveries.view.screens;
 
-import cmpt213.assignment3.packagedeliveriestracker.view.custom.RoundButton;
-import cmpt213.assignment3.packagedeliveriestracker.view.custom.Util;
+import cmpt213.assignment3.packagedeliveries.view.util.customUi.RoundButton;
+import cmpt213.assignment3.packagedeliveries.view.util.Util;
 
 import javax.swing.*;
-import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.time.LocalDate;
