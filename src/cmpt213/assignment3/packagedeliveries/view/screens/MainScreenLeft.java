@@ -28,8 +28,8 @@ public class MainScreenLeft extends JPanel {
         this.setMaximumSize(new Dimension((int) (Util.screenWidth * 0.257 ), (int) (Util.screenHeight * 0.75)));
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
-        this.btn = new RoundButton("   A D D   P A C K A G E   ", "ADD PACKAGE", al, Util.lightBrown, Util.darkBrown);
-        this.btn.setFont(Util.btnTextFont2);
+        this.btn = new RoundButton("   A D D   P A C K A G E   ", "ADD PACKAGE", al, Util.lightBrown,
+                Util.darkBrown, (int) (Util.screenHeight*0.08), Util.addPkgBtnTextFont2);
         this.title = new JLabel();
         this.clock = new JLabel("", SwingConstants.CENTER);
         this.currentDay = new JLabel("", SwingConstants.CENTER);

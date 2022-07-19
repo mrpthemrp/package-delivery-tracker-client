@@ -3,6 +3,7 @@ package cmpt213.assignment3.packagedeliveries.view.util;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
+import java.text.DecimalFormat;
 import java.time.format.DateTimeFormatter;
 
 /**
@@ -20,14 +21,21 @@ public final class Util {
     public static Color lightBrown = new Color(255, 221, 210);
     public static Color darkBrown = new Color(226, 149, 120);
 
+    public static Color redLight = new Color(233,90,90);
+    public static Color redDark = new Color(178,42,42);
+
     public static Color transparent = new Color(255, 255, 255, 0);
     public static DateTimeFormatter clockFormat = DateTimeFormatter.ofPattern("hh:mm:ss a");
     public static DateTimeFormatter currentDayFormat = DateTimeFormatter.ofPattern("MMMM dd, yyyy");
     public static DateTimeFormatter packageDateFormat = DateTimeFormatter.ofPattern("MMMM dd, yyyy | hh:mm a");
+
+    public static DecimalFormat priceFormat = new DecimalFormat("$.00");
+    public static DecimalFormat weightFormat = new DecimalFormat(".00 kg");
     public static Font clockFont;
     public static Font mainScreenDateFont;
-    public static Font btnTextFont;
-    public static Font btnTextFont2;
+    public static Font enterBtnTextFont;
+    public static Font addPkgBtnTextFont2;
+    public static Font removeBtnTextFont;
     public static Font titleFont;
     public static Font sortTitleFont;
     public static Font sortBtnsFont;
@@ -53,7 +61,7 @@ public final class Util {
 
     static {
         try {
-            btnTextFont = createCustomFont("Roboto-Bold.ttf", Font.BOLD, (int) (14 * (Util.screenSize.getWidth() * 0.0013)));
+            enterBtnTextFont = createCustomFont("Roboto-Bold.ttf", Font.BOLD, (int) (14 * (Util.screenSize.getWidth() * 0.0013)));
         } catch (IOException | FontFormatException e) {
             throw new RuntimeException(e);
         }
@@ -74,10 +82,17 @@ public final class Util {
             throw new RuntimeException(e);
         }
     }
+    static {
+        try {
+            removeBtnTextFont = createCustomFont("Roboto-Bold.ttf", Font.BOLD, (int) (5 * (Util.screenSize.getWidth() * 0.0013)));
+        } catch (IOException | FontFormatException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
     static {
         try {
-            btnTextFont2 = createCustomFont("Roboto-Bold.ttf", Font.BOLD, (int) (11 * (Util.screenSize.getWidth() * 0.0013)));
+            addPkgBtnTextFont2 = createCustomFont("Roboto-Bold.ttf", Font.BOLD, (int) (11 * (Util.screenSize.getWidth() * 0.0013)));
         } catch (IOException | FontFormatException e) {
             throw new RuntimeException(e);
         }

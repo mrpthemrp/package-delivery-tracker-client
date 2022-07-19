@@ -12,10 +12,11 @@ public class RoundButton extends JButton {
     private final Color btnColorDark;
     private final int height;
 
-    public RoundButton(String btnText, String label, ActionListener al, Color btnColor, Color btnColorDark) {
+    public RoundButton(String btnText, String label, ActionListener al, Color btnColor,
+                       Color btnColorDark, int height, Font font) {
         this.btnColor = btnColor;
         this.btnColorDark = btnColorDark;
-        this.height = (int) (getHeight()+(Util.screenHeight*0.08));
+        this.height = getHeight()+height;
 
         addActionListener(al);
         setActionCommand(label);
@@ -23,7 +24,7 @@ public class RoundButton extends JButton {
         setBorderPainted(false);
         setContentAreaFilled(false);
         setFocusPainted(false);
-        setFont(Util.btnTextFont);
+        setFont(font);
         setText(btnText);
 
     }

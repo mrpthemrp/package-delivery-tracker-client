@@ -19,7 +19,8 @@ public class StartScreen extends JPanel{
 
         this.setBackground(Color.WHITE);
         this.setSize(new Dimension((int) (Util.screenWidth * 0.75), (int) (Util.screenHeight * 0.75)));
-        this.btn = new RoundButton("   E N T E R   ", "ENTER", al, Util.midTeal, Util.darkTeal);
+        this.btn = new RoundButton("   E N T E R   ", "ENTER", al, Util.midTeal, Util.darkTeal,
+                (int) (Util.screenHeight*0.08), Util.enterBtnTextFont);
         this.title = new JLabel();
         this.subtitle = new JLabel();
         this.constraints = new GridBagConstraints();
