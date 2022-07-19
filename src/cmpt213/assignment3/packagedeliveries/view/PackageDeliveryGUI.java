@@ -7,7 +7,6 @@ import cmpt213.assignment3.packagedeliveries.view.util.Util.SCREEN_STATE;
 
 import javax.swing.*;
 import javax.swing.border.Border;
-import javax.swing.border.LineBorder;
 import javax.swing.plaf.basic.BasicScrollBarUI;
 import javax.swing.plaf.basic.BasicSplitPaneDivider;
 import javax.swing.plaf.basic.BasicSplitPaneUI;
@@ -116,6 +115,7 @@ public class PackageDeliveryGUI extends JFrame implements ItemListener, ActionLi
         //https://stackoverflow.com/questions/7633354/how-to-hide-the-arrow-buttons-in-a-jscrollbar
         this.scrollPane.getVerticalScrollBar().setOrientation(VERTICAL);
         this.scrollPane.getVerticalScrollBar().setBackground(Color.WHITE);
+        this.scrollPane.setHorizontalScrollBarPolicy(ScrollPaneLayout.HORIZONTAL_SCROLLBAR_NEVER);
         this.scrollPane.getVerticalScrollBar().setUI(new BasicScrollBarUI() {
 
             @Override
