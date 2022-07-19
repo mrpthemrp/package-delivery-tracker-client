@@ -4,15 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Update license, add svgs">
-      <change afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/customUi/CheckBoxUI.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/images/checkBoxFilled.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/images/checkBoxOutline.png" afterDir="false" />
+    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Working on CheckBox">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/Util.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/customUi/CheckBoxUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/customUi/CheckBoxUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/customUi/PackageItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/customUi/PackageItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/images/checkBoxFilled.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/images/checkBoxOutline.svg" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,13 +102,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1652723361815</updated>
-    </task>
-    <task id="LOCAL-00114" summary="Implement RoundButton">
-      <created>1657922574490</created>
-      <option name="number" value="00114" />
-      <option name="presentableId" value="LOCAL-00114" />
-      <option name="project" value="LOCAL" />
-      <updated>1657922574490</updated>
     </task>
     <task id="LOCAL-00115" summary="Implement Round button dimensions">
       <created>1657922779995</created>
@@ -451,7 +439,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658213812978</updated>
     </task>
-    <option name="localTasksCounter" value="163" />
+    <task id="LOCAL-00163" summary="Working on CheckBox">
+      <created>1658217218286</created>
+      <option name="number" value="00163" />
+      <option name="presentableId" value="LOCAL-00163" />
+      <option name="project" value="LOCAL" />
+      <updated>1658217218286</updated>
+    </task>
+    <option name="localTasksCounter" value="164" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -467,7 +462,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Start package item UI" />
     <MESSAGE value="Buttons in scroll are working" />
     <MESSAGE value="Card views in progress" />
     <MESSAGE value="Scroll still not working" />
@@ -492,7 +486,8 @@
     <MESSAGE value="Decimal formats added to util" />
     <MESSAGE value="Implement remove button UI" />
     <MESSAGE value="Update license, add svgs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update license, add svgs" />
+    <MESSAGE value="Working on CheckBox" />
+    <option name="LAST_COMMIT_MESSAGE" value="Working on CheckBox" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

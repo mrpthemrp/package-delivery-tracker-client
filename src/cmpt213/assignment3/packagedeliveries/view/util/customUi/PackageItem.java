@@ -17,7 +17,7 @@ public class PackageItem extends JPanel implements ActionListener, ItemListener{
     private final JLabel name, notes, price, weight, date;
     private final RoundButton removeButton;
     private final JComboBox pkgTypeSelecter;
-    private final CheckBoxUI deliveredCheckBox;
+    private final JCheckBox deliveredCheckBox;
 
     public PackageItem(int width, PackageBase pkg) {
         this.width = width;
@@ -39,16 +39,17 @@ public class PackageItem extends JPanel implements ActionListener, ItemListener{
                 (int) (Util.screenHeight * 0.024), Util.removeBtnTextFont);
 
         pkgTypeSelecter = null;
-        deliveredCheckBox = new CheckBoxUI();
-        deliveredCheckBox.setIcon(Util.checkBoxFilled);
+        deliveredCheckBox = new JCheckBox("Delivered?");
+        deliveredCheckBox.setIcon(Util.checkBoxOutline);
 
 //        this.add(name);
 //        this.add(notes);
 //        this.add(price);
 //        this.add(weight);
 //        this.add(date);
+        this.add(Box.createRigidArea(new Dimension(50,50)));
 //        this.add(removeButton);
-        this.add(deliveredCheckBox,CENTER_ALIGNMENT);
+        this.add(deliveredCheckBox);
     }
 
     private void setUpTextStyle(JLabel text, Color textColour, Font font, float alignment) {

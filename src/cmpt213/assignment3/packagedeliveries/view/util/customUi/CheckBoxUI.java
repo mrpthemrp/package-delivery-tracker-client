@@ -5,6 +5,8 @@ import cmpt213.assignment3.packagedeliveries.view.util.Util;
 import javax.swing.*;
 import java.awt.*;
 
+//resource: http://www.java2s.com/Code/Java/Swing-JFC/IconCheckBoxDemo.htm
+
 public class CheckBoxUI extends JCheckBox {
     private Image img;
     public int width;
