@@ -35,11 +35,11 @@ public class CheckBoxUI implements Icon {
 
     @Override
     public int getIconWidth() {
-        return (int)(Util.screenWidth*0.01);
+        return (int)(Util.screenWidth*0.015);
     }
 
     @Override
     public int getIconHeight() {
-        return (int)(Util.screenWidth*0.01);
+        return (int)(Util.screenWidth*0.015);
     }
 }

@@ -41,7 +41,7 @@ public class PackageItem extends JPanel implements ActionListener, ItemListener{
 
         pkgTypeSelecter = null;
         Icon icon = new CheckBoxUI();
-        deliveredCheckBox = new JCheckBox("Delivered?",icon);
+        deliveredCheckBox = new JCheckBox("Delivered?",icon,pkg.getDeliveryStatus());
         deliveredCheckBox.setBackground(Color.WHITE);
         deliveredCheckBox.setFocusPainted(false);
         deliveredCheckBox.setFont(Util.deliveryStatusFont);

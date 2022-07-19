@@ -102,7 +102,7 @@ public final class Util {
 
     static {
         try {
-            deliveryStatusFont = createCustomFont("Roboto-Medium.ttf", Font.BOLD, (int) (5 * (Util.screenSize.getWidth() * 0.0013)));
+            deliveryStatusFont = createCustomFont("Roboto-Medium.ttf", Font.BOLD, (int) (7 * (Util.screenSize.getWidth() * 0.0013)));
         } catch (IOException | FontFormatException e) {
             throw new RuntimeException(e);
         }
