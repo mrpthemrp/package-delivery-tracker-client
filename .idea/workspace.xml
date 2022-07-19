@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Window closing overridden">
-      <change afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/customUi/ScrollBarUI.java" afterDir="false" />
+    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Add custom scroll bar class">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/PackageDeliveryGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/PackageDeliveryGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/customUi/ScrollBarUI.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,13 +100,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1652723361815</updated>
-    </task>
-    <task id="LOCAL-00105" summary="Move screen dimension to Util">
-      <created>1657867438739</created>
-      <option name="number" value="00105" />
-      <option name="presentableId" value="LOCAL-00105" />
-      <option name="project" value="LOCAL" />
-      <updated>1657867438739</updated>
     </task>
     <task id="LOCAL-00106" summary="Implement clock">
       <created>1657867865217</created>
@@ -443,7 +437,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658197517563</updated>
     </task>
-    <option name="localTasksCounter" value="154" />
+    <task id="LOCAL-00154" summary="Add custom scroll bar class">
+      <created>1658197612661</created>
+      <option name="number" value="00154" />
+      <option name="presentableId" value="LOCAL-00154" />
+      <option name="project" value="LOCAL" />
+      <updated>1658197612661</updated>
+    </task>
+    <option name="localTasksCounter" value="155" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -459,7 +460,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="In progress MainScreen" />
     <MESSAGE value="In progress MainScreen part 2" />
     <MESSAGE value="In progress MainScreen part 3" />
     <MESSAGE value="Update Leftgroup padding" />
@@ -484,7 +484,8 @@
     <MESSAGE value="UI figured out" />
     <MESSAGE value="Refactor classes to proper packages" />
     <MESSAGE value="Window closing overridden" />
-    <option name="LAST_COMMIT_MESSAGE" value="Window closing overridden" />
+    <MESSAGE value="Add custom scroll bar class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add custom scroll bar class" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

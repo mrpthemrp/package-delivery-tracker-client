@@ -8,10 +8,13 @@ import cmpt213.assignment3.packagedeliveries.view.util.Util.SCREEN_STATE;
 
 import javax.swing.*;
 import javax.swing.border.Border;
+import javax.swing.plaf.basic.BasicScrollBarUI;
 import javax.swing.plaf.basic.BasicSplitPaneDivider;
 import javax.swing.plaf.basic.BasicSplitPaneUI;
 import java.awt.*;
 import java.awt.event.*;
+
+import static java.awt.Scrollbar.VERTICAL;
 
 public class PackageDeliveryGUI extends JFrame implements ItemListener, ActionListener {
     private SCREEN_STATE currentState;
@@ -62,6 +65,7 @@ public class PackageDeliveryGUI extends JFrame implements ItemListener, ActionLi
         this.setVisible(true);
     }
 
+    //TODO move this method to control
     public void updateStates() {
 
         switch (currentState) {
@@ -103,6 +107,8 @@ public class PackageDeliveryGUI extends JFrame implements ItemListener, ActionLi
 
     private void setUpMainScreen() {
 
+        this.scrollPane.setBackground(Color.WHITE);
+        this.scrollPane.setBorder(BorderFactory.createEmptyBorder());
         this.scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         this.scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
         this.scrollPane.getViewport().getView().setBackground(Color.WHITE);
@@ -110,7 +116,33 @@ public class PackageDeliveryGUI extends JFrame implements ItemListener, ActionLi
                 (int) (screenRight.getHeight() * 0.75)));
         this.scrollPane.getViewport().getView().setMaximumSize(new Dimension((int) (screenRight.getWidth() * 0.8),
                 (int) (screenRight.getHeight() * 0.75)));
-        this.scrollPane.setBorder(BorderFactory.createEmptyBorder());
+
+        //refernce for making up down buttons look invisible
+        //https://stackoverflow.com/questions/7633354/how-to-hide-the-arrow-buttons-in-a-jscrollbar
+        this.scrollPane.getVerticalScrollBar().setOrientation(VERTICAL);
+        this.scrollPane.getVerticalScrollBar().setBackground(Color.WHITE);
+        this.scrollPane.getVerticalScrollBar().setUI(new BasicScrollBarUI() {
+            @Override
+            protected JButton createDecreaseButton(int orientation) {
+                return createInvisibleButton();
+            }
+
+            @Override
+            protected JButton createIncreaseButton(int orientation) {
+                return createInvisibleButton();
+            }
+
+            private JButton createInvisibleButton() {
+                JButton button = new JButton();
+                Dimension zeroDimension = new Dimension(0,0);
+                button.setForeground(Util.transparent);
+                button.setBackground(Util.transparent);
+                button.setPreferredSize(zeroDimension);
+                button.setBorder(BorderFactory.createEmptyBorder());
+                button.setFocusPainted(false);
+                return button;
+            }
+        });
         this.scrollPane.setColumnHeaderView(columnHeader);
 
         this.mainPanel.setDividerLocation((int) (Util.screenWidth * 0.257));
@@ -147,6 +179,7 @@ public class PackageDeliveryGUI extends JFrame implements ItemListener, ActionLi
         this.mainPanel.setBorder(BorderFactory.createEmptyBorder());
     }
 
+    //TODO method actions will be from control classes
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("ENTER")) {
