@@ -122,6 +122,19 @@ public class PackageDeliveryGUI extends JFrame implements ItemListener, ActionLi
         this.scrollPane.getVerticalScrollBar().setOrientation(VERTICAL);
         this.scrollPane.getVerticalScrollBar().setBackground(Color.WHITE);
         this.scrollPane.getVerticalScrollBar().setUI(new BasicScrollBarUI() {
+
+            @Override
+            protected void paintTrack(Graphics g, JComponent c, Rectangle trackBounds) {
+                Graphics2D g2 = (Graphics2D) g;
+                g2.setColor(Util.transparent);
+                g2.fill(trackBounds);
+            }
+
+            @Override
+            protected void paintThumb(Graphics g, JComponent c, Rectangle thumbBounds) {
+                super.paintThumb(g, c, thumbBounds);
+            }
+
             @Override
             protected JButton createDecreaseButton(int orientation) {
                 return createInvisibleButton();
@@ -135,11 +148,13 @@ public class PackageDeliveryGUI extends JFrame implements ItemListener, ActionLi
             private JButton createInvisibleButton() {
                 JButton button = new JButton();
                 Dimension zeroDimension = new Dimension(0,0);
+
+                button.setBorder(BorderFactory.createEmptyBorder());
+                button.setFocusPainted(false);
                 button.setForeground(Util.transparent);
                 button.setBackground(Util.transparent);
                 button.setPreferredSize(zeroDimension);
-                button.setBorder(BorderFactory.createEmptyBorder());
-                button.setFocusPainted(false);
+
                 return button;
             }
         });
