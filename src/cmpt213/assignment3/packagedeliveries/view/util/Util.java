@@ -16,7 +16,7 @@ public final class Util {
     public static double screenHeight = Toolkit.getDefaultToolkit().getScreenSize().getHeight();
     public static Color darkTeal = new Color(0, 109, 119);
     public static Color midTeal = new Color(131, 197, 190);
-    public static Color lightTeal = new Color(237, 246, 249);
+    public static Color lightTeal = new Color(237, 248, 245);
     public static Color lightBrown = new Color(255, 221, 210);
     public static Color darkBrown = new Color(226, 149, 120);
 

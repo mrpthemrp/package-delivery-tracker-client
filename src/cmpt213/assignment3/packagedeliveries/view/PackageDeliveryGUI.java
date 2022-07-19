@@ -132,13 +132,13 @@ public class PackageDeliveryGUI extends JFrame implements ItemListener, ActionLi
             protected void paintThumb(Graphics g, JComponent c, Rectangle thumbBounds) {
                 Graphics2D g2 = (Graphics2D) g;
                 RoundRectangle2D customThumb = new RoundRectangle2D.Double(thumbBounds.x, thumbBounds.y,
-                        thumbBounds.width, thumbBounds.height,5,5);
+                        thumbBounds.width*0.9, thumbBounds.height,Util.screenWidth*0.01,Util.screenWidth*0.01);
                 if(isThumbRollover()){
                     g2.setColor(Util.lightTeal);
                 } else {
                     g2.setColor(Util.transparent);
                 }
-                g2.fill(thumbBounds);
+                g2.fill(customThumb);
 
             }
 

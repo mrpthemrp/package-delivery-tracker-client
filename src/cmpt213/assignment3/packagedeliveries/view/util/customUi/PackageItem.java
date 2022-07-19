@@ -23,8 +23,6 @@ public class PackageItem extends JPanel {
         this.add(Box.createRigidArea(this.getSize()));
         setBorder(new LineBorder(Util.lightBrown,5));
         setLayout(new BoxLayout(this, BoxLayout.LINE_AXIS));
-        System.out.println(this.getSize());
-        System.out.println("package item size:"+this.getSize());
 
         name = new JLabel(pkg.getName());
         notes = new JLabel(pkg.getNotes());
