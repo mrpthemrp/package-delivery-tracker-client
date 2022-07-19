@@ -4,6 +4,7 @@ import cmpt213.assignment3.packagedeliveries.view.util.customUi.ColumnHeader;
 import cmpt213.assignment3.packagedeliveries.view.screens.*;
 import cmpt213.assignment3.packagedeliveries.view.util.Util;
 import cmpt213.assignment3.packagedeliveries.view.util.Util.SCREEN_STATE;
+import cmpt213.assignment3.packagedeliveries.view.util.customUi.CustomDialog;
 
 import javax.swing.*;
 import javax.swing.border.Border;
@@ -55,6 +56,7 @@ public class PackageDeliveryGUI extends JFrame implements ItemListener, ActionLi
         //setUp necessary fields
         setUpScreenPaddings();
         setUpMainScreen();
+
 
         //add components to frame
         this.add(header, BorderLayout.NORTH);
@@ -205,6 +207,9 @@ public class PackageDeliveryGUI extends JFrame implements ItemListener, ActionLi
             System.out.println("start was pressed");
         } else if (e.getActionCommand().equals("ADD PACKAGE")) {
             System.out.println("add package was pressed");
+            CustomDialog test = new CustomDialog(this,"Test Title",
+                    "test message", "  Y E S  ", "   N O   ");
+            test.run();
         } else if (e.getActionCommand().equals("LIST ALL")) {
             System.out.println("list all view");
             this.currentState = Util.SCREEN_STATE.LIST_ALL;

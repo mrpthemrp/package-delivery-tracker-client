@@ -24,8 +24,11 @@ public final class Util {
     public static Color lightBrown = new Color(255, 221, 210);
     public static Color darkBrown = new Color(226, 149, 120);
 
-    public static Color redLight = new Color(233,90,90);
-    public static Color redDark = new Color(178,42,42);
+    public static Color redLight = new Color(233, 90, 90);
+    public static Color redDark = new Color(178, 42, 42);
+
+    public static Color greenLight = new Color(164, 226, 142);
+    public static Color greenDark = new Color(81, 163, 53);
 
     public static Color transparent = new Color(255, 255, 255, 0);
     public static DateTimeFormatter clockFormat = DateTimeFormatter.ofPattern("hh:mm:ss a");
@@ -44,14 +47,16 @@ public final class Util {
     public static Font sortBtnsFont;
     public static Font pkgDateFont;
     public static Font subTitleFont;
+    public static Font dialogBtnsFont;
+    public static Font dialogMessageFont;
     public static Font deliveryStatusFont;
     public static Font bodyFont = new Font(Font.SANS_SERIF, Font.PLAIN, (int) (10 * (Util.screenSize.getWidth() * 0.001)));
 
     public static ImageIcon checkBoxFilled = new ImageIcon(filePath(new String[]{"src", "cmpt213",
-            "assignment3", "packagedeliveries", "view", "util", "images"}) + fs +"checkBoxFilled.png");
+            "assignment3", "packagedeliveries", "view", "util", "images"}) + fs + "checkBoxFilled.png");
 
     public static ImageIcon checkBoxOutline = new ImageIcon(filePath(new String[]{"src", "cmpt213",
-            "assignment3", "packagedeliveries", "view", "util", "images"}) + fs +"checkBoxOutline.png");
+            "assignment3", "packagedeliveries", "view", "util", "images"}) + fs + "checkBoxOutline.png");
 
     static {
         try {
@@ -92,6 +97,23 @@ public final class Util {
             throw new RuntimeException(e);
         }
     }
+
+    static {
+        try {
+            dialogBtnsFont = createCustomFont("Roboto-Bold.ttf", Font.BOLD, (int) (9 * (Util.screenSize.getWidth() * 0.0013)));
+        } catch (IOException | FontFormatException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    static {
+        try {
+            dialogMessageFont = createCustomFont("Roboto-Medium.ttf", Font.PLAIN, (int) (8 * (Util.screenSize.getWidth() * 0.0013)));
+        } catch (IOException | FontFormatException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     static {
         try {
             removeBtnTextFont = createCustomFont("Roboto-Bold.ttf", Font.BOLD, (int) (5 * (Util.screenSize.getWidth() * 0.0013)));
@@ -151,7 +173,7 @@ public final class Util {
         return newFont;
     }
 
-    private static String filePath (String[] pathNames){
+    private static String filePath(String[] pathNames) {
         return String.join(fs, pathNames);
     }
 

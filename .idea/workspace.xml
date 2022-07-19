@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Scroll working, add buttons to listener">
+    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Scroll UI almost done">
+      <change afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/customUi/CustomDialog.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/PackageDeliveryGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/PackageDeliveryGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/screens/MainScreenRight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/screens/MainScreenRight.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/customUi/PackageItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/customUi/PackageItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/Util.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/customUi/PackageDialogUI.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,13 +107,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1652723361815</updated>
-    </task>
-    <task id="LOCAL-00121" summary="Update RoundButton placement">
-      <created>1657928989753</created>
-      <option name="number" value="00121" />
-      <option name="presentableId" value="LOCAL-00121" />
-      <option name="project" value="LOCAL" />
-      <updated>1657928989753</updated>
     </task>
     <task id="LOCAL-00122" summary="Custom things done">
       <created>1657929706254</created>
@@ -450,7 +444,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658261087747</updated>
     </task>
-    <option name="localTasksCounter" value="170" />
+    <task id="LOCAL-00170" summary="Scroll UI almost done">
+      <created>1658262225608</created>
+      <option name="number" value="00170" />
+      <option name="presentableId" value="LOCAL-00170" />
+      <option name="project" value="LOCAL" />
+      <updated>1658262225608</updated>
+    </task>
+    <option name="localTasksCounter" value="171" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -466,7 +467,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Confused" />
     <MESSAGE value="Split screen works!!!" />
     <MESSAGE value="Left pane works fully" />
     <MESSAGE value="Right pane coloration correct" />
@@ -491,7 +491,8 @@
     <MESSAGE value="Adjust width of scrollpane" />
     <MESSAGE value="implementd delivery status box" />
     <MESSAGE value="Scroll working, add buttons to listener" />
-    <option name="LAST_COMMIT_MESSAGE" value="Scroll working, add buttons to listener" />
+    <MESSAGE value="Scroll UI almost done" />
+    <option name="LAST_COMMIT_MESSAGE" value="Scroll UI almost done" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
