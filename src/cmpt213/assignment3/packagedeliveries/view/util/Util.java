@@ -107,7 +107,7 @@ public final class Util {
 
     private static Font createCustomFont(String filename, int type, int fontSize) throws IOException, FontFormatException {
         String fs = File.separator;
-        String[] pathNames = {"src", "cmpt213", "assignment3", "packagedeliveriestracker", "view", "font"};
+        String[] pathNames = {"src", "cmpt213", "assignment3", "packagedeliveries", "view", "util", "font"};
         String path = String.join(fs, pathNames);
         Font newFont;
 

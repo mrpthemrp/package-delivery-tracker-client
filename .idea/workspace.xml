@@ -4,8 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="UI figured out">
+    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Refactor classes to proper packages">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/MainApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/PackageDeliveryGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/PackageDeliveryGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/Util.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,31 +66,31 @@
       <recent name="C:\Users\debor\IdeaProjects\CMPT213-A1\src" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="cmpt213.assignment3.packagedeliveriestracker.view.util" />
+      <recent name="cmpt213.assignment3.packagedeliveriestracker.view.util.custom" />
       <recent name="cmpt213.assignment3.packagedeliveriestracker.view.custom" />
       <recent name="cmpt213.assignment3.packagedeliveriestracker.view.screens" />
       <recent name="cmpt213.assignment3.packagedeliveriestracker.control" />
-      <recent name="cmpt213.assignment3.packagedeliveriestracker.view.util" />
-      <recent name="cmpt213.assignment2.packagedeliveriestracker" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.MainApp">
+  <component name="RunManager" selected="Application.cmpt213.assignment3.packagedeliveries.MainApp">
     <configuration name="MainApp" type="Application" factoryName="Application" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="cmpt213.assignment3.packagedeliveriestracker.MainApp" />
+      <option name="MAIN_CLASS_NAME" value="cmpt213.assignment3.packagedeliveries.MainApp" />
       <module name="CMPT213-A3" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <configuration name="OldApp" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="cmpt213.assignment3.packagedeliveriestracker.control.PackageDeliveryTracker" />
+      <option name="MAIN_CLASS_NAME" value="cmpt213.assignment3.packagedeliveries.control.PackageDeliveryTracker" />
       <module name="CMPT213-A3" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.cmpt213.assignment3.packagedeliveries.MainApp" />
       <item itemvalue="Application.OldApp" />
-      <item itemvalue="Application.MainApp" />
     </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -98,20 +101,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1652723361815</updated>
-    </task>
-    <task id="LOCAL-00102" summary="JPanels handle by Screens">
-      <created>1657866604458</created>
-      <option name="number" value="00102" />
-      <option name="presentableId" value="LOCAL-00102" />
-      <option name="project" value="LOCAL" />
-      <updated>1657866604458</updated>
-    </task>
-    <task id="LOCAL-00103" summary="Colors in Util is static access">
-      <created>1657866924743</created>
-      <option name="number" value="00103" />
-      <option name="presentableId" value="LOCAL-00103" />
-      <option name="project" value="LOCAL" />
-      <updated>1657866924743</updated>
     </task>
     <task id="LOCAL-00104" summary="Screens implement halfway">
       <created>1657866967071</created>
@@ -442,7 +431,21 @@
       <option name="project" value="LOCAL" />
       <updated>1658139608164</updated>
     </task>
-    <option name="localTasksCounter" value="151" />
+    <task id="LOCAL-00151" summary="UI figured out">
+      <created>1658195535542</created>
+      <option name="number" value="00151" />
+      <option name="presentableId" value="LOCAL-00151" />
+      <option name="project" value="LOCAL" />
+      <updated>1658195535542</updated>
+    </task>
+    <task id="LOCAL-00152" summary="Refactor classes to proper packages">
+      <created>1658196033993</created>
+      <option name="number" value="00152" />
+      <option name="presentableId" value="LOCAL-00152" />
+      <option name="project" value="LOCAL" />
+      <updated>1658196033993</updated>
+    </task>
+    <option name="localTasksCounter" value="153" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -458,7 +461,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Set left and right group pane widths" />
     <MESSAGE value="Split Screens into two classes" />
     <MESSAGE value="In progress MainScreen" />
     <MESSAGE value="In progress MainScreen part 2" />
@@ -483,7 +485,8 @@
     <MESSAGE value="Chagne jpanel to jtable" />
     <MESSAGE value="ColumnHeader is resolved" />
     <MESSAGE value="UI figured out" />
-    <option name="LAST_COMMIT_MESSAGE" value="UI figured out" />
+    <MESSAGE value="Refactor classes to proper packages" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactor classes to proper packages" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -491,6 +494,10 @@
         <breakpoint enabled="true" type="java-exception">
           <properties class="com.google.gson.JsonIOException" package="com.google.gson" />
           <option name="timeStamp" value="1" />
+        </breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.ExceptionInInitializerError" package="java.lang" />
+          <option name="timeStamp" value="2" />
         </breakpoint>
       </breakpoints>
       <default-breakpoints>
