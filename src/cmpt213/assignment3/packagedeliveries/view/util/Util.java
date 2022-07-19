@@ -1,5 +1,6 @@
 package cmpt213.assignment3.packagedeliveries.view.util;
 
+import javax.swing.*;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
@@ -9,9 +10,11 @@ import java.time.format.DateTimeFormatter;
 /**
  *
  */
+//font and images from Google Fonts library, license included in package
 //font resource: https://stackoverflow.com/questions/5652344/how-can-i-use-a-custom-font-in-java
 public final class Util {
 
+    private static String fs = File.separator;
     public static Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     public static double screenWidth = Toolkit.getDefaultToolkit().getScreenSize().getWidth();
     public static double screenHeight = Toolkit.getDefaultToolkit().getScreenSize().getHeight();
@@ -42,6 +45,12 @@ public final class Util {
     public static Font pkgDateFont;
     public static Font subTitleFont;
     public static Font bodyFont = new Font(Font.SANS_SERIF, Font.PLAIN, (int) (10 * (Util.screenSize.getWidth() * 0.001)));
+
+    public static ImageIcon checkBoxFilled = new ImageIcon(String.valueOf(new File(filePath(new String[]{"src", "cmpt213",
+            "assignment3", "packagedeliveries", "view", "util", "images"}) + fs +"checkBoxFilled.svg")));
+
+    public static ImageIcon checkBoxOutline = new ImageIcon(String.valueOf(new File(filePath(new String[]{"src", "cmpt213",
+            "assignment3", "packagedeliveries", "view", "util", "images"}) + fs +"checkBoxOutline.svg")));
 
     static {
         try {
@@ -123,15 +132,18 @@ public final class Util {
     }
 
     private static Font createCustomFont(String filename, int type, int fontSize) throws IOException, FontFormatException {
-        String fs = File.separator;
-        String[] pathNames = {"src", "cmpt213", "assignment3", "packagedeliveries", "view", "util", "font"};
-        String path = String.join(fs, pathNames);
+
+        String path = filePath(new String[]{"src", "cmpt213", "assignment3", "packagedeliveries", "view", "util", "font"});
         Font newFont;
 
         newFont = Font.createFont(Font.TRUETYPE_FONT, new File(path + fs + filename)).deriveFont(type, (float) fontSize);
         GraphicsEnvironment.getLocalGraphicsEnvironment().registerFont(newFont);
 
         return newFont;
+    }
+
+    private static String filePath (String[] pathNames){
+        return String.join(fs, pathNames);
     }
 
     public enum SCREEN_STATE {

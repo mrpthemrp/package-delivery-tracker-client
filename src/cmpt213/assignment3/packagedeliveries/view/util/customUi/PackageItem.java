@@ -36,15 +36,17 @@ public class PackageItem extends JPanel implements ActionListener, ItemListener 
 
         removeButton = new RoundButton(" R E M O V E ", "REMOVE", this, Util.redLight, Util.redDark,
                 (int) (Util.screenHeight * 0.024), Util.removeBtnTextFont);
+
         pkgTypeSelecter = null;
-        deliveredCheckBox = null;
+        deliveredCheckBox = new JCheckBox("Delivered?",Util.checkBoxOutline,pkg.getDeliveryStatus());
 
 //        this.add(name);
 //        this.add(notes);
 //        this.add(price);
 //        this.add(weight);
 //        this.add(date);
-        this.add(removeButton);
+//        this.add(removeButton);
+        this.add(deliveredCheckBox);
     }
 
     private void setUpTextStyle(JLabel text, Color textColour, Font font, float alignment) {

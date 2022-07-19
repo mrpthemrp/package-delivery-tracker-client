@@ -4,13 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Decimal formats added to util">
+    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Implement remove button UI">
+      <change afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/images/checkBoxFilled.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/images/checkBoxOutline.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/screens/MainScreenLeft.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/screens/MainScreenLeft.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/screens/StartScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/screens/StartScreen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/Util.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/customUi/PackageItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/customUi/PackageItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/customUi/RoundButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/customUi/RoundButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/font/LICENSE.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/LICENSE.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,10 +62,11 @@
       <recent name="cmpt213.assignment3.packagedeliveriestracker.view.util" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\debor\IdeaProjects\A-213\src\cmpt213\assignment3\packagedeliveries\view\util\images" />
+      <recent name="C:\Users\debor\IdeaProjects\A-213\src\cmpt213\assignment3\packagedeliveries\view\util" />
       <recent name="C:\Users\debor\IdeaProjects\CMPT213-A3\src\cmpt213\assignment3\packagedeliveriestracker\view\font" />
       <recent name="C:\Users\debor\IdeaProjects\CMPT213-A1\src\cmpt213\assignment1\packagedeliveriestracker\gsondata" />
       <recent name="C:\Users\debor\IdeaProjects\CMPT213-A1\src\cmpt213\assignment1\packagedeliveriestracker" />
-      <recent name="C:\Users\debor\IdeaProjects\CMPT213-A1\src" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="cmpt213.assignment3.packagedeliveriestracker.view.util" />
@@ -103,13 +104,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1652723361815</updated>
-    </task>
-    <task id="LOCAL-00112" summary="Add font styles to Util">
-      <created>1657918588800</created>
-      <option name="number" value="00112" />
-      <option name="presentableId" value="LOCAL-00112" />
-      <option name="project" value="LOCAL" />
-      <updated>1657918588800</updated>
     </task>
     <task id="LOCAL-00113" summary="Add more font styles to Util">
       <created>1657919092276</created>
@@ -447,7 +441,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658210078367</updated>
     </task>
-    <option name="localTasksCounter" value="161" />
+    <task id="LOCAL-00161" summary="Implement remove button UI">
+      <created>1658212118608</created>
+      <option name="number" value="00161" />
+      <option name="presentableId" value="LOCAL-00161" />
+      <option name="project" value="LOCAL" />
+      <updated>1658212118608</updated>
+    </task>
+    <option name="localTasksCounter" value="162" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -463,7 +464,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Add PackageItem class" />
     <MESSAGE value="JScroll figured out" />
     <MESSAGE value="Start package item UI" />
     <MESSAGE value="Buttons in scroll are working" />
@@ -488,7 +488,8 @@
     <MESSAGE value="Implement scroll bar ui" />
     <MESSAGE value="ScrollPane UI configured" />
     <MESSAGE value="Decimal formats added to util" />
-    <option name="LAST_COMMIT_MESSAGE" value="Decimal formats added to util" />
+    <MESSAGE value="Implement remove button UI" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implement remove button UI" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
