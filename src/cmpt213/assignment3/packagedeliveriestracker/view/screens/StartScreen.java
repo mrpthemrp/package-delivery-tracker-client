@@ -1,12 +1,10 @@
 package cmpt213.assignment3.packagedeliveriestracker.view.screens;
 
-import cmpt213.assignment3.packagedeliveriestracker.view.PackageDeliveryGUI;
-import cmpt213.assignment3.packagedeliveriestracker.view.util.RoundButton;
-import cmpt213.assignment3.packagedeliveriestracker.view.util.Util;
+import cmpt213.assignment3.packagedeliveriestracker.view.custom.RoundButton;
+import cmpt213.assignment3.packagedeliveriestracker.view.custom.Util;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 //clock reference : https://www.tutorialsbuddy.com/create-a-digital-clock-in-java
