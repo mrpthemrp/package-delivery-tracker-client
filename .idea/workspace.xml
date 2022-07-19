@@ -4,10 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Working on CheckBox">
+    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Added resource to CheckBox class">
+      <change afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/images/checkBoxFilled.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/images/checkBoxOutline.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/Util.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/customUi/CheckBoxUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/customUi/CheckBoxUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/customUi/PackageItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/customUi/PackageItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/images/checkBoxOutline.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +52,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "ToolWindowBuild.ShowToolbar": "false",
     "ToolWindowRun.ShowToolbar": "false",
-    "last_opened_file_path": "C:/Users/debor/IdeaProjects/CMPT213-A3",
+    "last_opened_file_path": "C:/Users/debor/IdeaProjects/A-213/src/cmpt213/assignment3/packagedeliveries/view/util/images",
     "project.structure.last.edited": "SDKs",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
@@ -58,6 +62,9 @@
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="cmpt213.assignment3.packagedeliveriestracker.view.util" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\debor\IdeaProjects\A-213\src\cmpt213\assignment3\packagedeliveries\view\util\images" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\debor\IdeaProjects\A-213\src\cmpt213\assignment3\packagedeliveries\view\util\images" />
@@ -74,7 +81,7 @@
       <recent name="cmpt213.assignment3.packagedeliveriestracker.control" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.cmpt213.assignment3.packagedeliveries.MainApp">
+  <component name="RunManager" selected="Application.MainApp">
     <configuration name="MainApp" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="cmpt213.assignment3.packagedeliveries.MainApp" />
       <module name="CMPT213-A3" />
@@ -90,7 +97,7 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.cmpt213.assignment3.packagedeliveries.MainApp" />
+      <item itemvalue="Application.MainApp" />
       <item itemvalue="Application.OldApp" />
     </list>
   </component>
@@ -102,20 +109,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1652723361815</updated>
-    </task>
-    <task id="LOCAL-00115" summary="Implement Round button dimensions">
-      <created>1657922779995</created>
-      <option name="number" value="00115" />
-      <option name="presentableId" value="LOCAL-00115" />
-      <option name="project" value="LOCAL" />
-      <updated>1657922779995</updated>
-    </task>
-    <task id="LOCAL-00116" summary="Fix Round button dimension bug">
-      <created>1657923385613</created>
-      <option name="number" value="00116" />
-      <option name="presentableId" value="LOCAL-00116" />
-      <option name="project" value="LOCAL" />
-      <updated>1657923385613</updated>
     </task>
     <task id="LOCAL-00117" summary="Finish Round button class implementation">
       <created>1657923496670</created>
@@ -446,7 +439,21 @@
       <option name="project" value="LOCAL" />
       <updated>1658217218286</updated>
     </task>
-    <option name="localTasksCounter" value="164" />
+    <task id="LOCAL-00164" summary="Added resource to CheckBox class">
+      <created>1658217661232</created>
+      <option name="number" value="00164" />
+      <option name="presentableId" value="LOCAL-00164" />
+      <option name="project" value="LOCAL" />
+      <updated>1658217661247</updated>
+    </task>
+    <task id="LOCAL-00165" summary="Added resource to CheckBox class">
+      <created>1658217685028</created>
+      <option name="number" value="00165" />
+      <option name="presentableId" value="LOCAL-00165" />
+      <option name="project" value="LOCAL" />
+      <updated>1658217685028</updated>
+    </task>
+    <option name="localTasksCounter" value="166" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -462,7 +469,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Buttons in scroll are working" />
     <MESSAGE value="Card views in progress" />
     <MESSAGE value="Scroll still not working" />
     <MESSAGE value="PackageItem sizes correct" />
@@ -487,7 +493,8 @@
     <MESSAGE value="Implement remove button UI" />
     <MESSAGE value="Update license, add svgs" />
     <MESSAGE value="Working on CheckBox" />
-    <option name="LAST_COMMIT_MESSAGE" value="Working on CheckBox" />
+    <MESSAGE value="Added resource to CheckBox class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added resource to CheckBox class" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

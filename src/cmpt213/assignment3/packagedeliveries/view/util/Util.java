@@ -44,13 +44,14 @@ public final class Util {
     public static Font sortBtnsFont;
     public static Font pkgDateFont;
     public static Font subTitleFont;
+    public static Font deliveryStatusFont;
     public static Font bodyFont = new Font(Font.SANS_SERIF, Font.PLAIN, (int) (10 * (Util.screenSize.getWidth() * 0.001)));
 
-    public static ImageIcon checkBoxFilled = new ImageIcon(String.valueOf(Util.class.getResource(filePath(new String[]{"src", "cmpt213",
-            "assignment3", "packagedeliveries", "view", "util", "images"}) + fs +"checkBoxFilled.png")));
+    public static ImageIcon checkBoxFilled = new ImageIcon(filePath(new String[]{"src", "cmpt213",
+            "assignment3", "packagedeliveries", "view", "util", "images"}) + fs +"checkBoxFilled.png");
 
-    public static ImageIcon checkBoxOutline = new ImageIcon(String.valueOf(Util.class.getResource(filePath(new String[]{"src", "cmpt213",
-            "assignment3", "packagedeliveries", "view", "util", "images"}) + fs +"checkBoxOutline.png")));
+    public static ImageIcon checkBoxOutline = new ImageIcon(filePath(new String[]{"src", "cmpt213",
+            "assignment3", "packagedeliveries", "view", "util", "images"}) + fs +"checkBoxOutline.png");
 
     static {
         try {
@@ -94,6 +95,14 @@ public final class Util {
     static {
         try {
             removeBtnTextFont = createCustomFont("Roboto-Bold.ttf", Font.BOLD, (int) (5 * (Util.screenSize.getWidth() * 0.0013)));
+        } catch (IOException | FontFormatException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    static {
+        try {
+            deliveryStatusFont = createCustomFont("Roboto-Medium.ttf", Font.BOLD, (int) (5 * (Util.screenSize.getWidth() * 0.0013)));
         } catch (IOException | FontFormatException e) {
             throw new RuntimeException(e);
         }

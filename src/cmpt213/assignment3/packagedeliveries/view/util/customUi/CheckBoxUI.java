@@ -7,29 +7,31 @@ import java.awt.*;
 
 //resource: http://www.java2s.com/Code/Java/Swing-JFC/IconCheckBoxDemo.htm
 
-public class CheckBoxUI extends JCheckBox {
-    private Image img;
-    public int width;
+public class CheckBoxUI implements Icon {
 
-    public CheckBoxUI() {
-        this.setText("Delivered?");
-        this.setBorderPaintedFlat(true);
-        this.setFocusPainted(false);
-    }
+    private final ImageIcon checkedIcon = Util.checkBoxFilled;
 
-    public void setImg(ImageIcon img){
-        this.img = img == null ? null : img.getImage();
-        Icon icon = UIManager.getIcon("CheckBox.icon");
-        width = icon.getIconWidth();
+    private final ImageIcon uncheckedIcon = Util.checkBoxOutline;
+
+    @Override
+    public void paintIcon(Component component, Graphics g, int x, int y) {
+        AbstractButton abstractButton = (AbstractButton) component;
+        ButtonModel buttonModel = abstractButton.getModel();
+        g.translate(x, y);
+        ImageIcon imageIcon = buttonModel.isSelected() ? checkedIcon
+                : uncheckedIcon;
+        Image image = imageIcon.getImage();
+        g.drawImage(image, 0, 0, component);
+        g.translate(-x, -y);
     }
 
     @Override
-    protected void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        if(this.img != null){
-            if(getWidth() > img.getWidth(null) + 8){
-                g.drawImage(Util.checkBoxOutline.getImage(), 2 + (getWidth() + width) /2,0,this);
-            }
-        }
+    public int getIconWidth() {
+        return (int)(Util.screenWidth*0.005);
+    }
+
+    @Override
+    public int getIconHeight() {
+        return (int)(Util.screenWidth*0.005);
     }
 }

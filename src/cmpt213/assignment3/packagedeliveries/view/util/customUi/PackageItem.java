@@ -26,7 +26,7 @@ public class PackageItem extends JPanel implements ActionListener, ItemListener{
         this.setSize(new Dimension(this.width, this.getHeight()));
         this.setMaximumSize(new Dimension(this.width, this.getHeight()));
         this.setBackground(Util.darkBrown);
-        this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+        this.setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
 
         name = new JLabel(pkg.getName());
         notes = new JLabel(pkg.getNotes());
@@ -39,8 +39,11 @@ public class PackageItem extends JPanel implements ActionListener, ItemListener{
                 (int) (Util.screenHeight * 0.024), Util.removeBtnTextFont);
 
         pkgTypeSelecter = null;
-        deliveredCheckBox = new JCheckBox("Delivered?");
-        deliveredCheckBox.setIcon(Util.checkBoxOutline);
+        Icon icon = new CheckBoxUI();
+        deliveredCheckBox = new JCheckBox("Delivered?",icon);
+        deliveredCheckBox.setBackground(Color.WHITE);
+        deliveredCheckBox.setFocusPainted(false);
+        deliveredCheckBox.setFont(Util.deliveryStatusFont);
 
 //        this.add(name);
 //        this.add(notes);
@@ -50,6 +53,7 @@ public class PackageItem extends JPanel implements ActionListener, ItemListener{
         this.add(Box.createRigidArea(new Dimension(50,50)));
 //        this.add(removeButton);
         this.add(deliveredCheckBox);
+        this.add(Box.createRigidArea(new Dimension(50,50)));
     }
 
     private void setUpTextStyle(JLabel text, Color textColour, Font font, float alignment) {
