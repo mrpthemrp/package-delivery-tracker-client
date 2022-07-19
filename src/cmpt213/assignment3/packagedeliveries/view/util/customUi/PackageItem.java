@@ -9,14 +9,15 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.awt.image.BufferedImage;
 
-public class PackageItem extends JPanel implements ActionListener, ItemListener {
+public class PackageItem extends JPanel implements ActionListener, ItemListener{
     private final int width;
     private final PackageBase pkg;
     private final JLabel name, notes, price, weight, date;
     private final RoundButton removeButton;
     private final JComboBox pkgTypeSelecter;
-    private final JCheckBox deliveredCheckBox;
+    private final CheckBoxUI deliveredCheckBox;
 
     public PackageItem(int width, PackageBase pkg) {
         this.width = width;
@@ -25,7 +26,7 @@ public class PackageItem extends JPanel implements ActionListener, ItemListener 
         this.setSize(new Dimension(this.width, this.getHeight()));
         this.setMaximumSize(new Dimension(this.width, this.getHeight()));
         this.setBackground(Util.darkBrown);
-        this.setLayout(new BoxLayout(this, BoxLayout.LINE_AXIS));
+        this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
         name = new JLabel(pkg.getName());
         notes = new JLabel(pkg.getNotes());
@@ -38,7 +39,8 @@ public class PackageItem extends JPanel implements ActionListener, ItemListener 
                 (int) (Util.screenHeight * 0.024), Util.removeBtnTextFont);
 
         pkgTypeSelecter = null;
-        deliveredCheckBox = new JCheckBox("Delivered?",Util.checkBoxOutline,pkg.getDeliveryStatus());
+        deliveredCheckBox = new CheckBoxUI();
+        deliveredCheckBox.setIcon(Util.checkBoxFilled);
 
 //        this.add(name);
 //        this.add(notes);
@@ -46,7 +48,7 @@ public class PackageItem extends JPanel implements ActionListener, ItemListener 
 //        this.add(weight);
 //        this.add(date);
 //        this.add(removeButton);
-        this.add(deliveredCheckBox);
+        this.add(deliveredCheckBox,CENTER_ALIGNMENT);
     }
 
     private void setUpTextStyle(JLabel text, Color textColour, Font font, float alignment) {

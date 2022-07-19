@@ -14,7 +14,7 @@ import java.time.format.DateTimeFormatter;
 //font resource: https://stackoverflow.com/questions/5652344/how-can-i-use-a-custom-font-in-java
 public final class Util {
 
-    private static String fs = File.separator;
+    private static final String fs = File.separator;
     public static Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     public static double screenWidth = Toolkit.getDefaultToolkit().getScreenSize().getWidth();
     public static double screenHeight = Toolkit.getDefaultToolkit().getScreenSize().getHeight();
@@ -46,11 +46,11 @@ public final class Util {
     public static Font subTitleFont;
     public static Font bodyFont = new Font(Font.SANS_SERIF, Font.PLAIN, (int) (10 * (Util.screenSize.getWidth() * 0.001)));
 
-    public static ImageIcon checkBoxFilled = new ImageIcon(String.valueOf(new File(filePath(new String[]{"src", "cmpt213",
-            "assignment3", "packagedeliveries", "view", "util", "images"}) + fs +"checkBoxFilled.svg")));
+    public static ImageIcon checkBoxFilled = new ImageIcon(String.valueOf(Util.class.getResource(filePath(new String[]{"src", "cmpt213",
+            "assignment3", "packagedeliveries", "view", "util", "images"}) + fs +"checkBoxFilled.png")));
 
-    public static ImageIcon checkBoxOutline = new ImageIcon(String.valueOf(new File(filePath(new String[]{"src", "cmpt213",
-            "assignment3", "packagedeliveries", "view", "util", "images"}) + fs +"checkBoxOutline.svg")));
+    public static ImageIcon checkBoxOutline = new ImageIcon(String.valueOf(Util.class.getResource(filePath(new String[]{"src", "cmpt213",
+            "assignment3", "packagedeliveries", "view", "util", "images"}) + fs +"checkBoxOutline.png")));
 
     static {
         try {
