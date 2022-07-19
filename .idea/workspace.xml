@@ -4,9 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Set scroll bar buttons invisible">
+    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Set scroll bar track and thumb">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/MainApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/control/PackageDeliveryTracker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/control/PackageDeliveryTracker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/PackageDeliveryGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/PackageDeliveryGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/screens/MainScreenRight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/screens/MainScreenRight.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/customUi/PackageItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/customUi/PackageItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/customUi/TableOfPackages.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,13 +104,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1652723361815</updated>
-    </task>
-    <task id="LOCAL-00108" summary="Clock works">
-      <created>1657869063776</created>
-      <option name="number" value="00108" />
-      <option name="presentableId" value="LOCAL-00108" />
-      <option name="project" value="LOCAL" />
-      <updated>1657869063776</updated>
     </task>
     <task id="LOCAL-00109" summary="Implement line via Graphics2D">
       <created>1657873243439</created>
@@ -443,7 +441,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658204640034</updated>
     </task>
-    <option name="localTasksCounter" value="157" />
+    <task id="LOCAL-00157" summary="Set scroll bar track and thumb">
+      <created>1658204907293</created>
+      <option name="number" value="00157" />
+      <option name="presentableId" value="LOCAL-00157" />
+      <option name="project" value="LOCAL" />
+      <updated>1658204907293</updated>
+    </task>
+    <option name="localTasksCounter" value="158" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -459,7 +464,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="In progress MainScreen part 3" />
     <MESSAGE value="Update Leftgroup padding" />
     <MESSAGE value="Add transparent Color to Util" />
     <MESSAGE value="Create custom JScrollPane class" />
@@ -484,7 +488,8 @@
     <MESSAGE value="Window closing overridden" />
     <MESSAGE value="Add custom scroll bar class" />
     <MESSAGE value="Set scroll bar buttons invisible" />
-    <option name="LAST_COMMIT_MESSAGE" value="Set scroll bar buttons invisible" />
+    <MESSAGE value="Set scroll bar track and thumb" />
+    <option name="LAST_COMMIT_MESSAGE" value="Set scroll bar track and thumb" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

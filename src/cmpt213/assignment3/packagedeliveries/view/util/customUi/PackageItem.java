@@ -17,12 +17,14 @@ public class PackageItem extends JPanel {
         this.height = width/3;
         this.pkg = pkg;
 
-        setSize(new Dimension(width,height));
-        setMaximumSize(new Dimension(width,height));
+        this.setSize(new Dimension(this.width,height));
+        this.setMaximumSize(new Dimension(this.width,height));
         setBackground(Util.darkBrown);
         this.add(Box.createRigidArea(this.getSize()));
         setBorder(new LineBorder(Util.lightBrown,5));
         setLayout(new BoxLayout(this, BoxLayout.LINE_AXIS));
+        System.out.println(this.getSize());
+        System.out.println("package item size:"+this.getSize());
 
         name = new JLabel(pkg.getName());
         notes = new JLabel(pkg.getNotes());

@@ -1,6 +1,5 @@
 package cmpt213.assignment3.packagedeliveries.view;
 
-import cmpt213.assignment3.packagedeliveries.view.util.customUi.TableOfPackages;
 import cmpt213.assignment3.packagedeliveries.view.util.customUi.ColumnHeader;
 import cmpt213.assignment3.packagedeliveries.view.screens.*;
 import cmpt213.assignment3.packagedeliveries.view.util.Util;
@@ -8,6 +7,7 @@ import cmpt213.assignment3.packagedeliveries.view.util.Util.SCREEN_STATE;
 
 import javax.swing.*;
 import javax.swing.border.Border;
+import javax.swing.border.LineBorder;
 import javax.swing.plaf.basic.BasicScrollBarUI;
 import javax.swing.plaf.basic.BasicSplitPaneDivider;
 import javax.swing.plaf.basic.BasicSplitPaneUI;
@@ -49,7 +49,8 @@ public class PackageDeliveryGUI extends JFrame implements ItemListener, ActionLi
         this.footer = new JPanel();
 
         this.startPanel = new StartScreen(this);
-        this.screenRight = new MainScreenRight(this, (this.getWidth()), new TableOfPackages());
+        this.screenRight = new MainScreenRight(this);
+        screenRight.setBorder(new LineBorder(Color.BLACK,5));
         this.columnHeader = new ColumnHeader(this);
         this.scrollPane = new JScrollPane(this.screenRight);
         this.mainPanel = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT,
@@ -112,11 +113,7 @@ public class PackageDeliveryGUI extends JFrame implements ItemListener, ActionLi
         this.scrollPane.setBorder(BorderFactory.createEmptyBorder());
         this.scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         this.scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-        this.scrollPane.getViewport().getView().setBackground(Color.WHITE);
-        this.scrollPane.getViewport().getView().setSize(new Dimension((int) (screenRight.getWidth() * 0.8),
-                (int) (screenRight.getHeight() * 0.75)));
-        this.scrollPane.getViewport().getView().setMaximumSize(new Dimension((int) (screenRight.getWidth() * 0.8),
-                (int) (screenRight.getHeight() * 0.75)));
+        this.scrollPane.getViewport().getView().setBackground(Color.CYAN);
 
         //refernce for making up down buttons look invisible
         //https://stackoverflow.com/questions/7633354/how-to-hide-the-arrow-buttons-in-a-jscrollbar
@@ -141,7 +138,7 @@ public class PackageDeliveryGUI extends JFrame implements ItemListener, ActionLi
                 } else {
                     g2.setColor(Util.transparent);
                 }
-                g2.fill(customThumb);
+                g2.fill(thumbBounds);
 
             }
 
