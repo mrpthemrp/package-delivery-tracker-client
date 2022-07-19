@@ -1,6 +1,8 @@
 package cmpt213.assignment3.packagedeliveries.view.util.customUi;
 
+import cmpt213.assignment3.packagedeliveries.MainApp;
 import cmpt213.assignment3.packagedeliveries.model.PackageBase;
+import cmpt213.assignment3.packagedeliveries.view.PackageDeliveryGUI;
 import cmpt213.assignment3.packagedeliveries.view.util.Util;
 
 import javax.swing.*;
@@ -12,14 +14,19 @@ import java.awt.event.ItemListener;
 import java.awt.image.BufferedImage;
 
 
-public class PackageItem extends JPanel implements ActionListener{
+public class PackageItem extends JPanel implements ActionListener {
     private final PackageBase pkg;
     private final JLabel name, notes, price, weight, date;
     private final RoundButton removeButton;
     private final JCheckBox deliveredCheckBox;
+    private final CustomDialog removePackageDialog;
 
     public PackageItem(PackageBase pkg) {
         this.pkg = pkg;
+        this.removePackageDialog = new CustomDialog(PackageDeliveryGUI.getFrames()[0], "Remove Package Confirmation"
+                ,"  Y E S  ","   N O   ", new DialogContent("Are you sure you want to remove this package?"));
+
+
 
         GridBagConstraints gbcLeft = new GridBagConstraints();
         GridBagConstraints gbcRight = new GridBagConstraints();
@@ -84,6 +91,7 @@ public class PackageItem extends JPanel implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         if(e.getActionCommand().equals("REMOVE")){
             System.out.println("remove button pressed");
+            removePackageDialog.run();
         } else if (e.getActionCommand().equals("DELIVERY STATUS")){
             System.out.println("delivery check box clicked");
         }

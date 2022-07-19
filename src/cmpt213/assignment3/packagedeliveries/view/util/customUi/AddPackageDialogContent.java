@@ -1,6 +1,5 @@
 package cmpt213.assignment3.packagedeliveries.view.util.customUi;
 
-import cmpt213.assignment3.packagedeliveries.view.PackageDeliveryGUI;
 import cmpt213.assignment3.packagedeliveries.view.util.Util;
 
 import javax.swing.*;
@@ -8,12 +7,13 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-//reference: http://www2.hawaii.edu/~takebaya/ics111/jdialog/jdialog.html
-public class CustomDialog extends JDialog implements ActionListener {
-
-    public CustomDialog(Frame parent, String title, String btnYesText, String btnNoText, JPanel contentPane) {
+public class AddPackageDialogContent extends JDialog implements ActionListener {
+    private final CustomDialog exitConfirmDialog;
+    private final JPanel contentPane;
+    public AddPackageDialogContent(Frame parent, String title, String btnYesText, String btnNoText) {
         super(parent, title, true);
-
+        this.exitConfirmDialog = new CustomDialog(parent,"Remove Package Confirmation"
+                        ,"  S T A Y  ","  E X I T  ", new DialogContent("Are you sure you want to exit?"));;
         this.setSize(new Dimension((int) (Util.screenWidth * 0.4), (int) (Util.screenHeight * 0.25)));
 
         JPanel buttonPane = new JPanel();
@@ -27,9 +27,15 @@ public class CustomDialog extends JDialog implements ActionListener {
         buttonPane.add(Box.createHorizontalGlue());
         buttonPane.add(noBtn);
 
+        contentPane = new JPanel();
         contentPane.add(buttonPane);
 
         this.add(contentPane);
+
+    }
+
+    public final void run() {
+        this.setVisible(true);
     }
 
     @Override
@@ -44,7 +50,4 @@ public class CustomDialog extends JDialog implements ActionListener {
         dispose();
     }
 
-    public final void run() {
-        this.setVisible(true);
-    }
 }
