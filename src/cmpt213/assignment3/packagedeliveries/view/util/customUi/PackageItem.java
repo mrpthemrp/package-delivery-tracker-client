@@ -11,6 +11,7 @@ import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 import java.awt.image.BufferedImage;
 
+
 public class PackageItem extends JPanel implements ActionListener, ItemListener{
     private final int width;
     private final PackageBase pkg;
@@ -44,6 +45,7 @@ public class PackageItem extends JPanel implements ActionListener, ItemListener{
         deliveredCheckBox.setBackground(Color.WHITE);
         deliveredCheckBox.setFocusPainted(false);
         deliveredCheckBox.setFont(Util.deliveryStatusFont);
+
 
 //        this.add(name);
 //        this.add(notes);

@@ -6,12 +6,20 @@ import javax.swing.*;
 import java.awt.*;
 
 //resource: http://www.java2s.com/Code/Java/Swing-JFC/IconCheckBoxDemo.htm
+//scaling resource: https://stackoverflow.com/questions/21857915/how-do-i-reduce-the-size-of-the-jcheckbox-icon
 
 public class CheckBoxUI implements Icon {
 
-    private final ImageIcon checkedIcon = Util.checkBoxFilled;
+    private final ImageIcon checkedIcon = updateSizes(Util.checkBoxFilled);
 
-    private final ImageIcon uncheckedIcon = Util.checkBoxOutline;
+    private final ImageIcon uncheckedIcon = updateSizes(Util.checkBoxOutline);
+
+    private ImageIcon updateSizes(ImageIcon old){
+        Image oldImg = old.getImage();
+        Image newImg = oldImg.getScaledInstance(getIconWidth(), getIconHeight(),
+                Image.SCALE_DEFAULT);
+        return  new ImageIcon(newImg);
+    }
 
     @Override
     public void paintIcon(Component component, Graphics g, int x, int y) {
@@ -27,11 +35,11 @@ public class CheckBoxUI implements Icon {
 
     @Override
     public int getIconWidth() {
-        return (int)(Util.screenWidth*0.005);
+        return (int)(Util.screenWidth*0.01);
     }
 
     @Override
     public int getIconHeight() {
-        return (int)(Util.screenWidth*0.005);
+        return (int)(Util.screenWidth*0.01);
     }
 }
