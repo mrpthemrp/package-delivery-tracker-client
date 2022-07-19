@@ -13,6 +13,7 @@ import javax.swing.plaf.basic.BasicSplitPaneDivider;
 import javax.swing.plaf.basic.BasicSplitPaneUI;
 import java.awt.*;
 import java.awt.event.*;
+import java.awt.geom.RoundRectangle2D;
 
 import static java.awt.Scrollbar.VERTICAL;
 
@@ -132,7 +133,16 @@ public class PackageDeliveryGUI extends JFrame implements ItemListener, ActionLi
 
             @Override
             protected void paintThumb(Graphics g, JComponent c, Rectangle thumbBounds) {
-                super.paintThumb(g, c, thumbBounds);
+                Graphics2D g2 = (Graphics2D) g;
+                RoundRectangle2D customThumb = new RoundRectangle2D.Double(thumbBounds.x, thumbBounds.y,
+                        thumbBounds.width, thumbBounds.height,5,5);
+                if(isThumbRollover()){
+                    g2.setColor(Util.lightTeal);
+                } else {
+                    g2.setColor(Util.transparent);
+                }
+                g2.fill(customThumb);
+
             }
 
             @Override

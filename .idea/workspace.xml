@@ -100,13 +100,6 @@
       <option name="presentableId" value="Default" />
       <updated>1652723361815</updated>
     </task>
-    <task id="LOCAL-00107" summary="Screens extends JFrame">
-      <created>1657868384637</created>
-      <option name="number" value="00107" />
-      <option name="presentableId" value="LOCAL-00107" />
-      <option name="project" value="LOCAL" />
-      <updated>1657868384637</updated>
-    </task>
     <task id="LOCAL-00108" summary="Clock works">
       <created>1657869063776</created>
       <option name="number" value="00108" />
@@ -443,7 +436,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658204178371</updated>
     </task>
-    <option name="localTasksCounter" value="156" />
+    <task id="LOCAL-00156" summary="Set scroll bar buttons invisible">
+      <created>1658204640034</created>
+      <option name="number" value="00156" />
+      <option name="presentableId" value="LOCAL-00156" />
+      <option name="project" value="LOCAL" />
+      <updated>1658204640034</updated>
+    </task>
+    <option name="localTasksCounter" value="157" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
