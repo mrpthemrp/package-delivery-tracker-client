@@ -20,7 +20,7 @@ public class AddPackageDialog extends JDialog implements ActionListener, ItemLis
     private PackageFactory.PackageType packageType;
     private final String[] comboBoxTitles;
     public PackageDeliveryControl control;
-    private JTextArea name, notes, price, weight;
+    private final JTextArea name, notes, price, weight;
     private JComponent extraField;
 //    private LGoodDatePicker expectedDeliveryDate;
 
@@ -48,16 +48,28 @@ public class AddPackageDialog extends JDialog implements ActionListener, ItemLis
         choosePackageType = new JComboBox<>(comboBoxTitles);
         choosePackageType.setEditable(false);
         choosePackageType.addItemListener(this);
+        choosePackageType.setSize(new Dimension((int) (this.getWidth()*0.02),(int)(this.getHeight()*0.5)));
         this.packageType = PackageFactory.PackageType.BOOK;
 
+
+        name = new JTextArea();
+        name.setFont(Util.bodyFont);
+        name.setPreferredSize(new Dimension((int) (this.getWidth()*0.3), (int) (this.getHeight()*0.05)));
+        name.setBorder(BorderFactory.createMatteBorder(1,1,1,1,Color.BLACK));
+        notes = new JTextArea();
+        price  = new JTextArea();
+        weight  = new JTextArea();
         contentPane = new JPanel();
-        contentPane.setLayout(new BoxLayout(contentPane, BoxLayout.Y_AXIS));
+        contentPane.setLayout(new FlowLayout());
         contentPane.setBackground(Color.WHITE);
         contentPane.add(buttonPane);
-        contentPane.add(choosePackageType);
+
+        contentPane.add(name);
+//        contentPane.add(notes);
+//        contentPane.add(price);
+//        contentPane.add(weight);
 
         this.add(contentPane);
-
     }
 
     public final void run() {

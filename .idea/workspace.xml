@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Packages are refereshing properly">
+    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Working on add dialog ui">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/control/PackageDeliveryControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/control/PackageDeliveryControl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/gson/list.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/gson/list.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/customUi/AddPackageDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/customUi/AddPackageDialog.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -106,13 +104,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1652723361815</updated>
-    </task>
-    <task id="LOCAL-00132" summary="Update Leftgroup padding">
-      <created>1658028196419</created>
-      <option name="number" value="00132" />
-      <option name="presentableId" value="LOCAL-00132" />
-      <option name="project" value="LOCAL" />
-      <updated>1658028196419</updated>
     </task>
     <task id="LOCAL-00133" summary="Add transparent Color to Util">
       <created>1658029337201</created>
@@ -450,7 +441,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658299463227</updated>
     </task>
-    <option name="localTasksCounter" value="181" />
+    <task id="LOCAL-00181" summary="Working on add dialog ui">
+      <created>1658300919968</created>
+      <option name="number" value="00181" />
+      <option name="presentableId" value="LOCAL-00181" />
+      <option name="project" value="LOCAL" />
+      <updated>1658300919968</updated>
+    </task>
+    <option name="localTasksCounter" value="182" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -466,7 +464,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Set scroll bar buttons invisible" />
     <MESSAGE value="Set scroll bar track and thumb" />
     <MESSAGE value="Scroll bar works!!!!!!" />
     <MESSAGE value="Implement scroll bar ui" />
@@ -491,7 +488,8 @@
     <MESSAGE value="UI almost done" />
     <MESSAGE value="Remove refreshes properly" />
     <MESSAGE value="Packages are refereshing properly" />
-    <option name="LAST_COMMIT_MESSAGE" value="Packages are refereshing properly" />
+    <MESSAGE value="Working on add dialog ui" />
+    <option name="LAST_COMMIT_MESSAGE" value="Working on add dialog ui" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
