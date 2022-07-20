@@ -4,6 +4,9 @@ import cmpt213.assignment3.packagedeliveries.control.PackageDeliveryControl;
 import cmpt213.assignment3.packagedeliveries.model.PackageFactory;
 import cmpt213.assignment3.packagedeliveries.view.PackageDeliveryGUI;
 import cmpt213.assignment3.packagedeliveries.view.util.Util;
+import com.github.lgooddatepicker.components.DatePickerSettings;
+import com.github.lgooddatepicker.components.DateTimePicker;
+import com.github.lgooddatepicker.components.TimePickerSettings;
 
 import javax.swing.*;
 import java.awt.*;
@@ -11,6 +14,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.time.DayOfWeek;
 import java.time.LocalDateTime;
 
 public class AddPackageDialog extends JDialog implements ActionListener, ItemListener {
@@ -22,7 +26,7 @@ public class AddPackageDialog extends JDialog implements ActionListener, ItemLis
     public PackageDeliveryControl control;
     private final JTextArea name, notes, price, weight;
     private JComponent extraField;
-//    private LGoodDatePicker expectedDeliveryDate;
+    private DateTimePicker expectedDeliveryDate;
 
     public AddPackageDialog(Frame parent, String title, String btnYesText, String btnNoText, PackageDeliveryControl control) {
         super(parent, title, true);
@@ -59,12 +63,22 @@ public class AddPackageDialog extends JDialog implements ActionListener, ItemLis
         notes = new JTextArea();
         price  = new JTextArea();
         weight  = new JTextArea();
+
+        DatePickerSettings dateSettings = new DatePickerSettings();
+        dateSettings.setAllowEmptyDates(false);
+        dateSettings.setFirstDayOfWeek(DayOfWeek.SUNDAY);
+        TimePickerSettings timeSettings = new TimePickerSettings();
+        timeSettings.setAllowEmptyTimes(false);
+        expectedDeliveryDate = new DateTimePicker(dateSettings, timeSettings);
+
+
         contentPane = new JPanel();
         contentPane.setLayout(new FlowLayout());
         contentPane.setBackground(Color.WHITE);
         contentPane.add(buttonPane);
 
         contentPane.add(name);
+        contentPane.add(expectedDeliveryDate);
 //        contentPane.add(notes);
 //        contentPane.add(price);
 //        contentPane.add(weight);

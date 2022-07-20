@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Add package dialog in the works">
+    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Add LGoodDatePicker JAR">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMPT213-A3.iml" beforeDir="false" afterPath="$PROJECT_DIR$/CMPT213-A3.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/customUi/AddPackageDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/customUi/AddPackageDialog.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,13 +104,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1652723361815</updated>
-    </task>
-    <task id="LOCAL-00134" summary="Create custom JScrollPane class">
-      <created>1658030275268</created>
-      <option name="number" value="00134" />
-      <option name="presentableId" value="LOCAL-00134" />
-      <option name="project" value="LOCAL" />
-      <updated>1658030275268</updated>
     </task>
     <task id="LOCAL-00135" summary="Move classes to different packages and start JavaDoc in Util">
       <created>1658030438707</created>
@@ -448,7 +441,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658301824406</updated>
     </task>
-    <option name="localTasksCounter" value="183" />
+    <task id="LOCAL-00183" summary="Add LGoodDatePicker JAR">
+      <created>1658341774973</created>
+      <option name="number" value="00183" />
+      <option name="presentableId" value="LOCAL-00183" />
+      <option name="project" value="LOCAL" />
+      <updated>1658341774989</updated>
+    </task>
+    <option name="localTasksCounter" value="184" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -464,7 +464,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Scroll bar works!!!!!!" />
     <MESSAGE value="Implement scroll bar ui" />
     <MESSAGE value="ScrollPane UI configured" />
     <MESSAGE value="Decimal formats added to util" />
@@ -489,7 +488,8 @@
     <MESSAGE value="Packages are refereshing properly" />
     <MESSAGE value="Working on add dialog ui" />
     <MESSAGE value="Add package dialog in the works" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add package dialog in the works" />
+    <MESSAGE value="Add LGoodDatePicker JAR" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add LGoodDatePicker JAR" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
