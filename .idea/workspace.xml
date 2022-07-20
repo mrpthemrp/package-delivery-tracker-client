@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Dialogs works with buttons">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/customUi/AddPackageDialogContent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/customUi/AddPackageDialogContent.java" afterDir="false" />
-    </list>
+    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Refactor" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -104,20 +101,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1652723361815</updated>
-    </task>
-    <task id="LOCAL-00124" summary="In progress main screen">
-      <created>1657953374026</created>
-      <option name="number" value="00124" />
-      <option name="presentableId" value="LOCAL-00124" />
-      <option name="project" value="LOCAL" />
-      <updated>1657953374026</updated>
-    </task>
-    <task id="LOCAL-00125" summary="Add PackageDialog class">
-      <created>1657953546862</created>
-      <option name="number" value="00125" />
-      <option name="presentableId" value="LOCAL-00125" />
-      <option name="project" value="LOCAL" />
-      <updated>1657953546862</updated>
     </task>
     <task id="LOCAL-00126" summary="Start JScroll">
       <created>1657954186957</created>
@@ -448,7 +431,21 @@
       <option name="project" value="LOCAL" />
       <updated>1658271167701</updated>
     </task>
-    <option name="localTasksCounter" value="173" />
+    <task id="LOCAL-00173" summary="Implement remove dialog">
+      <created>1658271269820</created>
+      <option name="number" value="00173" />
+      <option name="presentableId" value="LOCAL-00173" />
+      <option name="project" value="LOCAL" />
+      <updated>1658271269835</updated>
+    </task>
+    <task id="LOCAL-00174" summary="Refactor">
+      <created>1658271285903</created>
+      <option name="number" value="00174" />
+      <option name="presentableId" value="LOCAL-00174" />
+      <option name="project" value="LOCAL" />
+      <updated>1658271285903</updated>
+    </task>
+    <option name="localTasksCounter" value="175" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -464,8 +461,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Right pane coloration correct" />
-    <MESSAGE value="Fixing scrollbar" />
     <MESSAGE value="Chagne jpanel to jtable" />
     <MESSAGE value="ColumnHeader is resolved" />
     <MESSAGE value="UI figured out" />
@@ -489,7 +484,9 @@
     <MESSAGE value="Scroll UI almost done" />
     <MESSAGE value="Implement custom dialog" />
     <MESSAGE value="Dialogs works with buttons" />
-    <option name="LAST_COMMIT_MESSAGE" value="Dialogs works with buttons" />
+    <MESSAGE value="Implement remove dialog" />
+    <MESSAGE value="Refactor" />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactor" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
