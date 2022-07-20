@@ -22,12 +22,12 @@ public class PackageDeliveryGUI extends JFrame implements ActionListener {
     public static SCREEN_STATE currentState;
     private final JSplitPane mainPanel;
     private final StartScreen startPanel;
-    private JScrollPane scrollPane;
-    private ColumnHeader columnHeader;
+    private final JScrollPane scrollPane;
+    private final ColumnHeader columnHeader;
     private final JPanel header;
     private final JPanel leftBar;
     private final JPanel footer;
-    private MainScreenRight screenRight;
+    private final MainScreenRight screenRight;
     private final AddPackageDialog addPackageDialog;
 
     public PackageDeliveryGUI() {
@@ -58,7 +58,7 @@ public class PackageDeliveryGUI extends JFrame implements ActionListener {
 
         this.startPanel = new StartScreen(this);
         columnHeader = new ColumnHeader(this);
-        screenRight = new MainScreenRight(packageControl, this);
+        screenRight = new MainScreenRight(packageControl, this, this);
         scrollPane = new JScrollPane(screenRight);
         this.mainPanel = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT,
                 new MainScreenLeft(this), scrollPane);
@@ -214,6 +214,9 @@ public class PackageDeliveryGUI extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        if(e.getActionCommand().equals("UPDATE")){
+            repaint();
+        }
         if (e.getActionCommand().equals("ENTER")) {
             switchToMain();
         }

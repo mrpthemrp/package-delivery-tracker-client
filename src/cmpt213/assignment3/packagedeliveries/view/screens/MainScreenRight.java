@@ -7,6 +7,8 @@ import cmpt213.assignment3.packagedeliveries.view.util.customUi.PackageItem;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 //scroll reference:
 // https://stackoverflow.com/questions/14615888/list-of-jpanels-that-eventually-uses-a-scrollbar
@@ -17,8 +19,10 @@ public class MainScreenRight extends JPanel {
     private final Frame parent;
     private final JLabel noItemsMessage;
     private static ArrayList<PackageItem> panelItems;
-    public MainScreenRight(PackageDeliveryControl control, Frame parent) {
+    private static ActionListener parentListener = null;
+    public MainScreenRight(PackageDeliveryControl control, Frame parent, ActionListener al) {
         MainScreenRight.control = control;
+        parentListener = al;
         noItemsMessage = new JLabel("No packages to show.");
         noItemsMessage.setFont(Util.subTitleFont);
         noItemsMessage.setForeground(Color.BLACK);
@@ -61,16 +65,15 @@ public class MainScreenRight extends JPanel {
     }
 
     public static void updatePackages (boolean delete){
-        System.out.println("update packages");
         for(int i =0; i< panelItems.size();i++){
             PackageItem pkg = panelItems.get(i);
             PackageBase pkgBase = pkg.getPkg();
             if(delete){
-                System.out.println("need to delte");
                 panelItems.remove(pkg);
                 control.adjustPackage(pkgBase,PackageDeliveryControl.REMOVE, false);
             }
         }
+        parentListener.actionPerformed(new ActionEvent(MainScreenRight.class,ActionEvent.ACTION_PERFORMED,"UPDATE"));
     }
 
 }

@@ -1,6 +1,5 @@
 package cmpt213.assignment3.packagedeliveries.view.util.customUi;
 
-import cmpt213.assignment3.packagedeliveries.view.PackageDeliveryGUI;
 import cmpt213.assignment3.packagedeliveries.view.screens.MainScreenRight;
 import cmpt213.assignment3.packagedeliveries.view.util.Util;
 
@@ -11,13 +10,11 @@ import java.awt.event.ActionListener;
 
 //reference: http://www2.hawaii.edu/~takebaya/ics111/jdialog/jdialog.html
 public class CustomDialog extends JDialog implements ActionListener {
-    private boolean isYes;
-    private boolean isRemove;
+    private final boolean isRemove;
 
     public CustomDialog(Frame parent, String title, String message, String btnYesText, String btnNoText, boolean isRemove) {
 
         super(parent, title, false);
-        this.isYes = false;
         this.isRemove = isRemove;
         this.setSize(new Dimension((int) (Util.screenWidth * 0.4), (int) (Util.screenHeight * 0.25)));
 
@@ -61,7 +58,6 @@ public class CustomDialog extends JDialog implements ActionListener {
             System.out.println("no was pressed");
         }
         this.dispose();
-
     }
 
     public void run() {
