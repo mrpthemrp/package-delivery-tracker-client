@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
 
 //reference: http://www2.hawaii.edu/~takebaya/ics111/jdialog/jdialog.html
 public class CustomDialog extends JDialog implements ActionListener {
-    public boolean isRemove;
+    public boolean isRemove, dispose;
     private int panelItemIndex;
     private int pkgIndex;
 
@@ -19,6 +19,7 @@ public class CustomDialog extends JDialog implements ActionListener {
 
         super(parent, title, modal);
         this.isRemove = isRemove;
+        this.dispose = true;
         this.setSize(new Dimension((int) (Util.screenWidth * 0.4), (int) (Util.screenHeight * 0.25)));
 
         JLabel dialogMessage = new JLabel(message);
@@ -56,11 +57,14 @@ public class CustomDialog extends JDialog implements ActionListener {
             System.out.println("yes was pressed");
             if(isRemove){
                 MainScreenRight.updatePackages(this.panelItemIndex, this.pkgIndex);
+            } else {
+                dispose = false;
             }
         } else if (e.getActionCommand().equals("NO")) {
             System.out.println("no was pressed");
+            dispose = true;
         }
-        this.dispose();
+        dispose();
     }
 
     public void run(int panelItemIndex, int pkgIndex) {

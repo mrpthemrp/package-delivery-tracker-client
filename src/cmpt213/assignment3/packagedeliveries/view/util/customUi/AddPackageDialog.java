@@ -117,7 +117,7 @@ public class AddPackageDialog extends JDialog implements ActionListener, ItemLis
     private void setUpJLabel(JLabel label) {
         label.setBackground(Color.WHITE);
         label.setForeground(Color.BLACK);
-        label.setFont(Util.subTitleFont);
+        label.setFont(Util.sortBtnsFont);
     }
 
     private void setUpTextArea(JTextArea object) {
@@ -160,7 +160,7 @@ public class AddPackageDialog extends JDialog implements ActionListener, ItemLis
             //do something
         } else if (e.getActionCommand().equals("NO")) {
             exitConfirmDialog.run(-1, -1);
-            if (!exitConfirmDialog.isRemove()) {
+            if (exitConfirmDialog.dispose) {
                 dispose();
             }
         }
