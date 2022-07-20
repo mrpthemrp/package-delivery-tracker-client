@@ -19,14 +19,15 @@ import java.awt.geom.RoundRectangle2D;
 import static java.awt.Scrollbar.VERTICAL;
 
 public class PackageDeliveryGUI extends JFrame implements ActionListener {
-    public static SCREEN_STATE previousState;
     public static SCREEN_STATE currentState;
     private final JSplitPane mainPanel;
     private final StartScreen startPanel;
-    private final JScrollPane scrollPane;
-    private final ColumnHeader columnHeader;
-    private final JPanel header, leftBar, footer;
-    private final MainScreenRight screenRight;
+    private JScrollPane scrollPane;
+    private ColumnHeader columnHeader;
+    private final JPanel header;
+    private final JPanel leftBar;
+    private final JPanel footer;
+    private MainScreenRight screenRight;
     private final AddPackageDialog addPackageDialog;
 
     public PackageDeliveryGUI() {
@@ -48,19 +49,19 @@ public class PackageDeliveryGUI extends JFrame implements ActionListener {
         });
 
         //initialize fields
-        this.currentState = SCREEN_STATE.START;
+        currentState = SCREEN_STATE.START;
         this.header = new JPanel();
         this.leftBar = new JPanel();
         this.footer = new JPanel();
         this.addPackageDialog = new AddPackageDialog(this, "Package Delivery Tracker - Add Package",
-                "  C R E A T E  ", "  C A N C E L  ",packageControl);
+                "  C R E A T E  ", "  C A N C E L  ", packageControl);
 
         this.startPanel = new StartScreen(this);
-        this.columnHeader = new ColumnHeader(this);
-        this.screenRight = new MainScreenRight(packageControl, this);
-        this.scrollPane = new JScrollPane(screenRight);
+        columnHeader = new ColumnHeader(this);
+        screenRight = new MainScreenRight(packageControl, this);
+        scrollPane = new JScrollPane(screenRight);
         this.mainPanel = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT,
-                new MainScreenLeft(this), this.scrollPane);
+                new MainScreenLeft(this), scrollPane);
 
         //setUp necessary fields
         setUpScreenPaddings();
@@ -93,18 +94,18 @@ public class PackageDeliveryGUI extends JFrame implements ActionListener {
 
     private void setUpMainScreen() {
 
-        this.scrollPane.setBackground(Color.WHITE);
-        this.scrollPane.setBorder(BorderFactory.createEmptyBorder());
-        this.scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
-        this.scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-        this.scrollPane.getViewport().getView().setBackground(Color.WHITE);
+        scrollPane.setBackground(Color.WHITE);
+        scrollPane.setBorder(BorderFactory.createEmptyBorder());
+        scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+        scrollPane.getViewport().getView().setBackground(Color.WHITE);
 
         //refernce for making up down buttons look invisible
         //https://stackoverflow.com/questions/7633354/how-to-hide-the-arrow-buttons-in-a-jscrollbar
-        this.scrollPane.getVerticalScrollBar().setOrientation(VERTICAL);
-        this.scrollPane.getVerticalScrollBar().setBackground(Color.WHITE);
-        this.scrollPane.setHorizontalScrollBarPolicy(ScrollPaneLayout.HORIZONTAL_SCROLLBAR_NEVER);
-        this.scrollPane.getVerticalScrollBar().setUI(new BasicScrollBarUI() {
+        scrollPane.getVerticalScrollBar().setOrientation(VERTICAL);
+        scrollPane.getVerticalScrollBar().setBackground(Color.WHITE);
+        scrollPane.setHorizontalScrollBarPolicy(ScrollPaneLayout.HORIZONTAL_SCROLLBAR_NEVER);
+        scrollPane.getVerticalScrollBar().setUI(new BasicScrollBarUI() {
 
             @Override
             protected void paintTrack(Graphics g, JComponent c, Rectangle trackBounds) {
@@ -150,7 +151,7 @@ public class PackageDeliveryGUI extends JFrame implements ActionListener {
                 return button;
             }
         });
-        this.scrollPane.setColumnHeaderView(columnHeader);
+        scrollPane.setColumnHeaderView(columnHeader);
 
         this.mainPanel.setDividerLocation((int) (Util.screenWidth * 0.257));
         this.mainPanel.setDividerSize((int) (Util.screenWidth * 0.07));
@@ -186,48 +187,48 @@ public class PackageDeliveryGUI extends JFrame implements ActionListener {
         this.mainPanel.setBorder(BorderFactory.createEmptyBorder());
     }
 
+
     public void updateStates() {
 
         switch (currentState) {
-            case START -> {
-                this.remove(startPanel);
-                this.add(leftBar, BorderLayout.EAST);
-                this.add(mainPanel, BorderLayout.CENTER);
-                this.setVisible(true);
-
-                this.setTitle("Package Delivery Tracker - Home");
-                currentState = SCREEN_STATE.LIST_ALL;
-            }
             case LIST_ALL, UPCOMING, OVERDUE -> {
                 columnHeader.buttonClicked(currentState);
                 screenRight.removeAll();
                 screenRight.populateList(currentState);
+                columnHeader.buttonClicked(currentState);
                 scrollPane.setViewportView(screenRight);
             }
-            case ADD -> repaint();
-            case REMOVE -> repaint();
-
-            default -> this.repaint();
         }
-
         columnHeader.changeColumnText(currentState);
-        repaint();
+    }
+
+    private void switchToMain() {
+        this.remove(startPanel);
+        this.add(leftBar, BorderLayout.EAST);
+        this.add(mainPanel, BorderLayout.CENTER);
+        this.setVisible(true);
+
+        this.setTitle("Package Delivery Tracker - Home");
+        currentState = SCREEN_STATE.LIST_ALL;
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        previousState = currentState;
+        if (e.getActionCommand().equals("ENTER")) {
+            switchToMain();
+        }
         if (e.getActionCommand().equals("ADD PACKAGE")) {
-            currentState = Util.SCREEN_STATE.ADD;
             addPackageDialog.run();
         } else if (e.getActionCommand().equals("LIST ALL")) {
             currentState = Util.SCREEN_STATE.LIST_ALL;
         } else if (e.getActionCommand().equals("UPCOMING")) {
-            currentState = SCREEN_STATE.UPCOMING;
+            currentState = Util.SCREEN_STATE.UPCOMING;
         } else if (e.getActionCommand().equals("OVERDUE")) {
-            currentState = SCREEN_STATE.OVERDUE;
+            currentState = Util.SCREEN_STATE.OVERDUE;
         }
+        columnHeader.buttonClicked(currentState);
         updateStates();
+        repaint();
     }
 
 

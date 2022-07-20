@@ -9,8 +9,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
 
 
 public class PackageItem extends JPanel implements ActionListener {
@@ -21,20 +19,14 @@ public class PackageItem extends JPanel implements ActionListener {
     private final PackageDeliveryControl control;
     private final CustomDialog removePackageDialog;
     public final int arrayIndex;
-    private boolean needToDelete;
-    private final ActionListener parentListener;
 
-    public PackageItem(PackageBase pkg, int packageNumber, PackageDeliveryControl control, ActionListener parentListener, Frame parent) {
+    public PackageItem(PackageBase pkg, int packageNumber, PackageDeliveryControl control, Frame parent) {
         this.pkg = pkg;
         this.control = control;
         this.arrayIndex = (packageNumber - 1);
-        this.needToDelete = false;
-        this.parentListener = parentListener;
-
-
 
         this.removePackageDialog = new CustomDialog(parent, "Remove Package Confirmation",
-                "Are you sure you want to remove this package?", "  Y E S  ", "   N O   ");
+                "Are you sure you want to remove this package?", "  Y E S  ", "   N O   ",true);
 
         GridBagConstraints gbcLeft = new GridBagConstraints();
         GridBagConstraints gbcRight = new GridBagConstraints();
@@ -98,20 +90,14 @@ public class PackageItem extends JPanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getActionCommand().equals("REMOVE")){
-            PackageDeliveryGUI.currentState = Util.SCREEN_STATE.REMOVE;
             System.out.println("remove button pressed");
             removePackageDialog.run();
-            if(removePackageDialog.isYes()){
-                this.needToDelete = true;
-            }
-            PackageDeliveryGUI.currentState = PackageDeliveryGUI.previousState;
         }
         if (e.getActionCommand().equals("DELIVERY STATUS")) {
-            control.adjustPackage(pkg, arrayIndex, PackageDeliveryControl.DELIVERY_STATUS, deliveredCheckBox.isSelected());
+            control.adjustPackage(pkg, PackageDeliveryControl.DELIVERY_STATUS, deliveredCheckBox.isSelected());
         }
-        parentListener.actionPerformed(e);
+        repaint();
     }
-    public boolean needToDelete(){ return this.needToDelete;}
     public PackageBase getPkg (){ return this.pkg;}
 
 }

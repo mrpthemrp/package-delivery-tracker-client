@@ -1,6 +1,7 @@
 package cmpt213.assignment3.packagedeliveries.view.util.customUi;
 
 import cmpt213.assignment3.packagedeliveries.view.PackageDeliveryGUI;
+import cmpt213.assignment3.packagedeliveries.view.screens.MainScreenRight;
 import cmpt213.assignment3.packagedeliveries.view.util.Util;
 
 import javax.swing.*;
@@ -10,12 +11,14 @@ import java.awt.event.ActionListener;
 
 //reference: http://www2.hawaii.edu/~takebaya/ics111/jdialog/jdialog.html
 public class CustomDialog extends JDialog implements ActionListener {
-    public boolean isYes;
+    private boolean isYes;
+    private boolean isRemove;
 
-    public CustomDialog(Frame parent, String title, String message, String btnYesText, String btnNoText) {
+    public CustomDialog(Frame parent, String title, String message, String btnYesText, String btnNoText, boolean isRemove) {
 
         super(parent, title, false);
         this.isYes = false;
+        this.isRemove = isRemove;
         this.setSize(new Dimension((int) (Util.screenWidth * 0.4), (int) (Util.screenHeight * 0.25)));
 
         JLabel dialogMessage = new JLabel(message);
@@ -51,20 +54,18 @@ public class CustomDialog extends JDialog implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("YES")) {
             System.out.println("yes was pressed");
-            this.isYes = true;
+            if(isRemove){
+                MainScreenRight.updatePackages(true);
+            }
         } else if (e.getActionCommand().equals("NO")) {
             System.out.println("no was pressed");
-            this.isYes = false;
         }
         this.dispose();
 
     }
 
-    public final void run() {
+    public void run() {
         this.setVisible(true);
     }
 
-    public boolean isYes(){
-        return this.isYes;
-    }
 }

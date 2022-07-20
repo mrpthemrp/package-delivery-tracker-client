@@ -19,7 +19,7 @@ public class AddPackageDialog extends JDialog implements ActionListener {
         super(parent, title, true);
         this.control = control;
         this.exitConfirmDialog = new CustomDialog(parent,"Remove Package Confirmation", "Are you sure you want to exit?"
-                        ,"  S T A Y  ","  E X I T  ");
+                        ,"  S T A Y  ","  E X I T  ",false);
         this.setSize(new Dimension((int) (Util.screenWidth * 0.4), (int) (Util.screenHeight * 0.25)));
 
         JPanel buttonPane = new JPanel();
@@ -47,12 +47,10 @@ public class AddPackageDialog extends JDialog implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("YES")) {
-            System.out.println("yes was pressed");
             control.createPackage("Name","",50,0.666, LocalDateTime.now(),"author", PackageFactory.PackageType.BOOK);
-            PackageDeliveryGUI.currentState = PackageDeliveryGUI.previousState;
             //do something
         } else if (e.getActionCommand().equals("NO")) {
-            System.out.println("no was pressed");
+            exitConfirmDialog.run();
         }
 
         dispose();

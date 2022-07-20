@@ -179,6 +179,6 @@ public final class Util {
     }
 
     public enum SCREEN_STATE {
-        START, LIST_ALL, UPCOMING, OVERDUE, ADD, REMOVE
+        START, LIST_ALL, UPCOMING, OVERDUE
     }
 }

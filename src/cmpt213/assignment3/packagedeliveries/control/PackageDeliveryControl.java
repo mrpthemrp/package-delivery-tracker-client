@@ -178,10 +178,10 @@ public class PackageDeliveryControl {
         updateLists();
     }
 
-    public void adjustPackage(PackageBase pkg, int index, int option, boolean newDeliveryStatus) {
+    public void adjustPackage(PackageBase pkg, int option, boolean newDeliveryStatus) {
         if (option == REMOVE) {
             System.out.println("adust packafge,remove");
-            masterListOfPackages.remove(index);
+            masterListOfPackages.remove(pkg);
         } else if (option == DELIVERY_STATUS) {
             pkg.setDeliveryStatus(newDeliveryStatus);
         }
