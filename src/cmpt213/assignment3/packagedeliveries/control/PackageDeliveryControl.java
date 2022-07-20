@@ -17,7 +17,6 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 
 public class PackageDeliveryControl {
@@ -131,21 +130,6 @@ public class PackageDeliveryControl {
 
     //text menu methods
 
-    public ArrayList<PackageBase> listPackages(Util.SCREEN_STATE currentState) {
-        switch (currentState) {
-            case LIST_ALL -> {
-                return masterListOfPackages;
-            }
-            case UPCOMING -> {
-                return upcomingPackages;
-            }
-            case OVERDUE -> {
-                return overduePackages;
-            }
-        }
-        return null;
-    }
-
     private void updateCurrentTime() {
         this.currentTime = LocalDateTime.now();
     }
@@ -192,6 +176,7 @@ public class PackageDeliveryControl {
     }
 
     public final void updateLists() {
+        updateCurrentTime();
         //reset upcoming and overdue
         ArrayList<PackageBase> tempMasterList = new ArrayList<>();
         upcomingPackages = new ArrayList<>();

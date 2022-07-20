@@ -9,12 +9,20 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.time.LocalDateTime;
 
-public class AddPackageDialog extends JDialog implements ActionListener {
+public class AddPackageDialog extends JDialog implements ActionListener, ItemListener {
     private final CustomDialog exitConfirmDialog;
     private final JPanel contentPane;
+    private final JComboBox<String> choosePackageType;
+    private PackageFactory.PackageType packageType;
+    private final String[] comboBoxTitles;
     public PackageDeliveryControl control;
+    private JTextArea name, notes, price, weight;
+    private JComponent extraField;
+//    private LGoodDatePicker expectedDeliveryDate;
 
     public AddPackageDialog(Frame parent, String title, String btnYesText, String btnNoText, PackageDeliveryControl control) {
         super(parent, title, true);
@@ -35,8 +43,18 @@ public class AddPackageDialog extends JDialog implements ActionListener {
         buttonPane.add(Box.createHorizontalGlue());
         buttonPane.add(noBtn);
 
+        comboBoxTitles = new String[] {"Book","Perishable","Electronic"};
+
+        choosePackageType = new JComboBox<>(comboBoxTitles);
+        choosePackageType.setEditable(false);
+        choosePackageType.addItemListener(this);
+        this.packageType = PackageFactory.PackageType.BOOK;
+
         contentPane = new JPanel();
+        contentPane.setLayout(new BoxLayout(contentPane, BoxLayout.Y_AXIS));
+        contentPane.setBackground(Color.WHITE);
         contentPane.add(buttonPane);
+        contentPane.add(choosePackageType);
 
         this.add(contentPane);
 
@@ -49,7 +67,7 @@ public class AddPackageDialog extends JDialog implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("YES")) {
-            control.createPackage("Name", "", 50, 0.666, LocalDateTime.now(), "author", PackageFactory.PackageType.BOOK);
+            control.createPackage("Name", "", 50, 0.666, LocalDateTime.now(), "author", this.packageType);
             dispose();
             //do something
         } else if (e.getActionCommand().equals("NO")) {
@@ -60,4 +78,26 @@ public class AddPackageDialog extends JDialog implements ActionListener {
         }
     }
 
+    @Override
+    public void itemStateChanged(ItemEvent e) {
+        if(e.getStateChange() == ItemEvent.ITEM_STATE_CHANGED){
+            Object source = e.getSource();
+            if(source instanceof JComboBox){
+                JComboBox comboBox = (JComboBox) source;
+                Object selectedItem = comboBox.getSelectedItem();
+                if(selectedItem.equals(this.comboBoxTitles[0])){
+                    this.packageType = PackageFactory.PackageType.BOOK;
+                    this.extraField = new JTextArea();
+                } else if(selectedItem.equals(this.comboBoxTitles[1])){
+                    this.packageType = PackageFactory.PackageType.PERISHABLE;
+//                    this.extraField = new LGoodDatePicker();
+                }else if(selectedItem.equals(this.comboBoxTitles[2])){
+                    this.packageType = PackageFactory.PackageType.ELECTRONIC;
+                    this.extraField = new JTextArea();
+                }
+            }
+        }
+
+        repaint();
+    }
 }
