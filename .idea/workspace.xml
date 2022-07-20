@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Add verifiers, labels">
+    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Custom dialog logic updated">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/gson/list.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/gson/list.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/Util.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/customUi/AddPackageDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/customUi/AddPackageDialog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/customUi/CustomDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/customUi/CustomDialog.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,13 +109,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1652723361815</updated>
-    </task>
-    <task id="LOCAL-00137" summary="JScroll figured out">
-      <created>1658035434177</created>
-      <option name="number" value="00137" />
-      <option name="presentableId" value="LOCAL-00137" />
-      <option name="project" value="LOCAL" />
-      <updated>1658035434193</updated>
     </task>
     <task id="LOCAL-00138" summary="Start package item UI">
       <created>1658035700333</created>
@@ -452,7 +446,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658346242019</updated>
     </task>
-    <option name="localTasksCounter" value="186" />
+    <task id="LOCAL-00186" summary="Custom dialog logic updated">
+      <created>1658346574929</created>
+      <option name="number" value="00186" />
+      <option name="presentableId" value="LOCAL-00186" />
+      <option name="project" value="LOCAL" />
+      <updated>1658346574929</updated>
+    </task>
+    <option name="localTasksCounter" value="187" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -468,7 +469,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Decimal formats added to util" />
     <MESSAGE value="Implement remove button UI" />
     <MESSAGE value="Update license, add svgs" />
     <MESSAGE value="Working on CheckBox" />
@@ -493,7 +493,8 @@
     <MESSAGE value="Add LGoodDatePicker JAR" />
     <MESSAGE value="DateTimePicker add to Add package" />
     <MESSAGE value="Add verifiers, labels" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add verifiers, labels" />
+    <MESSAGE value="Custom dialog logic updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="Custom dialog logic updated" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

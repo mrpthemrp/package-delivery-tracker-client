@@ -49,6 +49,7 @@ public final class Util {
     public static Font dialogBtnsFont;
     public static Font dialogMessageFont;
     public static Font deliveryStatusFont;
+    public static Font addTitleFont;
     public static Font bodyFont = new Font(Font.SANS_SERIF, Font.PLAIN, (int) (10 * (Util.screenSize.getWidth() * 0.001)));
 
     public static ImageIcon checkBoxFilled = new ImageIcon(filePath(new String[]{"src", "cmpt213",
@@ -60,6 +61,14 @@ public final class Util {
     static {
         try {
             clockFont = createCustomFont("Roboto-Bold.ttf", Font.BOLD, (int) (18 * (Util.screenSize.getWidth() * 0.0018)));
+        } catch (IOException | FontFormatException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    static {
+        try {
+            addTitleFont = createCustomFont("Roboto-Bold.ttf", Font.BOLD, (int) (10 * (Util.screenSize.getWidth() * 0.0018)));
         } catch (IOException | FontFormatException e) {
             throw new RuntimeException(e);
         }
