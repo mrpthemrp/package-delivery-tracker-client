@@ -42,9 +42,9 @@ public class PackageDeliveryControl {
 
 
         //tracker
-        this.masterListOfPackages = new ArrayList<>();
-        this.upcomingPackages = new ArrayList<>();
-        this.overduePackages = new ArrayList<>();
+        masterListOfPackages = new ArrayList<>();
+        upcomingPackages = new ArrayList<>();
+        overduePackages = new ArrayList<>();
 
         //code taken from email from TA Divye
         String fs = File.separator;
@@ -179,6 +179,12 @@ public class PackageDeliveryControl {
     public void adjustPackage(PackageBase pkg, int index, int option, boolean newDeliveryStatus) {
         if (option == REMOVE) {
             masterListOfPackages.remove(index);
+            if(upcomingPackages.contains(pkg)){
+                upcomingPackages.remove(pkg);
+            }
+            if(overduePackages.contains(pkg)){
+                overduePackages.remove(pkg);
+            }
         } else if (option == DELIVERY_STATUS) {
             pkg.setDeliveryStatus(newDeliveryStatus);
         }
@@ -191,9 +197,7 @@ public class PackageDeliveryControl {
 
     public final void updateLists() {
         //add necessary packages to lists
-        for (int i = 0; i < masterListOfPackages.size(); i++) {
-            PackageBase tempPkg = masterListOfPackages.get(i);
-
+        for (PackageBase tempPkg : masterListOfPackages) {
             if (!tempPkg.isDelivered()) {
                 if (isOverdue(tempPkg.getExpectedDeliveryDate())) {
                     if (!overduePackages.contains(tempPkg)) {
@@ -219,5 +223,18 @@ public class PackageDeliveryControl {
         Collections.sort(masterListOfPackages);
         Collections.sort(upcomingPackages);
         Collections.sort(overduePackages);
+    }
+
+    public PackageBase getPackage(int i) {
+        return masterListOfPackages.get(i);
+    }
+
+    public ArrayList<PackageBase> getAListOfPackages (Util.SCREEN_STATE currentState){
+        switch (currentState){
+            case LIST_ALL -> {return masterListOfPackages;}
+            case UPCOMING -> {return upcomingPackages;}
+            case OVERDUE -> {return overduePackages;}
+        }
+        return null;
     }
 }
