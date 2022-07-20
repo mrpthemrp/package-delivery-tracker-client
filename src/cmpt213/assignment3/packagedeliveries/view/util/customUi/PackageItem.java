@@ -1,5 +1,6 @@
 package cmpt213.assignment3.packagedeliveries.view.util.customUi;
 
+import cmpt213.assignment3.packagedeliveries.control.PackageDeliveryControl;
 import cmpt213.assignment3.packagedeliveries.model.PackageBase;
 import cmpt213.assignment3.packagedeliveries.view.PackageDeliveryGUI;
 import cmpt213.assignment3.packagedeliveries.view.util.Util;
@@ -16,13 +17,15 @@ public class PackageItem extends JPanel implements ActionListener {
     private final RoundButton removeButton;
     private final JCheckBox deliveredCheckBox;
     private final CustomDialog removePackageDialog;
+    private final PackageDeliveryControl control;
+    public final int arrayIndex;
 
-    public PackageItem(PackageBase pkg) {
+    public PackageItem(PackageBase pkg, int packageNumber, PackageDeliveryControl control) {
         this.pkg = pkg;
+        this.control = control;
+        this.arrayIndex = (packageNumber - 1);
         this.removePackageDialog = new CustomDialog(PackageDeliveryGUI.getFrames()[0], "Remove Package Confirmation"
-                ,"  Y E S  ","   N O   ", new DialogContent("Are you sure you want to remove this package?"));
-
-
+                , "  Y E S  ", "   N O   ", new DialogContent("Are you sure you want to remove this package?"));
 
         GridBagConstraints gbcLeft = new GridBagConstraints();
         GridBagConstraints gbcRight = new GridBagConstraints();
@@ -37,27 +40,27 @@ public class PackageItem extends JPanel implements ActionListener {
 
         this.setBackground(Util.darkBrown);
         this.setLayout(new GridBagLayout());
-        this.setBorder(BorderFactory.createMatteBorder(0,0,(int)(Util.screenHeight*0.004),0,Util.lightTeal));
+        this.setBorder(BorderFactory.createMatteBorder(0, 0, (int) (Util.screenHeight * 0.004), 0, Util.lightTeal));
 
         name = new JLabel(pkg.getName());
         notes = new JLabel(pkg.getNotes());
         price = new JLabel(Util.priceFormat.format(pkg.getPrice()));
         weight = new JLabel(Util.weightFormat.format(pkg.getWeight()));
         date = new JLabel(pkg.getExpectedDeliveryDate().format(Util.packageDateFormat).toUpperCase());
-        deliveredCheckBox = new JCheckBox("Delivered?",new CheckBoxUI(),pkg.isDelivered());
+        deliveredCheckBox = new JCheckBox("Delivered?", new CheckBoxUI(), pkg.isDelivered());
         removeButton = new RoundButton(" R E M O V E ", "REMOVE", this, Util.redLight, Util.redDark,
                 (int) (Util.screenHeight * 0.024), Util.removeBtnTextFont);
 
         setUpComponents();
 
 
-        this.add(name, gbcLeft,0);
-        this.add(notes, gbcLeft,0);
-        this.add(price, gbcLeft,0);
-        this.add(weight, gbcRight,0);
-        this.add(date, gbcRight,0);
-        this.add(removeButton, gbcLeft,0);
-        this.add(deliveredCheckBox, gbcLeft,0);
+        this.add(name, gbcLeft, 0);
+        this.add(notes, gbcLeft, 0);
+        this.add(price, gbcLeft, 0);
+        this.add(weight, gbcRight, 0);
+        this.add(date, gbcRight, 0);
+        this.add(removeButton, gbcLeft, 0);
+        this.add(deliveredCheckBox, gbcLeft, 0);
     }
 
     private void setUpTextStyle(JLabel text, Color textColour, Font font, float alignment) {
@@ -67,14 +70,15 @@ public class PackageItem extends JPanel implements ActionListener {
         text.setAlignmentX(alignment);
     }
 
-    private void setUpComponents(){
+    private void setUpComponents() {
 
-        setUpTextStyle(name,Color.BLACK,Util.subTitleFont,LEFT_ALIGNMENT);
-        setUpTextStyle(notes,Color.BLACK,Util.bodyFont,LEFT_ALIGNMENT);
-        setUpTextStyle(price,Util.darkBrown,Util.subTitleFont,RIGHT_ALIGNMENT);
-        setUpTextStyle(weight,Color.BLACK,Util.subTitleFont,RIGHT_ALIGNMENT);
-        setUpTextStyle(date,Color.BLACK,Util.pkgDateFont,RIGHT_ALIGNMENT);
+        setUpTextStyle(name, Color.BLACK, Util.subTitleFont, LEFT_ALIGNMENT);
+        setUpTextStyle(notes, Color.BLACK, Util.bodyFont, LEFT_ALIGNMENT);
+        setUpTextStyle(price, Util.darkBrown, Util.subTitleFont, RIGHT_ALIGNMENT);
+        setUpTextStyle(weight, Color.BLACK, Util.subTitleFont, RIGHT_ALIGNMENT);
+        setUpTextStyle(date, Color.BLACK, Util.pkgDateFont, RIGHT_ALIGNMENT);
 
+        removeButton.addActionListener(this);
         deliveredCheckBox.addActionListener(this);
         deliveredCheckBox.setBackground(Color.WHITE);
         deliveredCheckBox.setActionCommand("DELIVERY STATUS");
@@ -85,11 +89,16 @@ public class PackageItem extends JPanel implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getActionCommand().equals("REMOVE")){
+        if (e.getActionCommand().equals("REMOVE")) {
             System.out.println("remove button pressed");
             removePackageDialog.run();
-        } else if (e.getActionCommand().equals("DELIVERY STATUS")){
-            System.out.println("delivery check box clicked");
+            if (removePackageDialog.getIsYes()) {
+                control.adjustPackage(pkg, arrayIndex, PackageDeliveryControl.REMOVE, false);
+            }
+        } else if (e.getActionCommand().equals("DELIVERY STATUS")) {
+            control.adjustPackage(pkg, arrayIndex, PackageDeliveryControl.DELIVERY_STATUS, deliveredCheckBox.isSelected());
         }
+        repaint();
     }
+
 }

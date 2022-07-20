@@ -2,11 +2,15 @@ package cmpt213.assignment3.packagedeliveries.view.screens;
 
 import cmpt213.assignment3.packagedeliveries.control.PackageDeliveryControl;
 import cmpt213.assignment3.packagedeliveries.model.PackageBase;
+import cmpt213.assignment3.packagedeliveries.view.PackageDeliveryGUI;
 import cmpt213.assignment3.packagedeliveries.view.util.Util;
+import cmpt213.assignment3.packagedeliveries.view.util.customUi.CustomDialog;
+import cmpt213.assignment3.packagedeliveries.view.util.customUi.DialogContent;
 import cmpt213.assignment3.packagedeliveries.view.util.customUi.PackageItem;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 //scroll reference:
@@ -15,8 +19,7 @@ import java.util.ArrayList;
 public class MainScreenRight extends JPanel {
     private GridBagConstraints gbc;
     private final PackageDeliveryControl control;
-
-    public MainScreenRight(ActionListener al, PackageDeliveryControl control) {
+    public MainScreenRight(PackageDeliveryControl control) {
         this.control = control;
         this.setLayout(new GridBagLayout());
         gbc = new GridBagConstraints();
@@ -24,16 +27,17 @@ public class MainScreenRight extends JPanel {
         gbc.weightx = 550;
         gbc.weighty = 1;
 
+
+
+
+
         this.setVisible(true);
     }
 
-    private void testPackages(ActionListener al) {
-        this.add(new PackageItem(control.getPackage(0)),gbc,0);
-    }
 
     private void addPackages(ArrayList<PackageBase> list){
         for(int i = 0; i< list.size();i++ ){
-            this.add(new PackageItem(list.get(i)),gbc,0);
+            this.add(new PackageItem(list.get(i), (i+1), control),gbc,0);
         }
     }
 

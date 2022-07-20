@@ -35,6 +35,7 @@ public final class Util {
     public static DateTimeFormatter currentDayFormat = DateTimeFormatter.ofPattern("MMMM dd, yyyy");
     public static DateTimeFormatter packageDateFormat = DateTimeFormatter.ofPattern("MMMM dd, yyyy | hh:mm a");
 
+    public static final int EMPTY = -1;
     public static DecimalFormat priceFormat = new DecimalFormat("$.00");
     public static DecimalFormat weightFormat = new DecimalFormat(".00 kg");
     public static Font clockFont;

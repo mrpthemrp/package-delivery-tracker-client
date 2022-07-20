@@ -56,7 +56,7 @@ public class PackageDeliveryGUI extends JFrame implements ActionListener {
 
         this.startPanel = new StartScreen(this);
         this.columnHeader = new ColumnHeader(this);
-        this.screenRight = new MainScreenRight(this, packageControl);
+        this.screenRight = new MainScreenRight(packageControl);
         this.scrollPane = new JScrollPane(screenRight);
         this.mainPanel = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT,
                 new MainScreenLeft(this), this.scrollPane);
@@ -65,14 +65,12 @@ public class PackageDeliveryGUI extends JFrame implements ActionListener {
         setUpScreenPaddings();
         setUpMainScreen();
 
-
         //add components to frame
         this.add(header, BorderLayout.NORTH);
         this.add(startPanel, BorderLayout.CENTER);
         this.add(footer, BorderLayout.SOUTH);
         this.setVisible(true);
     }
-
 
     private void setUpScreenPaddings() {
 
@@ -210,6 +208,7 @@ public class PackageDeliveryGUI extends JFrame implements ActionListener {
         columnHeader.changeColumnText(currentState);
         repaint();
     }
+
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("ADD PACKAGE")) {
