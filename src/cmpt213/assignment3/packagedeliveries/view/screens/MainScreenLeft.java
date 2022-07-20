@@ -17,11 +17,9 @@ public class MainScreenLeft extends JPanel {
     private final JLabel currentDay;
     private final RoundButton btn;
     private LocalDate today;
-    private ActionListener al;
 
 
     public MainScreenLeft(ActionListener al) {
-        this.al = al;
         this.setAlignmentX(Component.RIGHT_ALIGNMENT);
         this.setBackground(Color.WHITE);
         this.setSize(new Dimension((int) (Util.screenWidth * 0.257), (int) (Util.screenHeight * 0.75)));

@@ -34,7 +34,6 @@ public final class Util {
     public static DateTimeFormatter clockFormat = DateTimeFormatter.ofPattern("hh:mm:ss a");
     public static DateTimeFormatter currentDayFormat = DateTimeFormatter.ofPattern("MMMM dd, yyyy");
     public static DateTimeFormatter packageDateFormat = DateTimeFormatter.ofPattern("MMMM dd, yyyy | hh:mm a");
-
     public static DecimalFormat priceFormat = new DecimalFormat("$.00");
     public static DecimalFormat weightFormat = new DecimalFormat(".00 kg");
     public static Font clockFont;
@@ -50,6 +49,7 @@ public final class Util {
     public static Font dialogBtnsFont;
     public static Font dialogMessageFont;
     public static Font deliveryStatusFont;
+    public static Font addTitleFont;
     public static Font bodyFont = new Font(Font.SANS_SERIF, Font.PLAIN, (int) (10 * (Util.screenSize.getWidth() * 0.001)));
 
     public static ImageIcon checkBoxFilled = new ImageIcon(filePath(new String[]{"src", "cmpt213",
@@ -61,6 +61,14 @@ public final class Util {
     static {
         try {
             clockFont = createCustomFont("Roboto-Bold.ttf", Font.BOLD, (int) (18 * (Util.screenSize.getWidth() * 0.0018)));
+        } catch (IOException | FontFormatException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    static {
+        try {
+            addTitleFont = createCustomFont("Roboto-Bold.ttf", Font.BOLD, (int) (10 * (Util.screenSize.getWidth() * 0.0018)));
         } catch (IOException | FontFormatException e) {
             throw new RuntimeException(e);
         }
@@ -178,6 +186,9 @@ public final class Util {
     }
 
     public enum SCREEN_STATE {
-        START, MAIN, LIST_ALL, UPCOMING, OVERDUE
+        START, LIST_ALL, UPCOMING, OVERDUE
     }
+
+    public static StringVerifier stringVerifier = new StringVerifier();
+    public static DoubleVerifier doubleVerifier = new DoubleVerifier();
 }
