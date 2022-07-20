@@ -4,8 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Add LGoodDatePicker JAR">
+    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="DateTimePicker add to Add package">
+      <change afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/DoubleVerifier.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/StringVerifier.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/gson/list.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/gson/list.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/Util.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/customUi/AddPackageDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/customUi/AddPackageDialog.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -75,6 +79,9 @@
       <recent name="cmpt213.assignment3.packagedeliveriestracker.view.screens" />
       <recent name="cmpt213.assignment3.packagedeliveriestracker.control" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="cmpt213.assignment3.packagedeliveries.view.util" />
+    </key>
   </component>
   <component name="RunManager" selected="Application.MainApp">
     <configuration name="MainApp" type="Application" factoryName="Application" nameIsGenerated="true">
@@ -104,13 +111,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1652723361815</updated>
-    </task>
-    <task id="LOCAL-00135" summary="Move classes to different packages and start JavaDoc in Util">
-      <created>1658030438707</created>
-      <option name="number" value="00135" />
-      <option name="presentableId" value="LOCAL-00135" />
-      <option name="project" value="LOCAL" />
-      <updated>1658030438707</updated>
     </task>
     <task id="LOCAL-00136" summary="Add PackageItem class">
       <created>1658033270022</created>
@@ -448,7 +448,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658341774989</updated>
     </task>
-    <option name="localTasksCounter" value="184" />
+    <task id="LOCAL-00184" summary="DateTimePicker add to Add package">
+      <created>1658342561439</created>
+      <option name="number" value="00184" />
+      <option name="presentableId" value="LOCAL-00184" />
+      <option name="project" value="LOCAL" />
+      <updated>1658342561439</updated>
+    </task>
+    <option name="localTasksCounter" value="185" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -464,7 +471,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Implement scroll bar ui" />
     <MESSAGE value="ScrollPane UI configured" />
     <MESSAGE value="Decimal formats added to util" />
     <MESSAGE value="Implement remove button UI" />
@@ -489,7 +495,8 @@
     <MESSAGE value="Working on add dialog ui" />
     <MESSAGE value="Add package dialog in the works" />
     <MESSAGE value="Add LGoodDatePicker JAR" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add LGoodDatePicker JAR" />
+    <MESSAGE value="DateTimePicker add to Add package" />
+    <option name="LAST_COMMIT_MESSAGE" value="DateTimePicker add to Add package" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

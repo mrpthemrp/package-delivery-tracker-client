@@ -179,4 +179,7 @@ public final class Util {
     public enum SCREEN_STATE {
         START, LIST_ALL, UPCOMING, OVERDUE
     }
+
+    public static StringVerifier stringVerifier = new StringVerifier();
+    public static DoubleVerifier doubleVerifier = new DoubleVerifier();
 }
