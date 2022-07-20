@@ -1,7 +1,5 @@
 package cmpt213.assignment3.packagedeliveries.view.screens;
 
-import cmpt213.assignment3.packagedeliveries.control.PackageDeliveryTracker;
-import cmpt213.assignment3.packagedeliveries.view.util.Util;
 import cmpt213.assignment3.packagedeliveries.view.util.customUi.PackageItem;
 
 import javax.swing.*;

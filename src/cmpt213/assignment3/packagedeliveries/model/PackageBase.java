@@ -34,7 +34,7 @@ public abstract class PackageBase implements Package {
     }
 
     @Override
-    public boolean getDeliveryStatus() {
+    public boolean isDelivered() {
         return this.isDelivered;
     }
 

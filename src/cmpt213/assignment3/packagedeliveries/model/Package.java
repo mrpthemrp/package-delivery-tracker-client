@@ -12,7 +12,7 @@ public interface Package extends Comparable<PackageBase> {
     @Override
     int compareTo(PackageBase p);
 
-    boolean getDeliveryStatus();
+    boolean isDelivered();
 
     void setDeliveryStatus(boolean newStatus);
 

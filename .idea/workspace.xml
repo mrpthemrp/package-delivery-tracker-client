@@ -4,9 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Dialogs works with buttons">
+    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Update control class">
+      <change afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/control/PackageDeliveryControl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/customUi/AddPackageDialogContent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/customUi/AddPackageDialogContent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/MainApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/control/PackageDeliveryTracker.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/control/TextMenu.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/model/Package.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/model/Package.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/model/PackageBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/model/PackageBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/screens/MainScreenRight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/screens/MainScreenRight.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/customUi/PackageItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/customUi/PackageItem.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -464,7 +471,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Right pane coloration correct" />
     <MESSAGE value="Fixing scrollbar" />
     <MESSAGE value="Chagne jpanel to jtable" />
     <MESSAGE value="ColumnHeader is resolved" />
@@ -489,7 +495,8 @@
     <MESSAGE value="Scroll UI almost done" />
     <MESSAGE value="Implement custom dialog" />
     <MESSAGE value="Dialogs works with buttons" />
-    <option name="LAST_COMMIT_MESSAGE" value="Dialogs works with buttons" />
+    <MESSAGE value="Update control class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update control class" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

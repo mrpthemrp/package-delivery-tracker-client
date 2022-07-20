@@ -1,6 +1,5 @@
 package cmpt213.assignment3.packagedeliveries.view.util.customUi;
 
-import cmpt213.assignment3.packagedeliveries.MainApp;
 import cmpt213.assignment3.packagedeliveries.model.PackageBase;
 import cmpt213.assignment3.packagedeliveries.view.PackageDeliveryGUI;
 import cmpt213.assignment3.packagedeliveries.view.util.Util;
@@ -9,9 +8,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
-import java.awt.image.BufferedImage;
 
 
 public class PackageItem extends JPanel implements ActionListener {
@@ -48,7 +44,7 @@ public class PackageItem extends JPanel implements ActionListener {
         price = new JLabel(Util.priceFormat.format(pkg.getPrice()));
         weight = new JLabel(Util.weightFormat.format(pkg.getWeight()));
         date = new JLabel(pkg.getExpectedDeliveryDate().format(Util.packageDateFormat).toUpperCase());
-        deliveredCheckBox = new JCheckBox("Delivered?",new CheckBoxUI(),pkg.getDeliveryStatus());
+        deliveredCheckBox = new JCheckBox("Delivered?",new CheckBoxUI(),pkg.isDelivered());
         removeButton = new RoundButton(" R E M O V E ", "REMOVE", this, Util.redLight, Util.redDark,
                 (int) (Util.screenHeight * 0.024), Util.removeBtnTextFont);
 
