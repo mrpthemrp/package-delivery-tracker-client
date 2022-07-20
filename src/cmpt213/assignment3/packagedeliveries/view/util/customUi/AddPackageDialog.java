@@ -25,6 +25,19 @@ public class AddPackageDialog extends JDialog implements ActionListener, ItemLis
     private Object extraField;
     private DateTimePicker expectedDeliveryDate;
     private String finalName, finalNotes, finalExtraField;
+
+    //TODO figure out line blank bug
+    @Override
+    public void paint(Graphics g) {
+        super.paint(g);
+
+        Graphics2D g2 = (Graphics2D) g;
+        g2.setColor(Util.darkBrown);
+        g2.fillRoundRect((int) (this.getWidth() *0.415), (int) (this.getHeight() *0.15),
+                (int) (this.getWidth()*0.005), (int) (this.getHeight() *0.75), 3, 3);
+
+    }
+
     private double finalPrice, finalWeight;
     private JLabel pageTitle, titleName, titleNotes, titleDate,
             titleExtraField, titlePackageType, titleWeight, titlePrice, symbolWeight, symbolPrice;
@@ -134,7 +147,7 @@ public class AddPackageDialog extends JDialog implements ActionListener, ItemLis
     }
 
     private void setUpJLabels() {
-        pageTitle = new JLabel("A D D  P A C K A G E");
+        pageTitle = new JLabel("A D D   P A C K A G E");
         setUpJLabel(pageTitle);
         pageTitle.setFont(Util.addTitleFont);
         titleName = new JLabel("N A M E:");
@@ -176,118 +189,120 @@ public class AddPackageDialog extends JDialog implements ActionListener, ItemLis
         //left
         gbc.insets = new Insets(15, 15, 15, 15);
         gbc.fill = GridBagConstraints.BASELINE_TRAILING;
-        gbc.gridx = 1;
+        gbc.gridx = 0;
         gbc.gridy = 4;
         contentPane.add(pageTitle, gbc);
 
         gbc.fill = GridBagConstraints.HORIZONTAL;
-        gbc.gridx = 1;
+        gbc.gridx = 0;
         gbc.gridy = 6;
         contentPane.add(buttonPane, gbc);
 
         //middle bar
         gbc.fill = GridBagConstraints.VERTICAL;
-        gbc.gridx = 2;
+        gbc.gridx = 1;
         gbc.gridy = 1;
-        contentPane.add(Box.createRigidArea(new Dimension((int) (this.getWidth()*0.05),0)), gbc);
+        contentPane.add(Box.createRigidArea(new Dimension((int) (this.getWidth() * 0.05), 0)), gbc);
 
         //right
         gbc.insets = new Insets(15, 15, 2, 15);
         gbc.fill = GridBagConstraints.HORIZONTAL;
-        gbc.gridx = 3;
+        gbc.gridx = 2;
         gbc.gridy = 1;
         contentPane.add(titleName, gbc);
 
         gbc.insets = new Insets(0, 15, 15, 15);
         gbc.fill = GridBagConstraints.HORIZONTAL;
-        gbc.gridx = 3;
+        gbc.gridx = 2;
         gbc.gridy = 2;
         contentPane.add(name, gbc);
 
         gbc.insets = new Insets(15, 15, 2, 15);
         gbc.fill = GridBagConstraints.HORIZONTAL;
-        gbc.gridx = 3;
+        gbc.gridx = 2;
         gbc.gridy = 3;
         contentPane.add(titleDate, gbc);
 
         gbc.insets = new Insets(0, 15, 15, 15);
         gbc.fill = GridBagConstraints.HORIZONTAL;
-        gbc.gridx = 3;
+        gbc.gridx = 2;
         gbc.gridy = 4;
         contentPane.add(expectedDeliveryDate, gbc);
 
         gbc.insets = new Insets(15, 15, 2, 15);
         gbc.fill = GridBagConstraints.HORIZONTAL;
-        gbc.gridx = 3;
+        gbc.gridx = 2;
         gbc.gridy = 5;
         contentPane.add(titleExtraField, gbc);
 
         gbc.insets = new Insets(0, 15, 15, 15);
         gbc.fill = GridBagConstraints.HORIZONTAL;
-        gbc.gridx = 3;
+        gbc.gridx = 2;
         gbc.gridy = 6;
         contentPane.add(((JTextArea) extraField), gbc);
 
         gbc.insets = new Insets(15, 15, 2, 15);
         gbc.fill = GridBagConstraints.HORIZONTAL;
-        gbc.gridx = 4;
+        gbc.gridx = 3;
         gbc.gridy = 1;
         contentPane.add(titlePackageType, gbc);
 
         gbc.insets = new Insets(0, 15, 15, 15);
         gbc.fill = GridBagConstraints.HORIZONTAL;
-        gbc.gridx = 4;
+        gbc.gridx = 3;
         gbc.gridy = 2;
         contentPane.add(choosePackageType, gbc);
 
         gbc.insets = new Insets(15, 15, 2, 15);
         gbc.fill = GridBagConstraints.HORIZONTAL;
-        gbc.gridx = 4;
+        gbc.gridx = 3;
         gbc.gridy = 3;
         contentPane.add(titleWeight, gbc);
 
         gbc.insets = new Insets(0, 15, 15, 10);
         gbc.fill = GridBagConstraints.HORIZONTAL;
-        gbc.gridx = 4;
+        gbc.gridx = 3;
         gbc.gridy = 4;
         contentPane.add(weight, gbc);
 
-        gbc.insets = new Insets(0,0,15,5);
+        gbc.insets = new Insets(0, 0, 15, 5);
         gbc.fill = GridBagConstraints.HORIZONTAL;
-        gbc.gridx = 5;
+        gbc.gridx = 4;
         gbc.gridy = 4;
         contentPane.add(symbolWeight, gbc);
 
         gbc.insets = new Insets(15, 15, 2, 15);
         gbc.fill = GridBagConstraints.HORIZONTAL;
-        gbc.gridx = 4;
+        gbc.gridx = 3;
         gbc.gridy = 5;
         contentPane.add(titlePrice, gbc);
 
         gbc.insets = new Insets(0, 15, 15, 10);
         gbc.fill = GridBagConstraints.HORIZONTAL;
-        gbc.gridx = 4;
+        gbc.gridx = 3;
         gbc.gridy = 6;
         contentPane.add(symbolPrice, gbc);
 
-        gbc.insets = new Insets(0,35,15,0);
+        gbc.insets = new Insets(0, 35, 15, 0);
         gbc.fill = GridBagConstraints.HORIZONTAL;
-        gbc.gridx = 4;
+        gbc.gridx = 3;
         gbc.gridy = 6;
         contentPane.add(price, gbc);
 
         gbc.insets = new Insets(15, 15, 2, 15);
         gbc.fill = GridBagConstraints.HORIZONTAL;
-        gbc.gridx = 3;
+        gbc.gridx = 2;
         gbc.gridy = 7;
         contentPane.add(titleNotes, gbc);
 
+        //TODO fix notes display height
         gbc.insets = new Insets(0, 15, 15, 15);
         gbc.fill = GridBagConstraints.HORIZONTAL;
-        gbc.gridx = 3;
+        gbc.gridx = 2;
         gbc.gridy = 8;
-        gbc.gridwidth=5;
-        contentPane.add(notes,gbc);
+        gbc.gridwidth = 3;
+        gbc.gridheight = 8;
+        contentPane.add(notes, gbc);
     }
 
     private void setUpJLabel(JLabel label) {
