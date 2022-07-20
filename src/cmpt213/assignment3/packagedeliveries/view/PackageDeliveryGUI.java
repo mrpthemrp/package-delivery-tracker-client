@@ -19,7 +19,8 @@ import java.awt.geom.RoundRectangle2D;
 import static java.awt.Scrollbar.VERTICAL;
 
 public class PackageDeliveryGUI extends JFrame implements ActionListener {
-    private SCREEN_STATE currentState;
+    public static SCREEN_STATE previousState;
+    public static SCREEN_STATE currentState;
     private final JSplitPane mainPanel;
     private final StartScreen startPanel;
     private final JScrollPane scrollPane;
@@ -42,7 +43,7 @@ public class PackageDeliveryGUI extends JFrame implements ActionListener {
         this.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
-                System.out.println("window closing, save packages here");
+                packageControl.arrayData(PackageDeliveryControl.DATA_SAVE);
             }
         });
 
@@ -52,11 +53,11 @@ public class PackageDeliveryGUI extends JFrame implements ActionListener {
         this.leftBar = new JPanel();
         this.footer = new JPanel();
         this.addPackageDialog = new AddPackageDialog(this, "Package Delivery Tracker - Add Package",
-                "  C R E A T E  ", "  C A N C E L  ");
+                "  C R E A T E  ", "  C A N C E L  ",packageControl);
 
         this.startPanel = new StartScreen(this);
         this.columnHeader = new ColumnHeader(this);
-        this.screenRight = new MainScreenRight(packageControl);
+        this.screenRight = new MainScreenRight(packageControl, this);
         this.scrollPane = new JScrollPane(screenRight);
         this.mainPanel = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT,
                 new MainScreenLeft(this), this.scrollPane);
@@ -199,8 +200,12 @@ public class PackageDeliveryGUI extends JFrame implements ActionListener {
             }
             case LIST_ALL, UPCOMING, OVERDUE -> {
                 columnHeader.buttonClicked(currentState);
+                screenRight.removeAll();
                 screenRight.populateList(currentState);
+                scrollPane.setViewportView(screenRight);
             }
+            case ADD -> repaint();
+            case REMOVE -> repaint();
 
             default -> this.repaint();
         }
@@ -211,14 +216,16 @@ public class PackageDeliveryGUI extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        previousState = currentState;
         if (e.getActionCommand().equals("ADD PACKAGE")) {
+            currentState = Util.SCREEN_STATE.ADD;
             addPackageDialog.run();
         } else if (e.getActionCommand().equals("LIST ALL")) {
-            this.currentState = Util.SCREEN_STATE.LIST_ALL;
+            currentState = Util.SCREEN_STATE.LIST_ALL;
         } else if (e.getActionCommand().equals("UPCOMING")) {
-            this.currentState = SCREEN_STATE.UPCOMING;
+            currentState = SCREEN_STATE.UPCOMING;
         } else if (e.getActionCommand().equals("OVERDUE")) {
-            this.currentState = SCREEN_STATE.OVERDUE;
+            currentState = SCREEN_STATE.OVERDUE;
         }
         updateStates();
     }

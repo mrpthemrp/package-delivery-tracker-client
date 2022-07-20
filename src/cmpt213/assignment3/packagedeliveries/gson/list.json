@@ -1,1 +1,1 @@
-[{"type":"Book","authorName":"Author Name","name":"Book Title Title","notes":"n/a notesssssss","price":25.0,"weight":5.0,"expectedDeliveryDate":"2022-07-30T12:50","isDelivered":false},{"type":"Book","authorName":"Author Name","name":"Book Title Title","notes":"n/a notesssssss","price":25.0, "weight":5.0,"expectedDeliveryDate":"2021-07-30T12:50","isDelivered":false}]
+[{"type":"Book","authorName":"author","name":"Name","notes":"","price":50.0,"weight":0.666,"expectedDeliveryDate":"2022-07-19T21:05:52.606642200","isDelivered":false}]

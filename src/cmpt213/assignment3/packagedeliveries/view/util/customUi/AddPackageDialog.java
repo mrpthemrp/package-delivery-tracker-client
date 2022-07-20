@@ -1,19 +1,25 @@
 package cmpt213.assignment3.packagedeliveries.view.util.customUi;
 
+import cmpt213.assignment3.packagedeliveries.control.PackageDeliveryControl;
+import cmpt213.assignment3.packagedeliveries.model.PackageFactory;
+import cmpt213.assignment3.packagedeliveries.view.PackageDeliveryGUI;
 import cmpt213.assignment3.packagedeliveries.view.util.Util;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.time.LocalDateTime;
 
 public class AddPackageDialog extends JDialog implements ActionListener {
     private final CustomDialog exitConfirmDialog;
     private final JPanel contentPane;
-    public AddPackageDialog(Frame parent, String title, String btnYesText, String btnNoText) {
+    public PackageDeliveryControl control;
+    public AddPackageDialog(Frame parent, String title, String btnYesText, String btnNoText, PackageDeliveryControl control) {
         super(parent, title, true);
-        this.exitConfirmDialog = new CustomDialog(parent,"Remove Package Confirmation"
-                        ,"  S T A Y  ","  E X I T  ", new DialogContent("Are you sure you want to exit?"));;
+        this.control = control;
+        this.exitConfirmDialog = new CustomDialog(parent,"Remove Package Confirmation", "Are you sure you want to exit?"
+                        ,"  S T A Y  ","  E X I T  ");
         this.setSize(new Dimension((int) (Util.screenWidth * 0.4), (int) (Util.screenHeight * 0.25)));
 
         JPanel buttonPane = new JPanel();
@@ -42,6 +48,8 @@ public class AddPackageDialog extends JDialog implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("YES")) {
             System.out.println("yes was pressed");
+            control.createPackage("Name","",50,0.666, LocalDateTime.now(),"author", PackageFactory.PackageType.BOOK);
+            PackageDeliveryGUI.currentState = PackageDeliveryGUI.previousState;
             //do something
         } else if (e.getActionCommand().equals("NO")) {
             System.out.println("no was pressed");

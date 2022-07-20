@@ -12,10 +12,17 @@ import java.awt.event.ActionListener;
 public class CustomDialog extends JDialog implements ActionListener {
     public boolean isYes;
 
-    public CustomDialog(Frame parent, String title, String btnYesText, String btnNoText, JPanel contentPane) {
-        super(parent, title, true);
+    public CustomDialog(Frame parent, String title, String message, String btnYesText, String btnNoText) {
+
+        super(parent, title, false);
         this.isYes = false;
         this.setSize(new Dimension((int) (Util.screenWidth * 0.4), (int) (Util.screenHeight * 0.25)));
+
+        JLabel dialogMessage = new JLabel(message);
+        dialogMessage.setFont(Util.dialogMessageFont);
+        dialogMessage.setForeground(Color.BLACK);
+        dialogMessage.setBackground(Util.transparent);
+        dialogMessage.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         JPanel buttonPane = new JPanel();
         RoundButton yesBtn = new RoundButton(btnYesText, "YES", this, Util.greenLight, Util.greenDark
@@ -28,7 +35,14 @@ public class CustomDialog extends JDialog implements ActionListener {
         buttonPane.add(Box.createHorizontalGlue());
         buttonPane.add(noBtn);
 
+        JPanel contentPane = new JPanel();
+        contentPane.setBackground(Color.WHITE);
+        contentPane.setLayout(new BoxLayout(contentPane, BoxLayout.Y_AXIS));
+        contentPane.add(Box.createRigidArea(new Dimension(this.getWidth(), (int) (Util.screenHeight * 0.05))), CENTER_ALIGNMENT);
+        contentPane.add(dialogMessage, CENTER_ALIGNMENT);
+        contentPane.add(Box.createRigidArea(new Dimension(0, (int) (Util.screenHeight * 0.03))), CENTER_ALIGNMENT);
         contentPane.add(buttonPane);
+        contentPane.setVisible(true);
 
         this.add(contentPane);
     }
@@ -50,7 +64,7 @@ public class CustomDialog extends JDialog implements ActionListener {
         this.setVisible(true);
     }
 
-    public boolean getIsYes() {
+    public boolean isYes(){
         return this.isYes;
     }
 }

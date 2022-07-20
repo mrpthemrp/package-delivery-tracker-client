@@ -9,6 +9,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 
 public class PackageItem extends JPanel implements ActionListener {
@@ -16,16 +18,23 @@ public class PackageItem extends JPanel implements ActionListener {
     private final JLabel name, notes, price, weight, date;
     private final RoundButton removeButton;
     private final JCheckBox deliveredCheckBox;
-    private final CustomDialog removePackageDialog;
     private final PackageDeliveryControl control;
+    private final CustomDialog removePackageDialog;
     public final int arrayIndex;
+    private boolean needToDelete;
+    private final ActionListener parentListener;
 
-    public PackageItem(PackageBase pkg, int packageNumber, PackageDeliveryControl control) {
+    public PackageItem(PackageBase pkg, int packageNumber, PackageDeliveryControl control, ActionListener parentListener, Frame parent) {
         this.pkg = pkg;
         this.control = control;
         this.arrayIndex = (packageNumber - 1);
-        this.removePackageDialog = new CustomDialog(PackageDeliveryGUI.getFrames()[0], "Remove Package Confirmation"
-                , "  Y E S  ", "   N O   ", new DialogContent("Are you sure you want to remove this package?"));
+        this.needToDelete = false;
+        this.parentListener = parentListener;
+
+
+
+        this.removePackageDialog = new CustomDialog(parent, "Remove Package Confirmation",
+                "Are you sure you want to remove this package?", "  Y E S  ", "   N O   ");
 
         GridBagConstraints gbcLeft = new GridBagConstraints();
         GridBagConstraints gbcRight = new GridBagConstraints();
@@ -52,7 +61,6 @@ public class PackageItem extends JPanel implements ActionListener {
                 (int) (Util.screenHeight * 0.024), Util.removeBtnTextFont);
 
         setUpComponents();
-
 
         this.add(name, gbcLeft, 0);
         this.add(notes, gbcLeft, 0);
@@ -89,16 +97,21 @@ public class PackageItem extends JPanel implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getActionCommand().equals("REMOVE")) {
+        if(e.getActionCommand().equals("REMOVE")){
+            PackageDeliveryGUI.currentState = Util.SCREEN_STATE.REMOVE;
             System.out.println("remove button pressed");
             removePackageDialog.run();
-            if (removePackageDialog.getIsYes()) {
-                control.adjustPackage(pkg, arrayIndex, PackageDeliveryControl.REMOVE, false);
+            if(removePackageDialog.isYes()){
+                this.needToDelete = true;
             }
-        } else if (e.getActionCommand().equals("DELIVERY STATUS")) {
+            PackageDeliveryGUI.currentState = PackageDeliveryGUI.previousState;
+        }
+        if (e.getActionCommand().equals("DELIVERY STATUS")) {
             control.adjustPackage(pkg, arrayIndex, PackageDeliveryControl.DELIVERY_STATUS, deliveredCheckBox.isSelected());
         }
-        repaint();
+        parentListener.actionPerformed(e);
     }
+    public boolean needToDelete(){ return this.needToDelete;}
+    public PackageBase getPkg (){ return this.pkg;}
 
 }

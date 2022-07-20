@@ -5,7 +5,6 @@ import cmpt213.assignment3.packagedeliveries.model.PackageBase;
 import cmpt213.assignment3.packagedeliveries.view.PackageDeliveryGUI;
 import cmpt213.assignment3.packagedeliveries.view.util.Util;
 import cmpt213.assignment3.packagedeliveries.view.util.customUi.CustomDialog;
-import cmpt213.assignment3.packagedeliveries.view.util.customUi.DialogContent;
 import cmpt213.assignment3.packagedeliveries.view.util.customUi.PackageItem;
 
 import javax.swing.*;
@@ -16,30 +15,36 @@ import java.util.ArrayList;
 //scroll reference:
 // https://stackoverflow.com/questions/14615888/list-of-jpanels-that-eventually-uses-a-scrollbar
 
-public class MainScreenRight extends JPanel {
+public class MainScreenRight extends JPanel implements ActionListener {
     private GridBagConstraints gbc;
     private final PackageDeliveryControl control;
-    public MainScreenRight(PackageDeliveryControl control) {
+    private final Frame parent;
+    private ArrayList<PackageItem> panelItems;
+    public MainScreenRight(PackageDeliveryControl control, Frame parent) {
         this.control = control;
+        this.parent = parent;
         this.setLayout(new GridBagLayout());
         gbc = new GridBagConstraints();
         gbc.gridwidth = GridBagConstraints.REMAINDER;
         gbc.weightx = 550;
         gbc.weighty = 1;
 
+        this.panelItems = new ArrayList<>();
+
         this.setVisible(true);
     }
 
     private void addPackages(ArrayList<PackageBase> list){
         for(int i = 0; i< list.size();i++ ){
-            this.add(new PackageItem(list.get(i), (i+1), control),gbc,0);
+            PackageItem pkg = new PackageItem(list.get(i), (i+1), control, this, parent);
+            this.panelItems.add(pkg);
+            this.add(pkg,gbc,0);
         }
     }
 
     public void populateList(Util.SCREEN_STATE currentState){
-        //clear current screen and update lists
+        //update lists
         this.control.updateLists();
-        this.removeAll();
 
         //add new items
         switch (currentState){
@@ -47,5 +52,20 @@ public class MainScreenRight extends JPanel {
             case UPCOMING -> addPackages(control.getAListOfPackages(Util.SCREEN_STATE.UPCOMING));
             case OVERDUE -> addPackages(control.getAListOfPackages(Util.SCREEN_STATE.OVERDUE));
         }
+    }
+
+    private void updatePackages (){
+        for(PackageItem pkg : this.panelItems){
+            if(pkg.needToDelete()){
+                control.adjustPackage(pkg.getPkg(),pkg.arrayIndex,PackageDeliveryControl.REMOVE, false);
+                this.panelItems.remove(pkg);
+            }
+        }
+    }
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        System.out.println("parentListener");
+        updatePackages();
+        repaint();
     }
 }

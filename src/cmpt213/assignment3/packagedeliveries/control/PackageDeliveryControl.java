@@ -27,7 +27,7 @@ public class PackageDeliveryControl {
 
     private final PackageFactory pkgFactory;
     private LocalDateTime currentTime;
-    private final static int DATA_SAVE = 1;
+    public final static int DATA_SAVE = 1;
     private final static int DATA_LOAD = 2;
     public static Gson gson;
     private static File gsonFile;
@@ -90,7 +90,7 @@ public class PackageDeliveryControl {
                 .create();
     }
 
-    private void arrayData(int dataMode) {
+    public void arrayData(int dataMode) {
         ArrayList<PackageBase> newArray = new ArrayList<>();
 
         if (dataMode == DATA_SAVE) {
@@ -151,7 +151,7 @@ public class PackageDeliveryControl {
     }
 
 
-    public PackageBase createPackage(String name, String notes, double price, double weight, LocalDateTime date,
+    public void createPackage(String name, String notes, double price, double weight, LocalDateTime date,
                                      String extraField, PackageFactory.PackageType type) {
 
         //Set extra field
@@ -160,25 +160,27 @@ public class PackageDeliveryControl {
             case BOOK -> {
                 newPackage = pkgFactory.getInstance(type, name, notes, price, weight, date, extraField);
                 System.out.println("Book: " + name + " has been added to the list.");//change this to a dialog message
-                return newPackage;
+                masterListOfPackages.add(newPackage);
             }
             case PERISHABLE -> {
                 newPackage = pkgFactory.getInstance(type, name, notes, price, weight, date, extraField);
                 System.out.println("Perishable: " + name + " has been added to the list.");//change this to a dialog message
-                return newPackage;
+                masterListOfPackages.add(newPackage);
             }
             case ELECTRONIC -> {
                 newPackage = pkgFactory.getInstance(type, name, notes, price, weight, date, extraField);
                 System.out.println("Electronic: " + name + " has been added to the list."); //change this to a dialog message
-                return newPackage;
+                masterListOfPackages.add(newPackage);
 
             }
         }
-        return null;
+
+        updateLists();
     }
 
     public void adjustPackage(PackageBase pkg, int index, int option, boolean newDeliveryStatus) {
         if (option == REMOVE) {
+            System.out.println("adust packafge,remove");
             masterListOfPackages.remove(index);
         } else if (option == DELIVERY_STATUS) {
             pkg.setDeliveryStatus(newDeliveryStatus);
@@ -215,10 +217,6 @@ public class PackageDeliveryControl {
         Collections.sort(masterListOfPackages);
         Collections.sort(upcomingPackages);
         Collections.sort(overduePackages);
-    }
-
-    public PackageBase getPackage(int i) {
-        return masterListOfPackages.get(i);
     }
 
     public ArrayList<PackageBase> getAListOfPackages (Util.SCREEN_STATE currentState){
