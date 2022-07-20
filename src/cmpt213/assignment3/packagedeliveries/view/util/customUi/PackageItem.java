@@ -18,15 +18,18 @@ public class PackageItem extends JPanel implements ActionListener {
     private final JCheckBox deliveredCheckBox;
     private final PackageDeliveryControl control;
     private final CustomDialog removePackageDialog;
-    public final int arrayIndex;
+    public final int panelItemIndex;
+    public final int pkgIndex;
 
-    public PackageItem(PackageBase pkg, int packageNumber, PackageDeliveryControl control, Frame parent) {
+    public PackageItem(PackageBase pkg, int packageNumber, PackageDeliveryControl control, Frame parent, int panelItemIndex) {
         this.pkg = pkg;
         this.control = control;
-        this.arrayIndex = (packageNumber - 1);
+        this.panelItemIndex = panelItemIndex;
+        this.pkgIndex = (packageNumber-1);
 
         this.removePackageDialog = new CustomDialog(parent, "Remove Package Confirmation",
-                "Are you sure you want to remove this package?", "  Y E S  ", "   N O   ",true);
+                ("Are you sure you want to remove Package #"+packageNumber+"?"), "  Y E S  ", "   N O   ",
+                true, false);
 
         GridBagConstraints gbcLeft = new GridBagConstraints();
         GridBagConstraints gbcRight = new GridBagConstraints();
@@ -43,7 +46,7 @@ public class PackageItem extends JPanel implements ActionListener {
         this.setLayout(new GridBagLayout());
         this.setBorder(BorderFactory.createMatteBorder(0, 0, (int) (Util.screenHeight * 0.004), 0, Util.lightTeal));
 
-        name = new JLabel(pkg.getName());
+        name = new JLabel(pkg.getName()+packageNumber);
         notes = new JLabel(pkg.getNotes());
         price = new JLabel(Util.priceFormat.format(pkg.getPrice()));
         weight = new JLabel(Util.weightFormat.format(pkg.getWeight()));
@@ -91,9 +94,9 @@ public class PackageItem extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if(e.getActionCommand().equals("REMOVE")){
             System.out.println("remove button pressed");
-            removePackageDialog.run();
+            removePackageDialog.run(this.panelItemIndex, pkgIndex);
         }
-        if (e.getActionCommand().equals("DELIVERY STATUS")) {
+        else if (e.getActionCommand().equals("DELIVERY STATUS")) {
             control.adjustPackage(pkg, PackageDeliveryControl.DELIVERY_STATUS, deliveredCheckBox.isSelected());
         }
         repaint();

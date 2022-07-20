@@ -180,7 +180,6 @@ public class PackageDeliveryControl {
 
     public void adjustPackage(PackageBase pkg, int option, boolean newDeliveryStatus) {
         if (option == REMOVE) {
-            System.out.println("adust packafge,remove");
             masterListOfPackages.remove(pkg);
         } else if (option == DELIVERY_STATUS) {
             pkg.setDeliveryStatus(newDeliveryStatus);
@@ -194,11 +193,13 @@ public class PackageDeliveryControl {
 
     public final void updateLists() {
         //reset upcoming and overdue
+        ArrayList<PackageBase> tempMasterList = new ArrayList<>();
         upcomingPackages = new ArrayList<>();
         overduePackages = new ArrayList<>();
 
         //add necessary packages to lists
         for (PackageBase tempPkg : masterListOfPackages) {
+            tempMasterList.add(tempPkg);
             if (!tempPkg.isDelivered()) {
                 if (isOverdue(tempPkg.getExpectedDeliveryDate())) {
                     if (!overduePackages.contains(tempPkg)) {
@@ -212,6 +213,7 @@ public class PackageDeliveryControl {
 
             }
         }
+        masterListOfPackages = tempMasterList;
 
         //sort
         Collections.sort(masterListOfPackages);

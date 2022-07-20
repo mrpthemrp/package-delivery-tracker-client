@@ -10,11 +10,14 @@ import java.awt.event.ActionListener;
 
 //reference: http://www2.hawaii.edu/~takebaya/ics111/jdialog/jdialog.html
 public class CustomDialog extends JDialog implements ActionListener {
-    private final boolean isRemove;
+    public boolean isRemove;
+    private int panelItemIndex;
+    private int pkgIndex;
 
-    public CustomDialog(Frame parent, String title, String message, String btnYesText, String btnNoText, boolean isRemove) {
+    public CustomDialog(Frame parent, String title, String message, String btnYesText, String btnNoText,
+                        boolean isRemove, boolean modal) {
 
-        super(parent, title, false);
+        super(parent, title, modal);
         this.isRemove = isRemove;
         this.setSize(new Dimension((int) (Util.screenWidth * 0.4), (int) (Util.screenHeight * 0.25)));
 
@@ -52,7 +55,7 @@ public class CustomDialog extends JDialog implements ActionListener {
         if (e.getActionCommand().equals("YES")) {
             System.out.println("yes was pressed");
             if(isRemove){
-                MainScreenRight.updatePackages(true);
+                MainScreenRight.updatePackages(this.panelItemIndex, this.pkgIndex);
             }
         } else if (e.getActionCommand().equals("NO")) {
             System.out.println("no was pressed");
@@ -60,8 +63,15 @@ public class CustomDialog extends JDialog implements ActionListener {
         this.dispose();
     }
 
-    public void run() {
+    public void run(int panelItemIndex, int pkgIndex) {
+        this.pkgIndex = pkgIndex;
+        this.panelItemIndex = panelItemIndex;
         this.setVisible(true);
     }
+
+    public boolean isRemove() {
+        return isRemove;
+    }
+
 
 }
