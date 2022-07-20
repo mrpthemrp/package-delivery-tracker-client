@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Implemented JCheckBox UI components" />
+    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Dialogs works with buttons">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/customUi/AddPackageDialogContent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/customUi/AddPackageDialogContent.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -32,25 +35,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Downloaded.Files.Path.Enabled": "true",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "ToolWindowBuild.ShowToolbar": "false",
-    "ToolWindowRun.ShowToolbar": "false",
-    "last_opened_file_path": "C:/Users/debor/IdeaProjects/A-213/src/cmpt213/assignment3/packagedeliveries/view/util/images",
-    "project.structure.last.edited": "SDKs",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "configurable.group.build"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;true&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;ToolWindowBuild.ShowToolbar&quot;: &quot;false&quot;,
+    &quot;ToolWindowRun.ShowToolbar&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/debor/IdeaProjects/A-213/src/cmpt213/assignment3/packagedeliveries/view/util/images&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.build&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="cmpt213.assignment3.packagedeliveriestracker.view.util" />
@@ -101,41 +104,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1652723361815</updated>
-    </task>
-    <task id="LOCAL-00119" summary="Add font package back">
-      <created>1657925907411</created>
-      <option name="number" value="00119" />
-      <option name="presentableId" value="LOCAL-00119" />
-      <option name="project" value="LOCAL" />
-      <updated>1657925907411</updated>
-    </task>
-    <task id="LOCAL-00120" summary="Custom fonts applied">
-      <created>1657927052094</created>
-      <option name="number" value="00120" />
-      <option name="presentableId" value="LOCAL-00120" />
-      <option name="project" value="LOCAL" />
-      <updated>1657927052094</updated>
-    </task>
-    <task id="LOCAL-00121" summary="Update RoundButton placement">
-      <created>1657928989753</created>
-      <option name="number" value="00121" />
-      <option name="presentableId" value="LOCAL-00121" />
-      <option name="project" value="LOCAL" />
-      <updated>1657928989753</updated>
-    </task>
-    <task id="LOCAL-00122" summary="Custom things done">
-      <created>1657929706254</created>
-      <option name="number" value="00122" />
-      <option name="presentableId" value="LOCAL-00122" />
-      <option name="project" value="LOCAL" />
-      <updated>1657929706254</updated>
-    </task>
-    <task id="LOCAL-00123" summary="Add GridBagLayout to start panel">
-      <created>1657945700609</created>
-      <option name="number" value="00123" />
-      <option name="presentableId" value="LOCAL-00123" />
-      <option name="project" value="LOCAL" />
-      <updated>1657945700609</updated>
     </task>
     <task id="LOCAL-00124" summary="In progress main screen">
       <created>1657953374026</created>
@@ -438,14 +406,49 @@
       <option name="project" value="LOCAL" />
       <updated>1658219183071</updated>
     </task>
-    <task id="LOCAL-00167" summary="Implemented JCheckBox UI components">
-      <created>1658220201205</created>
+    <task id="LOCAL-00167" summary="Adjust width of scrollpane">
+      <created>1658256810261</created>
       <option name="number" value="00167" />
       <option name="presentableId" value="LOCAL-00167" />
       <option name="project" value="LOCAL" />
-      <updated>1658220201205</updated>
+      <updated>1658256810261</updated>
     </task>
-    <option name="localTasksCounter" value="168" />
+    <task id="LOCAL-00168" summary="implementd delivery status box">
+      <created>1658257436881</created>
+      <option name="number" value="00168" />
+      <option name="presentableId" value="LOCAL-00168" />
+      <option name="project" value="LOCAL" />
+      <updated>1658257436881</updated>
+    </task>
+    <task id="LOCAL-00169" summary="Scroll working, add buttons to listener">
+      <created>1658261087747</created>
+      <option name="number" value="00169" />
+      <option name="presentableId" value="LOCAL-00169" />
+      <option name="project" value="LOCAL" />
+      <updated>1658261087747</updated>
+    </task>
+    <task id="LOCAL-00170" summary="Scroll UI almost done">
+      <created>1658262225608</created>
+      <option name="number" value="00170" />
+      <option name="presentableId" value="LOCAL-00170" />
+      <option name="project" value="LOCAL" />
+      <updated>1658262225608</updated>
+    </task>
+    <task id="LOCAL-00171" summary="Implement custom dialog">
+      <created>1658269736417</created>
+      <option name="number" value="00171" />
+      <option name="presentableId" value="LOCAL-00171" />
+      <option name="project" value="LOCAL" />
+      <updated>1658269736417</updated>
+    </task>
+    <task id="LOCAL-00172" summary="Dialogs works with buttons">
+      <created>1658271167701</created>
+      <option name="number" value="00172" />
+      <option name="presentableId" value="LOCAL-00172" />
+      <option name="project" value="LOCAL" />
+      <updated>1658271167701</updated>
+    </task>
+    <option name="localTasksCounter" value="173" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -461,11 +464,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="PackageItem sizes correct" />
-    <MESSAGE value="Working on packageitem UI" />
-    <MESSAGE value="Confused" />
-    <MESSAGE value="Split screen works!!!" />
-    <MESSAGE value="Left pane works fully" />
     <MESSAGE value="Right pane coloration correct" />
     <MESSAGE value="Fixing scrollbar" />
     <MESSAGE value="Chagne jpanel to jtable" />
@@ -485,8 +483,13 @@
     <MESSAGE value="Working on CheckBox" />
     <MESSAGE value="Added resource to CheckBox class" />
     <MESSAGE value="JCheckBox figured out" />
-    <MESSAGE value="Implemented JCheckBox UI components" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented JCheckBox UI components" />
+    <MESSAGE value="Adjust width of scrollpane" />
+    <MESSAGE value="implementd delivery status box" />
+    <MESSAGE value="Scroll working, add buttons to listener" />
+    <MESSAGE value="Scroll UI almost done" />
+    <MESSAGE value="Implement custom dialog" />
+    <MESSAGE value="Dialogs works with buttons" />
+    <option name="LAST_COMMIT_MESSAGE" value="Dialogs works with buttons" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

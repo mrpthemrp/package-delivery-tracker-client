@@ -1,5 +1,6 @@
 package cmpt213.assignment3.packagedeliveries.view;
 
+import cmpt213.assignment3.packagedeliveries.view.util.customUi.AddPackageDialog;
 import cmpt213.assignment3.packagedeliveries.view.util.customUi.ColumnHeader;
 import cmpt213.assignment3.packagedeliveries.view.screens.*;
 import cmpt213.assignment3.packagedeliveries.view.util.Util;
@@ -7,7 +8,6 @@ import cmpt213.assignment3.packagedeliveries.view.util.Util.SCREEN_STATE;
 
 import javax.swing.*;
 import javax.swing.border.Border;
-import javax.swing.border.LineBorder;
 import javax.swing.plaf.basic.BasicScrollBarUI;
 import javax.swing.plaf.basic.BasicSplitPaneDivider;
 import javax.swing.plaf.basic.BasicSplitPaneUI;
@@ -24,6 +24,7 @@ public class PackageDeliveryGUI extends JFrame implements ItemListener, ActionLi
     private final JScrollPane scrollPane;
     private final ColumnHeader columnHeader;
     private final JPanel header, leftBar, footer;
+    private final AddPackageDialog addPackageDialog;
 
     public PackageDeliveryGUI() {
 
@@ -46,6 +47,8 @@ public class PackageDeliveryGUI extends JFrame implements ItemListener, ActionLi
         this.header = new JPanel();
         this.leftBar = new JPanel();
         this.footer = new JPanel();
+        this.addPackageDialog = new AddPackageDialog(this,"Package Delivery Tracker - Add Package",
+                "  C R E A T E  ","  C A N C E L  ");
 
         this.startPanel = new StartScreen(this);
         this.columnHeader = new ColumnHeader(this);
@@ -56,6 +59,7 @@ public class PackageDeliveryGUI extends JFrame implements ItemListener, ActionLi
         //setUp necessary fields
         setUpScreenPaddings();
         setUpMainScreen();
+
 
         //add components to frame
         this.add(header, BorderLayout.NORTH);
@@ -110,12 +114,13 @@ public class PackageDeliveryGUI extends JFrame implements ItemListener, ActionLi
         this.scrollPane.setBorder(BorderFactory.createEmptyBorder());
         this.scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
         this.scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-        this.scrollPane.getViewport().getView().setBackground(Util.lightTeal);
+        this.scrollPane.getViewport().getView().setBackground(Color.WHITE);
 
         //refernce for making up down buttons look invisible
         //https://stackoverflow.com/questions/7633354/how-to-hide-the-arrow-buttons-in-a-jscrollbar
         this.scrollPane.getVerticalScrollBar().setOrientation(VERTICAL);
         this.scrollPane.getVerticalScrollBar().setBackground(Color.WHITE);
+        this.scrollPane.setHorizontalScrollBarPolicy(ScrollPaneLayout.HORIZONTAL_SCROLLBAR_NEVER);
         this.scrollPane.getVerticalScrollBar().setUI(new BasicScrollBarUI() {
 
             @Override
@@ -205,6 +210,7 @@ public class PackageDeliveryGUI extends JFrame implements ItemListener, ActionLi
             System.out.println("start was pressed");
         } else if (e.getActionCommand().equals("ADD PACKAGE")) {
             System.out.println("add package was pressed");
+            addPackageDialog.run();
         } else if (e.getActionCommand().equals("LIST ALL")) {
             System.out.println("list all view");
             this.currentState = Util.SCREEN_STATE.LIST_ALL;
