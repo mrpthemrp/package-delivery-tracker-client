@@ -17,6 +17,7 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 
 public class PackageDeliveryControl {
@@ -179,12 +180,6 @@ public class PackageDeliveryControl {
     public void adjustPackage(PackageBase pkg, int index, int option, boolean newDeliveryStatus) {
         if (option == REMOVE) {
             masterListOfPackages.remove(index);
-            if(upcomingPackages.contains(pkg)){
-                upcomingPackages.remove(pkg);
-            }
-            if(overduePackages.contains(pkg)){
-                overduePackages.remove(pkg);
-            }
         } else if (option == DELIVERY_STATUS) {
             pkg.setDeliveryStatus(newDeliveryStatus);
         }
@@ -196,6 +191,10 @@ public class PackageDeliveryControl {
     }
 
     public final void updateLists() {
+        //reset upcoming and overdue
+        upcomingPackages = new ArrayList<>();
+        overduePackages = new ArrayList<>();
+
         //add necessary packages to lists
         for (PackageBase tempPkg : masterListOfPackages) {
             if (!tempPkg.isDelivered()) {
@@ -209,13 +208,6 @@ public class PackageDeliveryControl {
                     }
                 }
 
-            } else {
-                if (upcomingPackages.contains(tempPkg)) {
-                    upcomingPackages.remove(tempPkg);
-                }
-                if (overduePackages.contains(tempPkg)) {
-                    overduePackages.remove(tempPkg);
-                }
             }
         }
 

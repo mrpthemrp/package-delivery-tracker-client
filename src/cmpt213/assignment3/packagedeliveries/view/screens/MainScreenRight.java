@@ -27,13 +27,8 @@ public class MainScreenRight extends JPanel {
         gbc.weightx = 550;
         gbc.weighty = 1;
 
-
-
-
-
         this.setVisible(true);
     }
-
 
     private void addPackages(ArrayList<PackageBase> list){
         for(int i = 0; i< list.size();i++ ){

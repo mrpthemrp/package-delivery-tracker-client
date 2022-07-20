@@ -42,7 +42,7 @@ public class CustomDialog extends JDialog implements ActionListener {
             System.out.println("no was pressed");
             this.isYes = false;
         }
-        dispose();
+        this.dispose();
 
     }
 
