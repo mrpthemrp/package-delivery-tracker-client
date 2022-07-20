@@ -20,6 +20,7 @@ public class PackageItem extends JPanel implements ActionListener {
     private final CustomDialog removePackageDialog;
     public final int panelItemIndex;
     public final int pkgIndex;
+    private final GridBagConstraints gbc;
 
     public PackageItem(PackageBase pkg, int packageNumber, PackageDeliveryControl control, Frame parent, int panelItemIndex) {
         this.pkg = pkg;
@@ -31,16 +32,10 @@ public class PackageItem extends JPanel implements ActionListener {
                 ("Are you sure you want to remove Package #"+packageNumber+"?"), "  Y E S  ", "   N O   ",
                 true, false);
 
-        GridBagConstraints gbcLeft = new GridBagConstraints();
-        GridBagConstraints gbcRight = new GridBagConstraints();
+        gbc = new GridBagConstraints();
 
-        gbcLeft.gridwidth = GridBagConstraints.REMAINDER;
-        gbcLeft.weightx = 1;
-        gbcLeft.fill = GridBagConstraints.HORIZONTAL;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
 
-        gbcRight.gridwidth = GridBagConstraints.REMAINDER;
-        gbcRight.weightx = 2;
-        gbcRight.fill = GridBagConstraints.HORIZONTAL;
 
         this.setBackground(Util.darkBrown);
         this.setLayout(new GridBagLayout());
@@ -57,13 +52,17 @@ public class PackageItem extends JPanel implements ActionListener {
 
         setUpComponents();
 
-        this.add(name, gbcLeft, 0);
-        this.add(notes, gbcLeft, 0);
-        this.add(price, gbcLeft, 0);
-        this.add(weight, gbcRight, 0);
-        this.add(date, gbcRight, 0);
-        this.add(removeButton, gbcLeft, 0);
-        this.add(deliveredCheckBox, gbcLeft, 0);
+        setUpContentGrid();
+    }
+
+    private void setUpContentGrid() {
+        this.add(name, gbc);
+        this.add(notes, gbc);
+        this.add(price, gbc);
+        this.add(weight, gbc);
+        this.add(date, gbc);
+        this.add(removeButton, gbc);
+        this.add(deliveredCheckBox, gbc);
     }
 
     private void setUpTextStyle(JLabel text, Color textColour, Font font, float alignment) {
