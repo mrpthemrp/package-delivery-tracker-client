@@ -33,12 +33,11 @@ public class PackageItem extends JPanel implements ActionListener {
                 true, false);
 
         gbc = new GridBagConstraints();
-        gbc.insets = new Insets((int)(Util.screenHeight*0.02),(int)(Util.screenHeight*0.02),
-                (int)(Util.screenHeight*0.02),(int)(Util.screenHeight*0.02));
+        gbc.insets = new Insets(1,1,1,1);
         gbc.fill = GridBagConstraints.HORIZONTAL;
 
 
-        this.setBackground(Util.darkBrown);
+        this.setBackground(Util.lightBrown);
         this.setLayout(new GridBagLayout());
         this.setBorder(BorderFactory.createMatteBorder(0, 0, (int) (Util.screenHeight * 0.004), 0, Util.lightTeal));
 
@@ -57,13 +56,41 @@ public class PackageItem extends JPanel implements ActionListener {
     }
 
     private void setUpContentGrid() {
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+
+        gbc.gridx = 0;
+        gbc.gridy =0;
         this.add(name, gbc);
+
+        gbc.gridx = 0;
+        gbc.gridy =1;
         this.add(notes, gbc);
-        this.add(price, gbc);
-        this.add(weight, gbc);
-        this.add(date, gbc);
-        this.add(removeButton, gbc);
+
+        gbc.gridx = 0;
+        gbc.gridy =2;
         this.add(deliveredCheckBox, gbc);
+
+        gbc.gridx = 0;
+        gbc.gridy =3;
+        this.add(removeButton, gbc);
+
+        //middle bar
+        gbc.gridx = 1;
+        gbc.gridy =0;
+        this.add(Box.createHorizontalGlue(), gbc);
+
+        //right
+        gbc.gridx = 2;
+        gbc.gridy =0;
+        this.add(date, gbc);
+
+        gbc.gridx = 2;
+        gbc.gridy =1;
+        this.add(weight, gbc);
+
+        gbc.gridx = 2;
+        gbc.gridy =2;
+        this.add(price, gbc);
     }
 
     private void setUpTextStyle(JLabel text, Color textColour, Font font, float alignment) {
