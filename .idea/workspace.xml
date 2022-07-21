@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Update image sizes" />
+    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Write PackageDeliveryGUI JavaDocs">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/userManual.txt" beforeDir="false" afterPath="$PROJECT_DIR$/docs/userManual.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/screens/MainScreenLeft.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/screens/MainScreenLeft.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/screens/MainScreenRight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/screens/MainScreenRight.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/screens/StartScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/screens/StartScreen.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -32,25 +38,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;true&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;ToolWindowBuild.ShowToolbar&quot;: &quot;false&quot;,
-    &quot;ToolWindowRun.ShowToolbar&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/debor/IdeaProjects/A-213/lib/LGoodDatePicker-11.2.1.jar&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.build&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Downloaded.Files.Path.Enabled": "true",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "ToolWindowBuild.ShowToolbar": "false",
+    "ToolWindowRun.ShowToolbar": "false",
+    "last_opened_file_path": "C:/Users/debor/IdeaProjects/A-213/lib/LGoodDatePicker-11.2.1.jar",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "fileTemplates"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="cmpt213.assignment3.packagedeliveriestracker.view.util" />
@@ -104,104 +111,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1652723361815</updated>
-    </task>
-    <task id="LOCAL-00143" summary="Confused">
-      <created>1658110901259</created>
-      <option name="number" value="00143" />
-      <option name="presentableId" value="LOCAL-00143" />
-      <option name="project" value="LOCAL" />
-      <updated>1658110901259</updated>
-    </task>
-    <task id="LOCAL-00144" summary="Split screen works!!!">
-      <created>1658118504821</created>
-      <option name="number" value="00144" />
-      <option name="presentableId" value="LOCAL-00144" />
-      <option name="project" value="LOCAL" />
-      <updated>1658118504821</updated>
-    </task>
-    <task id="LOCAL-00145" summary="Left pane works fully">
-      <created>1658120410525</created>
-      <option name="number" value="00145" />
-      <option name="presentableId" value="LOCAL-00145" />
-      <option name="project" value="LOCAL" />
-      <updated>1658120410525</updated>
-    </task>
-    <task id="LOCAL-00146" summary="Right pane coloration correct">
-      <created>1658120522424</created>
-      <option name="number" value="00146" />
-      <option name="presentableId" value="LOCAL-00146" />
-      <option name="project" value="LOCAL" />
-      <updated>1658120522424</updated>
-    </task>
-    <task id="LOCAL-00147" summary="Fixing scrollbar">
-      <created>1658121476149</created>
-      <option name="number" value="00147" />
-      <option name="presentableId" value="LOCAL-00147" />
-      <option name="project" value="LOCAL" />
-      <updated>1658121476149</updated>
-    </task>
-    <task id="LOCAL-00148" summary="Chagne jpanel to jtable">
-      <created>1658126147221</created>
-      <option name="number" value="00148" />
-      <option name="presentableId" value="LOCAL-00148" />
-      <option name="project" value="LOCAL" />
-      <updated>1658126147221</updated>
-    </task>
-    <task id="LOCAL-00149" summary="ColumnHeader is resolved">
-      <created>1658136925451</created>
-      <option name="number" value="00149" />
-      <option name="presentableId" value="LOCAL-00149" />
-      <option name="project" value="LOCAL" />
-      <updated>1658136925451</updated>
-    </task>
-    <task id="LOCAL-00150" summary="UI figured out">
-      <created>1658139608163</created>
-      <option name="number" value="00150" />
-      <option name="presentableId" value="LOCAL-00150" />
-      <option name="project" value="LOCAL" />
-      <updated>1658139608164</updated>
-    </task>
-    <task id="LOCAL-00151" summary="UI figured out">
-      <created>1658195535542</created>
-      <option name="number" value="00151" />
-      <option name="presentableId" value="LOCAL-00151" />
-      <option name="project" value="LOCAL" />
-      <updated>1658195535542</updated>
-    </task>
-    <task id="LOCAL-00152" summary="Refactor classes to proper packages">
-      <created>1658196033993</created>
-      <option name="number" value="00152" />
-      <option name="presentableId" value="LOCAL-00152" />
-      <option name="project" value="LOCAL" />
-      <updated>1658196033993</updated>
-    </task>
-    <task id="LOCAL-00153" summary="Window closing overridden">
-      <created>1658197517563</created>
-      <option name="number" value="00153" />
-      <option name="presentableId" value="LOCAL-00153" />
-      <option name="project" value="LOCAL" />
-      <updated>1658197517563</updated>
-    </task>
-    <task id="LOCAL-00154" summary="Add custom scroll bar class">
-      <created>1658197612661</created>
-      <option name="number" value="00154" />
-      <option name="presentableId" value="LOCAL-00154" />
-      <option name="project" value="LOCAL" />
-      <updated>1658197612661</updated>
-    </task>
-    <task id="LOCAL-00155" summary="Set scroll bar buttons invisible">
-      <created>1658204178371</created>
-      <option name="number" value="00155" />
-      <option name="presentableId" value="LOCAL-00155" />
-      <option name="project" value="LOCAL" />
-      <updated>1658204178371</updated>
-    </task>
-    <task id="LOCAL-00156" summary="Set scroll bar buttons invisible">
-      <created>1658204640034</created>
-      <option name="number" value="00156" />
-      <option name="presentableId" value="LOCAL-00156" />
-      <option name="project" value="LOCAL" />
-      <updated>1658204640034</updated>
     </task>
     <task id="LOCAL-00157" summary="Set scroll bar track and thumb">
       <created>1658204907293</created>
@@ -448,7 +357,105 @@
       <option name="project" value="LOCAL" />
       <updated>1658364270538</updated>
     </task>
-    <option name="localTasksCounter" value="192" />
+    <task id="LOCAL-00192" summary="ImageIcon for application implemeted">
+      <created>1658368457718</created>
+      <option name="number" value="00192" />
+      <option name="presentableId" value="LOCAL-00192" />
+      <option name="project" value="LOCAL" />
+      <updated>1658368457718</updated>
+    </task>
+    <task id="LOCAL-00193" summary="PackageItem Ui 99% done">
+      <created>1658371417168</created>
+      <option name="number" value="00193" />
+      <option name="presentableId" value="LOCAL-00193" />
+      <option name="project" value="LOCAL" />
+      <updated>1658371417183</updated>
+    </task>
+    <task id="LOCAL-00194" summary="Implement PackageItem Ui">
+      <created>1658373853746</created>
+      <option name="number" value="00194" />
+      <option name="presentableId" value="LOCAL-00194" />
+      <option name="project" value="LOCAL" />
+      <updated>1658373853746</updated>
+    </task>
+    <task id="LOCAL-00195" summary="Package UI done">
+      <created>1658380316839</created>
+      <option name="number" value="00195" />
+      <option name="presentableId" value="LOCAL-00195" />
+      <option name="project" value="LOCAL" />
+      <updated>1658380316839</updated>
+    </task>
+    <task id="LOCAL-00196" summary="Done, working on javadocs">
+      <created>1658387615547</created>
+      <option name="number" value="00196" />
+      <option name="presentableId" value="LOCAL-00196" />
+      <option name="project" value="LOCAL" />
+      <updated>1658387615547</updated>
+    </task>
+    <task id="LOCAL-00197" summary="Package item changes correctly">
+      <created>1658401313089</created>
+      <option name="number" value="00197" />
+      <option name="presentableId" value="LOCAL-00197" />
+      <option name="project" value="LOCAL" />
+      <updated>1658401313089</updated>
+    </task>
+    <task id="LOCAL-00198" summary="Tests done">
+      <created>1658404246147</created>
+      <option name="number" value="00198" />
+      <option name="presentableId" value="LOCAL-00198" />
+      <option name="project" value="LOCAL" />
+      <updated>1658404246147</updated>
+    </task>
+    <task id="LOCAL-00199" summary="Write PackageDeliveryControl JavaDocs">
+      <created>1658407133458</created>
+      <option name="number" value="00199" />
+      <option name="presentableId" value="LOCAL-00199" />
+      <option name="project" value="LOCAL" />
+      <updated>1658407133461</updated>
+    </task>
+    <task id="LOCAL-00200" summary="Write model classes JavaDocs">
+      <created>1658409408102</created>
+      <option name="number" value="00200" />
+      <option name="presentableId" value="LOCAL-00200" />
+      <option name="project" value="LOCAL" />
+      <updated>1658409408102</updated>
+    </task>
+    <task id="LOCAL-00201" summary="Write MainApp JavaDocs">
+      <created>1658409499334</created>
+      <option name="number" value="00201" />
+      <option name="presentableId" value="LOCAL-00201" />
+      <option name="project" value="LOCAL" />
+      <updated>1658409499334</updated>
+    </task>
+    <task id="LOCAL-00202" summary="Write Util, StringVerifier, DoubleVerifier JavaDocs">
+      <created>1658410817876</created>
+      <option name="number" value="00202" />
+      <option name="presentableId" value="LOCAL-00202" />
+      <option name="project" value="LOCAL" />
+      <updated>1658410817876</updated>
+    </task>
+    <task id="LOCAL-00203" summary="Write RoundButton JavaDocs">
+      <created>1658411303445</created>
+      <option name="number" value="00203" />
+      <option name="presentableId" value="LOCAL-00203" />
+      <option name="project" value="LOCAL" />
+      <updated>1658411303445</updated>
+    </task>
+    <task id="LOCAL-00204" summary="Write view class JavaDocs">
+      <created>1658414945076</created>
+      <option name="number" value="00204" />
+      <option name="presentableId" value="LOCAL-00204" />
+      <option name="project" value="LOCAL" />
+      <updated>1658414945076</updated>
+    </task>
+    <task id="LOCAL-00205" summary="Write PackageDeliveryGUI JavaDocs">
+      <created>1658415577702</created>
+      <option name="number" value="00205" />
+      <option name="presentableId" value="LOCAL-00205" />
+      <option name="project" value="LOCAL" />
+      <updated>1658415577702</updated>
+    </task>
+    <option name="localTasksCounter" value="206" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -464,20 +471,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Adjust width of scrollpane" />
-    <MESSAGE value="implementd delivery status box" />
-    <MESSAGE value="Scroll working, add buttons to listener" />
-    <MESSAGE value="Scroll UI almost done" />
-    <MESSAGE value="Implement custom dialog" />
-    <MESSAGE value="Dialogs works with buttons" />
-    <MESSAGE value="Update control class" />
-    <MESSAGE value="List views works, control implemented" />
-    <MESSAGE value="Applying control to UI" />
-    <MESSAGE value="Remove from list works, working on UI" />
-    <MESSAGE value="Remove from UI works!" />
-    <MESSAGE value="UI almost done" />
-    <MESSAGE value="Remove refreshes properly" />
-    <MESSAGE value="Packages are refereshing properly" />
     <MESSAGE value="Working on add dialog ui" />
     <MESSAGE value="Add package dialog in the works" />
     <MESSAGE value="Add LGoodDatePicker JAR" />
@@ -489,7 +482,21 @@
     <MESSAGE value="Add PackageItem insets" />
     <MESSAGE value="Implement gridbaglayout constraints to PackageItem" />
     <MESSAGE value="Continue PackageItem UI config" />
-    <option name="LAST_COMMIT_MESSAGE" value="Continue PackageItem UI config" />
+    <MESSAGE value="ImageIcon for application implemeted" />
+    <MESSAGE value="PackageItem Ui 99% done" />
+    <MESSAGE value="Implement PackageItem Ui" />
+    <MESSAGE value="Package UI done" />
+    <MESSAGE value="Done, working on javadocs" />
+    <MESSAGE value="Package item changes correctly" />
+    <MESSAGE value="Tests done" />
+    <MESSAGE value="Write PackageDeliveryControl JavaDocs" />
+    <MESSAGE value="Write model classes JavaDocs" />
+    <MESSAGE value="Write MainApp JavaDocs" />
+    <MESSAGE value="Write Util, StringVerifier, DoubleVerifier JavaDocs" />
+    <MESSAGE value="Write RoundButton JavaDocs" />
+    <MESSAGE value="Write view class JavaDocs" />
+    <MESSAGE value="Write PackageDeliveryGUI JavaDocs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Write PackageDeliveryGUI JavaDocs" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

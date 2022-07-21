@@ -19,13 +19,15 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Collections;
 
+/**
+ * This class creates a PackageDeliveryControl object which
+ * manages data for the program. This class handles data loading and saving.
+ * @author Deborah Wang
+ */
 public class PackageDeliveryControl {
 
     public final static int REMOVE = 1;
     public final static int DELIVERY_STATUS = 2;
-
-    private final PackageFactory pkgFactory;
-    private LocalDateTime currentTime;
     public final static int DATA_SAVE = 1;
     private final static int DATA_LOAD = 2;
     public static Gson gson;
@@ -33,29 +35,34 @@ public class PackageDeliveryControl {
     private static ArrayList<PackageBase> masterListOfPackages;
     private static ArrayList<PackageBase> upcomingPackages;
     private static ArrayList<PackageBase> overduePackages;
+    private final PackageFactory pkgFactory;
+    private LocalDateTime currentTime;
 
+    /**
+     * Constructs a PackageDeliveryControl Object.
+     * Initializes class fields and also loads in any data from the JSON list.
+     */
     public PackageDeliveryControl() {
-        //textmenu
 
         this.pkgFactory = new PackageFactory();
         this.currentTime = LocalDateTime.now();
 
-
-        //tracker
         masterListOfPackages = new ArrayList<>();
         upcomingPackages = new ArrayList<>();
         overduePackages = new ArrayList<>();
 
-        //code taken from email from TA Divye
-        String fs = File.separator;
         String[] pathNames = {"src", "cmpt213", "assignment3", "packagedeliveries", "gson"};
-        String path = String.join(fs, pathNames);
-        gsonFile = new File(path + fs + "list.json");
+        String path = String.join(Util.fs, pathNames);
+        gsonFile = new File(path + Util.fs + "list.json");
 
         setGsonBuilder();
         arrayData(DATA_LOAD);
     }
 
+    /**
+     * Helper method that sets up the GSON logic for this application.
+     * Registers subclasses of PackageBase into the RuntimeTypeAdapter.
+     */
     private void setGsonBuilder() {
         RuntimeTypeAdapterFactory<PackageBase> packageAdapterFactory = RuntimeTypeAdapterFactory.of(PackageBase.class, "type")
                 .registerSubtype(Book.class, "Book")
@@ -89,6 +96,10 @@ public class PackageDeliveryControl {
                 .create();
     }
 
+    /**
+     * Helper method for loading or saving application data into JSON format.
+     * @param dataMode - Determines if method will save data from or load data to JSON.
+     */
     public void arrayData(int dataMode) {
         ArrayList<PackageBase> newArray = new ArrayList<>();
 
@@ -128,40 +139,31 @@ public class PackageDeliveryControl {
         }
     }
 
-    //text menu methods
-
-    private void updateCurrentTime() {
-        this.currentTime = LocalDateTime.now();
-    }
-
-
+    /**
+     * Method that creates a new Package using the PackageFactory class.
+     * Updates lists after package creation.
+     * @param name Name of the package.
+     * @param notes Any notes for the package.
+     * @param price Price of the package.
+     * @param weight Weight of the package.
+     * @param date Expected Delivery Date of the package.
+     * @param extraField Extra field of the package, in String form already.
+     * @param type Subclass type of the package, uses PackageFactory.PackageType.
+     */
     public void createPackage(String name, String notes, double price, double weight, LocalDateTime date,
-                                     String extraField, PackageFactory.PackageType type) {
-
-        //Set extra field
-        PackageBase newPackage;
-        switch (type) {
-            case BOOK -> {
-                newPackage = pkgFactory.getInstance(type, name, notes, price, weight, date, extraField);
-                System.out.println("Book: " + name + " has been added to the list.");//change this to a dialog message
-                masterListOfPackages.add(newPackage);
-            }
-            case PERISHABLE -> {
-                newPackage = pkgFactory.getInstance(type, name, notes, price, weight, date, extraField);
-                System.out.println("Perishable: " + name + " has been added to the list.");//change this to a dialog message
-                masterListOfPackages.add(newPackage);
-            }
-            case ELECTRONIC -> {
-                newPackage = pkgFactory.getInstance(type, name, notes, price, weight, date, extraField);
-                System.out.println("Electronic: " + name + " has been added to the list."); //change this to a dialog message
-                masterListOfPackages.add(newPackage);
-
-            }
-        }
-
+                              String extraField, PackageFactory.PackageType type) {
+        PackageBase newPackage = pkgFactory.getInstance(type, name, notes, price, weight, date, extraField);
+        masterListOfPackages.add(newPackage);
         updateLists();
     }
 
+    /**
+     * Helper method for adjusting a given Package.
+     * Will either remove package or change its delivery state.
+     * @param pkg The package to be adjusted.
+     * @param option Which adjustment method is selected, based on constants from this class.
+     * @param newDeliveryStatus The new delivery status of package, false if option is to remove.
+     */
     public void adjustPackage(PackageBase pkg, int option, boolean newDeliveryStatus) {
         if (option == REMOVE) {
             masterListOfPackages.remove(pkg);
@@ -171,12 +173,21 @@ public class PackageDeliveryControl {
         updateLists();
     }
 
+    /**
+     * Helper method to update package's overdue status.
+     * @param packageDate The date to be compared against the current time.
+     * @return Returns true if package is overdue, false if not.
+     */
     private boolean isOverdue(LocalDateTime packageDate) {
         return packageDate.isBefore(currentTime);
     }
 
+    /**
+     * Helper method to update all lists; lists are also sorted after update.
+     * Current time is updated to LocalDateTime.now() here.
+     */
     public final void updateLists() {
-        updateCurrentTime();
+        this.currentTime = LocalDateTime.now();
         //reset upcoming and overdue
         ArrayList<PackageBase> tempMasterList = new ArrayList<>();
         upcomingPackages = new ArrayList<>();
@@ -206,11 +217,22 @@ public class PackageDeliveryControl {
         Collections.sort(overduePackages);
     }
 
-    public ArrayList<PackageBase> getAListOfPackages (Util.SCREEN_STATE currentState){
-        switch (currentState){
-            case LIST_ALL -> {return masterListOfPackages;}
-            case UPCOMING -> {return upcomingPackages;}
-            case OVERDUE -> {return overduePackages;}
+    /**
+     * Helper method that allows the UI to access the lists.
+     * @param currentState Current state of UI tells method which list to return.
+     * @return Returns an ArrayList based on the current state.
+     */
+    public ArrayList<PackageBase> getAListOfPackages(Util.SCREEN_STATE currentState) {
+        switch (currentState) {
+            case LIST_ALL -> {
+                return masterListOfPackages;
+            }
+            case UPCOMING -> {
+                return upcomingPackages;
+            }
+            case OVERDUE -> {
+                return overduePackages;
+            }
         }
         return null;
     }
