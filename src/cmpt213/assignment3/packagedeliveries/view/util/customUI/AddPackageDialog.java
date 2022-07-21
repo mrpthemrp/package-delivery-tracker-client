@@ -62,7 +62,7 @@ public class AddPackageDialog extends JDialog implements ActionListener, ItemLis
                 "  S T A Y  ", "  E X I T  ", false, true);
         this.setSize(new Dimension((int) (Util.screenWidth * 0.65), (int) (Util.screenHeight * 0.65)));
         this.packageType = PackageFactory.PackageType.BOOK;
-        this.errorMessage = new JLabel("Error! Required fields not filled!");
+        this.errorMessage = new JLabel("Error! Required fields not filled properly!");
         this.packageTypeSelected = false;
         this.dateIsPicked = false;
         this.extraField = new ExtraFieldUI(this, this);
