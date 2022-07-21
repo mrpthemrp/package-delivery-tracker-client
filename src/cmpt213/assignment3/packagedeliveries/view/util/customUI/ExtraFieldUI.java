@@ -13,7 +13,7 @@ import java.awt.event.FocusListener;
 import java.time.DayOfWeek;
 import java.time.LocalDateTime;
 
-public class AddDialogExtraField extends JPanel {
+public class ExtraFieldUI extends JPanel {
 
     private final JTextArea handleFee;
     private final JTextArea authorName;
@@ -24,7 +24,7 @@ public class AddDialogExtraField extends JPanel {
     private PackageFactory.PackageType type;
     public JLabel title;
 
-    public AddDialogExtraField(FocusListener fl, DateTimeChangeListener dtel) {
+    public ExtraFieldUI(FocusListener fl, DateTimeChangeListener dtel) {
         this.title = new JLabel("S E L E C T   T Y P E   F I R S T");
 
 
@@ -58,10 +58,10 @@ public class AddDialogExtraField extends JPanel {
         DatePickerSettings dateSettings = new DatePickerSettings();
         dateSettings.setAllowEmptyDates(false);
         dateSettings.setFirstDayOfWeek(DayOfWeek.SUNDAY);
-        dateSettings.setAllowKeyboardEditing(false);
+        dateSettings.setAllowKeyboardEditing(true);
         TimePickerSettings timeSettings = new TimePickerSettings();
         timeSettings.setAllowEmptyTimes(false);
-        timeSettings.setAllowKeyboardEditing(false);
+        timeSettings.setAllowKeyboardEditing(true);
 
         this.expiryDate = new DateTimePicker(dateSettings, timeSettings);
         this.expiryDate.addDateTimeChangeListener(dtel);
@@ -95,7 +95,7 @@ public class AddDialogExtraField extends JPanel {
         if (packageTypeSelected) {
             switch (type) {
                 case BOOK -> title.setText("A U T H O R    N A M E:");
-                case PERISHABLE -> title.setText("E X P I R Y    D E L I V E R Y     D A T E:");
+                case PERISHABLE -> title.setText("P R O D U C T     E X P I R Y    D A T E:");
                 case ELECTRONIC -> title.setText("E N V I R O N.  H A N D L E     F E E   ( $ C A D ):");
             }
         } else {

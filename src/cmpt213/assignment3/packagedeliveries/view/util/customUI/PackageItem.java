@@ -168,7 +168,6 @@ public class PackageItem extends JPanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("REMOVE")) {
-            System.out.println("remove button pressed");
             removePackageDialog.run(this.panelItemIndex, pkgIndex);
         } else if (e.getActionCommand().equals("DELIVERY STATUS")) {
             control.adjustPackage(pkg, PackageDeliveryControl.DELIVERY_STATUS, deliveredCheckBox.isSelected());

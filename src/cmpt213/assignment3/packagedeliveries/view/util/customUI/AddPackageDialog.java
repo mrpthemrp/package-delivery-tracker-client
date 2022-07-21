@@ -29,7 +29,7 @@ public class AddPackageDialog extends JDialog implements ActionListener, ItemLis
     private JTextArea price;
     private JTextArea weight;
     private DateTimePicker expectedDeliveryDate;
-    private final AddDialogExtraField extraField;
+    private final ExtraFieldUI extraField;
 
     private JLabel pageTitle, titleName, titleNotes, titleDate,
             titlePackageType, titleWeight, titlePrice, symbolWeight, symbolPrice;
@@ -51,7 +51,7 @@ public class AddPackageDialog extends JDialog implements ActionListener, ItemLis
         this.errorMessage = new JLabel("Error! Required fields not filled!");
         this.packageTypeSelected = false;
         this.dateIsPicked = false;
-        this.extraField = new AddDialogExtraField(this,this);
+        this.extraField = new ExtraFieldUI(this,this);
 
         this.contentPane = new JPanel();
         this.contentPane.setLayout(new GridBagLayout());
@@ -77,10 +77,10 @@ public class AddPackageDialog extends JDialog implements ActionListener, ItemLis
         DatePickerSettings dateSettings = new DatePickerSettings();
         dateSettings.setAllowEmptyDates(false);
         dateSettings.setFirstDayOfWeek(DayOfWeek.SUNDAY);
-        dateSettings.setAllowKeyboardEditing(false);
+        dateSettings.setAllowKeyboardEditing(true);
         TimePickerSettings timeSettings = new TimePickerSettings();
         timeSettings.setAllowEmptyTimes(false);
-        timeSettings.setAllowKeyboardEditing(false);
+        timeSettings.setAllowKeyboardEditing(true);
         expectedDeliveryDate = new DateTimePicker(dateSettings, timeSettings);
         setUpDate(expectedDeliveryDate);
         expectedDeliveryDate.setName("EXPECT DATE");
@@ -382,7 +382,6 @@ public class AddPackageDialog extends JDialog implements ActionListener, ItemLis
         if (e.getActionCommand().equals("COMBO BOX")) {
             if (!this.packageTypeSelected) {
                 if (choosePackageType.getSelectedItem().equals("Book")) {
-                    System.out.println("in combo box");
                     this.packageTypeSelected = true;
                     this.packageType = PackageFactory.PackageType.BOOK;
                     setComboBoxRed(false);
