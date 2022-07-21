@@ -1,8 +1,8 @@
 package cmpt213.assignment3.packagedeliveries.view;
 
 import cmpt213.assignment3.packagedeliveries.control.PackageDeliveryControl;
-import cmpt213.assignment3.packagedeliveries.view.util.customUi.AddPackageDialog;
-import cmpt213.assignment3.packagedeliveries.view.util.customUi.ColumnHeader;
+import cmpt213.assignment3.packagedeliveries.view.util.customUI.AddPackageDialog;
+import cmpt213.assignment3.packagedeliveries.view.util.customUI.ColumnHeader;
 import cmpt213.assignment3.packagedeliveries.view.screens.*;
 import cmpt213.assignment3.packagedeliveries.view.util.Util;
 import cmpt213.assignment3.packagedeliveries.view.util.Util.SCREEN_STATE;
@@ -28,11 +28,11 @@ public class PackageDeliveryGUI extends JFrame implements ActionListener {
     private final JPanel leftBar;
     private final JPanel footer;
     private final MainScreenRight screenRight;
-    private final AddPackageDialog addPackageDialog;
+    private final PackageDeliveryControl packageControl;
 
     public PackageDeliveryGUI() {
 
-        PackageDeliveryControl packageControl = new PackageDeliveryControl();
+        packageControl = new PackageDeliveryControl();
 
         //set up JFrame details
         this.setResizable(false);
@@ -54,8 +54,6 @@ public class PackageDeliveryGUI extends JFrame implements ActionListener {
         this.header = new JPanel();
         this.leftBar = new JPanel();
         this.footer = new JPanel();
-        this.addPackageDialog = new AddPackageDialog(this, "Package Delivery Tracker - Add Package",
-                "  C R E A T E  ", "  C A N C E L  ", packageControl);
 
         this.startPanel = new StartScreen(this);
         columnHeader = new ColumnHeader(this);
@@ -222,7 +220,9 @@ public class PackageDeliveryGUI extends JFrame implements ActionListener {
             switchToMain();
         }
         if (e.getActionCommand().equals("ADD PACKAGE")) {
-            addPackageDialog.run();
+            AddPackageDialog popUp =  new AddPackageDialog(this, "Package Delivery Tracker - Add Package",
+                    "  C R E A T E  ", "  C A N C E L  ", packageControl);
+            popUp.run();
         } else if (e.getActionCommand().equals("LIST ALL")) {
             currentState = Util.SCREEN_STATE.LIST_ALL;
         } else if (e.getActionCommand().equals("UPCOMING")) {

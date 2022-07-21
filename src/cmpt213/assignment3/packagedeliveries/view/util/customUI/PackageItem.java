@@ -1,4 +1,4 @@
-package cmpt213.assignment3.packagedeliveries.view.util.customUi;
+package cmpt213.assignment3.packagedeliveries.view.util.customUI;
 
 import cmpt213.assignment3.packagedeliveries.control.PackageDeliveryControl;
 import cmpt213.assignment3.packagedeliveries.model.*;
@@ -47,7 +47,7 @@ public class PackageItem extends JPanel implements ActionListener {
         this.setBorder(BorderFactory.createMatteBorder(0, 0, (int) (Util.screenHeight * 0.004), 0, Util.lightTeal));
 
         dateHeader = new JLabel("Expected Delivery Date:");
-        name = new JTextArea(pkg.getName() + packageNumber);
+        name = new JTextArea(pkg.getName());
         notes = new JTextArea("Notes: " + pkg.getNotes());
         price = new JLabel(Util.priceFormat.format(pkg.getPrice()));
         weight = new JLabel(Util.weightFormat.format(pkg.getWeight()));

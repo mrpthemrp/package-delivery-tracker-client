@@ -1,4 +1,4 @@
-package cmpt213.assignment3.packagedeliveries.view.util.customUi;
+package cmpt213.assignment3.packagedeliveries.view.util.customUI;
 
 import cmpt213.assignment3.packagedeliveries.control.PackageDeliveryControl;
 import cmpt213.assignment3.packagedeliveries.model.PackageFactory;
@@ -15,23 +15,30 @@ import java.awt.event.*;
 import java.time.DayOfWeek;
 import java.time.LocalDateTime;
 
-public class AddPackageDialog extends JDialog implements ActionListener, ItemListener, DateTimeChangeListener, FocusListener {
+public class AddPackageDialog extends JDialog implements ActionListener, ItemListener,
+        DateTimeChangeListener, FocusListener {
     private final CustomDialog exitConfirmDialog;
+    private final RoundButton yesBtn;
+    private final RoundButton noBtn;
     private JComboBox<String> choosePackageType;
     private PackageFactory.PackageType packageType;
     private String[] comboBoxTitles;
     public PackageDeliveryControl control;
-    private JTextArea name, notes, price, weight;
-    private Object extraField;
+    private JTextArea name;
+    private JTextArea notes;
+    private JTextArea price;
+    private JTextArea weight;
     private DateTimePicker expectedDeliveryDate;
+    private final AddDialogExtraField extraField;
 
     private JLabel pageTitle, titleName, titleNotes, titleDate,
-            titleExtraField, titlePackageType, titleWeight, titlePrice, symbolWeight, symbolPrice;
+            titlePackageType, titleWeight, titlePrice, symbolWeight, symbolPrice;
     private LocalDateTime finalExpectedDate;
 
     private final JPanel contentPane;
     private final GridBagConstraints gbc;
     private final JLabel errorMessage;
+    private boolean packageTypeSelected, dateIsPicked;
 
     public AddPackageDialog(Frame parent, String title, String btnYesText, String btnNoText, PackageDeliveryControl control) {
         super(parent, title, true);
@@ -42,52 +49,59 @@ public class AddPackageDialog extends JDialog implements ActionListener, ItemLis
         this.setSize(new Dimension((int) (Util.screenWidth * 0.65), (int) (Util.screenHeight * 0.65)));
         this.packageType = PackageFactory.PackageType.BOOK;
         this.errorMessage = new JLabel("Error! Required fields not filled!");
-
-
-        RoundButton yesBtn = new RoundButton(btnYesText, "YES", this, Util.lightBrown,
-                Util.darkBrown, (int) (Util.screenHeight * 0.045), Util.dialogBtnsFont);
-        RoundButton noBtn = new RoundButton(btnNoText, "NO", this, Util.midTeal,
-                Util.darkTeal, (int) (Util.screenHeight * 0.045), Util.dialogBtnsFont);
-
-        setUpJLabels();
-        setUpComboBox();
-        setUpDateTimePicker();
-        setUpTextAreas();
+        this.packageTypeSelected = false;
+        this.dateIsPicked = false;
+        this.extraField = new AddDialogExtraField(this,this);
 
         this.contentPane = new JPanel();
         this.contentPane.setLayout(new GridBagLayout());
         this.gbc = new GridBagConstraints();
         this.contentPane.setBackground(Color.WHITE);
+        yesBtn = new RoundButton(btnYesText, "YES", this, Util.lightBrown,
+                Util.darkBrown, (int) (Util.screenHeight * 0.045), Util.dialogBtnsFont);
+        noBtn = new RoundButton(btnNoText, "NO", this, Util.midTeal,
+                Util.darkTeal, (int) (Util.screenHeight * 0.045), Util.dialogBtnsFont);
 
-        setUpContentGrid(yesBtn, noBtn);
+        setUpAllJLabels();
+        setUpComboBox();
+        setUpDateTimePicker();
+        setUpTextAreas();
+
+        setUpContentGrid();
 
         this.add(contentPane);
+        packageType = null;
     }
 
     private void setUpDateTimePicker() {
         DatePickerSettings dateSettings = new DatePickerSettings();
         dateSettings.setAllowEmptyDates(false);
         dateSettings.setFirstDayOfWeek(DayOfWeek.SUNDAY);
-        dateSettings.setAllowKeyboardEditing(true);
+        dateSettings.setAllowKeyboardEditing(false);
         TimePickerSettings timeSettings = new TimePickerSettings();
         timeSettings.setAllowEmptyTimes(false);
-        timeSettings.setAllowKeyboardEditing(true);
+        timeSettings.setAllowKeyboardEditing(false);
         expectedDeliveryDate = new DateTimePicker(dateSettings, timeSettings);
-        expectedDeliveryDate.addDateTimeChangeListener(this);
-        expectedDeliveryDate.setBackground(Util.transparent);
-        expectedDeliveryDate.setForeground(Color.BLACK);
-        expectedDeliveryDate.setOpaque(true);
-        expectedDeliveryDate.getDatePicker().setBackground(Util.transparent);
-        expectedDeliveryDate.getDatePicker().getComponentToggleCalendarButton().
-                setBorder(BorderFactory.createEmptyBorder());
-        expectedDeliveryDate.getDatePicker().getComponentToggleCalendarButton().setBackground(Util.midTeal);
-        expectedDeliveryDate.getDatePicker().getComponentToggleCalendarButton().setForeground(Color.BLACK);
+        setUpDate(expectedDeliveryDate);
+        expectedDeliveryDate.setName("EXPECT DATE");
 
-        expectedDeliveryDate.getTimePicker().getComponentToggleTimeMenuButton().setBackground(Util.midTeal);
-        expectedDeliveryDate.getTimePicker().getComponentToggleTimeMenuButton().setForeground(Color.BLACK);
-        expectedDeliveryDate.getTimePicker().getComponentToggleTimeMenuButton().
-                setBorder(BorderFactory.createEmptyBorder());
+    }
 
+    private void setUpDate(DateTimePicker date) {
+        date.addDateTimeChangeListener(this);
+        date.setBackground(Util.transparent);
+        date.setForeground(Color.BLACK);
+        date.setOpaque(true);
+        date.getDatePicker().setBackground(Util.transparent);
+        date.getDatePicker().getComponentToggleCalendarButton().
+                setBorder(BorderFactory.createEmptyBorder());
+        date.getDatePicker().getComponentToggleCalendarButton().setBackground(Util.midTeal);
+        date.getDatePicker().getComponentToggleCalendarButton().setForeground(Color.BLACK);
+
+        date.getTimePicker().getComponentToggleTimeMenuButton().setBackground(Util.midTeal);
+        date.getTimePicker().getComponentToggleTimeMenuButton().setForeground(Color.BLACK);
+        date.getTimePicker().getComponentToggleTimeMenuButton().
+                setBorder(BorderFactory.createEmptyBorder());
     }
 
     private void setUpTextAreas() {
@@ -111,8 +125,6 @@ public class AddPackageDialog extends JDialog implements ActionListener, ItemLis
         weight.setName("WEIGHT");
         setUpTextArea(weight);
         weight.addFocusListener(this);
-
-        setUpExtraField();
     }
 
     private void setUpComboBox() {
@@ -122,49 +134,13 @@ public class AddPackageDialog extends JDialog implements ActionListener, ItemLis
         choosePackageType.setBackground(Util.lightTeal);
         choosePackageType.setForeground(Color.BLACK);
         choosePackageType.addItemListener(this);
+        choosePackageType.setActionCommand("COMBO BOX");
+        choosePackageType.addActionListener(this);
         choosePackageType.setSize(new Dimension((int) (this.getWidth() * 0.02), (int) (this.getHeight() * 0.5)));
         this.packageType = PackageFactory.PackageType.BOOK;
     }
 
-    private void setUpExtraField() {
-        switch (packageType) {
-            case BOOK -> {
-                extraField = new JTextArea();
-                ((JTextArea) extraField).setName("BOOK");
-                setUpTextArea(((JTextArea) extraField));
-                ((JTextArea) extraField).addFocusListener(this);
-            }
-            case PERISHABLE -> {
-                DatePickerSettings dateSettings = new DatePickerSettings();
-                dateSettings.setAllowEmptyDates(false);
-                dateSettings.setFirstDayOfWeek(DayOfWeek.SUNDAY);
-                TimePickerSettings timeSettings = new TimePickerSettings();
-                timeSettings.setAllowEmptyTimes(false);
-                extraField = new DateTimePicker(dateSettings, timeSettings);
-                ((DateTimePicker) extraField).setName("PERISHABLE");
-                ((DateTimePicker) extraField).addDateTimeChangeListener(this);
-            }
-            case ELECTRONIC -> {
-                extraField = new JTextArea();
-                ((JTextArea) extraField).setName("ELECTRONIC");
-                setUpTextArea(((JTextArea) extraField));
-                ((JTextArea) extraField).addFocusListener(this);
-            }
-        }
-    }
-
-    private void setUpExtraFieldTitle() {
-        switch (packageType) {
-            case BOOK -> titleExtraField = new JLabel("A U T H O R    N A M E:");
-            case PERISHABLE -> titleExtraField = new JLabel("E X P I R Y    D E L I V E R Y     D A T E:");
-            case ELECTRONIC -> titleExtraField = new JLabel("E N V I R O N M E N T A L     H A N D L E     F E E:");
-        }
-
-        setUpJLabel(titleExtraField);
-    }
-
-
-    private void setUpJLabels() {
+    private void setUpAllJLabels() {
         pageTitle = new JLabel("A D D    P A C K A G E");
         setUpJLabel(pageTitle);
         pageTitle.setFont(Util.addTitleFont);
@@ -186,12 +162,10 @@ public class AddPackageDialog extends JDialog implements ActionListener, ItemLis
         symbolPrice = new JLabel("$");
         setUpJLabel(symbolPrice);
         symbolPrice.setFont(Util.sortTitleFont);
-
-        setUpExtraFieldTitle();
     }
 
 
-    private void setUpContentGrid(RoundButton yesBtn, RoundButton noBtn) {
+    private void setUpContentGrid() {
         //Left of Screen
         this.gbc.insets = new Insets((int) (Util.screenWidth * 0.002), (int) (Util.screenWidth * 0.002),
                 (int) (Util.screenWidth * 0.002), (int) (Util.screenWidth * 0.002));
@@ -208,7 +182,7 @@ public class AddPackageDialog extends JDialog implements ActionListener, ItemLis
                 (int) (Util.screenWidth * 0.1));
         this.contentPane.add(yesBtn, this.gbc);
         this.gbc.insets = new Insets((int) (Util.screenWidth * 0.002), (int) (Util.screenWidth * 0.012),
-                (int) (Util.screenWidth * 0.002), 0);
+                (int) (Util.screenWidth * 0.002),0);
         this.gbc.anchor = GridBagConstraints.EAST;
         this.contentPane.add(noBtn, this.gbc);
 
@@ -249,12 +223,12 @@ public class AddPackageDialog extends JDialog implements ActionListener, ItemLis
         this.gbc.insets = new Insets((int) (Util.screenWidth * 0.01), (int) (Util.screenWidth * 0.04), (int) (Util.screenWidth * 0.002), 0);
         this.gbc.gridx = 1;
         this.gbc.gridy = 7;
-        this.contentPane.add(titleExtraField, this.gbc);
+        this.contentPane.add(this.extraField.getTitle(), this.gbc);
 
         this.gbc.insets = new Insets(0, (int) (Util.screenWidth * 0.04), (int) (Util.screenWidth * 0.002), 0);
         this.gbc.gridx = 1;
         this.gbc.gridy = 8;
-        this.contentPane.add(((JTextArea) extraField), this.gbc);
+        this.contentPane.add(this.extraField, this.gbc);
 
         this.gbc.insets = new Insets((int) (Util.screenWidth * 0.01), (int) (Util.screenWidth * 0.04), (int) (Util.screenWidth * 0.002), 0);
         this.gbc.gridx = 1;
@@ -266,7 +240,7 @@ public class AddPackageDialog extends JDialog implements ActionListener, ItemLis
         this.gbc.gridwidth = 4;
         this.gbc.gridx = 1;
         this.gbc.gridy = 11;
-        this.contentPane.add(notes, this.gbc);
+        this.contentPane.add(notes, this.gbc, 0);
         this.gbc.ipady = 0;
         this.gbc.gridwidth = GridBagConstraints.RELATIVE;
 
@@ -308,7 +282,6 @@ public class AddPackageDialog extends JDialog implements ActionListener, ItemLis
 
         this.gbc.insets = new Insets(0, (int) (Util.screenWidth * 0.03), (int) (Util.screenWidth * 0.002), 0);
         this.contentPane.add(price, this.gbc);
-
     }
 
     private void setUpJLabel(JLabel label) {
@@ -324,40 +297,8 @@ public class AddPackageDialog extends JDialog implements ActionListener, ItemLis
                 (int) (Util.screenWidth * 0.0009), (int) (Util.screenWidth * 0.0009), Color.BLACK));
     }
 
-    private void initializeFinalValues() {
-        String finalExtraField = "";
-        switch (packageType) {
-            case BOOK, ELECTRONIC -> finalExtraField = ((JTextArea) extraField).getText();
-            case PERISHABLE -> finalExtraField = (((DateTimePicker) extraField).getDateTimePermissive().toString());
-        }
-
-        control.createPackage(this.name.getText(), this.notes.getText(), Double.parseDouble(this.price.getText()),
-                Double.parseDouble(this.weight.getText()), this.finalExpectedDate, finalExtraField, this.packageType);
-    }
-
     public final void run() {
         this.setVisible(true);
-    }
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        repaint();
-        if (e.getActionCommand().equals("YES")) {
-            if (fieldsAreFilled()) {
-                initializeFinalValues();
-                repaint();
-                dispose();
-            } else {
-                showErrorMessage(true);
-            }
-        } else if (e.getActionCommand().equals("NO")) {
-            exitConfirmDialog.run(-1, -1);
-            if (exitConfirmDialog.dispose) {
-                dispose();
-            }
-        }
-
-        repaint();
     }
 
     private void showErrorMessage(boolean isVisible) {
@@ -369,9 +310,11 @@ public class AddPackageDialog extends JDialog implements ActionListener, ItemLis
         setRequiredFieldRed(Util.doubleVerifier, price);
         setRequiredFieldRed(Util.doubleVerifier, weight);
 
-        switch (this.packageType) {
-            case BOOK -> setRequiredFieldRed(Util.stringVerifier, (JComponent) extraField);
-            case ELECTRONIC -> setRequiredFieldRed(Util.doubleVerifier, (JComponent) extraField);
+        if (!this.packageTypeSelected) {
+            setComboBoxRed(true);
+        } else {
+            setComboBoxRed(false);
+            this.extraField.setRed();
         }
     }
 
@@ -385,6 +328,14 @@ public class AddPackageDialog extends JDialog implements ActionListener, ItemLis
         }
     }
 
+    private void setComboBoxRed(boolean isNotSet) {
+        if (isNotSet) {
+            choosePackageType.setBackground(Color.RED);
+        } else {
+            choosePackageType.setBackground(Util.lightTeal);
+        }
+    }
+
     private boolean fieldsAreFilled() {
         return !name.getText().isBlank()
                 && !name.getText().isEmpty()
@@ -393,7 +344,42 @@ public class AddPackageDialog extends JDialog implements ActionListener, ItemLis
                 && !weight.getText().isEmpty()
                 && !weight.getText().isBlank()
                 && finalExpectedDate != null
-                && extraField != null;
+                && !this.packageTypeSelected;
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getActionCommand().equals("YES")) {
+            if (fieldsAreFilled()) {
+                control.createPackage(this.name.getText(), this.notes.getText(), Double.parseDouble(this.price.getText()),
+                        Double.parseDouble(this.weight.getText()), this.finalExpectedDate, this.extraField.getField(), this.packageType);
+                dispose();
+            } else {
+                showErrorMessage(true);
+            }
+        } else if (e.getActionCommand().equals("NO")) {
+            exitConfirmDialog.run(-1, -1);
+            if (exitConfirmDialog.dispose) {
+                dispose();
+            }
+        }
+
+        if (e.getActionCommand().equals("COMBO BOX")) {
+            if (!this.packageTypeSelected) {
+                if (choosePackageType.getSelectedItem().equals("Book")) {
+                    System.out.println("in combo box");
+                    this.packageTypeSelected = true;
+                    this.packageType = PackageFactory.PackageType.BOOK;
+                    setComboBoxRed(false);
+                    this.extraField.changeType(packageType,true);
+                } else {
+                    this.packageTypeSelected = false;
+                    setComboBoxRed(true);
+                }
+            }
+        }
+
+        contentPane.repaint();
     }
 
     @Override
@@ -403,27 +389,49 @@ public class AddPackageDialog extends JDialog implements ActionListener, ItemLis
             if (source instanceof JComboBox comboBox) {
                 Object selectedItem = comboBox.getSelectedItem();
                 if (selectedItem.equals(this.comboBoxTitles[0])) {
+                    this.packageTypeSelected = true;
                     this.packageType = PackageFactory.PackageType.BOOK;
-                    setUpExtraFieldTitle();
-                    setUpExtraField();
+                    setComboBoxRed(false);
+                    this.extraField.changeType(packageType,true);
                 } else if (selectedItem.equals(this.comboBoxTitles[1])) {
+                    this.packageTypeSelected = true;
                     this.packageType = PackageFactory.PackageType.PERISHABLE;
-                    setUpExtraFieldTitle();
-                    setUpExtraField();
+                    setComboBoxRed(false);
+                    this.extraField.changeType(packageType,true);
                 } else if (selectedItem.equals(this.comboBoxTitles[2])) {
+                    this.packageTypeSelected = true;
                     this.packageType = PackageFactory.PackageType.ELECTRONIC;
-                    setUpExtraFieldTitle();
-                    setUpExtraField();
+                    setComboBoxRed(false);
+                    this.extraField.changeType(packageType,true);
                 }
             }
         }
-
         repaint();
     }
 
     @Override
     public void dateOrTimeChanged(DateTimeChangeEvent dateTimeChangeEvent) {
-        this.finalExpectedDate = dateTimeChangeEvent.getNewDateTimePermissive();
+
+        if (dateTimeChangeEvent.getSource().getName().equals("EXPECT DATE")) {
+            this.finalExpectedDate = dateTimeChangeEvent.getNewDateTimePermissive();
+            System.out.println("expecte date");
+            if (this.finalExpectedDate == null) {
+                setDateRed(expectedDeliveryDate);
+            }
+        } else if (dateTimeChangeEvent.getSource().getName().equals("PERISHABLE")) {
+            System.out.println("PERISHLA");
+            extraField.setDate(dateTimeChangeEvent.getNewDateTimePermissive());
+        }
+    }
+
+    private void setDateRed(DateTimePicker picker) {
+        if (!dateIsPicked) {
+            picker.getDatePicker().getComponentToggleCalendarButton().setBackground(Color.RED);
+            picker.getTimePicker().getComponentToggleTimeMenuButton().setBackground(Color.RED);
+        } else {
+            picker.getDatePicker().getComponentToggleCalendarButton().setBackground(Util.lightTeal);
+            picker.getTimePicker().getComponentToggleTimeMenuButton().setBackground(Util.lightTeal);
+        }
     }
 
     @Override
@@ -447,7 +455,13 @@ public class AddPackageDialog extends JDialog implements ActionListener, ItemLis
 
         Graphics2D g2 = (Graphics2D) g;
         g2.setColor(Util.darkBrown);
-        g2.fillRoundRect((int) (this.getWidth() * 0.415), (int) (this.getHeight() * 0.15),
-                (int) (this.getWidth() * 0.005), (int) (this.getHeight() * 0.75), 3, 3);
+        if(packageType == PackageFactory.PackageType.ELECTRONIC){
+            g2.fillRoundRect((int) (this.getWidth() * 0.39), (int) (this.getHeight() * 0.15),
+                    (int) (this.getWidth() * 0.005), (int) (this.getHeight() * 0.75), 3, 3);
+        } else{
+            g2.fillRoundRect((int) (this.getWidth() * 0.41), (int) (this.getHeight() * 0.15),
+                    (int) (this.getWidth() * 0.005), (int) (this.getHeight() * 0.75), 3, 3);
+        }
     }
+
 }

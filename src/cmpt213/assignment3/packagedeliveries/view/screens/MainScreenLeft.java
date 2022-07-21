@@ -1,6 +1,6 @@
 package cmpt213.assignment3.packagedeliveries.view.screens;
 
-import cmpt213.assignment3.packagedeliveries.view.util.customUi.RoundButton;
+import cmpt213.assignment3.packagedeliveries.view.util.customUI.RoundButton;
 import cmpt213.assignment3.packagedeliveries.view.util.Util;
 
 import javax.swing.*;

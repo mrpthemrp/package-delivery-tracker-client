@@ -1,9 +1,8 @@
-package cmpt213.assignment3.packagedeliveries.view.util.customUi;
+package cmpt213.assignment3.packagedeliveries.view.util.customUI;
 
 import cmpt213.assignment3.packagedeliveries.view.util.Util;
 
 import javax.swing.*;
-import javax.swing.border.MatteBorder;
 import java.awt.*;
 import java.awt.event.*;
 

@@ -3,7 +3,7 @@ package cmpt213.assignment3.packagedeliveries.view.screens;
 import cmpt213.assignment3.packagedeliveries.control.PackageDeliveryControl;
 import cmpt213.assignment3.packagedeliveries.model.PackageBase;
 import cmpt213.assignment3.packagedeliveries.view.util.Util;
-import cmpt213.assignment3.packagedeliveries.view.util.customUi.PackageItem;
+import cmpt213.assignment3.packagedeliveries.view.util.customUI.PackageItem;
 
 import javax.swing.*;
 import java.awt.*;
