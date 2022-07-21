@@ -12,8 +12,8 @@ import java.awt.event.ActionListener;
 
 public class PackageItem extends JPanel implements ActionListener {
     private final PackageBase pkg;
-    private final JLabel name;
-    private final JLabel notes;
+    private final JTextArea name;
+    private final JTextArea notes;
     private final JLabel price;
     private final JLabel weight;
     private final JLabel date;
@@ -47,8 +47,8 @@ public class PackageItem extends JPanel implements ActionListener {
         this.setBorder(BorderFactory.createMatteBorder(0, 0, (int) (Util.screenHeight * 0.004), 0, Util.lightTeal));
 
         dateHeader = new JLabel("Expected Delivery Date:");
-        name = new JLabel(pkg.getName() + packageNumber);
-        notes = new JLabel("Notes: " + pkg.getNotes());
+        name = new JTextArea(pkg.getName() + packageNumber);
+        notes = new JTextArea("Notes: " + pkg.getNotes());
         price = new JLabel(Util.priceFormat.format(pkg.getPrice()));
         weight = new JLabel(Util.weightFormat.format(pkg.getWeight()));
         date = new JLabel(pkg.getExpectedDeliveryDate().format(Util.packageDateFormat).toUpperCase());
@@ -63,7 +63,9 @@ public class PackageItem extends JPanel implements ActionListener {
     private void setUpComponents(int packageNumber) {
 
         setUpTextStyle(name, Color.BLACK, Util.subTitleFont, LEFT_ALIGNMENT);
+        name.setLineWrap(true);
         setUpTextStyle(notes, Color.BLACK, Util.bodyFont, LEFT_ALIGNMENT);
+        notes.setLineWrap(true);
         setUpTextStyle(price, new Color(123, 56, 30), Util.sortTitleFont, RIGHT_ALIGNMENT);
         setUpTextStyle(weight, Color.GRAY, Util.sortBtnsFont, RIGHT_ALIGNMENT);
         setUpTextStyle(date, Color.BLACK, Util.pkgDateFont, RIGHT_ALIGNMENT);
@@ -120,10 +122,6 @@ public class PackageItem extends JPanel implements ActionListener {
         gbc.gridy = 4;
         this.add(deliveredCheckBox, gbc);
 
-        gbc.gridx = 0;
-        gbc.gridy = 4;
-        this.add(removeButton, gbc);
-
         //Middle Divider
         gbc.gridx = 2;
         gbc.gridy = 0;
@@ -150,15 +148,18 @@ public class PackageItem extends JPanel implements ActionListener {
         gbc.gridy = 3;
         this.add(weight, gbc);
 
+        gbc.gridx = 3;
+        gbc.gridy = 4;
+        this.add(removeButton, gbc);
+
     }
 
-    private void setUpTextStyle(JLabel text, Color textColour, Font font, float alignment) {
+    private void setUpTextStyle(JComponent text, Color textColour, Font font, float alignment) {
         text.setFont(font);
         text.setForeground(textColour);
-        text.setBackground(Util.transparent);
+        text.setBackground(Color.WHITE);
         text.setAlignmentX(alignment);
     }
-
 
     @Override
     public void actionPerformed(ActionEvent e) {

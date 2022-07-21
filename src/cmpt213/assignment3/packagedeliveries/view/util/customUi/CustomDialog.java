@@ -54,14 +54,12 @@ public class CustomDialog extends JDialog implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("YES")) {
-            System.out.println("yes was pressed");
             if(isRemove){
                 MainScreenRight.updatePackages(this.panelItemIndex, this.pkgIndex);
             } else {
                 dispose = false;
             }
         } else if (e.getActionCommand().equals("NO")) {
-            System.out.println("no was pressed");
             dispose = true;
         }
         dispose();

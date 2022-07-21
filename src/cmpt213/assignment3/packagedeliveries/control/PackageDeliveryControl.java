@@ -143,17 +143,14 @@ public class PackageDeliveryControl {
         switch (type) {
             case BOOK -> {
                 newPackage = pkgFactory.getInstance(type, name, notes, price, weight, date, extraField);
-                System.out.println("Book: " + name + " has been added to the list.");//change this to a dialog message
                 masterListOfPackages.add(newPackage);
             }
             case PERISHABLE -> {
                 newPackage = pkgFactory.getInstance(type, name, notes, price, weight, date, extraField);
-                System.out.println("Perishable: " + name + " has been added to the list.");//change this to a dialog message
                 masterListOfPackages.add(newPackage);
             }
             case ELECTRONIC -> {
                 newPackage = pkgFactory.getInstance(type, name, notes, price, weight, date, extraField);
-                System.out.println("Electronic: " + name + " has been added to the list."); //change this to a dialog message
                 masterListOfPackages.add(newPackage);
 
             }

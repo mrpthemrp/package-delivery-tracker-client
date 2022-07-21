@@ -14,7 +14,7 @@ import java.util.ArrayList;
 // https://stackoverflow.com/questions/14615888/list-of-jpanels-that-eventually-uses-a-scrollbar
 
 public class MainScreenRight extends JPanel {
-    private GridBagConstraints gbc;
+    private final GridBagConstraints gbc;
     private static PackageDeliveryControl control = null;
     private final Frame parent;
     private final JLabel noItemsMessage;

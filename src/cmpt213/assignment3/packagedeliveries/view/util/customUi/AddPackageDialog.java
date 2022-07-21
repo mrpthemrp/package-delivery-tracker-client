@@ -10,7 +10,6 @@ import com.github.lgooddatepicker.optionalusertools.DateTimeChangeListener;
 import com.github.lgooddatepicker.zinternaltools.DateTimeChangeEvent;
 
 import javax.swing.*;
-import javax.swing.border.BevelBorder;
 import java.awt.*;
 import java.awt.event.*;
 import java.time.DayOfWeek;
@@ -25,24 +24,14 @@ public class AddPackageDialog extends JDialog implements ActionListener, ItemLis
     private JTextArea name, notes, price, weight;
     private Object extraField;
     private DateTimePicker expectedDeliveryDate;
-    private String finalName, finalNotes, finalExtraField;
 
-    //TODO figure out line blank bug
-    @Override
-    public void paint(Graphics g) {
-        super.paint(g);
-
-        Graphics2D g2 = (Graphics2D) g;
-        g2.setColor(Util.darkBrown);
-        g2.fillRoundRect((int) (this.getWidth() * 0.415), (int) (this.getHeight() * 0.15),
-                (int) (this.getWidth() * 0.005), (int) (this.getHeight() * 0.75), 3, 3);
-
-    }
-
-    private double finalPrice, finalWeight;
     private JLabel pageTitle, titleName, titleNotes, titleDate,
             titleExtraField, titlePackageType, titleWeight, titlePrice, symbolWeight, symbolPrice;
     private LocalDateTime finalExpectedDate;
+
+    private final JPanel contentPane;
+    private final GridBagConstraints gbc;
+    private final JLabel errorMessage;
 
     public AddPackageDialog(Frame parent, String title, String btnYesText, String btnNoText, PackageDeliveryControl control) {
         super(parent, title, true);
@@ -52,48 +41,53 @@ public class AddPackageDialog extends JDialog implements ActionListener, ItemLis
                 "  S T A Y  ", "  E X I T  ", false, true);
         this.setSize(new Dimension((int) (Util.screenWidth * 0.65), (int) (Util.screenHeight * 0.65)));
         this.packageType = PackageFactory.PackageType.BOOK;
+        this.errorMessage = new JLabel("Error! Required fields not filled!");
 
-        setUpJLabels();
-        JPanel buttonPane = new JPanel();
-        setUpButtonPane(btnYesText, btnNoText, buttonPane);
-        setUpComboBox();
-        setUpDateTimePicker();
-        setUpTextAreas();
 
-        JPanel contentPane = new JPanel();
-        contentPane.setLayout(new GridBagLayout());
-        GridBagConstraints gbc = new GridBagConstraints();
-        contentPane.setBackground(Color.WHITE);
-
-        setUpContentGrid(buttonPane, gbc, contentPane);
-
-        this.add(contentPane);
-    }
-
-    private void setUpButtonPane(String btnYesText, String btnNoText, JPanel buttonPane) {
-        buttonPane.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-
-        //TODO fix this!!
-        buttonPane.setLayout(new GridLayout(1, 2, (int) (Util.screenHeight * 0.03), 0));
-        buttonPane.getInsets().set((int) (Util.screenHeight * 0.03), 0, 0, (int) (Util.screenHeight * 0.03));
         RoundButton yesBtn = new RoundButton(btnYesText, "YES", this, Util.lightBrown,
                 Util.darkBrown, (int) (Util.screenHeight * 0.045), Util.dialogBtnsFont);
         RoundButton noBtn = new RoundButton(btnNoText, "NO", this, Util.midTeal,
                 Util.darkTeal, (int) (Util.screenHeight * 0.045), Util.dialogBtnsFont);
 
-        buttonPane.setBackground(Color.WHITE);
-        buttonPane.add(yesBtn);
-        buttonPane.add(noBtn);
+        setUpJLabels();
+        setUpComboBox();
+        setUpDateTimePicker();
+        setUpTextAreas();
+
+        this.contentPane = new JPanel();
+        this.contentPane.setLayout(new GridBagLayout());
+        this.gbc = new GridBagConstraints();
+        this.contentPane.setBackground(Color.WHITE);
+
+        setUpContentGrid(yesBtn, noBtn);
+
+        this.add(contentPane);
     }
 
     private void setUpDateTimePicker() {
         DatePickerSettings dateSettings = new DatePickerSettings();
         dateSettings.setAllowEmptyDates(false);
         dateSettings.setFirstDayOfWeek(DayOfWeek.SUNDAY);
+        dateSettings.setAllowKeyboardEditing(true);
         TimePickerSettings timeSettings = new TimePickerSettings();
         timeSettings.setAllowEmptyTimes(false);
+        timeSettings.setAllowKeyboardEditing(true);
         expectedDeliveryDate = new DateTimePicker(dateSettings, timeSettings);
         expectedDeliveryDate.addDateTimeChangeListener(this);
+        expectedDeliveryDate.setBackground(Util.transparent);
+        expectedDeliveryDate.setForeground(Color.BLACK);
+        expectedDeliveryDate.setOpaque(true);
+        expectedDeliveryDate.getDatePicker().setBackground(Util.transparent);
+        expectedDeliveryDate.getDatePicker().getComponentToggleCalendarButton().
+                setBorder(BorderFactory.createEmptyBorder());
+        expectedDeliveryDate.getDatePicker().getComponentToggleCalendarButton().setBackground(Util.midTeal);
+        expectedDeliveryDate.getDatePicker().getComponentToggleCalendarButton().setForeground(Color.BLACK);
+
+        expectedDeliveryDate.getTimePicker().getComponentToggleTimeMenuButton().setBackground(Util.midTeal);
+        expectedDeliveryDate.getTimePicker().getComponentToggleTimeMenuButton().setForeground(Color.BLACK);
+        expectedDeliveryDate.getTimePicker().getComponentToggleTimeMenuButton().
+                setBorder(BorderFactory.createEmptyBorder());
+
     }
 
     private void setUpTextAreas() {
@@ -125,6 +119,8 @@ public class AddPackageDialog extends JDialog implements ActionListener, ItemLis
         comboBoxTitles = new String[]{"Book", "Perishable", "Electronic"};
         choosePackageType = new JComboBox<>(comboBoxTitles);
         choosePackageType.setEditable(false);
+        choosePackageType.setBackground(Util.lightTeal);
+        choosePackageType.setForeground(Color.BLACK);
         choosePackageType.addItemListener(this);
         choosePackageType.setSize(new Dimension((int) (this.getWidth() * 0.02), (int) (this.getHeight() * 0.5)));
         this.packageType = PackageFactory.PackageType.BOOK;
@@ -132,9 +128,9 @@ public class AddPackageDialog extends JDialog implements ActionListener, ItemLis
 
     private void setUpExtraField() {
         switch (packageType) {
-            case BOOK, ELECTRONIC -> {
+            case BOOK -> {
                 extraField = new JTextArea();
-                ((JTextArea) extraField).setName("EXTRA FIELD");
+                ((JTextArea) extraField).setName("BOOK");
                 setUpTextArea(((JTextArea) extraField));
                 ((JTextArea) extraField).addFocusListener(this);
             }
@@ -145,8 +141,14 @@ public class AddPackageDialog extends JDialog implements ActionListener, ItemLis
                 TimePickerSettings timeSettings = new TimePickerSettings();
                 timeSettings.setAllowEmptyTimes(false);
                 extraField = new DateTimePicker(dateSettings, timeSettings);
-                ((DateTimePicker) extraField).setName("EXTRA FIELD");
+                ((DateTimePicker) extraField).setName("PERISHABLE");
                 ((DateTimePicker) extraField).addDateTimeChangeListener(this);
+            }
+            case ELECTRONIC -> {
+                extraField = new JTextArea();
+                ((JTextArea) extraField).setName("ELECTRONIC");
+                setUpTextArea(((JTextArea) extraField));
+                ((JTextArea) extraField).addFocusListener(this);
             }
         }
     }
@@ -154,11 +156,8 @@ public class AddPackageDialog extends JDialog implements ActionListener, ItemLis
     private void setUpExtraFieldTitle() {
         switch (packageType) {
             case BOOK -> titleExtraField = new JLabel("A U T H O R    N A M E:");
-
             case PERISHABLE -> titleExtraField = new JLabel("E X P I R Y    D E L I V E R Y     D A T E:");
-
             case ELECTRONIC -> titleExtraField = new JLabel("E N V I R O N M E N T A L     H A N D L E     F E E:");
-
         }
 
         setUpJLabel(titleExtraField);
@@ -192,114 +191,123 @@ public class AddPackageDialog extends JDialog implements ActionListener, ItemLis
     }
 
 
-    private void setUpContentGrid(JPanel buttonPane, GridBagConstraints gbc, JPanel contentPane) {
+    private void setUpContentGrid(RoundButton yesBtn, RoundButton noBtn) {
         //Left of Screen
-        gbc.insets = new Insets((int) (Util.screenWidth * 0.002), (int) (Util.screenWidth * 0.002),
+        this.gbc.insets = new Insets((int) (Util.screenWidth * 0.002), (int) (Util.screenWidth * 0.002),
                 (int) (Util.screenWidth * 0.002), (int) (Util.screenWidth * 0.002));
-        gbc.fill = 0;
-        gbc.anchor = GridBagConstraints.EAST;
-        gbc.gridx = 0;
-        gbc.gridy = 4;
-        contentPane.add(pageTitle, gbc);
+        this.gbc.fill = 0;
+        this.gbc.anchor = GridBagConstraints.EAST;
+        this.gbc.gridx = 0;
+        this.gbc.gridy = 6;
+        this.contentPane.add(pageTitle, this.gbc);
 
-        gbc.gridx = 0;
-        gbc.gridy = 7;
-        contentPane.add(buttonPane, gbc);
+        this.gbc.gridx = 0;
+        this.gbc.gridy = 8;
+        this.gbc.anchor = GridBagConstraints.WEST;
+        this.gbc.insets = new Insets((int) (Util.screenWidth * 0.002), 0, (int) (Util.screenWidth * 0.002),
+                (int) (Util.screenWidth * 0.1));
+        this.contentPane.add(yesBtn, this.gbc);
+        this.gbc.insets = new Insets((int) (Util.screenWidth * 0.002), (int) (Util.screenWidth * 0.012),
+                (int) (Util.screenWidth * 0.002), 0);
+        this.gbc.anchor = GridBagConstraints.EAST;
+        this.contentPane.add(noBtn, this.gbc);
 
-        //Middle - Screen Divider
-        gbc.fill = GridBagConstraints.HORIZONTAL;
-        gbc.anchor = GridBagConstraints.WEST;
-        gbc.gridx = 1;
-        gbc.gridy = 0;
-        contentPane.add(Box.createRigidArea(new Dimension((int) (this.getWidth() * 0.05), 0)), gbc);
+        this.gbc.insets = new Insets((int) (Util.screenWidth * 0.02), (int) (Util.screenWidth * 0.012), 0, 0);
+        this.gbc.gridx = 0;
+        this.gbc.gridy = 10;
+        this.contentPane.add(errorMessage, gbc);
+        showErrorMessage(false);
+
+        this.gbc.gridx = 1;
+        this.gbc.gridy = 0;
+        this.contentPane.add(Box.createHorizontalGlue(), this.gbc);
 
         //Right of Screen
         //Right Screen - left side
-        gbc.insets = new Insets((int) (Util.screenWidth * 0.01), (int) (Util.screenWidth * 0.04), (int) (Util.screenWidth * 0.002), 0);
-        gbc.gridx = 1;
-        gbc.gridy = 1;
-        contentPane.add(titleName, gbc);
+        this.gbc.fill = GridBagConstraints.HORIZONTAL;
+        this.gbc.anchor = GridBagConstraints.WEST;
+        this.gbc.insets = new Insets((int) (Util.screenWidth * 0.01), (int) (Util.screenWidth * 0.04), (int) (Util.screenWidth * 0.002), 0);
+        this.gbc.gridx = 1;
+        this.gbc.gridy = 1;
+        this.contentPane.add(titleName, this.gbc);
 
-        gbc.insets = new Insets(0, (int) (Util.screenWidth * 0.04), (int) (Util.screenWidth * 0.002), 0);
-        gbc.gridx = 1;
-        gbc.gridy = 2;
-        contentPane.add(name, gbc);
+        this.gbc.insets = new Insets(0, (int) (Util.screenWidth * 0.04), (int) (Util.screenWidth * 0.002), 0);
+        this.gbc.gridx = 1;
+        this.gbc.gridy = 2;
+        this.contentPane.add(name, this.gbc);
 
-        gbc.insets = new Insets((int) (Util.screenWidth * 0.01), (int) (Util.screenWidth * 0.04), (int) (Util.screenWidth * 0.002), 0);
-        gbc.gridx = 1;
-        gbc.gridy = 4;
-        contentPane.add(titleDate, gbc);
+        this.gbc.insets = new Insets((int) (Util.screenWidth * 0.01), (int) (Util.screenWidth * 0.04), (int) (Util.screenWidth * 0.002), 0);
+        this.gbc.gridx = 1;
+        this.gbc.gridy = 4;
+        this.contentPane.add(titleDate, this.gbc);
 
-        gbc.insets = new Insets(0, (int) (Util.screenWidth * 0.04), (int) (Util.screenWidth * 0.002), 0);
-        gbc.gridx = 1;
-        gbc.gridy = 5;
-        contentPane.add(expectedDeliveryDate, gbc);
+        this.gbc.insets = new Insets(0, (int) (Util.screenWidth * 0.04), (int) (Util.screenWidth * 0.002), 0);
+        this.gbc.gridx = 1;
+        this.gbc.gridy = 5;
+        this.contentPane.add(expectedDeliveryDate, this.gbc);
 
-        gbc.insets = new Insets((int) (Util.screenWidth * 0.01), (int) (Util.screenWidth * 0.04), (int) (Util.screenWidth * 0.002), 0);
-        gbc.gridx = 1;
-        gbc.gridy = 7;
-        contentPane.add(titleExtraField, gbc);
+        this.gbc.insets = new Insets((int) (Util.screenWidth * 0.01), (int) (Util.screenWidth * 0.04), (int) (Util.screenWidth * 0.002), 0);
+        this.gbc.gridx = 1;
+        this.gbc.gridy = 7;
+        this.contentPane.add(titleExtraField, this.gbc);
 
-        gbc.insets = new Insets(0, (int) (Util.screenWidth * 0.04), (int) (Util.screenWidth * 0.002), 0);
-        gbc.gridx = 1;
-        gbc.gridy = 8;
-        contentPane.add(((JTextArea) extraField), gbc);
+        this.gbc.insets = new Insets(0, (int) (Util.screenWidth * 0.04), (int) (Util.screenWidth * 0.002), 0);
+        this.gbc.gridx = 1;
+        this.gbc.gridy = 8;
+        this.contentPane.add(((JTextArea) extraField), this.gbc);
 
-        gbc.insets = new Insets((int) (Util.screenWidth * 0.01), (int) (Util.screenWidth * 0.04), (int) (Util.screenWidth * 0.002), 0);
-        gbc.gridx = 1;
-        gbc.gridy = 10;
-        contentPane.add(titleNotes, gbc);
+        this.gbc.insets = new Insets((int) (Util.screenWidth * 0.01), (int) (Util.screenWidth * 0.04), (int) (Util.screenWidth * 0.002), 0);
+        this.gbc.gridx = 1;
+        this.gbc.gridy = 10;
+        this.contentPane.add(titleNotes, this.gbc);
 
-        gbc.insets = new Insets(0, (int) (Util.screenWidth * 0.04), (int) (Util.screenWidth * 0.002), 0);
-        gbc.ipady = (int) (Util.screenWidth * 0.075);
-        gbc.gridwidth = 4;
-        gbc.gridx = 1;
-        gbc.gridy = 11;
-        contentPane.add(notes, gbc);
-        gbc.ipady = 0;
-        gbc.gridwidth = GridBagConstraints.RELATIVE;
+        this.gbc.insets = new Insets(0, (int) (Util.screenWidth * 0.04), (int) (Util.screenWidth * 0.002), 0);
+        this.gbc.ipady = (int) (Util.screenWidth * 0.075);
+        this.gbc.gridwidth = 4;
+        this.gbc.gridx = 1;
+        this.gbc.gridy = 11;
+        this.contentPane.add(notes, this.gbc);
+        this.gbc.ipady = 0;
+        this.gbc.gridwidth = GridBagConstraints.RELATIVE;
 
         //Right Screen - right side
-        gbc.insets = new Insets((int) (Util.screenWidth * 0.01), (int) (Util.screenWidth * 0.02), (int) (Util.screenWidth * 0.002), 0);
-        gbc.gridx = 4;
-        gbc.gridy = 1;
-        contentPane.add(titlePackageType, gbc);
+        this.gbc.insets = new Insets((int) (Util.screenWidth * 0.01), (int) (Util.screenWidth * 0.02), (int) (Util.screenWidth * 0.002), 0);
+        this.gbc.gridx = 4;
+        this.gbc.gridy = 1;
+        this.contentPane.add(titlePackageType, this.gbc);
 
-        gbc.insets = new Insets(0, (int) (Util.screenWidth * 0.02), (int) (Util.screenWidth * 0.002), 0);
-        gbc.gridx = 4;
-        gbc.gridy = 2;
-        contentPane.add(choosePackageType, gbc);
+        this.gbc.insets = new Insets(0, (int) (Util.screenWidth * 0.02), (int) (Util.screenWidth * 0.002), 0);
+        this.gbc.gridx = 4;
+        this.gbc.gridy = 2;
+        this.contentPane.add(choosePackageType, this.gbc);
 
-        gbc.insets = new Insets((int) (Util.screenWidth * 0.01), (int) (Util.screenWidth * 0.02), (int) (Util.screenWidth * 0.002), 0);
-        gbc.gridx = 4;
-        gbc.gridy = 4;
-        contentPane.add(titleWeight, gbc);
+        this.gbc.insets = new Insets((int) (Util.screenWidth * 0.01), (int) (Util.screenWidth * 0.02), (int) (Util.screenWidth * 0.002), 0);
+        this.gbc.gridx = 4;
+        this.gbc.gridy = 4;
+        this.contentPane.add(titleWeight, this.gbc);
 
-        gbc.insets = new Insets(0, (int) (Util.screenWidth * 0.02), (int) (Util.screenWidth * 0.002), 0);
-        gbc.gridx = 4;
-        gbc.gridy = 5;
-        contentPane.add(weight, gbc);
+        this.gbc.insets = new Insets(0, (int) (Util.screenWidth * 0.02), (int) (Util.screenWidth * 0.002), 0);
+        this.gbc.gridx = 4;
+        this.gbc.gridy = 5;
+        this.contentPane.add(weight, this.gbc);
 
-        gbc.insets = new Insets(0, (int) (Util.screenWidth * 0.007), (int) (Util.screenWidth * 0.002), 0);
-        gbc.gridx = 5;
-        gbc.gridy = 5;
-        contentPane.add(symbolWeight, gbc);
+        this.gbc.insets = new Insets(0, (int) (Util.screenWidth * 0.007), (int) (Util.screenWidth * 0.002), 0);
+        this.gbc.gridx = 5;
+        this.gbc.gridy = 5;
+        this.contentPane.add(symbolWeight, this.gbc);
 
-        gbc.insets = new Insets((int) (Util.screenWidth * 0.01), (int) (Util.screenWidth * 0.02), (int) (Util.screenWidth * 0.002), 0);
-        gbc.gridx = 4;
-        gbc.gridy = 7;
-        contentPane.add(titlePrice, gbc);
+        this.gbc.insets = new Insets((int) (Util.screenWidth * 0.01), (int) (Util.screenWidth * 0.02), (int) (Util.screenWidth * 0.002), 0);
+        this.gbc.gridx = 4;
+        this.gbc.gridy = 7;
+        this.contentPane.add(titlePrice, this.gbc);
 
-        gbc.insets = new Insets(0, (int) (Util.screenWidth * 0.02), (int) (Util.screenWidth * 0.002), 0);
-        gbc.gridx = 4;
-        gbc.gridy = 8;
-        contentPane.add(symbolPrice, gbc);
+        this.gbc.insets = new Insets(0, (int) (Util.screenWidth * 0.02), (int) (Util.screenWidth * 0.002), 0);
+        this.gbc.gridx = 4;
+        this.gbc.gridy = 8;
+        this.contentPane.add(symbolPrice, this.gbc);
 
-        gbc.insets = new Insets(0, (int) (Util.screenWidth * 0.027), (int) (Util.screenWidth * 0.002), 0);
-        gbc.gridx = 4;
-        gbc.gridy = 8;
-        contentPane.add(price, gbc);
-
+        this.gbc.insets = new Insets(0, (int) (Util.screenWidth * 0.03), (int) (Util.screenWidth * 0.002), 0);
+        this.contentPane.add(price, this.gbc);
 
     }
 
@@ -312,23 +320,19 @@ public class AddPackageDialog extends JDialog implements ActionListener, ItemLis
     private void setUpTextArea(JTextArea object) {
         object.setFont(Util.bodyFont);
         object.setPreferredSize(new Dimension((int) (this.getWidth() * 0.3), (int) (this.getHeight() * 0.05)));
-        object.setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, Color.BLACK));
-//        object.
+        object.setBorder(BorderFactory.createMatteBorder((int) (Util.screenWidth * 0.0009), (int) (Util.screenWidth * 0.0009),
+                (int) (Util.screenWidth * 0.0009), (int) (Util.screenWidth * 0.0009), Color.BLACK));
     }
 
-    private void initializeFinalValues(String name, String notes, double price, double weight,
-                                       LocalDateTime date, Object extraField) {
-
-        finalName = name;
-        finalNotes = notes;
-        finalPrice = price;
-        finalWeight = weight;
-        finalExpectedDate = date;
-
+    private void initializeFinalValues() {
+        String finalExtraField = "";
         switch (packageType) {
-            case BOOK, ELECTRONIC -> ((JTextArea) extraField).getText();
-            case PERISHABLE -> finalExtraField = (((DateTimePicker) extraField).getDateTimePermissive()).toString();
+            case BOOK, ELECTRONIC -> finalExtraField = ((JTextArea) extraField).getText();
+            case PERISHABLE -> finalExtraField = (((DateTimePicker) extraField).getDateTimePermissive().toString());
         }
+
+        control.createPackage(this.name.getText(), this.notes.getText(), Double.parseDouble(this.price.getText()),
+                Double.parseDouble(this.weight.getText()), this.finalExpectedDate, finalExtraField, this.packageType);
     }
 
     public final void run() {
@@ -339,15 +343,13 @@ public class AddPackageDialog extends JDialog implements ActionListener, ItemLis
     public void actionPerformed(ActionEvent e) {
         repaint();
         if (e.getActionCommand().equals("YES")) {
-            if (fieldsAreFilledInCorrectly()) {
-//                initializeFinalValues(name.getText(), notes.getText(), Double.parseDouble(price.getText()),
-//                        Double.parseDouble(weight.getText()), expectedDeliveryDate.getDateTimePermissive(), this.extraField);
-                control.createPackage("Name", "", 50, 0.666, LocalDateTime.now(), "author", this.packageType);
+            if (fieldsAreFilled()) {
+                initializeFinalValues();
+                repaint();
                 dispose();
             } else {
-//                pop-up
+                showErrorMessage(true);
             }
-            //do something
         } else if (e.getActionCommand().equals("NO")) {
             exitConfirmDialog.run(-1, -1);
             if (exitConfirmDialog.dispose) {
@@ -358,12 +360,47 @@ public class AddPackageDialog extends JDialog implements ActionListener, ItemLis
         repaint();
     }
 
+    private void showErrorMessage(boolean isVisible) {
+        setUpJLabel(this.errorMessage);
+        this.errorMessage.setForeground(Color.RED);
+        this.errorMessage.setFont(Util.subTitleFont);
+        this.errorMessage.setVisible(isVisible);
+        setRequiredFieldRed(Util.stringVerifier, name);
+        setRequiredFieldRed(Util.doubleVerifier, price);
+        setRequiredFieldRed(Util.doubleVerifier, weight);
+
+        switch (this.packageType) {
+            case BOOK -> setRequiredFieldRed(Util.stringVerifier, (JComponent) extraField);
+            case ELECTRONIC -> setRequiredFieldRed(Util.doubleVerifier, (JComponent) extraField);
+        }
+    }
+
+    private void setRequiredFieldRed(InputVerifier verifier, JComponent component) {
+        if (!verifier.verify(component)) {
+            component.setBorder(BorderFactory.createMatteBorder((int) (Util.screenWidth * 0.0009), (int) (Util.screenWidth * 0.0009),
+                    (int) (Util.screenWidth * 0.0009), (int) (Util.screenWidth * 0.0009), Color.RED));
+        } else {
+            component.setBorder(BorderFactory.createMatteBorder((int) (Util.screenWidth * 0.0009), (int) (Util.screenWidth * 0.0009),
+                    (int) (Util.screenWidth * 0.0009), (int) (Util.screenWidth * 0.0009), Color.BLACK));
+        }
+    }
+
+    private boolean fieldsAreFilled() {
+        return !name.getText().isBlank()
+                && !name.getText().isEmpty()
+                && !price.getText().isEmpty()
+                && !price.getText().isBlank()
+                && !weight.getText().isEmpty()
+                && !weight.getText().isBlank()
+                && finalExpectedDate != null
+                && extraField != null;
+    }
+
     @Override
     public void itemStateChanged(ItemEvent e) {
-        if (e.getStateChange() == ItemEvent.ITEM_STATE_CHANGED) {
+        if (e.getStateChange() == ItemEvent.SELECTED) {
             Object source = e.getSource();
-            if (source instanceof JComboBox) {
-                JComboBox comboBox = (JComboBox) source;
+            if (source instanceof JComboBox comboBox) {
                 Object selectedItem = comboBox.getSelectedItem();
                 if (selectedItem.equals(this.comboBoxTitles[0])) {
                     this.packageType = PackageFactory.PackageType.BOOK;
@@ -384,13 +421,6 @@ public class AddPackageDialog extends JDialog implements ActionListener, ItemLis
         repaint();
     }
 
-    private boolean fieldsAreFilledInCorrectly() {
-//        if(){
-//
-//        }
-        return true;
-    }
-
     @Override
     public void dateOrTimeChanged(DateTimeChangeEvent dateTimeChangeEvent) {
         this.finalExpectedDate = dateTimeChangeEvent.getNewDateTimePermissive();
@@ -404,12 +434,20 @@ public class AddPackageDialog extends JDialog implements ActionListener, ItemLis
     @Override
     public void focusLost(FocusEvent e) {
         Component component = e.getComponent();
-        if (component.getName().equals("NAME")) {
-            if (!Util.stringVerifier.verify((JComponent) component)) {
-                //pop-up
-                System.out.println("string cannot be empty");
-            }
+        if (component.getName().equals("NAME") || component.getName().equals("BOOK")) {
+            setRequiredFieldRed(Util.stringVerifier, ((JComponent) component));
+        } else if (component.getName().equals("PRICE") || component.getName().equals("ELECTRONIC") || component.getName().equals("WEIGHT")) {
+            setRequiredFieldRed(Util.doubleVerifier, ((JComponent) component));
         }
+    }
 
+    @Override
+    public void paint(Graphics g) {
+        super.paint(g);
+
+        Graphics2D g2 = (Graphics2D) g;
+        g2.setColor(Util.darkBrown);
+        g2.fillRoundRect((int) (this.getWidth() * 0.415), (int) (this.getHeight() * 0.15),
+                (int) (this.getWidth() * 0.005), (int) (this.getHeight() * 0.75), 3, 3);
     }
 }
