@@ -124,8 +124,12 @@ public class PackageItem extends JPanel implements ActionListener {
 
         //Middle Divider
         gbc.gridx = 2;
-        gbc.gridy = 0;
-        this.add(Box.createRigidArea(new Dimension((int) (Util.screenWidth * 0.11), this.getHeight())), gbc);
+        gbc.gridy = 1;
+        if (pkg instanceof Perishable || pkg instanceof Electronic) {
+            this.add(Box.createRigidArea(new Dimension((int) (Util.screenWidth * 0.07), 0)), gbc);
+        } else if (pkg instanceof Book) {
+            this.add(Box.createRigidArea(new Dimension((int) (Util.screenWidth * 0.11), 0)), gbc);
+        }
 
         //Right Side of Screen
         gbc.insets = new Insets((int) (Util.screenWidth * 0.007), 0, (int) (Util.screenWidth * 0.002), 0);

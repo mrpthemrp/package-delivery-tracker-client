@@ -4,21 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Done, working on javadocs">
-      <change afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/customUI/AddDialogExtraField.java" afterDir="false" />
+    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Tests done">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/gson/list.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/gson/list.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/PackageDeliveryGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/PackageDeliveryGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/screens/MainScreenLeft.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/screens/MainScreenLeft.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/screens/MainScreenRight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/screens/MainScreenRight.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/screens/StartScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/screens/StartScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/customUi/AddPackageDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/customUI/AddPackageDialog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/customUi/CheckBoxUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/customUI/CheckBoxUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/customUi/ColumnHeader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/customUI/ColumnHeader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/customUi/CustomDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/customUI/CustomDialog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/customUi/HeaderButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/customUI/HeaderButton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/customUi/PackageItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/customUI/PackageItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/customUi/RoundButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/customUI/RoundButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/customUI/AddDialogExtraField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/customUI/AddDialogExtraField.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/customUI/AddPackageDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/customUI/AddPackageDialog.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/customUI/PackageItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/customUI/PackageItem.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,13 +110,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1652723361815</updated>
-    </task>
-    <task id="LOCAL-00148" summary="Chagne jpanel to jtable">
-      <created>1658126147221</created>
-      <option name="number" value="00148" />
-      <option name="presentableId" value="LOCAL-00148" />
-      <option name="project" value="LOCAL" />
-      <updated>1658126147221</updated>
     </task>
     <task id="LOCAL-00149" summary="ColumnHeader is resolved">
       <created>1658136925451</created>
@@ -463,7 +447,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658387615547</updated>
     </task>
-    <option name="localTasksCounter" value="197" />
+    <task id="LOCAL-00197" summary="Package item changes correctly">
+      <created>1658401313089</created>
+      <option name="number" value="00197" />
+      <option name="presentableId" value="LOCAL-00197" />
+      <option name="project" value="LOCAL" />
+      <updated>1658401313089</updated>
+    </task>
+    <option name="localTasksCounter" value="198" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -479,8 +470,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Dialogs works with buttons" />
-    <MESSAGE value="Update control class" />
     <MESSAGE value="List views works, control implemented" />
     <MESSAGE value="Applying control to UI" />
     <MESSAGE value="Remove from list works, working on UI" />
@@ -504,7 +493,9 @@
     <MESSAGE value="Implement PackageItem Ui" />
     <MESSAGE value="Package UI done" />
     <MESSAGE value="Done, working on javadocs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Done, working on javadocs" />
+    <MESSAGE value="Package item changes correctly" />
+    <MESSAGE value="Tests done" />
+    <option name="LAST_COMMIT_MESSAGE" value="Tests done" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

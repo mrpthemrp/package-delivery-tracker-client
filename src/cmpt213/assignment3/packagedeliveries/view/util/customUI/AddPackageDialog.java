@@ -310,11 +310,15 @@ public class AddPackageDialog extends JDialog implements ActionListener, ItemLis
         setRequiredFieldRed(Util.doubleVerifier, price);
         setRequiredFieldRed(Util.doubleVerifier, weight);
 
+        if(this.finalExpectedDate == null){
+            setDateRed(expectedDeliveryDate);
+        }
+
         if (!this.packageTypeSelected) {
             setComboBoxRed(true);
         } else {
             setComboBoxRed(false);
-            this.extraField.setRed();
+            this.extraField.isSet(packageType);
         }
     }
 
@@ -343,8 +347,19 @@ public class AddPackageDialog extends JDialog implements ActionListener, ItemLis
                 && !price.getText().isBlank()
                 && !weight.getText().isEmpty()
                 && !weight.getText().isBlank()
-                && finalExpectedDate != null
-                && !this.packageTypeSelected;
+                && dateIsPicked
+                && extraField.isSet(packageType)
+                && this.packageTypeSelected;
+    }
+
+    private void setDateRed(DateTimePicker picker) {
+        if (!dateIsPicked) {
+            picker.getDatePicker().getComponentToggleCalendarButton().setBackground(Color.RED);
+            picker.getTimePicker().getComponentToggleTimeMenuButton().setBackground(Color.RED);
+        } else {
+            picker.getDatePicker().getComponentToggleCalendarButton().setBackground(Util.lightTeal);
+            picker.getTimePicker().getComponentToggleTimeMenuButton().setBackground(Util.lightTeal);
+        }
     }
 
     @Override
@@ -352,7 +367,7 @@ public class AddPackageDialog extends JDialog implements ActionListener, ItemLis
         if (e.getActionCommand().equals("YES")) {
             if (fieldsAreFilled()) {
                 control.createPackage(this.name.getText(), this.notes.getText(), Double.parseDouble(this.price.getText()),
-                        Double.parseDouble(this.weight.getText()), this.finalExpectedDate, this.extraField.getField(), this.packageType);
+                        Double.parseDouble(this.weight.getText()), this.finalExpectedDate, this.extraField.getField(packageType), this.packageType);
                 dispose();
             } else {
                 showErrorMessage(true);
@@ -375,6 +390,7 @@ public class AddPackageDialog extends JDialog implements ActionListener, ItemLis
                 } else {
                     this.packageTypeSelected = false;
                     setComboBoxRed(true);
+                    extraField.isSet(packageType);
                 }
             }
         }
@@ -392,16 +408,19 @@ public class AddPackageDialog extends JDialog implements ActionListener, ItemLis
                     this.packageTypeSelected = true;
                     this.packageType = PackageFactory.PackageType.BOOK;
                     setComboBoxRed(false);
+                    extraField.isSet(packageType);
                     this.extraField.changeType(packageType,true);
                 } else if (selectedItem.equals(this.comboBoxTitles[1])) {
                     this.packageTypeSelected = true;
                     this.packageType = PackageFactory.PackageType.PERISHABLE;
                     setComboBoxRed(false);
+                    extraField.isSet(packageType);
                     this.extraField.changeType(packageType,true);
                 } else if (selectedItem.equals(this.comboBoxTitles[2])) {
                     this.packageTypeSelected = true;
                     this.packageType = PackageFactory.PackageType.ELECTRONIC;
                     setComboBoxRed(false);
+                    extraField.isSet(packageType);
                     this.extraField.changeType(packageType,true);
                 }
             }
@@ -411,26 +430,13 @@ public class AddPackageDialog extends JDialog implements ActionListener, ItemLis
 
     @Override
     public void dateOrTimeChanged(DateTimeChangeEvent dateTimeChangeEvent) {
-
+        this.dateIsPicked = true;
         if (dateTimeChangeEvent.getSource().getName().equals("EXPECT DATE")) {
             this.finalExpectedDate = dateTimeChangeEvent.getNewDateTimePermissive();
-            System.out.println("expecte date");
-            if (this.finalExpectedDate == null) {
-                setDateRed(expectedDeliveryDate);
-            }
+            setDateRed(expectedDeliveryDate);
         } else if (dateTimeChangeEvent.getSource().getName().equals("PERISHABLE")) {
-            System.out.println("PERISHLA");
             extraField.setDate(dateTimeChangeEvent.getNewDateTimePermissive());
-        }
-    }
-
-    private void setDateRed(DateTimePicker picker) {
-        if (!dateIsPicked) {
-            picker.getDatePicker().getComponentToggleCalendarButton().setBackground(Color.RED);
-            picker.getTimePicker().getComponentToggleTimeMenuButton().setBackground(Color.RED);
-        } else {
-            picker.getDatePicker().getComponentToggleCalendarButton().setBackground(Util.lightTeal);
-            picker.getTimePicker().getComponentToggleTimeMenuButton().setBackground(Util.lightTeal);
+            extraField.isSet(packageType);
         }
     }
 

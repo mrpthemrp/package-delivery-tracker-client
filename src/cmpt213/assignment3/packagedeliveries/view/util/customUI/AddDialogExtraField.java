@@ -16,7 +16,6 @@ import java.time.LocalDateTime;
 public class AddDialogExtraField extends JPanel {
 
     private final JTextArea handleFee;
-    private final JTextArea blankField;
     private final JTextArea authorName;
 
     private final DateTimePicker expiryDate;
@@ -29,7 +28,7 @@ public class AddDialogExtraField extends JPanel {
         this.title = new JLabel("S E L E C T   T Y P E   F I R S T");
 
 
-        this.blankField = new JTextArea();
+        JTextArea blankField = new JTextArea();
         blankField.setBackground(Color.WHITE);
         blankField.setForeground(Color.BLACK);
         blankField.setFont(Util.sortBtnsFont);
@@ -44,6 +43,7 @@ public class AddDialogExtraField extends JPanel {
         authorName.setBorder(BorderFactory.createMatteBorder((int) (Util.screenWidth * 0.0009), (int) (Util.screenWidth * 0.0009),
                 (int) (Util.screenWidth * 0.0009), (int) (Util.screenWidth * 0.0009), Color.BLACK));
         authorName.addFocusListener(fl);
+        authorName.setLineWrap(true);
 
         this.handleFee = new JTextArea();
         handleFee.setName("ELECTRONIC");
@@ -107,12 +107,19 @@ public class AddDialogExtraField extends JPanel {
         title.setFont(Util.sortBtnsFont);
     }
 
-    public void setRed() {
-
-    }
-
-    public String getField() {
-        return "";
+    public String getField(PackageFactory.PackageType type) {
+        switch (type){
+            case BOOK -> {
+                return authorName.getText();
+            }
+            case PERISHABLE -> {
+                return date.toString();
+            }
+            case ELECTRONIC -> {
+                return handleFee.getText();
+            }
+        }
+        return null;
     }
 
     public void changeType(PackageFactory.PackageType type, boolean packageTypeSelected) {
@@ -147,5 +154,45 @@ public class AddDialogExtraField extends JPanel {
 
     public void setDate(LocalDateTime newDate) {
         this.date = newDate;
+    }
+
+    public boolean isSet(PackageFactory.PackageType type) {
+        switch (type){
+            case BOOK -> {
+                if (!Util.stringVerifier.verify(authorName)) {
+                    authorName.setBorder(BorderFactory.createMatteBorder((int) (Util.screenWidth * 0.0009), (int) (Util.screenWidth * 0.0009),
+                            (int) (Util.screenWidth * 0.0009), (int) (Util.screenWidth * 0.0009), Color.RED));
+                    return false;
+                } else {
+                    authorName.setBorder(BorderFactory.createMatteBorder((int) (Util.screenWidth * 0.0009), (int) (Util.screenWidth * 0.0009),
+                            (int) (Util.screenWidth * 0.0009), (int) (Util.screenWidth * 0.0009), Color.BLACK));
+                    return true;
+                }
+            }
+            case PERISHABLE -> {
+                    if (date == null) {
+                        expiryDate.getDatePicker().getComponentToggleCalendarButton().setBackground(Color.RED);
+                        expiryDate.getTimePicker().getComponentToggleTimeMenuButton().setBackground(Color.RED);
+                        return false;
+                    } else {
+                        expiryDate.getDatePicker().getComponentToggleCalendarButton().setBackground(Util.lightTeal);
+                        expiryDate.getTimePicker().getComponentToggleTimeMenuButton().setBackground(Util.lightTeal);
+                        return true;
+                    }
+            }
+            case ELECTRONIC -> {
+
+                if (!Util.doubleVerifier.verify(handleFee)) {
+                    handleFee.setBorder(BorderFactory.createMatteBorder((int) (Util.screenWidth * 0.0009), (int) (Util.screenWidth * 0.0009),
+                            (int) (Util.screenWidth * 0.0009), (int) (Util.screenWidth * 0.0009), Color.RED));
+                    return false;
+                } else {
+                    handleFee.setBorder(BorderFactory.createMatteBorder((int) (Util.screenWidth * 0.0009), (int) (Util.screenWidth * 0.0009),
+                            (int) (Util.screenWidth * 0.0009), (int) (Util.screenWidth * 0.0009), Color.BLACK));
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 }
