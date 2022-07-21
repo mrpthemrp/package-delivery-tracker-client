@@ -1,7 +1,7 @@
 package cmpt213.assignment3.packagedeliveries.view.screens;
 
-import cmpt213.assignment3.packagedeliveries.view.util.customUI.RoundButton;
 import cmpt213.assignment3.packagedeliveries.view.util.Util;
+import cmpt213.assignment3.packagedeliveries.view.util.customUI.RoundButton;
 
 import javax.swing.*;
 import java.awt.*;
@@ -9,8 +9,10 @@ import java.awt.event.ActionListener;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-//clock reference : https://www.tutorialsbuddy.com/create-a-digital-clock-in-java
-
+/**
+ * @author Deborah Wang
+ * @link <a href="https://www.tutorialsbuddy.com/create-a-digital-clock-in-java">...</a> Refernce for the clock
+ */
 public class MainScreenLeft extends JPanel {
     private final JLabel title;
     private final JLabel clock;
@@ -18,24 +20,33 @@ public class MainScreenLeft extends JPanel {
     private final RoundButton btn;
     private LocalDate today;
 
+    /**
+     * Constructor for the Left side of the main screen.
+     * Sets look and feel, as well as initializes fields.
+     *
+     * @param al Action listner that the ADD PACKAGE button will add.
+     */
 
     public MainScreenLeft(ActionListener al) {
         this.setAlignmentX(Component.RIGHT_ALIGNMENT);
         this.setBackground(Color.WHITE);
         this.setSize(new Dimension((int) (Util.screenWidth * 0.257), (int) (Util.screenHeight * 0.75)));
-        this.setMaximumSize(new Dimension((int) (Util.screenWidth * 0.257 ), (int) (Util.screenHeight * 0.75)));
+        this.setMaximumSize(new Dimension((int) (Util.screenWidth * 0.257), (int) (Util.screenHeight * 0.75)));
         this.setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
 
         this.btn = new RoundButton("   A D D   P A C K A G E   ", "ADD PACKAGE", al, Util.lightBrown,
-                Util.darkBrown, (int) (Util.screenHeight*0.08), Util.addPkgBtnTextFont2);
+                Util.darkBrown, (int) (Util.screenHeight * 0.08), Util.addPkgBtnTextFont2);
         this.title = new JLabel();
         this.clock = new JLabel("", SwingConstants.CENTER);
         this.currentDay = new JLabel("", SwingConstants.CENTER);
 
-        createMainScreen();
+        setUpMainLeftScreen();
     }
 
-    public void createMainScreen() {
+    /**
+     * Set up the right side of the main screen.
+     */
+    private void setUpMainLeftScreen() {
 
         this.title.setText("today is");
         this.title.setFont(Util.subTitleFont);
@@ -48,10 +59,13 @@ public class MainScreenLeft extends JPanel {
 
         //Update screen
         createTimeAndDate();
-        setUpMainScreenLayout();
+        setUpMainLeftScreenGrid();
         startClock();
     }
 
+    /**
+     * Sets up the clock and date on the screen.
+     */
     private void createTimeAndDate() {
         today = LocalDate.now();
         //clock
@@ -67,7 +81,10 @@ public class MainScreenLeft extends JPanel {
         this.currentDay.setFont(Util.mainScreenDateFont);
     }
 
-    private void setUpMainScreenLayout() {
+    /**
+     * Helper method to help set up the layout of the left screen.
+     */
+    private void setUpMainLeftScreenGrid() {
         this.add(Box.createRigidArea(new Dimension(0, (int) (Util.screenHeight * 0.09))));
         this.add(title);
         this.add(Box.createRigidArea(new Dimension(0, (int) (Util.screenHeight * 0.048))));
@@ -78,6 +95,9 @@ public class MainScreenLeft extends JPanel {
         this.add(btn);
     }
 
+    /**
+     * Sets up clock and date. Starts timer for clock.
+     */
     private void startClock() {
         //update date if cross over to next day
         Timer clockTime = new Timer(100, al -> {

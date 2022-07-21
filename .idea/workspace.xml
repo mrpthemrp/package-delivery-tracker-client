@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AnalysisUIOptions">
-    <option name="SCOPE_TYPE" value="3" />
-  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Write view class JavaDocs">
+    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Write PackageDeliveryGUI JavaDocs">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/PackageDeliveryGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/PackageDeliveryGUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/userManual.txt" beforeDir="false" afterPath="$PROJECT_DIR$/docs/userManual.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/screens/MainScreenLeft.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/screens/MainScreenLeft.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/screens/MainScreenRight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/screens/MainScreenRight.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/screens/StartScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/screens/StartScreen.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,13 +111,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1652723361815</updated>
-    </task>
-    <task id="LOCAL-00156" summary="Set scroll bar buttons invisible">
-      <created>1658204640034</created>
-      <option name="number" value="00156" />
-      <option name="presentableId" value="LOCAL-00156" />
-      <option name="project" value="LOCAL" />
-      <updated>1658204640034</updated>
     </task>
     <task id="LOCAL-00157" summary="Set scroll bar track and thumb">
       <created>1658204907293</created>
@@ -455,7 +448,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658414945076</updated>
     </task>
-    <option name="localTasksCounter" value="205" />
+    <task id="LOCAL-00205" summary="Write PackageDeliveryGUI JavaDocs">
+      <created>1658415577702</created>
+      <option name="number" value="00205" />
+      <option name="presentableId" value="LOCAL-00205" />
+      <option name="project" value="LOCAL" />
+      <updated>1658415577702</updated>
+    </task>
+    <option name="localTasksCounter" value="206" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -471,7 +471,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Packages are refereshing properly" />
     <MESSAGE value="Working on add dialog ui" />
     <MESSAGE value="Add package dialog in the works" />
     <MESSAGE value="Add LGoodDatePicker JAR" />
@@ -496,7 +495,8 @@
     <MESSAGE value="Write Util, StringVerifier, DoubleVerifier JavaDocs" />
     <MESSAGE value="Write RoundButton JavaDocs" />
     <MESSAGE value="Write view class JavaDocs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Write view class JavaDocs" />
+    <MESSAGE value="Write PackageDeliveryGUI JavaDocs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Write PackageDeliveryGUI JavaDocs" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
