@@ -51,10 +51,9 @@ public class PackageDeliveryControl {
         upcomingPackages = new ArrayList<>();
         overduePackages = new ArrayList<>();
 
-        String fs = File.separator;
         String[] pathNames = {"src", "cmpt213", "assignment3", "packagedeliveries", "gson"};
-        String path = String.join(fs, pathNames);
-        gsonFile = new File(path + fs + "list.json");
+        String path = String.join(Util.fs, pathNames);
+        gsonFile = new File(path + Util.fs + "list.json");
 
         setGsonBuilder();
         arrayData(DATA_LOAD);

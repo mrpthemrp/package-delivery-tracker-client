@@ -7,9 +7,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Write model classes JavaDocs">
+    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Write MainApp JavaDocs">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/MainApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/control/PackageDeliveryControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/control/PackageDeliveryControl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/DoubleVerifier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/DoubleVerifier.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/StringVerifier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/StringVerifier.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/Util.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,13 +114,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1652723361815</updated>
-    </task>
-    <task id="LOCAL-00152" summary="Refactor classes to proper packages">
-      <created>1658196033993</created>
-      <option name="number" value="00152" />
-      <option name="presentableId" value="LOCAL-00152" />
-      <option name="project" value="LOCAL" />
-      <updated>1658196033993</updated>
     </task>
     <task id="LOCAL-00153" summary="Window closing overridden">
       <created>1658197517563</created>
@@ -455,7 +451,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658409408102</updated>
     </task>
-    <option name="localTasksCounter" value="201" />
+    <task id="LOCAL-00201" summary="Write MainApp JavaDocs">
+      <created>1658409499334</created>
+      <option name="number" value="00201" />
+      <option name="presentableId" value="LOCAL-00201" />
+      <option name="project" value="LOCAL" />
+      <updated>1658409499334</updated>
+    </task>
+    <option name="localTasksCounter" value="202" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -471,7 +474,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Remove from list works, working on UI" />
     <MESSAGE value="Remove from UI works!" />
     <MESSAGE value="UI almost done" />
     <MESSAGE value="Remove refreshes properly" />
@@ -496,7 +498,8 @@
     <MESSAGE value="Tests done" />
     <MESSAGE value="Write PackageDeliveryControl JavaDocs" />
     <MESSAGE value="Write model classes JavaDocs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Write model classes JavaDocs" />
+    <MESSAGE value="Write MainApp JavaDocs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Write MainApp JavaDocs" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
