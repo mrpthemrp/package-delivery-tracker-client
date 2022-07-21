@@ -1,7 +1,10 @@
 package cmpt213.assignment3.packagedeliveries.view.util.customUI;
 
 import cmpt213.assignment3.packagedeliveries.control.PackageDeliveryControl;
-import cmpt213.assignment3.packagedeliveries.model.*;
+import cmpt213.assignment3.packagedeliveries.model.Book;
+import cmpt213.assignment3.packagedeliveries.model.Electronic;
+import cmpt213.assignment3.packagedeliveries.model.PackageBase;
+import cmpt213.assignment3.packagedeliveries.model.Perishable;
 import cmpt213.assignment3.packagedeliveries.view.util.Util;
 
 import javax.swing.*;
@@ -9,25 +12,40 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-
+/**
+ * Creates a UI version of a PackageBase object as a JPanel subclass.
+ * Action Listener determines what to show when a button is clicked.
+ *
+ * @author Deborah Wang
+ * @link <a href="https://docs.oracle.com/javase/tutorial/uiswing/layout/gridbag.html">...</a> GridBagLayout reference
+ */
 public class PackageItem extends JPanel implements ActionListener {
+    public final int panelItemIndex;
+    public final int pkgIndex;
     private final PackageBase pkg;
     private final JTextArea name;
     private final JTextArea notes;
     private final JLabel price;
     private final JLabel weight;
     private final JLabel date;
-    private JLabel extraField;
-    private JLabel pkgHeader;
     private final JLabel dateHeader;
     private final RoundButton removeButton;
     private final JCheckBox deliveredCheckBox;
     private final PackageDeliveryControl control;
     private final CustomDialog removePackageDialog;
-    public final int panelItemIndex;
-    public final int pkgIndex;
     private final GridBagConstraints gbc;
+    private JLabel extraField;
+    private JLabel pkgHeader;
 
+    /**
+     * Constructor for PackageItem; sets look and feel of UI.
+     *
+     * @param pkg            PackageBase this object represents
+     * @param packageNumber  The PackageBase index number
+     * @param control        The control class instance
+     * @param parent         The JFrame parent needed to create a removePackage Dialog
+     * @param panelItemIndex The index of this object in an ArrayList
+     */
     public PackageItem(PackageBase pkg, int packageNumber, PackageDeliveryControl control, Frame parent, int panelItemIndex) {
         this.pkg = pkg;
         this.control = control;
@@ -60,6 +78,11 @@ public class PackageItem extends JPanel implements ActionListener {
         setUpContentGrid();
     }
 
+    /**
+     * Set up other JComponents that are associated with this class.
+     *
+     * @param packageNumber The PackageBase index number
+     */
     private void setUpComponents(int packageNumber) {
 
         setUpTextStyle(name, Color.BLACK, Util.subTitleFont, LEFT_ALIGNMENT);
@@ -95,6 +118,9 @@ public class PackageItem extends JPanel implements ActionListener {
 
     }
 
+    /**
+     * Set up this object's components using a GridBagLayout and GridBagLayoutConstraints
+     */
     private void setUpContentGrid() {
         gbc.fill = GridBagConstraints.HORIZONTAL;
 
@@ -158,6 +184,14 @@ public class PackageItem extends JPanel implements ActionListener {
 
     }
 
+    /**
+     * Helper method for setting up JComponents
+     *
+     * @param text       Text of component
+     * @param textColour Text Colour of component
+     * @param font       Font of the text
+     * @param alignment  Text alignment
+     */
     private void setUpTextStyle(JComponent text, Color textColour, Font font, float alignment) {
         text.setFont(font);
         text.setForeground(textColour);
@@ -165,6 +199,11 @@ public class PackageItem extends JPanel implements ActionListener {
         text.setAlignmentX(alignment);
     }
 
+    /**
+     * Determines what will happen is the package is marked as delivered or removed.
+     *
+     * @param e the event to be processed
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("REMOVE")) {

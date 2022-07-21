@@ -15,31 +15,45 @@ import java.awt.event.*;
 import java.time.DayOfWeek;
 import java.time.LocalDateTime;
 
+/**
+ * Custom dialog that shows up when a package is being added to the system.
+ * Should not be stored as a Singleton class object, needs to be run as a new object each time.
+ * Inherits from {@link JDialog}
+ *
+ * @author Deborah Wang
+ */
 public class AddPackageDialog extends JDialog implements ActionListener, ItemListener,
         DateTimeChangeListener, FocusListener {
     private final CustomDialog exitConfirmDialog;
     private final RoundButton yesBtn;
     private final RoundButton noBtn;
+    private final ExtraFieldUI extraField;
+    private final JPanel contentPane;
+    private final GridBagConstraints gbc;
+    private final JLabel errorMessage;
+    public PackageDeliveryControl control;
     private JComboBox<String> choosePackageType;
     private PackageFactory.PackageType packageType;
     private String[] comboBoxTitles;
-    public PackageDeliveryControl control;
     private JTextArea name;
     private JTextArea notes;
     private JTextArea price;
     private JTextArea weight;
     private DateTimePicker expectedDeliveryDate;
-    private final ExtraFieldUI extraField;
-
     private JLabel pageTitle, titleName, titleNotes, titleDate,
             titlePackageType, titleWeight, titlePrice, symbolWeight, symbolPrice;
     private LocalDateTime finalExpectedDate;
-
-    private final JPanel contentPane;
-    private final GridBagConstraints gbc;
-    private final JLabel errorMessage;
     private boolean packageTypeSelected, dateIsPicked;
 
+    /**
+     * Constructor for Add Package dialog, sets up look and feel of dialog
+     *
+     * @param parent     Frame for exitConfirm dialog
+     * @param title      Title of Dialog Frame
+     * @param btnYesText Text of Affirmative button
+     * @param btnNoText  Text of Exit button
+     * @param control    Control class instance
+     */
     public AddPackageDialog(Frame parent, String title, String btnYesText, String btnNoText, PackageDeliveryControl control) {
         super(parent, title, true);
         this.control = control;
@@ -51,7 +65,7 @@ public class AddPackageDialog extends JDialog implements ActionListener, ItemLis
         this.errorMessage = new JLabel("Error! Required fields not filled!");
         this.packageTypeSelected = false;
         this.dateIsPicked = false;
-        this.extraField = new ExtraFieldUI(this,this);
+        this.extraField = new ExtraFieldUI(this, this);
 
         this.contentPane = new JPanel();
         this.contentPane.setLayout(new GridBagLayout());
@@ -73,73 +87,9 @@ public class AddPackageDialog extends JDialog implements ActionListener, ItemLis
         packageType = null;
     }
 
-    private void setUpDateTimePicker() {
-        DatePickerSettings dateSettings = new DatePickerSettings();
-        dateSettings.setAllowEmptyDates(false);
-        dateSettings.setFirstDayOfWeek(DayOfWeek.SUNDAY);
-        dateSettings.setAllowKeyboardEditing(true);
-        TimePickerSettings timeSettings = new TimePickerSettings();
-        timeSettings.setAllowEmptyTimes(false);
-        timeSettings.setAllowKeyboardEditing(true);
-        expectedDeliveryDate = new DateTimePicker(dateSettings, timeSettings);
-        setUpDate(expectedDeliveryDate);
-        expectedDeliveryDate.setName("EXPECT DATE");
-
-    }
-
-    private void setUpDate(DateTimePicker date) {
-        date.addDateTimeChangeListener(this);
-        date.setBackground(Util.transparent);
-        date.setForeground(Color.BLACK);
-        date.setOpaque(true);
-        date.getDatePicker().setBackground(Util.transparent);
-        date.getDatePicker().getComponentToggleCalendarButton().
-                setBorder(BorderFactory.createEmptyBorder());
-        date.getDatePicker().getComponentToggleCalendarButton().setBackground(Util.midTeal);
-        date.getDatePicker().getComponentToggleCalendarButton().setForeground(Color.BLACK);
-
-        date.getTimePicker().getComponentToggleTimeMenuButton().setBackground(Util.midTeal);
-        date.getTimePicker().getComponentToggleTimeMenuButton().setForeground(Color.BLACK);
-        date.getTimePicker().getComponentToggleTimeMenuButton().
-                setBorder(BorderFactory.createEmptyBorder());
-    }
-
-    private void setUpTextAreas() {
-        name = new JTextArea();
-        name.setName("NAME");
-        setUpTextArea(name);
-        name.addFocusListener(this);
-
-        notes = new JTextArea();
-        notes.setName("NOTES");
-        setUpTextArea(notes);
-        notes.setPreferredSize(new Dimension((int) (this.getWidth() * 0.5), (int) (this.getHeight() * 0.2)));
-        notes.addFocusListener(this);
-
-        price = new JTextArea();
-        price.setName("PRICE");
-        setUpTextArea(price);
-        price.addFocusListener(this);
-
-        weight = new JTextArea();
-        weight.setName("WEIGHT");
-        setUpTextArea(weight);
-        weight.addFocusListener(this);
-    }
-
-    private void setUpComboBox() {
-        comboBoxTitles = new String[]{"Book", "Perishable", "Electronic"};
-        choosePackageType = new JComboBox<>(comboBoxTitles);
-        choosePackageType.setEditable(false);
-        choosePackageType.setBackground(Util.lightTeal);
-        choosePackageType.setForeground(Color.BLACK);
-        choosePackageType.addItemListener(this);
-        choosePackageType.setActionCommand("COMBO BOX");
-        choosePackageType.addActionListener(this);
-        choosePackageType.setSize(new Dimension((int) (this.getWidth() * 0.02), (int) (this.getHeight() * 0.5)));
-        this.packageType = PackageFactory.PackageType.BOOK;
-    }
-
+    /**
+     * Helper method, sets up all JLabel objects in class.
+     */
     private void setUpAllJLabels() {
         pageTitle = new JLabel("A D D    P A C K A G E");
         setUpJLabel(pageTitle);
@@ -164,7 +114,81 @@ public class AddPackageDialog extends JDialog implements ActionListener, ItemLis
         symbolPrice.setFont(Util.sortTitleFont);
     }
 
+    /**
+     * Helper method, sets up the combo box.
+     */
+    private void setUpComboBox() {
+        comboBoxTitles = new String[]{"Book", "Perishable", "Electronic"};
+        choosePackageType = new JComboBox<>(comboBoxTitles);
+        choosePackageType.setEditable(false);
+        choosePackageType.setBackground(Util.lightTeal);
+        choosePackageType.setForeground(Color.BLACK);
+        choosePackageType.addItemListener(this);
+        choosePackageType.setActionCommand("COMBO BOX");
+        choosePackageType.addActionListener(this);
+        choosePackageType.setSize(new Dimension((int) (this.getWidth() * 0.02), (int) (this.getHeight() * 0.5)));
+        this.packageType = PackageFactory.PackageType.BOOK;
+    }
 
+    /**
+     * Helper method, sets up the DateTimePicker.
+     */
+    private void setUpDateTimePicker() {
+        DatePickerSettings dateSettings = new DatePickerSettings();
+        dateSettings.setAllowEmptyDates(false);
+        dateSettings.setFirstDayOfWeek(DayOfWeek.SUNDAY);
+        dateSettings.setAllowKeyboardEditing(true);
+        TimePickerSettings timeSettings = new TimePickerSettings();
+        timeSettings.setAllowEmptyTimes(false);
+        timeSettings.setAllowKeyboardEditing(true);
+        expectedDeliveryDate = new DateTimePicker(dateSettings, timeSettings);
+        expectedDeliveryDate.addDateTimeChangeListener(this);
+        expectedDeliveryDate.setBackground(Util.transparent);
+        expectedDeliveryDate.setForeground(Color.BLACK);
+        expectedDeliveryDate.setOpaque(true);
+        expectedDeliveryDate.getDatePicker().setBackground(Util.transparent);
+        expectedDeliveryDate.getDatePicker().getComponentToggleCalendarButton().
+                setBorder(BorderFactory.createEmptyBorder());
+        expectedDeliveryDate.getDatePicker().getComponentToggleCalendarButton().setBackground(Util.midTeal);
+        expectedDeliveryDate.getDatePicker().getComponentToggleCalendarButton().setForeground(Color.BLACK);
+
+        expectedDeliveryDate.getTimePicker().getComponentToggleTimeMenuButton().setBackground(Util.midTeal);
+        expectedDeliveryDate.getTimePicker().getComponentToggleTimeMenuButton().setForeground(Color.BLACK);
+        expectedDeliveryDate.getTimePicker().getComponentToggleTimeMenuButton().
+                setBorder(BorderFactory.createEmptyBorder());
+        expectedDeliveryDate.setName("EXPECT DATE");
+
+    }
+
+    /**
+     * Helper method, sets up all JTextAreas objects in class.
+     */
+    private void setUpTextAreas() {
+        name = new JTextArea();
+        name.setName("NAME");
+        setUpTextArea(name);
+        name.addFocusListener(this);
+
+        notes = new JTextArea();
+        notes.setName("NOTES");
+        setUpTextArea(notes);
+        notes.setPreferredSize(new Dimension((int) (this.getWidth() * 0.5), (int) (this.getHeight() * 0.2)));
+        notes.addFocusListener(this);
+
+        price = new JTextArea();
+        price.setName("PRICE");
+        setUpTextArea(price);
+        price.addFocusListener(this);
+
+        weight = new JTextArea();
+        weight.setName("WEIGHT");
+        setUpTextArea(weight);
+        weight.addFocusListener(this);
+    }
+
+    /**
+     * Sets up objects in a GridBagLayout on the Panel.
+     */
     private void setUpContentGrid() {
         //Left of Screen
         this.gbc.insets = new Insets((int) (Util.screenWidth * 0.002), (int) (Util.screenWidth * 0.002),
@@ -182,7 +206,7 @@ public class AddPackageDialog extends JDialog implements ActionListener, ItemLis
                 (int) (Util.screenWidth * 0.1));
         this.contentPane.add(yesBtn, this.gbc);
         this.gbc.insets = new Insets((int) (Util.screenWidth * 0.002), (int) (Util.screenWidth * 0.012),
-                (int) (Util.screenWidth * 0.002),0);
+                (int) (Util.screenWidth * 0.002), 0);
         this.gbc.anchor = GridBagConstraints.EAST;
         this.contentPane.add(noBtn, this.gbc);
 
@@ -284,12 +308,18 @@ public class AddPackageDialog extends JDialog implements ActionListener, ItemLis
         this.contentPane.add(price, this.gbc);
     }
 
+    /**
+     * Helper method, helps set up a single JLabel object.
+     */
     private void setUpJLabel(JLabel label) {
         label.setBackground(Color.WHITE);
         label.setForeground(Color.BLACK);
         label.setFont(Util.sortBtnsFont);
     }
 
+    /**
+     * Helper method, helps set up a single JTextArea object.
+     */
     private void setUpTextArea(JTextArea object) {
         object.setFont(Util.bodyFont);
         object.setPreferredSize(new Dimension((int) (this.getWidth() * 0.3), (int) (this.getHeight() * 0.05)));
@@ -297,10 +327,11 @@ public class AddPackageDialog extends JDialog implements ActionListener, ItemLis
                 (int) (Util.screenWidth * 0.0009), (int) (Util.screenWidth * 0.0009), Color.BLACK));
     }
 
-    public final void run() {
-        this.setVisible(true);
-    }
-
+    /**
+     * Method to show error message.
+     *
+     * @param isVisible Determines if error message needs to be shown.
+     */
     private void showErrorMessage(boolean isVisible) {
         setUpJLabel(this.errorMessage);
         this.errorMessage.setForeground(Color.RED);
@@ -310,8 +341,8 @@ public class AddPackageDialog extends JDialog implements ActionListener, ItemLis
         setRequiredFieldRed(Util.doubleVerifier, price);
         setRequiredFieldRed(Util.doubleVerifier, weight);
 
-        if(this.finalExpectedDate == null){
-            setDateRed(expectedDeliveryDate);
+        if (this.finalExpectedDate == null) {
+            setDateRed();
         }
 
         if (!this.packageTypeSelected) {
@@ -322,6 +353,12 @@ public class AddPackageDialog extends JDialog implements ActionListener, ItemLis
         }
     }
 
+    /**
+     * Sets fields that are not filled out properly red.
+     *
+     * @param verifier  The verifier to be used.
+     * @param component The component to be verified.
+     */
     private void setRequiredFieldRed(InputVerifier verifier, JComponent component) {
         if (!verifier.verify(component)) {
             component.setBorder(BorderFactory.createMatteBorder((int) (Util.screenWidth * 0.0009), (int) (Util.screenWidth * 0.0009),
@@ -332,6 +369,24 @@ public class AddPackageDialog extends JDialog implements ActionListener, ItemLis
         }
     }
 
+    /**
+     * Sets the date to be red if not set properly.
+     */
+    private void setDateRed() {
+        if (!dateIsPicked) {
+            expectedDeliveryDate.getDatePicker().getComponentToggleCalendarButton().setBackground(Color.RED);
+            expectedDeliveryDate.getTimePicker().getComponentToggleTimeMenuButton().setBackground(Color.RED);
+        } else {
+            expectedDeliveryDate.getDatePicker().getComponentToggleCalendarButton().setBackground(Util.lightTeal);
+            expectedDeliveryDate.getTimePicker().getComponentToggleTimeMenuButton().setBackground(Util.lightTeal);
+        }
+    }
+
+    /**
+     * Changes the UI of the comboBox depending on its state
+     *
+     * @param isNotSet Tells method if the package type is set.
+     */
     private void setComboBoxRed(boolean isNotSet) {
         if (isNotSet) {
             choosePackageType.setBackground(Color.RED);
@@ -340,28 +395,19 @@ public class AddPackageDialog extends JDialog implements ActionListener, ItemLis
         }
     }
 
-    private boolean fieldsAreFilled() {
-        return !name.getText().isBlank()
-                && !name.getText().isEmpty()
-                && !price.getText().isEmpty()
-                && !price.getText().isBlank()
-                && !weight.getText().isEmpty()
-                && !weight.getText().isBlank()
-                && dateIsPicked
-                && extraField.isSet(packageType)
-                && this.packageTypeSelected;
+    /**
+     * Invokes this dialog without needing a Runnable object.
+     */
+    public final void run() {
+        this.setVisible(true);
     }
 
-    private void setDateRed(DateTimePicker picker) {
-        if (!dateIsPicked) {
-            picker.getDatePicker().getComponentToggleCalendarButton().setBackground(Color.RED);
-            picker.getTimePicker().getComponentToggleTimeMenuButton().setBackground(Color.RED);
-        } else {
-            picker.getDatePicker().getComponentToggleCalendarButton().setBackground(Util.lightTeal);
-            picker.getTimePicker().getComponentToggleTimeMenuButton().setBackground(Util.lightTeal);
-        }
-    }
-
+    /**
+     * Handles what happens when a package is to be created or creation process is cancelled.
+     * Shows exit confirm dialog if Cancel button is pressed.
+     *
+     * @param e the event to be processed
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("YES")) {
@@ -385,7 +431,7 @@ public class AddPackageDialog extends JDialog implements ActionListener, ItemLis
                     this.packageTypeSelected = true;
                     this.packageType = PackageFactory.PackageType.BOOK;
                     setComboBoxRed(false);
-                    this.extraField.changeType(packageType,true);
+                    this.extraField.changeType(packageType, true);
                 } else {
                     this.packageTypeSelected = false;
                     setComboBoxRed(true);
@@ -397,6 +443,28 @@ public class AddPackageDialog extends JDialog implements ActionListener, ItemLis
         contentPane.repaint();
     }
 
+    /**
+     * Method checks if all fields are valid for package creation.
+     *
+     * @return Returns true if fields are properly filled, false otherwise.
+     */
+    private boolean fieldsAreFilled() {
+        return !name.getText().isBlank()
+                && !name.getText().isEmpty()
+                && !price.getText().isEmpty()
+                && !price.getText().isBlank()
+                && !weight.getText().isEmpty()
+                && !weight.getText().isBlank()
+                && dateIsPicked
+                && extraField.isSet(packageType)
+                && this.packageTypeSelected;
+    }
+
+    /**
+     * Changes UI depending on which item is pressed in the combo box.
+     *
+     * @param e the event to be processed
+     */
     @Override
     public void itemStateChanged(ItemEvent e) {
         if (e.getStateChange() == ItemEvent.SELECTED) {
@@ -408,42 +476,58 @@ public class AddPackageDialog extends JDialog implements ActionListener, ItemLis
                     this.packageType = PackageFactory.PackageType.BOOK;
                     setComboBoxRed(false);
                     extraField.isSet(packageType);
-                    this.extraField.changeType(packageType,true);
+                    this.extraField.changeType(packageType, true);
                 } else if (selectedItem.equals(this.comboBoxTitles[1])) {
                     this.packageTypeSelected = true;
                     this.packageType = PackageFactory.PackageType.PERISHABLE;
                     setComboBoxRed(false);
                     extraField.isSet(packageType);
-                    this.extraField.changeType(packageType,true);
+                    this.extraField.changeType(packageType, true);
                 } else if (selectedItem.equals(this.comboBoxTitles[2])) {
                     this.packageTypeSelected = true;
                     this.packageType = PackageFactory.PackageType.ELECTRONIC;
                     setComboBoxRed(false);
                     extraField.isSet(packageType);
-                    this.extraField.changeType(packageType,true);
+                    this.extraField.changeType(packageType, true);
                 }
             }
         }
         repaint();
     }
 
+    /**
+     * Handles what happens when a date is selected on UI.
+     *
+     * @param dateTimeChangeEvent Event tells method what happened to DateTimePicker
+     */
     @Override
     public void dateOrTimeChanged(DateTimeChangeEvent dateTimeChangeEvent) {
         this.dateIsPicked = true;
         if (dateTimeChangeEvent.getSource().getName().equals("EXPECT DATE")) {
             this.finalExpectedDate = dateTimeChangeEvent.getNewDateTimePermissive();
-            setDateRed(expectedDeliveryDate);
+            setDateRed();
         } else if (dateTimeChangeEvent.getSource().getName().equals("PERISHABLE")) {
             extraField.setDate(dateTimeChangeEvent.getNewDateTimePermissive());
             extraField.isSet(packageType);
         }
     }
 
+    /**
+     * Method handles what happens when a TextArea is focused.
+     *
+     * @param e the event to be processed
+     */
     @Override
     public void focusGained(FocusEvent e) {
 
     }
 
+    /**
+     * Method handles what happens when a TextArea is not focused.
+     * Checks validity of textAreas.
+     *
+     * @param e the event to be processed
+     */
     @Override
     public void focusLost(FocusEvent e) {
         Component component = e.getComponent();
@@ -454,16 +538,21 @@ public class AddPackageDialog extends JDialog implements ActionListener, ItemLis
         }
     }
 
+    /**
+     * Paints a brown line separator on screen.
+     *
+     * @param g the specified Graphics window
+     */
     @Override
     public void paint(Graphics g) {
         super.paint(g);
 
         Graphics2D g2 = (Graphics2D) g;
         g2.setColor(Util.darkBrown);
-        if(packageType == PackageFactory.PackageType.ELECTRONIC){
+        if (packageType == PackageFactory.PackageType.ELECTRONIC) {
             g2.fillRoundRect((int) (this.getWidth() * 0.39), (int) (this.getHeight() * 0.15),
                     (int) (this.getWidth() * 0.005), (int) (this.getHeight() * 0.75), 3, 3);
-        } else{
+        } else {
             g2.fillRoundRect((int) (this.getWidth() * 0.41), (int) (this.getHeight() * 0.15),
                     (int) (this.getWidth() * 0.005), (int) (this.getHeight() * 0.75), 3, 3);
         }

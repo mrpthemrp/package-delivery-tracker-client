@@ -8,7 +8,13 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-//reference: http://www2.hawaii.edu/~takebaya/ics111/jdialog/jdialog.html
+/**
+ * Custom Dialog that uses RoundButtons. Inherits {@link JDialog}.
+ * Implements how buttons look like on click.
+ *
+ * @author Deborah Wang
+ * @link http://www2.hawaii.edu/~takebaya/ics111/jdialog/jdialog.html Reference for writing class
+ */
 public class CustomDialog extends JDialog implements ActionListener {
     public boolean isRemove, dispose;
     private int panelItemIndex;
@@ -51,10 +57,15 @@ public class CustomDialog extends JDialog implements ActionListener {
         this.add(contentPane);
     }
 
+    /**
+     * Determines whether the dialog will be closed when a button is selected.
+     *
+     * @param e the event to be processed
+     */
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("YES")) {
-            if(isRemove){
+            if (isRemove) {
                 MainScreenRight.updatePackages(this.panelItemIndex, this.pkgIndex);
             } else {
                 dispose = false;
@@ -65,15 +76,16 @@ public class CustomDialog extends JDialog implements ActionListener {
         dispose();
     }
 
+    /**
+     * Invokes the dialog without needing to use Runnable.
+     *
+     * @param panelItemIndex Index of a PackageItem object in a JPanel ArrayList.
+     * @param pkgIndex       Index of a PackageBase object in a PackageBase ArrayList.
+     */
     public void run(int panelItemIndex, int pkgIndex) {
         this.pkgIndex = pkgIndex;
         this.panelItemIndex = panelItemIndex;
         this.setVisible(true);
     }
-
-    public boolean isRemove() {
-        return isRemove;
-    }
-
 
 }
