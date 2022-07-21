@@ -188,7 +188,7 @@ public class AddPackageDialog extends JDialog implements ActionListener, ItemLis
 
     private void setUpContentGrid(JPanel buttonPane, GridBagConstraints gbc, JPanel contentPane) {
         //left
-        gbc.insets = new Insets(15, 15, 15, 15);
+        gbc.insets = new Insets((int) (Util.screenWidth * 0.002), 15, 15, 15);
         gbc.fill = GridBagConstraints.BASELINE_TRAILING;
         gbc.gridx = 0;
         gbc.gridy = 4;

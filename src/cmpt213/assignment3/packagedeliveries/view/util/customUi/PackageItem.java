@@ -39,17 +39,16 @@ public class PackageItem extends JPanel implements ActionListener {
                 true, false);
 
         gbc = new GridBagConstraints();
-        gbc.insets = new Insets(1, 1, 1, 1);
         gbc.fill = GridBagConstraints.HORIZONTAL;
 
 
-        this.setBackground(Util.lightTeal);
+        this.setBackground(Color.WHITE);
         this.setLayout(new GridBagLayout());
         this.setBorder(BorderFactory.createMatteBorder(0, 0, (int) (Util.screenHeight * 0.004), 0, Util.lightTeal));
 
         dateHeader = new JLabel("Expected Delivery Date:");
         name = new JLabel(pkg.getName() + packageNumber);
-        notes = new JLabel("Notes: "+pkg.getNotes());
+        notes = new JLabel("Notes: " + pkg.getNotes());
         price = new JLabel(Util.priceFormat.format(pkg.getPrice()));
         weight = new JLabel(Util.weightFormat.format(pkg.getWeight()));
         date = new JLabel(pkg.getExpectedDeliveryDate().format(Util.packageDateFormat).toUpperCase());
@@ -61,13 +60,49 @@ public class PackageItem extends JPanel implements ActionListener {
         setUpContentGrid();
     }
 
+    private void setUpComponents(int packageNumber) {
+
+        setUpTextStyle(name, Color.BLACK, Util.subTitleFont, LEFT_ALIGNMENT);
+        setUpTextStyle(notes, Color.BLACK, Util.bodyFont, LEFT_ALIGNMENT);
+        setUpTextStyle(price, new Color(123, 56, 30), Util.sortTitleFont, RIGHT_ALIGNMENT);
+        setUpTextStyle(weight, Color.GRAY, Util.sortBtnsFont, RIGHT_ALIGNMENT);
+        setUpTextStyle(date, Color.BLACK, Util.pkgDateFont, RIGHT_ALIGNMENT);
+        setUpTextStyle(dateHeader, Color.BLACK, Util.bodyFont, RIGHT_ALIGNMENT);
+
+        removeButton.addActionListener(this);
+        deliveredCheckBox.addActionListener(this);
+        deliveredCheckBox.setBackground(Color.WHITE);
+        deliveredCheckBox.setActionCommand("DELIVERY STATUS");
+        deliveredCheckBox.setFocusPainted(false);
+        deliveredCheckBox.setForeground(Color.BLACK);
+        deliveredCheckBox.setFont(Util.deliveryStatusFont);
+
+        if (pkg instanceof Book) {
+            extraField = new JLabel(("Author Name: " + ((Book) pkg).getAuthorName()));
+            pkgHeader = new JLabel("P A C K A G E   " + packageNumber + "   |   B O O K");
+        } else if (pkg instanceof Perishable) {
+            extraField = new JLabel(("Expiry Date: " +
+                    ((Perishable) pkg).getExpiryDate().format(Util.packageDateFormat).toUpperCase()));
+            pkgHeader = new JLabel("P A C K A G E   " + packageNumber + "   |   P E R I S H A B L E");
+        } else if (pkg instanceof Electronic) {
+            extraField = new JLabel(("Environmental Handling Fee: $" + ((Electronic) pkg).getHandleFee()));
+            pkgHeader = new JLabel("P A C K A G E   " + packageNumber + "   |   E L E C T R O N I C");
+        }
+        setUpTextStyle(pkgHeader, Util.lightBrown, Util.sortBtnsFont, RIGHT_ALIGNMENT);
+        setUpTextStyle(extraField, Color.BLACK, Util.bodyFont, LEFT_ALIGNMENT);
+
+    }
+
     private void setUpContentGrid() {
         gbc.fill = GridBagConstraints.HORIZONTAL;
 
+        //Left Side of Screen
+        gbc.insets = new Insets((int) (Util.screenWidth * 0.007), 0, (int) (Util.screenWidth * 0.002), 0);
         gbc.gridx = 0;
         gbc.gridy = 0;
         this.add(pkgHeader, gbc);
 
+        gbc.insets = new Insets((int) (Util.screenWidth * 0.002), 0, (int) (Util.screenWidth * 0.002), 0);
         gbc.gridx = 0;
         gbc.gridy = 1;
         this.add(name, gbc);
@@ -80,25 +115,29 @@ public class PackageItem extends JPanel implements ActionListener {
         gbc.gridy = 3;
         this.add(extraField, gbc);
 
+        gbc.insets = new Insets((int) (Util.screenWidth * 0.002), 0, (int) (Util.screenWidth * 0.007), 0);
         gbc.gridx = 0;
         gbc.gridy = 4;
         this.add(deliveredCheckBox, gbc);
 
-        gbc.gridx = 1;
+        gbc.gridx = 0;
         gbc.gridy = 4;
         this.add(removeButton, gbc);
 
-        //middle bar
+        //Middle Divider
         gbc.gridx = 2;
         gbc.gridy = 0;
         this.add(Box.createRigidArea(new Dimension((int) (Util.screenWidth * 0.07), this.getHeight())), gbc);
 
-        //right
+        //Right Side of Screen
+        gbc.insets = new Insets((int) (Util.screenWidth * 0.007), 0, (int) (Util.screenWidth * 0.002), 0);
+        gbc.anchor = GridBagConstraints.EAST;
+        gbc.fill = GridBagConstraints.NONE;
         gbc.gridx = 3;
         gbc.gridy = 0;
         this.add(dateHeader, gbc);
 
-
+        gbc.insets = new Insets((int) (Util.screenWidth * 0.002), 0, (int) (Util.screenWidth * 0.002), 0);
         gbc.gridx = 3;
         gbc.gridy = 1;
         this.add(date, gbc);
@@ -120,38 +159,6 @@ public class PackageItem extends JPanel implements ActionListener {
         text.setAlignmentX(alignment);
     }
 
-    private void setUpComponents(int packageNumber) {
-
-        setUpTextStyle(name, Color.BLACK, Util.subTitleFont, LEFT_ALIGNMENT);
-        setUpTextStyle(notes, Color.BLACK, Util.bodyFont, LEFT_ALIGNMENT);
-        setUpTextStyle(price, new Color (123, 56, 30), Util.sortTitleFont, RIGHT_ALIGNMENT);
-        setUpTextStyle(weight, Color.GRAY, Util.sortBtnsFont, RIGHT_ALIGNMENT);
-        setUpTextStyle(date, Color.BLACK, Util.pkgDateFont, RIGHT_ALIGNMENT);
-        setUpTextStyle(dateHeader, Color.BLACK, Util.bodyFont, RIGHT_ALIGNMENT);
-
-        removeButton.addActionListener(this);
-        deliveredCheckBox.addActionListener(this);
-        deliveredCheckBox.setBackground(Color.WHITE);
-        deliveredCheckBox.setActionCommand("DELIVERY STATUS");
-        deliveredCheckBox.setFocusPainted(false);
-        deliveredCheckBox.setForeground(Color.BLACK);
-        deliveredCheckBox.setFont(Util.deliveryStatusFont);
-
-        if (pkg instanceof Book) {
-            extraField = new JLabel(("Author Name: "+((Book)pkg).getAuthorName()));
-            pkgHeader = new JLabel("P A C K A G E  " + packageNumber +  "  |  B O O K");
-        } else if (pkg instanceof Perishable) {
-            extraField = new JLabel(("Expiry Date: "+
-                    ((Perishable)pkg).getExpiryDate().format(Util.packageDateFormat).toUpperCase()));
-            pkgHeader = new JLabel("P A C K A G E  " + packageNumber + "  |  P E R I S H A B L E");
-        } else if (pkg instanceof Electronic) {
-            extraField = new JLabel(("Environmental Handling Fee: $"+((Electronic)pkg).getHandleFee()));
-            pkgHeader = new JLabel("P A C K A G E  " + packageNumber + "  |  E L E C T R O N I C");
-        }
-        setUpTextStyle(pkgHeader, Util.lightBrown, Util.sortBtnsFont, RIGHT_ALIGNMENT);
-        setUpTextStyle(extraField, Color.BLACK, Util.bodyFont, LEFT_ALIGNMENT);
-
-    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
