@@ -2,16 +2,37 @@ package cmpt213.assignment3.packagedeliveries.model;
 
 import java.time.LocalDateTime;
 
+/**
+ * A concrete implementation {@link PackageBase}, models a package that
+ * holds an electronic. Contains extra field that is a double, acts as the handling fee.
+ *
+ * @author Deborah Wang
+ */
 public class Electronic extends PackageBase {
     private final double handleFee;
 
+    /**
+     * Constructor of the Electronic object.
+     *
+     * @param name      See {@link PackageBase#PackageBase(String, String, double, double, LocalDateTime)}
+     * @param notes     See {@link PackageBase#PackageBase(String, String, double, double, LocalDateTime)}
+     * @param price     See {@link PackageBase#PackageBase(String, String, double, double, LocalDateTime)}
+     * @param weight    See {@link PackageBase#PackageBase(String, String, double, double, LocalDateTime)}
+     * @param date      See {@link PackageBase#PackageBase(String, String, double, double, LocalDateTime)}
+     * @param handleFee The environmental handling fee that comes with sending an electronic package.
+     */
     public Electronic(String name, String notes, double price,
                       double weight, LocalDateTime date, double handleFee) {
-
         super(name, notes, price, weight, date);
         this.handleFee = handleFee;
     }
 
+    /**
+     * Converts object's fields into a String that
+     * conveys what the fields are (units are included).
+     *
+     * @return A string of the object's fields, ready for print.
+     */
     @Override
     public String toString() {
 
@@ -32,6 +53,11 @@ public class Electronic extends PackageBase {
                 "Environmental Handling Fee: " + this.handleFee + "\n");
     }
 
+    /**
+     * Getter for handling fee.
+     *
+     * @return Returns the handling fee.
+     */
     public double getHandleFee() {
         return handleFee;
     }
