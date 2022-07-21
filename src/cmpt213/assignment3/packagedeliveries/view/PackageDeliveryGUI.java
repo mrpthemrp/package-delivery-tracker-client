@@ -47,6 +47,7 @@ public class PackageDeliveryGUI extends JFrame implements ActionListener {
                 packageControl.arrayData(PackageDeliveryControl.DATA_SAVE);
             }
         });
+        this.setIconImage(Util.appIcon);
 
         //initialize fields
         currentState = SCREEN_STATE.START;

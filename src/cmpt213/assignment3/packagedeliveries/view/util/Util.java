@@ -1,7 +1,9 @@
 package cmpt213.assignment3.packagedeliveries.view.util;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.text.DecimalFormat;
@@ -52,11 +54,22 @@ public final class Util {
     public static Font addTitleFont;
     public static Font bodyFont = new Font(Font.SANS_SERIF, Font.PLAIN, (int) (10 * (Util.screenSize.getWidth() * 0.001)));
 
-    public static ImageIcon checkBoxFilled = new ImageIcon(filePath(new String[]{"src", "cmpt213",
-            "assignment3", "packagedeliveries", "view", "util", "images"}) + fs + "checkBoxFilled.png");
+    private static final String[] imagePath = new String[]{"src", "cmpt213",
+            "assignment3", "packagedeliveries", "view", "util", "images"};
 
-    public static ImageIcon checkBoxOutline = new ImageIcon(filePath(new String[]{"src", "cmpt213",
-            "assignment3", "packagedeliveries", "view", "util", "images"}) + fs + "checkBoxOutline.png");
+    public static Image appIcon;
+
+    static {
+        try {
+            appIcon = ImageIO.read(new File(filePath(imagePath)+fs+"pkgIcon.png"));
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static ImageIcon checkBoxFilled = new ImageIcon(filePath(imagePath) + fs + "checkBoxFilled.png");
+
+    public static ImageIcon checkBoxOutline = new ImageIcon(filePath(imagePath) + fs + "checkBoxOutline.png");
 
     static {
         try {
