@@ -48,7 +48,7 @@ public class StartScreen extends JPanel{
         resetConstraint(0);
         this.add(title, constraints);
         resetConstraint(1);
-        this.add(Box.createRigidArea(new Dimension(0, (int) (Util.screenHeight * 0.06))), constraints);
+        this.add(Box.createRigidArea(new Dimension(0, (int) (Util.screenHeight * 0.04))), constraints);
         resetConstraint(2);
         this.add(subtitle1, constraints);
         this.add(Box.createRigidArea(new Dimension(0, (int) (Util.screenHeight * 0.06))), constraints);

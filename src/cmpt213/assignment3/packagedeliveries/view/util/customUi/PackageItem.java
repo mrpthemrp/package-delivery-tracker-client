@@ -127,7 +127,7 @@ public class PackageItem extends JPanel implements ActionListener {
         //Middle Divider
         gbc.gridx = 2;
         gbc.gridy = 0;
-        this.add(Box.createRigidArea(new Dimension((int) (Util.screenWidth * 0.07), this.getHeight())), gbc);
+        this.add(Box.createRigidArea(new Dimension((int) (Util.screenWidth * 0.11), this.getHeight())), gbc);
 
         //Right Side of Screen
         gbc.insets = new Insets((int) (Util.screenWidth * 0.007), 0, (int) (Util.screenWidth * 0.002), 0);

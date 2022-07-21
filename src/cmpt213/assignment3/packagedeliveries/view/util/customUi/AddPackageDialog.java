@@ -34,8 +34,8 @@ public class AddPackageDialog extends JDialog implements ActionListener, ItemLis
 
         Graphics2D g2 = (Graphics2D) g;
         g2.setColor(Util.darkBrown);
-        g2.fillRoundRect((int) (this.getWidth() *0.415), (int) (this.getHeight() *0.15),
-                (int) (this.getWidth()*0.005), (int) (this.getHeight() *0.75), 3, 3);
+        g2.fillRoundRect((int) (this.getWidth() * 0.415), (int) (this.getHeight() * 0.15),
+                (int) (this.getWidth() * 0.005), (int) (this.getHeight() * 0.75), 3, 3);
 
     }
 
@@ -71,6 +71,11 @@ public class AddPackageDialog extends JDialog implements ActionListener, ItemLis
     }
 
     private void setUpButtonPane(String btnYesText, String btnNoText, JPanel buttonPane) {
+        buttonPane.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+
+        //TODO fix this!!
+        buttonPane.setLayout(new GridLayout(1, 2, (int) (Util.screenHeight * 0.03), 0));
+        buttonPane.getInsets().set((int) (Util.screenHeight * 0.03), 0, 0, (int) (Util.screenHeight * 0.03));
         RoundButton yesBtn = new RoundButton(btnYesText, "YES", this, Util.lightBrown,
                 Util.darkBrown, (int) (Util.screenHeight * 0.045), Util.dialogBtnsFont);
         RoundButton noBtn = new RoundButton(btnNoText, "NO", this, Util.midTeal,
@@ -78,7 +83,6 @@ public class AddPackageDialog extends JDialog implements ActionListener, ItemLis
 
         buttonPane.setBackground(Color.WHITE);
         buttonPane.add(yesBtn);
-        buttonPane.add(Box.createHorizontalGlue());
         buttonPane.add(noBtn);
     }
 
@@ -117,6 +121,15 @@ public class AddPackageDialog extends JDialog implements ActionListener, ItemLis
         setUpExtraField();
     }
 
+    private void setUpComboBox() {
+        comboBoxTitles = new String[]{"Book", "Perishable", "Electronic"};
+        choosePackageType = new JComboBox<>(comboBoxTitles);
+        choosePackageType.setEditable(false);
+        choosePackageType.addItemListener(this);
+        choosePackageType.setSize(new Dimension((int) (this.getWidth() * 0.02), (int) (this.getHeight() * 0.5)));
+        this.packageType = PackageFactory.PackageType.BOOK;
+    }
+
     private void setUpExtraField() {
         switch (packageType) {
             case BOOK, ELECTRONIC -> {
@@ -138,30 +151,35 @@ public class AddPackageDialog extends JDialog implements ActionListener, ItemLis
         }
     }
 
-    private void setUpComboBox() {
-        comboBoxTitles = new String[]{"Book", "Perishable", "Electronic"};
-        choosePackageType = new JComboBox<>(comboBoxTitles);
-        choosePackageType.setEditable(false);
-        choosePackageType.addItemListener(this);
-        choosePackageType.setSize(new Dimension((int) (this.getWidth() * 0.02), (int) (this.getHeight() * 0.5)));
-        this.packageType = PackageFactory.PackageType.BOOK;
+    private void setUpExtraFieldTitle() {
+        switch (packageType) {
+            case BOOK -> titleExtraField = new JLabel("A U T H O R    N A M E:");
+
+            case PERISHABLE -> titleExtraField = new JLabel("E X P I R Y    D E L I V E R Y     D A T E:");
+
+            case ELECTRONIC -> titleExtraField = new JLabel("E N V I R O N M E N T A L     H A N D L E     F E E:");
+
+        }
+
+        setUpJLabel(titleExtraField);
     }
 
+
     private void setUpJLabels() {
-        pageTitle = new JLabel("A D D   P A C K A G E");
+        pageTitle = new JLabel("A D D    P A C K A G E");
         setUpJLabel(pageTitle);
         pageTitle.setFont(Util.addTitleFont);
         titleName = new JLabel("N A M E:");
         setUpJLabel(titleName);
         titleNotes = new JLabel("N O T E S:");
         setUpJLabel(titleNotes);
-        titleDate = new JLabel("E X P E C T E D   D E L I V E R Y  D A T E:");
+        titleDate = new JLabel("E X P E C T E D    D E L I V E R Y    D A T E:");
         setUpJLabel(titleDate);
-        titlePackageType = new JLabel("P A C K A G E   T Y P E:");
+        titlePackageType = new JLabel("P A C K A G E    T Y P E:");
         setUpJLabel(titlePackageType);
         titleWeight = new JLabel("W E I G H T:");
         setUpJLabel(titleWeight);
-        titlePrice = new JLabel("P R I C E:");
+        titlePrice = new JLabel("P R I C E   ( C A D ):");
         setUpJLabel(titlePrice);
         symbolWeight = new JLabel("kg");
         setUpJLabel(symbolWeight);
@@ -173,137 +191,116 @@ public class AddPackageDialog extends JDialog implements ActionListener, ItemLis
         setUpExtraFieldTitle();
     }
 
-    private void setUpExtraFieldTitle() {
-        switch (packageType) {
-            case BOOK -> titleExtraField = new JLabel("A U T H O R   N A M E:");
-
-            case PERISHABLE -> titleExtraField = new JLabel("E X P I R Y  D E L I V E R Y  D A T E:");
-
-            case ELECTRONIC -> titleExtraField = new JLabel("E N V I R O N M E N T A L   H A N D L E   F E E:");
-
-        }
-
-        setUpJLabel(titleExtraField);
-    }
 
     private void setUpContentGrid(JPanel buttonPane, GridBagConstraints gbc, JPanel contentPane) {
-        //left
-        gbc.insets = new Insets((int) (Util.screenWidth * 0.002), 15, 15, 15);
-        gbc.fill = GridBagConstraints.BASELINE_TRAILING;
+        //Left of Screen
+        gbc.insets = new Insets((int) (Util.screenWidth * 0.002), (int) (Util.screenWidth * 0.002),
+                (int) (Util.screenWidth * 0.002), (int) (Util.screenWidth * 0.002));
+        gbc.fill = 0;
+        gbc.anchor = GridBagConstraints.EAST;
         gbc.gridx = 0;
         gbc.gridy = 4;
         contentPane.add(pageTitle, gbc);
 
-        gbc.fill = GridBagConstraints.HORIZONTAL;
         gbc.gridx = 0;
-        gbc.gridy = 6;
+        gbc.gridy = 7;
         contentPane.add(buttonPane, gbc);
 
-        //middle bar
-        gbc.fill = GridBagConstraints.VERTICAL;
+        //Middle - Screen Divider
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.anchor = GridBagConstraints.WEST;
         gbc.gridx = 1;
-        gbc.gridy = 1;
+        gbc.gridy = 0;
         contentPane.add(Box.createRigidArea(new Dimension((int) (this.getWidth() * 0.05), 0)), gbc);
 
-        //right
-        gbc.insets = new Insets(15, 15, 2, 15);
-        gbc.fill = GridBagConstraints.HORIZONTAL;
-        gbc.gridx = 2;
+        //Right of Screen
+        //Right Screen - left side
+        gbc.insets = new Insets((int) (Util.screenWidth * 0.01), (int) (Util.screenWidth * 0.04), (int) (Util.screenWidth * 0.002), 0);
+        gbc.gridx = 1;
         gbc.gridy = 1;
         contentPane.add(titleName, gbc);
 
-        gbc.insets = new Insets(0, 15, 15, 15);
-        gbc.fill = GridBagConstraints.HORIZONTAL;
-        gbc.gridx = 2;
+        gbc.insets = new Insets(0, (int) (Util.screenWidth * 0.04), (int) (Util.screenWidth * 0.002), 0);
+        gbc.gridx = 1;
         gbc.gridy = 2;
         contentPane.add(name, gbc);
 
-        gbc.insets = new Insets(15, 15, 2, 15);
-        gbc.fill = GridBagConstraints.HORIZONTAL;
-        gbc.gridx = 2;
-        gbc.gridy = 3;
+        gbc.insets = new Insets((int) (Util.screenWidth * 0.01), (int) (Util.screenWidth * 0.04), (int) (Util.screenWidth * 0.002), 0);
+        gbc.gridx = 1;
+        gbc.gridy = 4;
         contentPane.add(titleDate, gbc);
 
-        gbc.insets = new Insets(0, 15, 15, 15);
-        gbc.fill = GridBagConstraints.HORIZONTAL;
-        gbc.gridx = 2;
-        gbc.gridy = 4;
+        gbc.insets = new Insets(0, (int) (Util.screenWidth * 0.04), (int) (Util.screenWidth * 0.002), 0);
+        gbc.gridx = 1;
+        gbc.gridy = 5;
         contentPane.add(expectedDeliveryDate, gbc);
 
-        gbc.insets = new Insets(15, 15, 2, 15);
-        gbc.fill = GridBagConstraints.HORIZONTAL;
-        gbc.gridx = 2;
-        gbc.gridy = 5;
+        gbc.insets = new Insets((int) (Util.screenWidth * 0.01), (int) (Util.screenWidth * 0.04), (int) (Util.screenWidth * 0.002), 0);
+        gbc.gridx = 1;
+        gbc.gridy = 7;
         contentPane.add(titleExtraField, gbc);
 
-        gbc.insets = new Insets(0, 15, 15, 15);
-        gbc.fill = GridBagConstraints.HORIZONTAL;
-        gbc.gridx = 2;
-        gbc.gridy = 6;
+        gbc.insets = new Insets(0, (int) (Util.screenWidth * 0.04), (int) (Util.screenWidth * 0.002), 0);
+        gbc.gridx = 1;
+        gbc.gridy = 8;
         contentPane.add(((JTextArea) extraField), gbc);
 
-        gbc.insets = new Insets(15, 15, 2, 15);
-        gbc.fill = GridBagConstraints.HORIZONTAL;
-        gbc.gridx = 3;
+        gbc.insets = new Insets((int) (Util.screenWidth * 0.01), (int) (Util.screenWidth * 0.04), (int) (Util.screenWidth * 0.002), 0);
+        gbc.gridx = 1;
+        gbc.gridy = 10;
+        contentPane.add(titleNotes, gbc);
+
+        gbc.insets = new Insets(0, (int) (Util.screenWidth * 0.04), (int) (Util.screenWidth * 0.002), 0);
+        gbc.ipady = (int) (Util.screenWidth * 0.075);
+        gbc.gridwidth = 4;
+        gbc.gridx = 1;
+        gbc.gridy = 11;
+        contentPane.add(notes, gbc);
+        gbc.ipady = 0;
+        gbc.gridwidth = GridBagConstraints.RELATIVE;
+
+        //Right Screen - right side
+        gbc.insets = new Insets((int) (Util.screenWidth * 0.01), (int) (Util.screenWidth * 0.02), (int) (Util.screenWidth * 0.002), 0);
+        gbc.gridx = 4;
         gbc.gridy = 1;
         contentPane.add(titlePackageType, gbc);
 
-        gbc.insets = new Insets(0, 15, 15, 15);
-        gbc.fill = GridBagConstraints.HORIZONTAL;
-        gbc.gridx = 3;
+        gbc.insets = new Insets(0, (int) (Util.screenWidth * 0.02), (int) (Util.screenWidth * 0.002), 0);
+        gbc.gridx = 4;
         gbc.gridy = 2;
         contentPane.add(choosePackageType, gbc);
 
-        gbc.insets = new Insets(15, 15, 2, 15);
-        gbc.fill = GridBagConstraints.HORIZONTAL;
-        gbc.gridx = 3;
-        gbc.gridy = 3;
-        contentPane.add(titleWeight, gbc);
-
-        gbc.insets = new Insets(0, 15, 15, 10);
-        gbc.fill = GridBagConstraints.HORIZONTAL;
-        gbc.gridx = 3;
-        gbc.gridy = 4;
-        contentPane.add(weight, gbc);
-
-        gbc.insets = new Insets(0, 0, 15, 5);
-        gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.insets = new Insets((int) (Util.screenWidth * 0.01), (int) (Util.screenWidth * 0.02), (int) (Util.screenWidth * 0.002), 0);
         gbc.gridx = 4;
         gbc.gridy = 4;
+        contentPane.add(titleWeight, gbc);
+
+        gbc.insets = new Insets(0, (int) (Util.screenWidth * 0.02), (int) (Util.screenWidth * 0.002), 0);
+        gbc.gridx = 4;
+        gbc.gridy = 5;
+        contentPane.add(weight, gbc);
+
+        gbc.insets = new Insets(0, (int) (Util.screenWidth * 0.007), (int) (Util.screenWidth * 0.002), 0);
+        gbc.gridx = 5;
+        gbc.gridy = 5;
         contentPane.add(symbolWeight, gbc);
 
-        gbc.insets = new Insets(15, 15, 2, 15);
-        gbc.fill = GridBagConstraints.HORIZONTAL;
-        gbc.gridx = 3;
-        gbc.gridy = 5;
+        gbc.insets = new Insets((int) (Util.screenWidth * 0.01), (int) (Util.screenWidth * 0.02), (int) (Util.screenWidth * 0.002), 0);
+        gbc.gridx = 4;
+        gbc.gridy = 7;
         contentPane.add(titlePrice, gbc);
 
-        gbc.insets = new Insets(0, 15, 15, 10);
-        gbc.fill = GridBagConstraints.HORIZONTAL;
-        gbc.gridx = 3;
-        gbc.gridy = 6;
+        gbc.insets = new Insets(0, (int) (Util.screenWidth * 0.02), (int) (Util.screenWidth * 0.002), 0);
+        gbc.gridx = 4;
+        gbc.gridy = 8;
         contentPane.add(symbolPrice, gbc);
 
-        gbc.insets = new Insets(0, 35, 15, 0);
-        gbc.fill = GridBagConstraints.HORIZONTAL;
-        gbc.gridx = 3;
-        gbc.gridy = 6;
+        gbc.insets = new Insets(0, (int) (Util.screenWidth * 0.027), (int) (Util.screenWidth * 0.002), 0);
+        gbc.gridx = 4;
+        gbc.gridy = 8;
         contentPane.add(price, gbc);
 
-        gbc.insets = new Insets(15, 15, 2, 15);
-        gbc.fill = GridBagConstraints.HORIZONTAL;
-        gbc.gridx = 2;
-        gbc.gridy = 7;
-        contentPane.add(titleNotes, gbc);
 
-        //TODO fix notes display height
-        gbc.insets = new Insets(0, 15, 15, 15);
-        gbc.fill = GridBagConstraints.HORIZONTAL;
-        gbc.gridx = 2;
-        gbc.gridy = 8;
-        gbc.gridwidth = 3;
-        gbc.gridheight = 8;
-        contentPane.add(notes, gbc);
     }
 
     private void setUpJLabel(JLabel label) {
