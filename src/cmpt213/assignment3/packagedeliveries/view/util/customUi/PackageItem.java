@@ -33,7 +33,8 @@ public class PackageItem extends JPanel implements ActionListener {
                 true, false);
 
         gbc = new GridBagConstraints();
-
+        gbc.insets = new Insets((int)(Util.screenHeight*0.02),(int)(Util.screenHeight*0.02),
+                (int)(Util.screenHeight*0.02),(int)(Util.screenHeight*0.02));
         gbc.fill = GridBagConstraints.HORIZONTAL;
 
 

@@ -31,9 +31,9 @@ public class MainScreenRight extends JPanel {
         this.parent = parent;
         this.setLayout(new GridBagLayout());
         gbc = new GridBagConstraints();
-        gbc.gridwidth = GridBagConstraints.REMAINDER;
-        gbc.weightx = 550;
-        gbc.weighty = 1;
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.weighty = 5;
 
         panelItems = new ArrayList<>();
 
@@ -43,12 +43,13 @@ public class MainScreenRight extends JPanel {
     private void addPackages(ArrayList<PackageBase> list, String noneMessage) {
         if (list.isEmpty()) {
             noItemsMessage.setText(noneMessage);
-            this.add(noItemsMessage, gbc, 0);
+            this.add(noItemsMessage, gbc);
         } else {
             for (int i = (list.size()-1); i >=0 ; i--) {
+                gbc.gridy = i;
                 PackageItem pkg = new PackageItem(list.get(i), (i+1), control, parent,i);
                 panelItems.add(pkg);
-                this.add(pkg, gbc, 0);
+                this.add(pkg, gbc);
             }
         }
     }
