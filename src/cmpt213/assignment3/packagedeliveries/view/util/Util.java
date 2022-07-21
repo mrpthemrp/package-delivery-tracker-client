@@ -52,7 +52,7 @@ public final class Util {
     public static Font dialogMessageFont;
     public static Font deliveryStatusFont;
     public static Font addTitleFont;
-    public static Font bodyFont = new Font(Font.SANS_SERIF, Font.PLAIN, (int) (10 * (Util.screenSize.getWidth() * 0.001)));
+    public static Font bodyFont;
 
     private static final String[] imagePath = new String[]{"src", "cmpt213",
             "assignment3", "packagedeliveries", "view", "util", "images"};
@@ -61,7 +61,7 @@ public final class Util {
 
     static {
         try {
-            appIcon = ImageIO.read(new File(filePath(imagePath)+fs+"pkgIcon.png"));
+            appIcon = ImageIO.read(new File(filePath(imagePath)+fs+"pkgIconLarge.png"));
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -146,6 +146,12 @@ public final class Util {
     static {
         try {
             deliveryStatusFont = createCustomFont("Roboto-Medium.ttf", Font.BOLD, (int) (7 * (Util.screenSize.getWidth() * 0.0013)));
+        } catch (IOException | FontFormatException e) {
+            throw new RuntimeException(e);
+        }
+    }static {
+        try {
+            bodyFont = createCustomFont("Roboto-Regular.ttf", Font.PLAIN, (int) (7 * (Util.screenSize.getWidth() * 0.001)));
         } catch (IOException | FontFormatException e) {
             throw new RuntimeException(e);
         }

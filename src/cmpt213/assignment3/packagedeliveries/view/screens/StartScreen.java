@@ -12,7 +12,8 @@ import java.awt.event.ActionListener;
 public class StartScreen extends JPanel{
     private final RoundButton btn;
     private final JLabel title;
-    private final JLabel subtitle;
+    private final JLabel subtitle1;
+    private final JLabel subtitle2;
     private final GridBagConstraints constraints;
 
     public StartScreen(ActionListener al) {
@@ -22,7 +23,8 @@ public class StartScreen extends JPanel{
         this.btn = new RoundButton("   E N T E R   ", "ENTER", al, Util.midTeal, Util.darkTeal,
                 (int) (Util.screenHeight*0.08), Util.enterBtnTextFont);
         this.title = new JLabel();
-        this.subtitle = new JLabel();
+        this.subtitle1 = new JLabel();
+        this.subtitle2 = new JLabel();
         this.constraints = new GridBagConstraints();
 
         createStartPanel();
@@ -33,10 +35,14 @@ public class StartScreen extends JPanel{
 
         //text fields
         this.title.setText("P A C K A G E   D E L I V E R Y   T R A C K E R");
-        this.subtitle.setText("Welcome to your personal package tracker! Click ENTER to start.");
+        this.subtitle1.setText("Welcome to your personal package tracker.");
+        this.subtitle2.setText("Click ENTER to start!");
         this.title.setFont(Util.titleFont);
         this.title.setForeground(Color.BLACK);
-        this.subtitle.setFont(Util.subTitleFont);
+        this.subtitle1.setForeground(Color.DARK_GRAY);
+        this.subtitle2.setForeground(Color.DARK_GRAY);
+        this.subtitle1.setFont(Util.subTitleFont);
+        this.subtitle2.setFont(Util.subTitleFont);
 
         //background stuff
         resetConstraint(0);
@@ -44,10 +50,13 @@ public class StartScreen extends JPanel{
         resetConstraint(1);
         this.add(Box.createRigidArea(new Dimension(0, (int) (Util.screenHeight * 0.06))), constraints);
         resetConstraint(2);
-        this.add(subtitle, constraints);
-        resetConstraint(3);
+        this.add(subtitle1, constraints);
         this.add(Box.createRigidArea(new Dimension(0, (int) (Util.screenHeight * 0.06))), constraints);
+        resetConstraint(3);
+        this.add(subtitle2, constraints);
         resetConstraint(4);
+        this.add(Box.createRigidArea(new Dimension(0, (int) (Util.screenHeight * 0.06))), constraints);
+        resetConstraint(5);
         this.add(btn, constraints);
     }
 

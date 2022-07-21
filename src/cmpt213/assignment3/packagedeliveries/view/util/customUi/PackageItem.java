@@ -1,8 +1,7 @@
 package cmpt213.assignment3.packagedeliveries.view.util.customUi;
 
 import cmpt213.assignment3.packagedeliveries.control.PackageDeliveryControl;
-import cmpt213.assignment3.packagedeliveries.model.PackageBase;
-import cmpt213.assignment3.packagedeliveries.view.PackageDeliveryGUI;
+import cmpt213.assignment3.packagedeliveries.model.*;
 import cmpt213.assignment3.packagedeliveries.view.util.Util;
 
 import javax.swing.*;
@@ -13,7 +12,14 @@ import java.awt.event.ActionListener;
 
 public class PackageItem extends JPanel implements ActionListener {
     private final PackageBase pkg;
-    private final JLabel name, notes, price, weight, date;
+    private final JLabel name;
+    private final JLabel notes;
+    private final JLabel price;
+    private final JLabel weight;
+    private final JLabel date;
+    private JLabel extraField;
+    private JLabel pkgHeader;
+    private final JLabel dateHeader;
     private final RoundButton removeButton;
     private final JCheckBox deliveredCheckBox;
     private final PackageDeliveryControl control;
@@ -26,23 +32,24 @@ public class PackageItem extends JPanel implements ActionListener {
         this.pkg = pkg;
         this.control = control;
         this.panelItemIndex = panelItemIndex;
-        this.pkgIndex = (packageNumber-1);
+        this.pkgIndex = (packageNumber - 1);
 
         this.removePackageDialog = new CustomDialog(parent, "Remove Package Confirmation",
-                ("Are you sure you want to remove Package #"+packageNumber+"?"), "  Y E S  ", "   N O   ",
+                ("Are you sure you want to remove Package #" + packageNumber + "?"), "  Y E S  ", "   N O   ",
                 true, false);
 
         gbc = new GridBagConstraints();
-        gbc.insets = new Insets(1,1,1,1);
+        gbc.insets = new Insets(1, 1, 1, 1);
         gbc.fill = GridBagConstraints.HORIZONTAL;
 
 
-        this.setBackground(Util.lightBrown);
+        this.setBackground(Util.lightTeal);
         this.setLayout(new GridBagLayout());
         this.setBorder(BorderFactory.createMatteBorder(0, 0, (int) (Util.screenHeight * 0.004), 0, Util.lightTeal));
 
-        name = new JLabel(pkg.getName()+packageNumber);
-        notes = new JLabel(pkg.getNotes());
+        dateHeader = new JLabel("Expected Delivery Date:");
+        name = new JLabel(pkg.getName() + packageNumber);
+        notes = new JLabel("Notes: "+pkg.getNotes());
         price = new JLabel(Util.priceFormat.format(pkg.getPrice()));
         weight = new JLabel(Util.weightFormat.format(pkg.getWeight()));
         date = new JLabel(pkg.getExpectedDeliveryDate().format(Util.packageDateFormat).toUpperCase());
@@ -50,8 +57,7 @@ public class PackageItem extends JPanel implements ActionListener {
         removeButton = new RoundButton(" R E M O V E ", "REMOVE", this, Util.redLight, Util.redDark,
                 (int) (Util.screenHeight * 0.024), Util.removeBtnTextFont);
 
-        setUpComponents();
-
+        setUpComponents(packageNumber);
         setUpContentGrid();
     }
 
@@ -59,38 +65,52 @@ public class PackageItem extends JPanel implements ActionListener {
         gbc.fill = GridBagConstraints.HORIZONTAL;
 
         gbc.gridx = 0;
-        gbc.gridy =0;
+        gbc.gridy = 0;
+        this.add(pkgHeader, gbc);
+
+        gbc.gridx = 0;
+        gbc.gridy = 1;
         this.add(name, gbc);
 
         gbc.gridx = 0;
-        gbc.gridy =1;
+        gbc.gridy = 2;
         this.add(notes, gbc);
 
         gbc.gridx = 0;
-        gbc.gridy =2;
-        this.add(deliveredCheckBox, gbc);
+        gbc.gridy = 3;
+        this.add(extraField, gbc);
 
         gbc.gridx = 0;
-        gbc.gridy =3;
+        gbc.gridy = 4;
+        this.add(deliveredCheckBox, gbc);
+
+        gbc.gridx = 1;
+        gbc.gridy = 4;
         this.add(removeButton, gbc);
 
         //middle bar
-        gbc.gridx = 1;
-        gbc.gridy =0;
-        this.add(Box.createHorizontalGlue(), gbc);
+        gbc.gridx = 2;
+        gbc.gridy = 0;
+        this.add(Box.createRigidArea(new Dimension((int) (Util.screenWidth * 0.07), this.getHeight())), gbc);
 
         //right
-        gbc.gridx = 2;
-        gbc.gridy =0;
+        gbc.gridx = 3;
+        gbc.gridy = 0;
+        this.add(dateHeader, gbc);
+
+
+        gbc.gridx = 3;
+        gbc.gridy = 1;
         this.add(date, gbc);
 
-        gbc.gridx = 2;
-        gbc.gridy =1;
+        gbc.gridx = 3;
+        gbc.gridy = 2;
+        this.add(price, gbc);
+
+        gbc.gridx = 3;
+        gbc.gridy = 3;
         this.add(weight, gbc);
 
-        gbc.gridx = 2;
-        gbc.gridy =2;
-        this.add(price, gbc);
     }
 
     private void setUpTextStyle(JLabel text, Color textColour, Font font, float alignment) {
@@ -100,13 +120,14 @@ public class PackageItem extends JPanel implements ActionListener {
         text.setAlignmentX(alignment);
     }
 
-    private void setUpComponents() {
+    private void setUpComponents(int packageNumber) {
 
         setUpTextStyle(name, Color.BLACK, Util.subTitleFont, LEFT_ALIGNMENT);
         setUpTextStyle(notes, Color.BLACK, Util.bodyFont, LEFT_ALIGNMENT);
-        setUpTextStyle(price, Util.darkBrown, Util.subTitleFont, RIGHT_ALIGNMENT);
-        setUpTextStyle(weight, Color.BLACK, Util.subTitleFont, RIGHT_ALIGNMENT);
+        setUpTextStyle(price, new Color (123, 56, 30), Util.sortTitleFont, RIGHT_ALIGNMENT);
+        setUpTextStyle(weight, Color.GRAY, Util.sortBtnsFont, RIGHT_ALIGNMENT);
         setUpTextStyle(date, Color.BLACK, Util.pkgDateFont, RIGHT_ALIGNMENT);
+        setUpTextStyle(dateHeader, Color.BLACK, Util.bodyFont, RIGHT_ALIGNMENT);
 
         removeButton.addActionListener(this);
         deliveredCheckBox.addActionListener(this);
@@ -115,19 +136,32 @@ public class PackageItem extends JPanel implements ActionListener {
         deliveredCheckBox.setFocusPainted(false);
         deliveredCheckBox.setForeground(Color.BLACK);
         deliveredCheckBox.setFont(Util.deliveryStatusFont);
+
+        if (pkg instanceof Book) {
+            extraField = new JLabel(("Author Name: "+((Book)pkg).getAuthorName()));
+            pkgHeader = new JLabel("P A C K A G E  " + packageNumber +  "  |  B O O K");
+        } else if (pkg instanceof Perishable) {
+            extraField = new JLabel(("Expiry Date: "+
+                    ((Perishable)pkg).getExpiryDate().format(Util.packageDateFormat).toUpperCase()));
+            pkgHeader = new JLabel("P A C K A G E  " + packageNumber + "  |  P E R I S H A B L E");
+        } else if (pkg instanceof Electronic) {
+            extraField = new JLabel(("Environmental Handling Fee: $"+((Electronic)pkg).getHandleFee()));
+            pkgHeader = new JLabel("P A C K A G E  " + packageNumber + "  |  E L E C T R O N I C");
+        }
+        setUpTextStyle(pkgHeader, Util.lightBrown, Util.sortBtnsFont, RIGHT_ALIGNMENT);
+        setUpTextStyle(extraField, Color.BLACK, Util.bodyFont, LEFT_ALIGNMENT);
+
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(e.getActionCommand().equals("REMOVE")){
+        if (e.getActionCommand().equals("REMOVE")) {
             System.out.println("remove button pressed");
             removePackageDialog.run(this.panelItemIndex, pkgIndex);
-        }
-        else if (e.getActionCommand().equals("DELIVERY STATUS")) {
+        } else if (e.getActionCommand().equals("DELIVERY STATUS")) {
             control.adjustPackage(pkg, PackageDeliveryControl.DELIVERY_STATUS, deliveredCheckBox.isSelected());
         }
         repaint();
     }
-    public PackageBase getPkg (){ return this.pkg;}
 
 }
