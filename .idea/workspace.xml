@@ -7,15 +7,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Write RoundButton JavaDocs">
+    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Write view class JavaDocs">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/customUI/AddPackageDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/customUI/AddPackageDialog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/customUI/CheckBoxUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/customUI/CheckBoxUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/customUI/ColumnHeader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/customUI/ColumnHeader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/customUI/CustomDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/customUI/CustomDialog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/customUI/ExtraFieldUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/customUI/ExtraFieldUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/customUI/HeaderButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/customUI/HeaderButton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/customUI/PackageItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/customUI/PackageItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/PackageDeliveryGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/PackageDeliveryGUI.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,13 +111,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1652723361815</updated>
-    </task>
-    <task id="LOCAL-00155" summary="Set scroll bar buttons invisible">
-      <created>1658204178371</created>
-      <option name="number" value="00155" />
-      <option name="presentableId" value="LOCAL-00155" />
-      <option name="project" value="LOCAL" />
-      <updated>1658204178371</updated>
     </task>
     <task id="LOCAL-00156" summary="Set scroll bar buttons invisible">
       <created>1658204640034</created>
@@ -461,7 +448,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658411303445</updated>
     </task>
-    <option name="localTasksCounter" value="204" />
+    <task id="LOCAL-00204" summary="Write view class JavaDocs">
+      <created>1658414945076</created>
+      <option name="number" value="00204" />
+      <option name="presentableId" value="LOCAL-00204" />
+      <option name="project" value="LOCAL" />
+      <updated>1658414945076</updated>
+    </task>
+    <option name="localTasksCounter" value="205" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -477,7 +471,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Remove refreshes properly" />
     <MESSAGE value="Packages are refereshing properly" />
     <MESSAGE value="Working on add dialog ui" />
     <MESSAGE value="Add package dialog in the works" />
@@ -502,7 +495,8 @@
     <MESSAGE value="Write MainApp JavaDocs" />
     <MESSAGE value="Write Util, StringVerifier, DoubleVerifier JavaDocs" />
     <MESSAGE value="Write RoundButton JavaDocs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Write RoundButton JavaDocs" />
+    <MESSAGE value="Write view class JavaDocs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Write view class JavaDocs" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
