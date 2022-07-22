@@ -10,6 +10,7 @@ import com.github.lgooddatepicker.optionalusertools.DateTimeChangeListener;
 import com.github.lgooddatepicker.zinternaltools.DateTimeChangeEvent;
 
 import javax.swing.*;
+import javax.swing.plaf.metal.MetalComboBoxButton;
 import java.awt.*;
 import java.awt.event.*;
 import java.time.DayOfWeek;
@@ -334,7 +335,7 @@ public class AddPackageDialog extends JDialog implements ActionListener, ItemLis
      */
     private void showErrorMessage(boolean isVisible) {
         setUpJLabel(this.errorMessage);
-        this.errorMessage.setForeground(Color.RED);
+        this.errorMessage.setForeground(Util.errorRed);
         this.errorMessage.setFont(Util.subTitleFont);
         this.errorMessage.setVisible(isVisible);
         setRequiredFieldRed(Util.stringVerifier, name);
@@ -362,7 +363,7 @@ public class AddPackageDialog extends JDialog implements ActionListener, ItemLis
     private void setRequiredFieldRed(InputVerifier verifier, JComponent component) {
         if (!verifier.verify(component)) {
             component.setBorder(BorderFactory.createMatteBorder((int) (Util.screenWidth * 0.0009), (int) (Util.screenWidth * 0.0009),
-                    (int) (Util.screenWidth * 0.0009), (int) (Util.screenWidth * 0.0009), Color.RED));
+                    (int) (Util.screenWidth * 0.0009), (int) (Util.screenWidth * 0.0009), Util.errorRed));
         } else {
             component.setBorder(BorderFactory.createMatteBorder((int) (Util.screenWidth * 0.0009), (int) (Util.screenWidth * 0.0009),
                     (int) (Util.screenWidth * 0.0009), (int) (Util.screenWidth * 0.0009), Color.BLACK));
@@ -374,8 +375,8 @@ public class AddPackageDialog extends JDialog implements ActionListener, ItemLis
      */
     private void setDateRed() {
         if (!dateIsPicked) {
-            expectedDeliveryDate.getDatePicker().getComponentToggleCalendarButton().setBackground(Color.RED);
-            expectedDeliveryDate.getTimePicker().getComponentToggleTimeMenuButton().setBackground(Color.RED);
+            expectedDeliveryDate.getDatePicker().getComponentToggleCalendarButton().setBackground(Util.errorRed);
+            expectedDeliveryDate.getTimePicker().getComponentToggleTimeMenuButton().setBackground(Util.errorRed);
         } else {
             expectedDeliveryDate.getDatePicker().getComponentToggleCalendarButton().setBackground(Util.lightTeal);
             expectedDeliveryDate.getTimePicker().getComponentToggleTimeMenuButton().setBackground(Util.lightTeal);
@@ -388,8 +389,10 @@ public class AddPackageDialog extends JDialog implements ActionListener, ItemLis
      * @param isNotSet Tells method if the package type is set.
      */
     private void setComboBoxRed(boolean isNotSet) {
+        //set colour
         if (isNotSet) {
-            choosePackageType.setBackground(Color.RED);
+            choosePackageType.setBackground(Util.errorRed);
+
         } else {
             choosePackageType.setBackground(Util.lightTeal);
         }

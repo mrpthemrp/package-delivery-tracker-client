@@ -38,12 +38,10 @@ public class ExtraFieldUI extends JPanel {
     public ExtraFieldUI(FocusListener fl, DateTimeChangeListener dtel) {
         this.title = new JLabel("S E L E C T   T Y P E   F I R S T");
 
-
         JTextArea blankField = new JTextArea();
         blankField.setBackground(Color.WHITE);
         blankField.setForeground(Color.BLACK);
         blankField.setFont(Util.sortBtnsFont);
-
 
         this.authorName = new JTextArea();
         authorName.setName("NAME");
@@ -206,7 +204,7 @@ public class ExtraFieldUI extends JPanel {
                 if (!Util.stringVerifier.verify(authorName)) {
                     authorName.setBorder(BorderFactory.createMatteBorder((int) (Util.screenWidth * 0.0009),
                             (int) (Util.screenWidth * 0.0009), (int) (Util.screenWidth * 0.0009),
-                            (int) (Util.screenWidth * 0.0009), Color.RED));
+                            (int) (Util.screenWidth * 0.0009), Util.errorRed));
                     return false;
                 } else {
                     authorName.setBorder(BorderFactory.createMatteBorder((int) (Util.screenWidth * 0.0009),
@@ -217,8 +215,8 @@ public class ExtraFieldUI extends JPanel {
             }
             case PERISHABLE -> {
                 if (date == null) {
-                    expiryDate.getDatePicker().getComponentToggleCalendarButton().setBackground(Color.RED);
-                    expiryDate.getTimePicker().getComponentToggleTimeMenuButton().setBackground(Color.RED);
+                    expiryDate.getDatePicker().getComponentToggleCalendarButton().setBackground(Util.errorRed);
+                    expiryDate.getTimePicker().getComponentToggleTimeMenuButton().setBackground(Util.errorRed);
                     return false;
                 } else {
                     expiryDate.getDatePicker().getComponentToggleCalendarButton().setBackground(Util.lightTeal);
@@ -231,7 +229,7 @@ public class ExtraFieldUI extends JPanel {
                 if (!Util.doubleVerifier.verify(handleFee)) {
                     handleFee.setBorder(BorderFactory.createMatteBorder((int) (Util.screenWidth * 0.0009),
                             (int) (Util.screenWidth * 0.0009), (int) (Util.screenWidth * 0.0009),
-                            (int) (Util.screenWidth * 0.0009), Color.RED));
+                            (int) (Util.screenWidth * 0.0009), Util.errorRed));
                     return false;
                 } else {
                     handleFee.setBorder(BorderFactory.createMatteBorder((int) (Util.screenWidth * 0.0009),

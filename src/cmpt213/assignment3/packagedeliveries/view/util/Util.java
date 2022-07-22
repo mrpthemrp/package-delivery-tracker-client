@@ -28,6 +28,7 @@ public final class Util {
     public static Color lightTeal = new Color(237, 248, 245);
     public static Color lightBrown = new Color(255, 221, 210);
     public static Color darkBrown = new Color(226, 149, 120);
+    public static Color errorRed = new Color(204, 96, 96);
     public static Color redLight = new Color(233, 90, 90);
     public static Color redDark = new Color(178, 42, 42);
     public static Color greenLight = new Color(164, 226, 142);
