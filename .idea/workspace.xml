@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Write PackageDeliveryGUI JavaDocs">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/userManual.txt" beforeDir="false" afterPath="$PROJECT_DIR$/docs/userManual.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/screens/MainScreenLeft.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/screens/MainScreenLeft.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/screens/MainScreenRight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/screens/MainScreenRight.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/screens/StartScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/screens/StartScreen.java" afterDir="false" />
-    </list>
+    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Implement JavaDocs" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -111,13 +105,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1652723361815</updated>
-    </task>
-    <task id="LOCAL-00157" summary="Set scroll bar track and thumb">
-      <created>1658204907293</created>
-      <option name="number" value="00157" />
-      <option name="presentableId" value="LOCAL-00157" />
-      <option name="project" value="LOCAL" />
-      <updated>1658204907293</updated>
     </task>
     <task id="LOCAL-00158" summary="Scroll bar works!!!!!!">
       <created>1658208014317</created>
@@ -455,7 +442,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658415577702</updated>
     </task>
-    <option name="localTasksCounter" value="206" />
+    <task id="LOCAL-00206" summary="Implement JavaDocs">
+      <created>1658416740933</created>
+      <option name="number" value="00206" />
+      <option name="presentableId" value="LOCAL-00206" />
+      <option name="project" value="LOCAL" />
+      <updated>1658416740933</updated>
+    </task>
+    <option name="localTasksCounter" value="207" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -471,7 +465,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Working on add dialog ui" />
     <MESSAGE value="Add package dialog in the works" />
     <MESSAGE value="Add LGoodDatePicker JAR" />
     <MESSAGE value="DateTimePicker add to Add package" />
@@ -496,7 +489,8 @@
     <MESSAGE value="Write RoundButton JavaDocs" />
     <MESSAGE value="Write view class JavaDocs" />
     <MESSAGE value="Write PackageDeliveryGUI JavaDocs" />
-    <option name="LAST_COMMIT_MESSAGE" value="Write PackageDeliveryGUI JavaDocs" />
+    <MESSAGE value="Implement JavaDocs" />
+    <option name="LAST_COMMIT_MESSAGE" value="Implement JavaDocs" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
