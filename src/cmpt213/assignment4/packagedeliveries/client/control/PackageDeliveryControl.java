@@ -51,7 +51,7 @@ public class PackageDeliveryControl {
         upcomingPackages = new ArrayList<>();
         overduePackages = new ArrayList<>();
 
-        String[] pathNames = {"src", "cmpt213", "assignment3", "packagedeliveries", "gson"};
+        String[] pathNames = {"src", "cmpt213", "assignment4", "packagedeliveries","client", "gson"};
         String path = String.join(Util.fs, pathNames);
         gsonFile = new File(path + Util.fs + "list.json");
 

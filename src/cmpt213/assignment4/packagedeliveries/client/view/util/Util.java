@@ -22,7 +22,7 @@ public final class Util {
 
     public static final String fs = File.separator;
     private static final String[] imagePath = new String[]{"src", "cmpt213",
-            "assignment3", "packagedeliveries", "view", "util", "images"};
+            "assignment4", "packagedeliveries", "client", "view", "util", "images"};
     public static Color darkTeal = new Color(0, 109, 119);
     public static Color midTeal = new Color(131, 197, 190);
     public static Color lightTeal = new Color(237, 248, 245);

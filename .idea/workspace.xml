@@ -6,64 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Refactor for A4">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadocs/cmpt213/assignment3/packagedeliveries/MainApp.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadocs/cmpt213/assignment3/packagedeliveries/MainApp.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadocs/cmpt213/assignment3/packagedeliveries/control/PackageDeliveryControl.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadocs/cmpt213/assignment3/packagedeliveries/control/PackageDeliveryControl.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadocs/cmpt213/assignment3/packagedeliveries/model/Book.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadocs/cmpt213/assignment3/packagedeliveries/model/Book.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadocs/cmpt213/assignment3/packagedeliveries/model/Electronic.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadocs/cmpt213/assignment3/packagedeliveries/model/Electronic.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadocs/cmpt213/assignment3/packagedeliveries/model/PackageBase.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadocs/cmpt213/assignment3/packagedeliveries/model/PackageBase.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadocs/cmpt213/assignment3/packagedeliveries/model/PackageFactory.PackageType.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadocs/cmpt213/assignment3/packagedeliveries/model/PackageFactory.PackageType.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadocs/cmpt213/assignment3/packagedeliveries/model/PackageFactory.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadocs/cmpt213/assignment3/packagedeliveries/model/PackageFactory.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadocs/cmpt213/assignment3/packagedeliveries/model/Perishable.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadocs/cmpt213/assignment3/packagedeliveries/model/Perishable.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadocs/cmpt213/assignment3/packagedeliveries/view/PackageDeliveryGUI.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadocs/cmpt213/assignment3/packagedeliveries/view/PackageDeliveryGUI.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadocs/cmpt213/assignment3/packagedeliveries/view/screens/MainScreenLeft.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadocs/cmpt213/assignment3/packagedeliveries/view/screens/MainScreenLeft.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadocs/cmpt213/assignment3/packagedeliveries/view/screens/MainScreenRight.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadocs/cmpt213/assignment3/packagedeliveries/view/screens/MainScreenRight.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadocs/cmpt213/assignment3/packagedeliveries/view/screens/StartScreen.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadocs/cmpt213/assignment3/packagedeliveries/view/screens/StartScreen.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadocs/cmpt213/assignment3/packagedeliveries/view/util/DoubleVerifier.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadocs/cmpt213/assignment3/packagedeliveries/view/util/DoubleVerifier.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadocs/cmpt213/assignment3/packagedeliveries/view/util/StringVerifier.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadocs/cmpt213/assignment3/packagedeliveries/view/util/StringVerifier.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadocs/cmpt213/assignment3/packagedeliveries/view/util/Util.SCREEN_STATE.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadocs/cmpt213/assignment3/packagedeliveries/view/util/Util.SCREEN_STATE.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadocs/cmpt213/assignment3/packagedeliveries/view/util/Util.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadocs/cmpt213/assignment3/packagedeliveries/view/util/Util.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadocs/cmpt213/assignment3/packagedeliveries/view/util/customUI/AddPackageDialog.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadocs/cmpt213/assignment3/packagedeliveries/view/util/customUI/AddPackageDialog.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadocs/cmpt213/assignment3/packagedeliveries/view/util/customUI/CheckBoxUI.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadocs/cmpt213/assignment3/packagedeliveries/view/util/customUI/CheckBoxUI.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadocs/cmpt213/assignment3/packagedeliveries/view/util/customUI/ColumnHeader.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadocs/cmpt213/assignment3/packagedeliveries/view/util/customUI/ColumnHeader.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadocs/cmpt213/assignment3/packagedeliveries/view/util/customUI/CustomDialog.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadocs/cmpt213/assignment3/packagedeliveries/view/util/customUI/CustomDialog.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadocs/cmpt213/assignment3/packagedeliveries/view/util/customUI/ExtraFieldUI.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadocs/cmpt213/assignment3/packagedeliveries/view/util/customUI/ExtraFieldUI.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadocs/cmpt213/assignment3/packagedeliveries/view/util/customUI/HeaderButton.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadocs/cmpt213/assignment3/packagedeliveries/view/util/customUI/HeaderButton.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadocs/cmpt213/assignment3/packagedeliveries/view/util/customUI/PackageItem.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadocs/cmpt213/assignment3/packagedeliveries/view/util/customUI/PackageItem.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadocs/cmpt213/assignment3/packagedeliveries/view/util/customUI/RoundButton.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadocs/cmpt213/assignment3/packagedeliveries/view/util/customUI/RoundButton.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/javadocs/serialized-form.html" beforeDir="false" afterPath="$PROJECT_DIR$/javadocs/serialized-form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/MainApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment4/packagedeliveries/client/MainApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/control/PackageDeliveryControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment4/packagedeliveries/client/control/PackageDeliveryControl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/gson/extras/RuntimeTypeAdapterFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment4/packagedeliveries/client/gson/extras/RuntimeTypeAdapterFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/gson/list.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment4/packagedeliveries/client/gson/list.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/model/Book.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment4/packagedeliveries/client/model/Book.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/model/Electronic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment4/packagedeliveries/client/model/Electronic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/model/Package.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment4/packagedeliveries/client/model/Package.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/model/PackageBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment4/packagedeliveries/client/model/PackageBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/model/PackageFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment4/packagedeliveries/client/model/PackageFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/model/Perishable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment4/packagedeliveries/client/model/Perishable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/PackageDeliveryGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment4/packagedeliveries/client/view/PackageDeliveryGUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/screens/MainScreenLeft.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment4/packagedeliveries/client/view/screens/MainScreenLeft.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/screens/MainScreenRight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment4/packagedeliveries/client/view/screens/MainScreenRight.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/screens/StartScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment4/packagedeliveries/client/view/screens/StartScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/DoubleVerifier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment4/packagedeliveries/client/view/util/DoubleVerifier.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/LICENSE.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment4/packagedeliveries/client/view/util/LICENSE.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/StringVerifier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment4/packagedeliveries/client/view/util/StringVerifier.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment4/packagedeliveries/client/view/util/Util.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/customUI/AddPackageDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment4/packagedeliveries/client/view/util/customUI/AddPackageDialog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/customUI/CheckBoxUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment4/packagedeliveries/client/view/util/customUI/CheckBoxUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/customUI/ColumnHeader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment4/packagedeliveries/client/view/util/customUI/ColumnHeader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/customUI/CustomDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment4/packagedeliveries/client/view/util/customUI/CustomDialog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/customUI/ExtraFieldUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment4/packagedeliveries/client/view/util/customUI/ExtraFieldUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/customUI/HeaderButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment4/packagedeliveries/client/view/util/customUI/HeaderButton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/customUI/PackageItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment4/packagedeliveries/client/view/util/customUI/PackageItem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/customUI/RoundButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment4/packagedeliveries/client/view/util/customUI/RoundButton.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/font/Roboto-Bold.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment4/packagedeliveries/client/view/util/font/Roboto-Bold.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/font/Roboto-Italic.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment4/packagedeliveries/client/view/util/font/Roboto-Italic.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/font/Roboto-Medium.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment4/packagedeliveries/client/view/util/font/Roboto-Medium.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/font/Roboto-Regular.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment4/packagedeliveries/client/view/util/font/Roboto-Regular.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/images/checkBoxFilled.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment4/packagedeliveries/client/view/util/images/checkBoxFilled.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/images/checkBoxOutline.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment4/packagedeliveries/client/view/util/images/checkBoxOutline.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment3/packagedeliveries/view/util/images/pkgIconLarge.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment4/packagedeliveries/client/view/util/images/pkgIconLarge.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment4/packagedeliveries/client/control/PackageDeliveryControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment4/packagedeliveries/client/control/PackageDeliveryControl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment4/packagedeliveries/client/view/util/Util.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment4/packagedeliveries/client/view/util/Util.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -138,25 +82,14 @@
       <recent name="cmpt213.assignment3.packagedeliveries.view.util" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.MainApp">
-    <configuration name="MainApp" type="Application" factoryName="Application" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="cmpt213.assignment3.packagedeliveries.MainApp" />
+  <component name="RunManager">
+    <configuration name="cmpt213.assignment4.packagedeliveries.client.MainApp" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cmpt213.assignment4.packagedeliveries.client.MainApp" />
       <module name="CMPT213-A3" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="OldApp" type="Application" factoryName="Application">
-      <option name="MAIN_CLASS_NAME" value="cmpt213.assignment3.packagedeliveries.control.PackageDeliveryTracker" />
-      <module name="CMPT213-A3" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <list>
-      <item itemvalue="Application.MainApp" />
-      <item itemvalue="Application.OldApp" />
-    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -168,14 +101,7 @@
       <updated>1652723361815</updated>
       <workItem from="1658617785186" duration="144000" />
       <workItem from="1659124143871" duration="228000" />
-      <workItem from="1659126995113" duration="332000" />
-    </task>
-    <task id="LOCAL-00157" summary="Set scroll bar track and thumb">
-      <created>1658204907293</created>
-      <option name="number" value="00157" />
-      <option name="presentableId" value="LOCAL-00157" />
-      <option name="project" value="LOCAL" />
-      <updated>1658204907293</updated>
+      <workItem from="1659126995113" duration="1459000" />
     </task>
     <task id="LOCAL-00158" summary="Scroll bar works!!!!!!">
       <created>1658208014317</created>
@@ -513,7 +439,14 @@
       <option name="project" value="LOCAL" />
       <updated>1658415577702</updated>
     </task>
-    <option name="localTasksCounter" value="206" />
+    <task id="LOCAL-00206" summary="Refactor for A4">
+      <created>1659127614832</created>
+      <option name="number" value="00206" />
+      <option name="presentableId" value="LOCAL-00206" />
+      <option name="project" value="LOCAL" />
+      <updated>1659127614832</updated>
+    </task>
+    <option name="localTasksCounter" value="207" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
