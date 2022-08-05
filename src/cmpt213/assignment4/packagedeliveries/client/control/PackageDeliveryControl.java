@@ -3,10 +3,14 @@ package cmpt213.assignment4.packagedeliveries.client.control;
 import cmpt213.assignment4.packagedeliveries.client.view.util.Util;
 import cmpt213.assignment4.packagedeliveries.client.model.*;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
+import java.net.URL;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 
 /**
@@ -14,8 +18,6 @@ import java.util.Collections;
  * @author Deborah Wang
  */
 public class PackageDeliveryControl {
-
-//    private final HttpURLConnection server;
     public final static int DATA_SAVE = 1;
     private final static int DATA_LOAD = 2;
     public final static int REMOVE = 1;
@@ -24,13 +26,14 @@ public class PackageDeliveryControl {
     private static ArrayList<PackageBase> upcomingPackages;
     private static ArrayList<PackageBase> overduePackages;
     private final PackageFactory pkgFactory;
+    private final Server server;
 
     /**
      * Constructs a PackageDeliveryControl Object.
      * Initializes class fields and also loads in any data from the JSON list.
      */
     public PackageDeliveryControl() {
-//        this.server = new
+        this.server = new Server();
         this.pkgFactory = new PackageFactory();
 
         masterListOfPackages = new ArrayList<>();
@@ -40,7 +43,7 @@ public class PackageDeliveryControl {
 
     /**
      * Method that creates a new Package using the PackageFactory class.
-     * Updates lists after package creation.
+     * Update lists after package creation.
      * @param name Name of the package.
      * @param notes Any notes for the package.
      * @param price Price of the package.
@@ -68,6 +71,26 @@ public class PackageDeliveryControl {
         } else if (option == DELIVERY_STATUS) {
             pkg.setDeliveryStatus(newDeliveryStatus);
         }
+    }
+
+    /**
+     * Helper method that allows the UI to access the lists.
+     * @param currentState Current state of UI tells method which list to return.
+     * @return Returns an ArrayList based on the current state.
+     */
+    public ArrayList<PackageBase> getAListOfPackages(Util.SCREEN_STATE currentState) {
+        switch (currentState) {
+            case LIST_ALL -> {
+                return masterListOfPackages;
+            }
+            case UPCOMING -> {
+                return upcomingPackages;
+            }
+            case OVERDUE -> {
+                return overduePackages;
+            }
+        }
+        return null;
     }
 
     /**

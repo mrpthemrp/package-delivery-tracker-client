@@ -74,8 +74,6 @@ public class MainScreenRight extends JPanel {
      * @param currentState The state that the method will populate according to.
      */
     public void populateList(Util.SCREEN_STATE currentState) {
-        //update lists
-        control.updateLists();
 
         //add new items
         switch (currentState) {
