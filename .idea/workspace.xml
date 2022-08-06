@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Update control">
-      <change afterPath="$PROJECT_DIR$/src/cmpt213/assignment4/packagedeliveries/client/control/Server.java" afterDir="false" />
+    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Add server class">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment4/packagedeliveries/client/control/PackageDeliveryControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment4/packagedeliveries/client/control/PackageDeliveryControl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment4/packagedeliveries/client/view/screens/MainScreenRight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment4/packagedeliveries/client/view/screens/MainScreenRight.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment4/packagedeliveries/client/control/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment4/packagedeliveries/client/control/ServerConnection.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,14 +103,7 @@
       <workItem from="1659124143871" duration="228000" />
       <workItem from="1659126995113" duration="1625000" />
       <workItem from="1659669211966" duration="3831000" />
-      <workItem from="1659735737794" duration="3771000" />
-    </task>
-    <task id="LOCAL-00162" summary="Update license, add svgs">
-      <created>1658213812978</created>
-      <option name="number" value="00162" />
-      <option name="presentableId" value="LOCAL-00162" />
-      <option name="project" value="LOCAL" />
-      <updated>1658213812978</updated>
+      <workItem from="1659735737794" duration="8710000" />
     </task>
     <task id="LOCAL-00163" summary="Working on CheckBox">
       <created>1658217218286</created>
@@ -449,7 +441,14 @@
       <option name="project" value="LOCAL" />
       <updated>1659675190979</updated>
     </task>
-    <option name="localTasksCounter" value="211" />
+    <task id="LOCAL-00211" summary="Add server class">
+      <created>1659739575375</created>
+      <option name="number" value="00211" />
+      <option name="presentableId" value="LOCAL-00211" />
+      <option name="project" value="LOCAL" />
+      <updated>1659739575376</updated>
+    </task>
+    <option name="localTasksCounter" value="212" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -468,7 +467,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Add verifiers, labels" />
     <MESSAGE value="Custom dialog logic updated" />
     <MESSAGE value="Add dialog 90% done" />
     <MESSAGE value="Add dialog 99% done" />
@@ -493,7 +491,8 @@
     <MESSAGE value="Finish refactor for A4" />
     <MESSAGE value="Update GSON JAR" />
     <MESSAGE value="Update control" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update control" />
+    <MESSAGE value="Add server class" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add server class" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

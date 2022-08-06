@@ -1,20 +1,24 @@
 package cmpt213.assignment4.packagedeliveries.client.control;
 
+import cmpt213.assignment4.packagedeliveries.client.gson.extras.RuntimeTypeAdapterFactory;
+import cmpt213.assignment4.packagedeliveries.client.model.Package;
 import cmpt213.assignment4.packagedeliveries.client.view.util.Util;
 import cmpt213.assignment4.packagedeliveries.client.model.*;
+import com.google.gson.*;
+import com.google.gson.stream.JsonReader;
+import com.google.gson.stream.JsonWriter;
 
-import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
+import java.lang.reflect.Type;
 import java.net.HttpURLConnection;
-import java.net.URL;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 
 /**
  * This class creates a PackageDeliveryControl object which manages data for the program.
+ *
  * @author Deborah Wang
  */
 public class PackageDeliveryControl {
@@ -26,31 +30,37 @@ public class PackageDeliveryControl {
     private static ArrayList<PackageBase> upcomingPackages;
     private static ArrayList<PackageBase> overduePackages;
     private final PackageFactory pkgFactory;
-    private final Server server;
+    private final ServerConnection server;
+    private Gson gson;
 
     /**
      * Constructs a PackageDeliveryControl Object.
      * Initializes class fields and also loads in any data from the JSON list.
      */
     public PackageDeliveryControl() {
-        this.server = new Server();
         this.pkgFactory = new PackageFactory();
+        setGsonBuilder();
+
+        this.server = new ServerConnection(gson);
 
         masterListOfPackages = new ArrayList<>();
         upcomingPackages = new ArrayList<>();
         overduePackages = new ArrayList<>();
+
+        arrayData(DATA_LOAD);
     }
 
     /**
      * Method that creates a new Package using the PackageFactory class.
      * Update lists after package creation.
-     * @param name Name of the package.
-     * @param notes Any notes for the package.
-     * @param price Price of the package.
-     * @param weight Weight of the package.
-     * @param date Expected Delivery Date of the package.
+     *
+     * @param name       Name of the package.
+     * @param notes      Any notes for the package.
+     * @param price      Price of the package.
+     * @param weight     Weight of the package.
+     * @param date       Expected Delivery Date of the package.
      * @param extraField Extra field of the package, in String form already.
-     * @param type Subclass type of the package, uses PackageFactory.PackageType.
+     * @param type       Subclass type of the package, uses PackageFactory.PackageType.
      */
     public void createPackage(String name, String notes, double price, double weight, LocalDateTime date,
                               String extraField, PackageFactory.PackageType type) {
@@ -61,8 +71,9 @@ public class PackageDeliveryControl {
     /**
      * Helper method for adjusting a given Package.
      * Will either remove package or change its delivery state.
-     * @param pkg The package to be adjusted.
-     * @param option Which adjustment method is selected, based on constants from this class.
+     *
+     * @param pkg               The package to be adjusted.
+     * @param option            Which adjustment method is selected, based on constants from this class.
      * @param newDeliveryStatus The new delivery status of package, false if option is to remove.
      */
     public void adjustPackage(PackageBase pkg, int option, boolean newDeliveryStatus) {
@@ -75,6 +86,7 @@ public class PackageDeliveryControl {
 
     /**
      * Helper method that allows the UI to access the lists.
+     *
      * @param currentState Current state of UI tells method which list to return.
      * @return Returns an ArrayList based on the current state.
      */
@@ -93,15 +105,65 @@ public class PackageDeliveryControl {
         return null;
     }
 
+
+    /**
+     * Helper method that sets up the GSON logic for this application.
+     * Registers subclasses of PackageBase into the RuntimeTypeAdapter.
+     */
+    private void setGsonBuilder() {
+        RuntimeTypeAdapterFactory<PackageBase> packageAdapterFactory = RuntimeTypeAdapterFactory.of(PackageBase.class, "type")
+                .registerSubtype(Book.class, "Book")
+                .registerSubtype(Perishable.class, "Perishable")
+                .registerSubtype(Electronic.class, "Electronic");
+
+        gson = new GsonBuilder()
+                .registerTypeAdapter(DateTimeFormatter.class, new TypeAdapter<DateTimeFormatter>() {
+                    @Override
+                    public void write(JsonWriter jsonWriter, DateTimeFormatter dateTimeFormatter) throws IOException {
+                        jsonWriter.value(dateTimeFormatter.toString());
+                    }
+
+                    @Override
+                    public DateTimeFormatter read(JsonReader jsonReader) throws IOException {
+                        return DateTimeFormatter.ofPattern(jsonReader.nextString());
+                    }
+                })
+                .registerTypeAdapter(LocalDateTime.class, new TypeAdapter<LocalDateTime>() {
+                    @Override
+                    public void write(JsonWriter jsonWriter, LocalDateTime localDateTime) throws IOException {
+                        jsonWriter.value(localDateTime.toString());
+                    }
+
+                    @Override
+                    public LocalDateTime read(JsonReader jsonReader) throws IOException {
+                        return LocalDateTime.parse(jsonReader.nextString());
+                    }
+                })
+                .registerTypeAdapterFactory(packageAdapterFactory)
+                .create();
+    }
     /**
      * Method tells server to load or save list data.
+     *
      * @param dataMode Determines whether data will be saved or loaded.
      */
     public void arrayData(int dataMode) {
-        if(dataMode == DATA_SAVE){
+        if (dataMode == DATA_SAVE) {
             //tell server to save list
-        } else if (dataMode == DATA_LOAD){
-            //tell server to load list
+        } else if (dataMode == DATA_LOAD) {
+            loadAList(ServerConnection.GET_ALL,masterListOfPackages);
+            loadAList(ServerConnection.GET_UPCOMING,upcomingPackages);
+            loadAList(ServerConnection.GET_OVERDUE,overduePackages);
+        }//end of else
+    }
+
+    private void loadAList (String command, ArrayList<PackageBase> list){
+        String stringArray = this.server.sendMessage(command, "GET", HttpURLConnection.HTTP_OK);
+        JsonArray jsonArray = gson.fromJson(stringArray, JsonArray.class);
+        if(jsonArray!=null){
+            for(int i = 0; i < jsonArray.size(); i++){
+                list.add(gson.fromJson(jsonArray.get(i), PackageBase.class));
+            }
         }
     }
 }
