@@ -91,6 +91,7 @@ public class PackageDeliveryControl {
      * @return Returns an ArrayList based on the current state.
      */
     public ArrayList<PackageBase> getAListOfPackages(Util.SCREEN_STATE currentState) {
+        updateAllLists();
         switch (currentState) {
             case LIST_ALL -> {
                 return masterListOfPackages;
@@ -151,12 +152,15 @@ public class PackageDeliveryControl {
         if (dataMode == DATA_SAVE) {
             //tell server to save list
         } else if (dataMode == DATA_LOAD) {
-            loadAList(ServerConnection.GET_ALL,masterListOfPackages);
-            loadAList(ServerConnection.GET_UPCOMING,upcomingPackages);
-            loadAList(ServerConnection.GET_OVERDUE,overduePackages);
+            updateAllLists();
         }//end of else
     }
 
+    private void updateAllLists(){
+        loadAList(ServerConnection.GET_ALL,masterListOfPackages);
+        loadAList(ServerConnection.GET_UPCOMING,upcomingPackages);
+        loadAList(ServerConnection.GET_OVERDUE,overduePackages);
+    }
     private void loadAList (String command, ArrayList<PackageBase> list){
         String stringArray = this.server.sendMessage(command, "GET", HttpURLConnection.HTTP_OK);
         JsonArray jsonArray = gson.fromJson(stringArray, JsonArray.class);

@@ -201,17 +201,10 @@ public class ExtraFieldUI extends JPanel {
     public boolean isSet(PackageFactory.PackageType type) {
         switch (type) {
             case BOOK -> {
-                if (!Util.stringVerifier.verify(authorName)) {
-                    authorName.setBorder(BorderFactory.createMatteBorder((int) (Util.screenWidth * 0.0009),
-                            (int) (Util.screenWidth * 0.0009), (int) (Util.screenWidth * 0.0009),
-                            (int) (Util.screenWidth * 0.0009), Util.errorRed));
-                    return false;
-                } else {
-                    authorName.setBorder(BorderFactory.createMatteBorder((int) (Util.screenWidth * 0.0009),
-                            (int) (Util.screenWidth * 0.0009), (int) (Util.screenWidth * 0.0009),
-                            (int) (Util.screenWidth * 0.0009), Color.BLACK));
-                    return true;
-                }
+                authorName.setBorder(BorderFactory.createMatteBorder((int) (Util.screenWidth * 0.0009),
+                        (int) (Util.screenWidth * 0.0009), (int) (Util.screenWidth * 0.0009),
+                        (int) (Util.screenWidth * 0.0009), Color.BLACK));
+                return true;
             }
             case PERISHABLE -> {
                 if (date == null) {

@@ -154,7 +154,7 @@ public class PackageItem extends JPanel implements ActionListener {
         if (pkg instanceof Perishable || pkg instanceof Electronic) {
             this.add(Box.createRigidArea(new Dimension((int) (Util.screenWidth * 0.07), 0)), gbc);
         } else if (pkg instanceof Book) {
-            this.add(Box.createRigidArea(new Dimension((int) (Util.screenWidth * 0.11), 0)), gbc);
+            this.add(Box.createRigidArea(new Dimension((int) (Util.screenWidth * 0.09), 0)), gbc);
         }
 
         //Right Side of Screen
