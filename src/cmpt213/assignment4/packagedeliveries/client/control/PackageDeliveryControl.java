@@ -79,11 +79,11 @@ public class PackageDeliveryControl {
      */
     public void adjustPackage(PackageBase pkg, int option, boolean newDeliveryStatus) {
         if (option == REMOVE) {
-            server.postMessage(ServerConnection.POST_REMOVE_PACKAGE, REMOVE,gson.toJson(pkg));
+            server.postMessage(ServerConnection.POST_REMOVE_PACKAGE, REMOVE,gson.toJson(pkg), masterListOfPackages.indexOf(pkg));
             masterListOfPackages.remove(pkg); // to delete
         } else if (option == DELIVERY_STATUS) {
             pkg.setDeliveryStatus(newDeliveryStatus);
-            server.postMessage(ServerConnection.POST_MARK_DELIVERED, DELIVERY_STATUS,gson.toJson(pkg));
+            server.postMessage(ServerConnection.POST_MARK_DELIVERED, DELIVERY_STATUS,gson.toJson(pkg), masterListOfPackages.indexOf(pkg));
         }
         //to update list
     }

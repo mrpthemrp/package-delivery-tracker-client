@@ -63,7 +63,7 @@ public class ServerConnection {
         return response.toString();
     }
 
-    public String postMessage(String command, int postType, String pkg) {
+    public String postMessage(String command, int postType, String pkg, int pkgIndex) {
         try {
             String BASE_URL = "http://localhost:8080/";
             URL url = new URL(BASE_URL + command);
@@ -72,12 +72,22 @@ public class ServerConnection {
             server.setRequestProperty("Content-Type", "application/json");
             server.setRequestProperty("Accept", "application/json");
             server.setDoOutput(true);
-            System.out.println(pkg);
 
+            byte[] input = null;
             try(OutputStream os = server.getOutputStream()) {
-                byte[] input = pkg.getBytes(StandardCharsets.UTF_8);
+                if(postType == PackageDeliveryControl.ADD){
+                    input = pkg.getBytes(StandardCharsets.UTF_8);
+                    os.write(input, 0, input.length);
+                }
+                else if(postType == PackageDeliveryControl.REMOVE){
+                    input = Integer.toString(pkgIndex).getBytes(StandardCharsets.UTF_8);
+
+                } else if (postType == PackageDeliveryControl.DELIVERY_STATUS) {
+
+                }
                 os.write(input, 0, input.length);
             }
+
 
 
             int responseCode = server.getResponseCode();

@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Update UI">
+    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Post messages working">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment4/packagedeliveries/client/control/PackageDeliveryControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment4/packagedeliveries/client/control/PackageDeliveryControl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment4/packagedeliveries/client/control/ServerConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment4/packagedeliveries/client/control/ServerConnection.java" afterDir="false" />
@@ -111,14 +111,7 @@
       <workItem from="1659735737794" duration="9987000" />
       <workItem from="1659818546390" duration="5445000" />
       <workItem from="1659824358684" duration="1499000" />
-      <workItem from="1659833534760" duration="1702000" />
-    </task>
-    <task id="LOCAL-00165" summary="Added resource to CheckBox class">
-      <created>1658217685028</created>
-      <option name="number" value="00165" />
-      <option name="presentableId" value="LOCAL-00165" />
-      <option name="project" value="LOCAL" />
-      <updated>1658217685028</updated>
+      <workItem from="1659833534760" duration="3338000" />
     </task>
     <task id="LOCAL-00166" summary="JCheckBox figured out">
       <created>1658219183056</created>
@@ -456,7 +449,14 @@
       <option name="project" value="LOCAL" />
       <updated>1659819240123</updated>
     </task>
-    <option name="localTasksCounter" value="214" />
+    <task id="LOCAL-00214" summary="Post messages working">
+      <created>1659835486451</created>
+      <option name="number" value="00214" />
+      <option name="presentableId" value="LOCAL-00214" />
+      <option name="project" value="LOCAL" />
+      <updated>1659835486452</updated>
+    </task>
+    <option name="localTasksCounter" value="215" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -475,7 +475,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Add dialog 99% done" />
     <MESSAGE value="Add PackageItem insets" />
     <MESSAGE value="Implement gridbaglayout constraints to PackageItem" />
     <MESSAGE value="Continue PackageItem UI config" />
@@ -500,7 +499,8 @@
     <MESSAGE value="Add server class" />
     <MESSAGE value="Establish server connection" />
     <MESSAGE value="Update UI" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update UI" />
+    <MESSAGE value="Post messages working" />
+    <option name="LAST_COMMIT_MESSAGE" value="Post messages working" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
