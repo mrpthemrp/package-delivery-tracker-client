@@ -27,7 +27,7 @@ public class PackageDeliveryControl {
     public final static int ADD = 0;
     public final static int REMOVE = 1;
     public final static int DELIVERY_STATUS = 2;
-    private static ArrayList<PackageBase> masterListOfPackages;
+    public static ArrayList<PackageBase> masterListOfPackages;
     private static ArrayList<PackageBase> upcomingPackages;
     private static ArrayList<PackageBase> overduePackages;
     private final PackageFactory pkgFactory;
