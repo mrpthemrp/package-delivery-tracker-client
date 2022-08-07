@@ -24,6 +24,7 @@ import java.util.ArrayList;
 public class PackageDeliveryControl {
     public final static int DATA_SAVE = 1;
     private final static int DATA_LOAD = 2;
+    public final static int ADD = 0;
     public final static int REMOVE = 1;
     public final static int DELIVERY_STATUS = 2;
     private static ArrayList<PackageBase> masterListOfPackages;
@@ -41,7 +42,7 @@ public class PackageDeliveryControl {
         this.pkgFactory = new PackageFactory();
         setGsonBuilder();
 
-        this.server = new ServerConnection(gson);
+        this.server = new ServerConnection();
 
         masterListOfPackages = new ArrayList<>();
         upcomingPackages = new ArrayList<>();
@@ -78,10 +79,13 @@ public class PackageDeliveryControl {
      */
     public void adjustPackage(PackageBase pkg, int option, boolean newDeliveryStatus) {
         if (option == REMOVE) {
-            masterListOfPackages.remove(pkg);
+            server.postMessage(ServerConnection.POST_REMOVE_PACKAGE, REMOVE,gson.toJson(pkg));
+            masterListOfPackages.remove(pkg); // to delete
         } else if (option == DELIVERY_STATUS) {
             pkg.setDeliveryStatus(newDeliveryStatus);
+            server.postMessage(ServerConnection.POST_MARK_DELIVERED, DELIVERY_STATUS,gson.toJson(pkg));
         }
+        //to update list
     }
 
     /**
@@ -91,7 +95,8 @@ public class PackageDeliveryControl {
      * @return Returns an ArrayList based on the current state.
      */
     public ArrayList<PackageBase> getAListOfPackages(Util.SCREEN_STATE currentState) {
-        updateAllLists();
+        updateAllLists(ServerConnection.POST);
+        updateAllLists(ServerConnection.GET);
         switch (currentState) {
             case LIST_ALL -> {
                 return masterListOfPackages;
@@ -105,7 +110,6 @@ public class PackageDeliveryControl {
         }
         return null;
     }
-
 
     /**
      * Helper method that sets up the GSON logic for this application.
@@ -143,6 +147,7 @@ public class PackageDeliveryControl {
                 .registerTypeAdapterFactory(packageAdapterFactory)
                 .create();
     }
+
     /**
      * Method tells server to load or save list data.
      *
@@ -150,24 +155,30 @@ public class PackageDeliveryControl {
      */
     public void arrayData(int dataMode) {
         if (dataMode == DATA_SAVE) {
-            //tell server to save list
+            updateAllLists(ServerConnection.POST);
         } else if (dataMode == DATA_LOAD) {
-            updateAllLists();
+            updateAllLists(ServerConnection.GET);
         }//end of else
     }
 
-    private void updateAllLists(){
-        loadAList(ServerConnection.GET_ALL,masterListOfPackages);
-        loadAList(ServerConnection.GET_UPCOMING,upcomingPackages);
-        loadAList(ServerConnection.GET_OVERDUE,overduePackages);
+    private void updateAllLists(String connection) {
+        loadAList(ServerConnection.GET_ALL, masterListOfPackages, connection);
+        loadAList(ServerConnection.GET_UPCOMING, upcomingPackages,connection);
+        loadAList(ServerConnection.GET_OVERDUE, overduePackages,connection);
     }
-    private void loadAList (String command, ArrayList<PackageBase> list){
-        String stringArray = this.server.sendMessage(command, "GET", HttpURLConnection.HTTP_OK);
-        JsonArray jsonArray = gson.fromJson(stringArray, JsonArray.class);
-        if(jsonArray!=null){
-            for(int i = 0; i < jsonArray.size(); i++){
-                list.add(gson.fromJson(jsonArray.get(i), PackageBase.class));
+
+    private void loadAList(String command, ArrayList<PackageBase> list, String requestType) {
+        if(requestType.equals(ServerConnection.GET)){
+            list.clear();
+            String stringArray = this.server.getMessage(command);
+            JsonArray tempArray = gson.fromJson(stringArray, JsonArray.class);
+            if (tempArray != null) {
+                for (int i = 0; i < tempArray.size(); i++) {
+                    list.add(gson.fromJson(tempArray.get(i), PackageBase.class));
+                }
             }
+        } else if (requestType.equals(ServerConnection.POST)){
+            //do something
         }
     }
 }

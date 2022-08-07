@@ -1,14 +1,14 @@
 package cmpt213.assignment4.packagedeliveries.client.control;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonObject;
+import cmpt213.assignment4.packagedeliveries.client.model.PackageBase;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 
 public class ServerConnection {
     public final static String GET_ALL = "listAll";
@@ -19,34 +19,72 @@ public class ServerConnection {
     public final static String POST_MARK_DELIVERED = "markPackageAsDelivered";
     public final static String EXIT = "exit";
 
-    private final Gson gson;
-    public ServerConnection(Gson gson) {
-        this.gson = gson;
-        System.out.println(sendMessage("ping","GET", HttpURLConnection.HTTP_OK));
+
+    public final static String GET = "GET";
+    public final static String POST = "POST";
+
+    public ServerConnection() {
+        System.out.println(getMessage("ping"));
     }
 
-    public String sendMessage (String command, String requestType, int connectionResult){
+    public String getMessage(String command) {
         try {
             String BASE_URL = "http://localhost:8080/";
             URL url = new URL(BASE_URL + command);
             HttpURLConnection server = (HttpURLConnection) url.openConnection();
-            server.setRequestMethod(requestType);
+            server.setRequestMethod(GET);
             server.setRequestProperty("Content-Type", "application/json");
             int responseCode = server.getResponseCode();
 
-            System.out.println(requestType+" Response Code: " + responseCode);
+            System.out.println(GET + " Response Code: " + responseCode);
 
-            if (responseCode == connectionResult) {
-                BufferedReader input = new BufferedReader(new InputStreamReader(server.getInputStream()));
-                String inputLine;
+            if (responseCode == HttpURLConnection.HTTP_OK) {
+                return getServerInput(server);
+            } else {
+                System.out.println("Error");
+            }
 
-                StringBuilder response = new StringBuilder();
+        } catch (IOException ie) {
+            //do something
+        }
+        return null;
+    }
 
-                while ((inputLine = input.readLine()) != null) {
-                    response.append(inputLine);
-                }
-                input.close();
-                return response.toString();
+    private String getServerInput(HttpURLConnection server) throws IOException {
+        BufferedReader input = new BufferedReader(new InputStreamReader(server.getInputStream()));
+        String inputLine;
+
+        StringBuilder response = new StringBuilder();
+
+        while ((inputLine = input.readLine()) != null) {
+            response.append(inputLine);
+        }
+        input.close();
+        return response.toString();
+    }
+
+    public String postMessage(String command, int postType, String pkg) {
+        try {
+            String BASE_URL = "http://localhost:8080/";
+            URL url = new URL(BASE_URL + command);
+            HttpURLConnection server = (HttpURLConnection) url.openConnection();
+            server.setRequestMethod(POST);
+            server.setRequestProperty("Content-Type", "application/json");
+            server.setRequestProperty("Accept", "application/json");
+            server.setDoOutput(true);
+            System.out.println(pkg);
+
+            try(OutputStream os = server.getOutputStream()) {
+                byte[] input = pkg.getBytes(StandardCharsets.UTF_8);
+                os.write(input, 0, input.length);
+            }
+
+
+            int responseCode = server.getResponseCode();
+
+            System.out.println(POST + " Response Code: " + responseCode);
+            if (responseCode == HttpURLConnection.HTTP_CREATED) {
+                return getServerInput(server);
             } else {
                 System.out.println("Error");
             }
