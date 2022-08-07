@@ -27,6 +27,7 @@ public class PackageDeliveryControl {
     public final static int ADD = 0;
     public final static int REMOVE = 1;
     public final static int DELIVERY_STATUS = 2;
+    private static final int NONE = -1;
     public static ArrayList<PackageBase> masterListOfPackages;
     private static ArrayList<PackageBase> upcomingPackages;
     private static ArrayList<PackageBase> overduePackages;
@@ -66,7 +67,7 @@ public class PackageDeliveryControl {
     public void createPackage(String name, String notes, double price, double weight, LocalDateTime date,
                               String extraField, PackageFactory.PackageType type) {
         PackageBase newPackage = pkgFactory.getInstance(type, name, notes, price, weight, date, extraField);
-        masterListOfPackages.add(newPackage);
+        server.postMessage(ServerConnection.POST_ADD_PACKAGE,ADD, gson.toJson(newPackage, newPackage.getClass().getGenericSuperclass()),NONE);
     }
 
     /**

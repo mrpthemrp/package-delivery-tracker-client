@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Remove works">
+    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Delivery sorta works">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment4/packagedeliveries/client/control/PackageDeliveryControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment4/packagedeliveries/client/control/PackageDeliveryControl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment4/packagedeliveries/client/control/ServerConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment4/packagedeliveries/client/control/ServerConnection.java" afterDir="false" />
@@ -111,14 +111,7 @@
       <workItem from="1659735737794" duration="9987000" />
       <workItem from="1659818546390" duration="5445000" />
       <workItem from="1659824358684" duration="1499000" />
-      <workItem from="1659833534760" duration="5379000" />
-    </task>
-    <task id="LOCAL-00167" summary="Adjust width of scrollpane">
-      <created>1658256810261</created>
-      <option name="number" value="00167" />
-      <option name="presentableId" value="LOCAL-00167" />
-      <option name="project" value="LOCAL" />
-      <updated>1658256810261</updated>
+      <workItem from="1659833534760" duration="9282000" />
     </task>
     <task id="LOCAL-00168" summary="implementd delivery status box">
       <created>1658257436881</created>
@@ -456,7 +449,14 @@
       <option name="project" value="LOCAL" />
       <updated>1659837042210</updated>
     </task>
-    <option name="localTasksCounter" value="216" />
+    <task id="LOCAL-00216" summary="Delivery sorta works">
+      <created>1659839058038</created>
+      <option name="number" value="00216" />
+      <option name="presentableId" value="LOCAL-00216" />
+      <option name="project" value="LOCAL" />
+      <updated>1659839058038</updated>
+    </task>
+    <option name="localTasksCounter" value="217" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -475,7 +475,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Implement gridbaglayout constraints to PackageItem" />
     <MESSAGE value="Continue PackageItem UI config" />
     <MESSAGE value="ImageIcon for application implemeted" />
     <MESSAGE value="PackageItem Ui 99% done" />
@@ -500,7 +499,8 @@
     <MESSAGE value="Update UI" />
     <MESSAGE value="Post messages working" />
     <MESSAGE value="Remove works" />
-    <option name="LAST_COMMIT_MESSAGE" value="Remove works" />
+    <MESSAGE value="Delivery sorta works" />
+    <option name="LAST_COMMIT_MESSAGE" value="Delivery sorta works" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

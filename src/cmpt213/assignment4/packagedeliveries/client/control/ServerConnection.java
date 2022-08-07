@@ -1,6 +1,7 @@
 package cmpt213.assignment4.packagedeliveries.client.control;
 
 import cmpt213.assignment4.packagedeliveries.client.model.PackageBase;
+import com.google.gson.JsonObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -75,22 +76,19 @@ public class ServerConnection {
             server.setDoOutput(true);
 
             byte[] input = null;
-            try(OutputStream os = server.getOutputStream()) {
-                if(postType == PackageDeliveryControl.ADD){
+            try (OutputStream os = server.getOutputStream()) {
+                if (postType == PackageDeliveryControl.ADD) {
                     input = pkg.getBytes(StandardCharsets.UTF_8);
-                    os.write(input, 0, input.length);
-                }
-                else if(postType == PackageDeliveryControl.REMOVE){
+                } else if (postType == PackageDeliveryControl.REMOVE) {
                     input = Integer.toString(pkgIndex).getBytes(StandardCharsets.UTF_8);
 
                 } else if (postType == PackageDeliveryControl.DELIVERY_STATUS) {
-                    String stringContents = "["+pkgIndex+","+PackageDeliveryControl.masterListOfPackages.get(pkgIndex).isDelivered()+"]";
+                    String stringContents = "[" + pkgIndex + "," + PackageDeliveryControl.masterListOfPackages.get(pkgIndex).isDelivered() + "]";
                     input = stringContents.getBytes(StandardCharsets.UTF_8);
-
                 }
+                assert input != null;
                 os.write(input, 0, input.length);
             }
-
 
 
             int responseCode = server.getResponseCode();
