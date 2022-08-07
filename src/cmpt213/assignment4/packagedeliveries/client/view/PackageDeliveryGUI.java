@@ -59,7 +59,7 @@ public class PackageDeliveryGUI extends JFrame implements ActionListener {
         this.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
-                packageControl.arrayData(PackageDeliveryControl.DATA_SAVE);
+                packageControl.saveClientData();
             }
         });
         this.setIconImage(Util.appIcon);
@@ -213,7 +213,7 @@ public class PackageDeliveryGUI extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("UPDATE")) {
-            repaint();
+            updateStates();
         }
         if (e.getActionCommand().equals("ENTER")) {
             switchToMain();

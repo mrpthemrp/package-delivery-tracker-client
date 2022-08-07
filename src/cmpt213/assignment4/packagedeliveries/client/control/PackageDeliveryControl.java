@@ -1,17 +1,13 @@
 package cmpt213.assignment4.packagedeliveries.client.control;
 
 import cmpt213.assignment4.packagedeliveries.client.gson.extras.RuntimeTypeAdapterFactory;
-import cmpt213.assignment4.packagedeliveries.client.model.Package;
 import cmpt213.assignment4.packagedeliveries.client.view.util.Util;
 import cmpt213.assignment4.packagedeliveries.client.model.*;
 import com.google.gson.*;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
-import java.io.FileReader;
 import java.io.IOException;
-import java.lang.reflect.Type;
-import java.net.HttpURLConnection;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -22,12 +18,17 @@ import java.util.ArrayList;
  * @author Deborah Wang
  */
 public class PackageDeliveryControl {
-    public final static int DATA_SAVE = 1;
-    private final static int DATA_LOAD = 2;
+    private static final int NONE = -1;
     public final static int ADD = 0;
     public final static int REMOVE = 1;
     public final static int DELIVERY_STATUS = 2;
-    private static final int NONE = -1;
+    public final static String GET_ALL = "listAll";
+    public final static String GET_OVERDUE = "listOverduePackage";
+    public final static String GET_UPCOMING = "listUpcomingPackage";
+    public final static String POST_ADD_PACKAGE = "addPackage";
+    public final static String POST_REMOVE_PACKAGE = "removePackage";
+    public final static String POST_MARK_DELIVERED = "markPackageAsDelivered";
+    public final static String EXIT = "exit";
     public static ArrayList<PackageBase> masterListOfPackages;
     private static ArrayList<PackageBase> upcomingPackages;
     private static ArrayList<PackageBase> overduePackages;
@@ -49,7 +50,7 @@ public class PackageDeliveryControl {
         upcomingPackages = new ArrayList<>();
         overduePackages = new ArrayList<>();
 
-        arrayData(DATA_LOAD);
+        updateAllLists();
     }
 
     /**
@@ -67,7 +68,9 @@ public class PackageDeliveryControl {
     public void createPackage(String name, String notes, double price, double weight, LocalDateTime date,
                               String extraField, PackageFactory.PackageType type) {
         PackageBase newPackage = pkgFactory.getInstance(type, name, notes, price, weight, date, extraField);
-        server.postMessage(ServerConnection.POST_ADD_PACKAGE,ADD, gson.toJson(newPackage, newPackage.getClass().getGenericSuperclass()),NONE);
+        loadAList(server.postMessage(POST_ADD_PACKAGE, ADD, gson.toJson(newPackage, newPackage.getClass().getGenericSuperclass()), NONE, false),
+                masterListOfPackages);
+        updateAllLists();
     }
 
     /**
@@ -80,13 +83,10 @@ public class PackageDeliveryControl {
      */
     public void adjustPackage(PackageBase pkg, int option, boolean newDeliveryStatus) {
         if (option == REMOVE) {
-            server.postMessage(ServerConnection.POST_REMOVE_PACKAGE, REMOVE,gson.toJson(pkg), masterListOfPackages.indexOf(pkg));
-            masterListOfPackages.remove(pkg); // to delete
+            updateListAfterAdjustment(pkg, POST_REMOVE_PACKAGE, REMOVE,newDeliveryStatus);
         } else if (option == DELIVERY_STATUS) {
-            pkg.setDeliveryStatus(newDeliveryStatus);
-            server.postMessage(ServerConnection.POST_MARK_DELIVERED, DELIVERY_STATUS,gson.toJson(pkg), masterListOfPackages.indexOf(pkg));
+            updateListAfterAdjustment(pkg, POST_MARK_DELIVERED, DELIVERY_STATUS, newDeliveryStatus);
         }
-        //to update list
     }
 
     /**
@@ -96,8 +96,7 @@ public class PackageDeliveryControl {
      * @return Returns an ArrayList based on the current state.
      */
     public ArrayList<PackageBase> getAListOfPackages(Util.SCREEN_STATE currentState) {
-        updateAllLists(ServerConnection.POST);
-        updateAllLists(ServerConnection.GET);
+        updateAllLists();
         switch (currentState) {
             case LIST_ALL -> {
                 return masterListOfPackages;
@@ -149,37 +148,44 @@ public class PackageDeliveryControl {
                 .create();
     }
 
-    /**
-     * Method tells server to load or save list data.
-     *
-     * @param dataMode Determines whether data will be saved or loaded.
-     */
-    public void arrayData(int dataMode) {
-        if (dataMode == DATA_SAVE) {
-            updateAllLists(ServerConnection.POST);
-        } else if (dataMode == DATA_LOAD) {
-            updateAllLists(ServerConnection.GET);
-        }//end of else
+    public void updateAllLists() {
+        loadAList(server.getMessage(GET_ALL), masterListOfPackages);
+        loadAList(server.getMessage(GET_UPCOMING), upcomingPackages);
+        loadAList(server.getMessage(GET_OVERDUE), overduePackages);
     }
 
-    private void updateAllLists(String connection) {
-        loadAList(ServerConnection.GET_ALL, masterListOfPackages, connection);
-        loadAList(ServerConnection.GET_UPCOMING, upcomingPackages,connection);
-        loadAList(ServerConnection.GET_OVERDUE, overduePackages,connection);
-    }
+    private void updateListAfterAdjustment(PackageBase pkg, String command, int option, boolean newStatus) {
 
-    private void loadAList(String command, ArrayList<PackageBase> list, String requestType) {
-        if(requestType.equals(ServerConnection.GET)){
-            list.clear();
-            String stringArray = this.server.getMessage(command);
-            JsonArray tempArray = gson.fromJson(stringArray, JsonArray.class);
-            if (tempArray != null) {
-                for (int i = 0; i < tempArray.size(); i++) {
-                    list.add(gson.fromJson(tempArray.get(i), PackageBase.class));
-                }
-            }
-        } else if (requestType.equals(ServerConnection.POST)){
-            //do something
+        if (upcomingPackages.contains(pkg)) {
+            loadAList(server.postMessage(command, option, gson.toJson(pkg),
+                    upcomingPackages.indexOf(pkg), newStatus), upcomingPackages);
         }
+
+        if (overduePackages.contains(pkg)) {
+            loadAList(server.postMessage(command, option, gson.toJson(pkg),
+                    overduePackages.indexOf(pkg), newStatus), overduePackages);
+        }
+
+        if(masterListOfPackages.contains(pkg)){
+            loadAList(server.postMessage(command, option, gson.toJson(pkg),
+                    masterListOfPackages.indexOf(pkg), newStatus), masterListOfPackages);
+        }
+
+        updateAllLists();
+    }
+
+    private void loadAList(String stringArray, ArrayList<PackageBase> list) {
+        list.clear();
+        JsonArray tempArray = gson.fromJson(stringArray, JsonArray.class);
+        if (tempArray != null) {
+            for (int i = 0; i < tempArray.size(); i++) {
+                list.add(gson.fromJson(tempArray.get(i), PackageBase.class));
+            }
+        }
+    }
+
+    public void saveClientData() {
+        updateAllLists();
+        server.getMessage(EXIT);
     }
 }

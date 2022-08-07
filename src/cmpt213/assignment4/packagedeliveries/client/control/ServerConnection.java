@@ -1,8 +1,5 @@
 package cmpt213.assignment4.packagedeliveries.client.control;
 
-import cmpt213.assignment4.packagedeliveries.client.model.PackageBase;
-import com.google.gson.JsonObject;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -10,18 +7,8 @@ import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
 
 public class ServerConnection {
-    public final static String GET_ALL = "listAll";
-    public final static String GET_OVERDUE = "listOverduePackage";
-    public final static String GET_UPCOMING = "listUpcomingPackage";
-    public final static String POST_ADD_PACKAGE = "addPackage";
-    public final static String POST_REMOVE_PACKAGE = "removePackage";
-    public final static String POST_MARK_DELIVERED = "markPackageAsDelivered";
-    public final static String EXIT = "exit";
-
-
     public final static String GET = "GET";
     public final static String POST = "POST";
 
@@ -41,7 +28,7 @@ public class ServerConnection {
             System.out.println(GET + " Response Code: " + responseCode);
 
             if (responseCode == HttpURLConnection.HTTP_OK) {
-                return getServerInput(server);
+                return parseServerStream(server);
             } else {
                 System.out.println("Error");
             }
@@ -52,7 +39,7 @@ public class ServerConnection {
         return null;
     }
 
-    private String getServerInput(HttpURLConnection server) throws IOException {
+    private String parseServerStream(HttpURLConnection server) throws IOException {
         BufferedReader input = new BufferedReader(new InputStreamReader(server.getInputStream()));
         String inputLine;
 
@@ -65,7 +52,7 @@ public class ServerConnection {
         return response.toString();
     }
 
-    public String postMessage(String command, int postType, String pkg, int pkgIndex) {
+    public String postMessage(String command, int postType, String pkg, int pkgIndex, boolean newStatus) {
         try {
             String BASE_URL = "http://localhost:8080/";
             URL url = new URL(BASE_URL + command);
@@ -83,7 +70,7 @@ public class ServerConnection {
                     input = Integer.toString(pkgIndex).getBytes(StandardCharsets.UTF_8);
 
                 } else if (postType == PackageDeliveryControl.DELIVERY_STATUS) {
-                    String stringContents = "[" + pkgIndex + "," + PackageDeliveryControl.masterListOfPackages.get(pkgIndex).isDelivered() + "]";
+                    String stringContents = "[" + pkgIndex + "," + newStatus + "]";
                     input = stringContents.getBytes(StandardCharsets.UTF_8);
                 }
                 assert input != null;
@@ -95,7 +82,7 @@ public class ServerConnection {
 
             System.out.println(POST + " Response Code: " + responseCode);
             if (responseCode == HttpURLConnection.HTTP_CREATED) {
-                return getServerInput(server);
+                return parseServerStream(server);
             } else {
                 System.out.println("Error");
             }

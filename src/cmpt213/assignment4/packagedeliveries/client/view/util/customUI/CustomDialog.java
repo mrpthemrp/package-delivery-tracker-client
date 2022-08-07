@@ -1,5 +1,6 @@
 package cmpt213.assignment4.packagedeliveries.client.view.util.customUI;
 
+import cmpt213.assignment4.packagedeliveries.client.control.PackageDeliveryControl;
 import cmpt213.assignment4.packagedeliveries.client.view.screens.MainScreenRight;
 import cmpt213.assignment4.packagedeliveries.client.view.util.Util;
 
@@ -66,7 +67,7 @@ public class CustomDialog extends JDialog implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("YES")) {
             if (isRemove) {
-                MainScreenRight.updatePackages(this.panelItemIndex, this.pkgIndex);
+                MainScreenRight.updatePackages(this.panelItemIndex, this.pkgIndex, PackageDeliveryControl.REMOVE,false);
             } else {
                 dispose = false;
             }
