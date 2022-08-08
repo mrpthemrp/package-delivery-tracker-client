@@ -4,12 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="All commands work">
+    <list default="true" id="55343688-297a-40a3-ae50-7445f8558001" name="Changes" comment="Need to figure out delivery mark issue">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment4/packagedeliveries/client/control/PackageDeliveryControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment4/packagedeliveries/client/control/PackageDeliveryControl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment4/packagedeliveries/client/control/ServerConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment4/packagedeliveries/client/control/ServerConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment4/packagedeliveries/client/gson/extras/RuntimeTypeAdapterFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment4/packagedeliveries/client/control/RuntimeTypeAdapterFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment4/packagedeliveries/client/gson/list.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment4/packagedeliveries/client/view/PackageDeliveryGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment4/packagedeliveries/client/view/PackageDeliveryGUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment4/packagedeliveries/client/view/screens/MainScreenRight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment4/packagedeliveries/client/view/screens/MainScreenRight.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment4/packagedeliveries/client/view/util/customUI/AddPackageDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment4/packagedeliveries/client/view/util/customUI/AddPackageDialog.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment4/packagedeliveries/client/view/util/customUI/CustomDialog.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment4/packagedeliveries/client/view/util/customUI/CustomDialog.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cmpt213/assignment4/packagedeliveries/client/view/util/customUI/PackageItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cmpt213/assignment4/packagedeliveries/client/view/util/customUI/PackageItem.java" afterDir="false" />
     </list>
@@ -115,14 +118,8 @@
       <workItem from="1659735737794" duration="9987000" />
       <workItem from="1659818546390" duration="5445000" />
       <workItem from="1659824358684" duration="1499000" />
-      <workItem from="1659833534760" duration="16515000" />
-    </task>
-    <task id="LOCAL-00169" summary="Scroll working, add buttons to listener">
-      <created>1658261087747</created>
-      <option name="number" value="00169" />
-      <option name="presentableId" value="LOCAL-00169" />
-      <option name="project" value="LOCAL" />
-      <updated>1658261087747</updated>
+      <workItem from="1659833534760" duration="16771000" />
+      <workItem from="1659907819462" duration="10984000" />
     </task>
     <task id="LOCAL-00170" summary="Scroll UI almost done">
       <created>1658262225608</created>
@@ -460,7 +457,14 @@
       <option name="project" value="LOCAL" />
       <updated>1659844702667</updated>
     </task>
-    <option name="localTasksCounter" value="218" />
+    <task id="LOCAL-00218" summary="Need to figure out delivery mark issue">
+      <created>1659852003827</created>
+      <option name="number" value="00218" />
+      <option name="presentableId" value="LOCAL-00218" />
+      <option name="project" value="LOCAL" />
+      <updated>1659852003827</updated>
+    </task>
+    <option name="localTasksCounter" value="219" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -479,7 +483,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="ImageIcon for application implemeted" />
     <MESSAGE value="PackageItem Ui 99% done" />
     <MESSAGE value="Implement PackageItem Ui" />
     <MESSAGE value="Package UI done" />
@@ -504,7 +507,8 @@
     <MESSAGE value="Remove works" />
     <MESSAGE value="Delivery sorta works" />
     <MESSAGE value="All commands work" />
-    <option name="LAST_COMMIT_MESSAGE" value="All commands work" />
+    <MESSAGE value="Need to figure out delivery mark issue" />
+    <option name="LAST_COMMIT_MESSAGE" value="Need to figure out delivery mark issue" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

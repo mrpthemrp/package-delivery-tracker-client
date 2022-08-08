@@ -1,4 +1,4 @@
-package cmpt213.assignment4.packagedeliveries.client.gson.extras;
+package cmpt213.assignment4.packagedeliveries.client.control;
 /*
 * THIS CLASS IS COPIED FROM THE FOLLOWING:
 * https://github.com/google/gson/blob/master/extras/src/main/java/com/google/gson/typeadapters/RuntimeTypeAdapterFactory.java

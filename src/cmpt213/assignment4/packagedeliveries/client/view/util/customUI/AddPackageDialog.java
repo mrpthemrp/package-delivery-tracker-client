@@ -455,8 +455,10 @@ public class AddPackageDialog extends JDialog implements ActionListener, ItemLis
                 && !name.getText().isEmpty()
                 && !price.getText().isEmpty()
                 && !price.getText().isBlank()
+                && Util.doubleVerifier.verify(price)
                 && !weight.getText().isEmpty()
                 && !weight.getText().isBlank()
+                && Util.doubleVerifier.verify(weight)
                 && dateIsPicked
                 && extraField.isSet(packageType)
                 && this.packageTypeSelected;

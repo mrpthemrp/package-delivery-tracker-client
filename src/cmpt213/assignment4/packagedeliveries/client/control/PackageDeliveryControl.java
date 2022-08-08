@@ -1,19 +1,22 @@
 package cmpt213.assignment4.packagedeliveries.client.control;
 
-import cmpt213.assignment4.packagedeliveries.client.gson.extras.RuntimeTypeAdapterFactory;
+import cmpt213.assignment4.packagedeliveries.client.view.PackageDeliveryGUI;
 import cmpt213.assignment4.packagedeliveries.client.view.util.Util;
 import cmpt213.assignment4.packagedeliveries.client.model.*;
 import com.google.gson.*;
 import com.google.gson.stream.JsonReader;
 import com.google.gson.stream.JsonWriter;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 /**
- * This class creates a PackageDeliveryControl object which manages data for the program.
+ * This class creates a PackageDeliveryControl object which manages data from the server.
+ * Data is passed to the UI from this class.
  *
  * @author Deborah Wang
  */
@@ -29,6 +32,7 @@ public class PackageDeliveryControl {
     public final static String POST_REMOVE_PACKAGE = "removePackage";
     public final static String POST_MARK_DELIVERED = "markPackageAsDelivered";
     public final static String EXIT = "exit";
+    private final ActionListener parentListener;
     public static ArrayList<PackageBase> masterListOfPackages;
     private static ArrayList<PackageBase> upcomingPackages;
     private static ArrayList<PackageBase> overduePackages;
@@ -39,8 +43,11 @@ public class PackageDeliveryControl {
     /**
      * Constructs a PackageDeliveryControl Object.
      * Initializes class fields and also loads in any data from the JSON list.
+     *
+     * @param al The action listener of the parent class, used to help refresh screen.
      */
-    public PackageDeliveryControl() {
+    public PackageDeliveryControl(ActionListener al) {
+        this.parentListener = al;
         this.pkgFactory = new PackageFactory();
         setGsonBuilder();
 
@@ -52,6 +59,28 @@ public class PackageDeliveryControl {
 
         updateAllLists();
     }
+
+    /**
+     * Helper method for adjusting a given Package.
+     * Will either remove package or change its delivery state.
+     *
+     * @param pkg               The package to be adjusted.
+     * @param option            Which adjustment method is selected, based on constants from this class.
+     * @param newDeliveryStatus The new delivery status of package, false if option is to remove.
+     */
+    public void adjustPackage(PackageBase pkg, int option, boolean newDeliveryStatus) {
+        ArrayList<PackageBase> currentList = getAListOfPackages(PackageDeliveryGUI.currentState);
+        int packageIndex = currentList.indexOf(pkg);
+        if (option == REMOVE) {
+            loadAList(server.postMessage(POST_REMOVE_PACKAGE, option, gson.toJson(pkg)
+                    , packageIndex, newDeliveryStatus), currentList);
+        } else if (option == DELIVERY_STATUS) {
+            loadAList(server.postMessage(POST_MARK_DELIVERED, option, gson.toJson(pkg)
+                    , packageIndex, newDeliveryStatus), currentList);
+        }
+        updateAllLists();
+    }
+
 
     /**
      * Method that creates a new Package using the PackageFactory class.
@@ -74,29 +103,12 @@ public class PackageDeliveryControl {
     }
 
     /**
-     * Helper method for adjusting a given Package.
-     * Will either remove package or change its delivery state.
-     *
-     * @param pkg               The package to be adjusted.
-     * @param option            Which adjustment method is selected, based on constants from this class.
-     * @param newDeliveryStatus The new delivery status of package, false if option is to remove.
-     */
-    public void adjustPackage(PackageBase pkg, int option, boolean newDeliveryStatus) {
-        if (option == REMOVE) {
-            updateListAfterAdjustment(pkg, POST_REMOVE_PACKAGE, REMOVE,newDeliveryStatus);
-        } else if (option == DELIVERY_STATUS) {
-            updateListAfterAdjustment(pkg, POST_MARK_DELIVERED, DELIVERY_STATUS, newDeliveryStatus);
-        }
-    }
-
-    /**
      * Helper method that allows the UI to access the lists.
      *
      * @param currentState Current state of UI tells method which list to return.
      * @return Returns an ArrayList based on the current state.
      */
     public ArrayList<PackageBase> getAListOfPackages(Util.SCREEN_STATE currentState) {
-        updateAllLists();
         switch (currentState) {
             case LIST_ALL -> {
                 return masterListOfPackages;
@@ -109,6 +121,15 @@ public class PackageDeliveryControl {
             }
         }
         return null;
+    }
+
+    /**
+     * Helper method that is called whenever the GUI exits.
+     * Sends all data to server for saving.
+     */
+    public void saveClientData() {
+        updateAllLists();
+        server.getMessage(EXIT);
     }
 
     /**
@@ -148,32 +169,23 @@ public class PackageDeliveryControl {
                 .create();
     }
 
-    public void updateAllLists() {
+    /**
+     * Helper method that refreshes all list data from the server.
+     * Then refreshes screen to reflect changes.
+     */
+    private void updateAllLists() {
         loadAList(server.getMessage(GET_ALL), masterListOfPackages);
         loadAList(server.getMessage(GET_UPCOMING), upcomingPackages);
         loadAList(server.getMessage(GET_OVERDUE), overduePackages);
+        parentListener.actionPerformed(new ActionEvent(PackageDeliveryControl.class, ActionEvent.ACTION_PERFORMED, "UPDATE"));
     }
 
-    private void updateListAfterAdjustment(PackageBase pkg, String command, int option, boolean newStatus) {
-
-        if (upcomingPackages.contains(pkg)) {
-            loadAList(server.postMessage(command, option, gson.toJson(pkg),
-                    upcomingPackages.indexOf(pkg), newStatus), upcomingPackages);
-        }
-
-        if (overduePackages.contains(pkg)) {
-            loadAList(server.postMessage(command, option, gson.toJson(pkg),
-                    overduePackages.indexOf(pkg), newStatus), overduePackages);
-        }
-
-        if(masterListOfPackages.contains(pkg)){
-            loadAList(server.postMessage(command, option, gson.toJson(pkg),
-                    masterListOfPackages.indexOf(pkg), newStatus), masterListOfPackages);
-        }
-
-        updateAllLists();
-    }
-
+    /**
+     * Helper method that deserializes a JSON String from the server.
+     *
+     * @param stringArray The JSON String from the server.
+     * @param list        The list to append the JSON string items to.
+     */
     private void loadAList(String stringArray, ArrayList<PackageBase> list) {
         list.clear();
         JsonArray tempArray = gson.fromJson(stringArray, JsonArray.class);
@@ -184,8 +196,4 @@ public class PackageDeliveryControl {
         }
     }
 
-    public void saveClientData() {
-        updateAllLists();
-        server.getMessage(EXIT);
-    }
 }

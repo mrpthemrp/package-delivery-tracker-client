@@ -1,6 +1,5 @@
 package cmpt213.assignment4.packagedeliveries.client.view.util.customUI;
 
-import cmpt213.assignment4.packagedeliveries.client.control.PackageDeliveryControl;
 import cmpt213.assignment4.packagedeliveries.client.view.screens.MainScreenRight;
 import cmpt213.assignment4.packagedeliveries.client.view.util.Util;
 
@@ -14,7 +13,7 @@ import java.awt.event.ActionListener;
  * Implements how buttons look like on click.
  *
  * @author Deborah Wang
- * @link http://www2.hawaii.edu/~takebaya/ics111/jdialog/jdialog.html Reference for writing class
+ * @link <a href="http://www2.hawaii.edu/~takebaya/ics111/jdialog/jdialog.html">...</a> Reference for writing class
  */
 public class CustomDialog extends JDialog implements ActionListener {
     public boolean isRemove, dispose;
@@ -67,7 +66,7 @@ public class CustomDialog extends JDialog implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("YES")) {
             if (isRemove) {
-                MainScreenRight.updatePackages(this.panelItemIndex, this.pkgIndex, PackageDeliveryControl.REMOVE,false);
+                MainScreenRight.deleteAPackage(this.pkgIndex, this.panelItemIndex);
             } else {
                 dispose = false;
             }

@@ -20,7 +20,7 @@ import java.util.ArrayList;
  */
 public class MainScreenRight extends JPanel {
     private static PackageDeliveryControl control = null;
-    private static ArrayList<PackageItem> panelItemsAll,panelItemsUpcoming,panelItemsOverdue;
+    private static ArrayList<PackageItem> panelItems;
     private static ActionListener parentListener = null;
     private final GridBagConstraints gbc;
     private final Frame parent;
@@ -47,40 +47,23 @@ public class MainScreenRight extends JPanel {
         gbc.gridy = 0;
         gbc.weighty = 5;
 
-        panelItemsAll = new ArrayList<>();
-        panelItemsOverdue = new ArrayList<>();
-        panelItemsUpcoming = new ArrayList<>();
+        panelItems = new ArrayList<>();
 
         this.setVisible(true);
     }
 
     /**
-     * Updates the package items on the UI according to state.
-     * Helps with removal of package item on UI
+     * Deletes a package on the UI according to state.
+     * Helps with removal of package item on UI.
      *
      * @param panelItemIndex PackageItem array index
      * @param arrayIndex     PackageBase array
      */
-    public static void updatePackages(int panelItemIndex, int arrayIndex, int option, boolean newStatus) {
-        ArrayList<PackageItem> panelItems = null;
-        switch (PackageDeliveryGUI.currentState){
-            case LIST_ALL -> panelItems = panelItemsAll;
-            case UPCOMING -> panelItems = panelItemsUpcoming;
-            case OVERDUE -> panelItems = panelItemsOverdue;
-        }
+    public static void deleteAPackage(int arrayIndex, int panelItemIndex) {
         if (panelItemIndex >= 0) {
-            assert panelItems != null;
-            PackageItem panelPkg = panelItems.get(panelItemIndex);
-            PackageBase pkgBase = control.getAListOfPackages(Util.SCREEN_STATE.LIST_ALL).get(arrayIndex);
-            if(option == PackageDeliveryControl.REMOVE){
-                panelItems.remove(panelPkg);
-                control.adjustPackage(pkgBase, option, newStatus);
-            } else if (option == PackageDeliveryControl.DELIVERY_STATUS){
-                control.adjustPackage(pkgBase, option, newStatus);
-                if(!newStatus){
-                    panelItems.remove(panelPkg);
-                }
-            }
+            panelItems.remove(panelItemIndex);
+            PackageBase pkgBase = control.getAListOfPackages(PackageDeliveryGUI.currentState).get(arrayIndex);
+            control.adjustPackage(pkgBase, PackageDeliveryControl.REMOVE, false);
         }
         parentListener.actionPerformed(new ActionEvent(MainScreenRight.class, ActionEvent.ACTION_PERFORMED, "UPDATE"));
     }
@@ -91,18 +74,14 @@ public class MainScreenRight extends JPanel {
      * @param currentState The state that the method will populate according to.
      */
     public void populateList(Util.SCREEN_STATE currentState) {
-
         //add new items
         switch (currentState) {
             case LIST_ALL ->
-                    addPackages(control.getAListOfPackages(Util.SCREEN_STATE.LIST_ALL), "No packages to show.",
-                            panelItemsAll);
+                    addPackages(control.getAListOfPackages(Util.SCREEN_STATE.LIST_ALL), "No packages to show.");
             case UPCOMING ->
-                    addPackages(control.getAListOfPackages(Util.SCREEN_STATE.UPCOMING), "No upcoming packages to show.",
-                            panelItemsUpcoming);
+                    addPackages(control.getAListOfPackages(Util.SCREEN_STATE.UPCOMING), "No upcoming packages to show.");
             case OVERDUE ->
-                    addPackages(control.getAListOfPackages(Util.SCREEN_STATE.OVERDUE), "No overdue packages to show.",
-                            panelItemsOverdue);
+                    addPackages(control.getAListOfPackages(Util.SCREEN_STATE.OVERDUE), "No overdue packages to show.");
         }
     }
 
@@ -112,17 +91,14 @@ public class MainScreenRight extends JPanel {
      * @param list        The arraylist to populate from.
      * @param noneMessage Message to show if list is empty.
      */
-    private void addPackages(ArrayList<PackageBase> list, String noneMessage, ArrayList<PackageItem> panelItems) {
-        panelItems.clear();
+    private void addPackages(ArrayList<PackageBase> list, String noneMessage) {
         if (list.isEmpty()) {
             noItemsMessage.setText(noneMessage);
             this.add(noItemsMessage, gbc);
         } else {
             for (int i = (list.size() - 1); i >= 0; i--) {
                 gbc.gridy = i;
-                System.out.println("panel package index: "+i);
-                System.out.println(list.get(i));
-                PackageItem pkg = new PackageItem(list.get(i), (i + 1), control, parent, (i));
+                PackageItem pkg = new PackageItem(list.get(i), (i + 1), control, parent, i);
                 panelItems.add(pkg);
                 this.add(pkg, gbc);
             }

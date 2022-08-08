@@ -47,8 +47,6 @@ public class PackageDeliveryGUI extends JFrame implements ActionListener {
      */
     public PackageDeliveryGUI() {
 
-        packageControl = new PackageDeliveryControl();
-
         //set up JFrame details
         this.setResizable(false);
         this.setSize(new Dimension((int) (Util.screenWidth * 0.75), (int) (Util.screenHeight * 0.75)));
@@ -72,6 +70,7 @@ public class PackageDeliveryGUI extends JFrame implements ActionListener {
 
         this.startPanel = new StartScreen(this);
         columnHeader = new ColumnHeader(this);
+        packageControl = new PackageDeliveryControl(this);
         screenRight = new MainScreenRight(packageControl, this, this);
         scrollPane = new JScrollPane(screenRight);
         this.mainPanel = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT,

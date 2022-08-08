@@ -5,7 +5,6 @@ import cmpt213.assignment4.packagedeliveries.client.model.Book;
 import cmpt213.assignment4.packagedeliveries.client.model.Electronic;
 import cmpt213.assignment4.packagedeliveries.client.model.PackageBase;
 import cmpt213.assignment4.packagedeliveries.client.model.Perishable;
-import cmpt213.assignment4.packagedeliveries.client.view.screens.MainScreenRight;
 import cmpt213.assignment4.packagedeliveries.client.view.util.Util;
 
 import javax.swing.*;
@@ -153,7 +152,7 @@ public class PackageItem extends JPanel implements ActionListener {
         gbc.gridx = 2;
         gbc.gridy = 1;
         if (pkg instanceof Perishable || pkg instanceof Electronic) {
-            this.add(Box.createRigidArea(new Dimension((int) (Util.screenWidth * 0.03), 0)), gbc);
+            this.add(Box.createRigidArea(new Dimension((int) (Util.screenWidth * 0.05), 0)), gbc);
         } else if (pkg instanceof Book) {
             this.add(Box.createRigidArea(new Dimension((int) (Util.screenWidth * 0.07), 0)), gbc);
         }
@@ -208,11 +207,9 @@ public class PackageItem extends JPanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("REMOVE")) {
-            removePackageDialog.run(this.panelItemIndex, this.pkgIndex);
+            removePackageDialog.run(this.panelItemIndex, pkgIndex);
         } else if (e.getActionCommand().equals("DELIVERY STATUS")) {
-            MainScreenRight.updatePackages(this.panelItemIndex, this.pkgIndex, PackageDeliveryControl.DELIVERY_STATUS,
-                    deliveredCheckBox.isSelected());
-            control.updateAllLists();
+            control.adjustPackage(pkg, PackageDeliveryControl.DELIVERY_STATUS, deliveredCheckBox.isSelected());
         }
         repaint();
     }
