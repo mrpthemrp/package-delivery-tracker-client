@@ -1,27 +1,23 @@
-User Manual
+# User Manual
 
-Table of Contents
-------------------
-1. Introduction
-2. Notes
-3. How To Use
-------------------
+## Table of Contents
+1. [Introduction](#1-introduction)
+2. [Notes](#2-notes)
+3. (How To Use)(#3-how-to-use)
 
-1. Introduction
+### 1. Introduction
 Hello! Welcome to the user manual.
 This document will contain a few notes and show you how to use the program.
 
 If you are curious, there is a prototype link that shows you what was designed, and what was implemented.
 The prototype was also designed by the author of this program.
 
-Prototype link: https://www.figma.com/proto/ElhYpu0hjZ7XigCQqGyEj5/PackageDeliveryTracker-UI-Mock-up?page-id=0%3A1&node-id=1%3A4&starting-point-node-id=1%3A4&scaling=scale-down
+[Prototype Link](https://www.figma.com/proto/ElhYpu0hjZ7XigCQqGyEj5/PackageDeliveryTracker-UI-Mock-up?page-id=0%3A1&node-id=1%3A4&starting-point-node-id=1%3A4&scaling=scale-down)
 Link password: 'cmpt213'
 
 Make sure not to have too many windows running when you open the link since Figma takes up quite a bit of space to load.
 
-------------------
-
-2. Notes
+### 2. Notes
 There are a few notes that are important to know.
 
     - JavaDocs: For the Util class, the constants are not given a description since their names are self-explanatory.
@@ -36,12 +32,10 @@ There are a few notes that are important to know.
                         immediately at the top, it starts just a bit under the first item. Make sure to just scroll up a bit
                         and the top will be reached.
 
-------------------
+### 3. How To Use
 
-3. How To Use
-
-This program is super simple to use!
-Steps:
+This program is super simple to use!  
+#### Steps
     1. Run the program
     2. Start screen will appear, click "ENTER" to start the program.
     3. You will land on the main screen and see any saved packages on the right
@@ -72,6 +66,5 @@ Steps:
         3.2.4 Click "CANCEL" to cancel package creation. A pop-up dialog will show to confirm your choice.
 
     4 Once you are done, close the main window and the data will be automatically saved.
-
+--
 Copyright 2022, Deborah Wang
-Contact: dqw@sfu.ca
