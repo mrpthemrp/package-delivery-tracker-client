@@ -1,7 +1,7 @@
 # Package Delivery Tracker Web App :package:
 
 This repository contains a :coffee: Java Swing application.  
-This project needs to be run with its :leaves::hiking_boot: [Spring Boot Web Server](https://github.com/mrpthemrp/A-213-WebServer).
+This project needs to be run with its :leaves::hiking_boot: [Spring Boot Web Server](https://github.com/mrpthemrp/package-delivery-tracker-server).
 
 :warning: ***Please DO NOT FORK this repository/project!*** :warning:  
 :red_square: ***Please DO NOT COPY ANY CODE from this project!*** :red_square:
