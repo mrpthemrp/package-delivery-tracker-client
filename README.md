@@ -109,7 +109,7 @@ This project is the final assignment for CMPT 213 ([Dr. Victor Cheung](http://ww
 
 ## 4. Citation Format
 Example of citing this project as a reference:
-> Reference used for creating MVC model: https://github.com/mrpthemrp/A-213/tree/master/src/cmpt213/assignment4/packagedeliveries/client
+> Reference used for creating MVC model: https://github.com/mrpthemrp/A-213/tree/master/src/cmpt213/assignment4/packagedeliveries/client  
 > Date Accessed: August 2022  
 > Developer: [Deborah Wang](https://github.com/mrpthemrp)
 
