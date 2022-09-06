@@ -28,6 +28,17 @@ Watch a quick demo of the project through the link below!
 
 This project is the final assignment for CMPT 213 ([Dr. Victor Cheung](http://www.victorcheung.net/)) at SFU.
 
+**Main Screen**  
+This project is a package delivery tracker. On program start, the user will be brought to a simple screen that has three lists: All Packages, Upcoming Packages, and Overdue Packages. Existing packages in the system will appear sorted from earliest delivery date. The screen will also show the current date and time, as well as a button for adding a package. If ADD PACKAGE button is clicked, a pop-up will appear that prompts the user to create a new package entry.
+
+**Packages**  
+The user is able to add 3 different types of packages: Book, Perishable, and Electronic. Based on the delivery date added on package creation, it will be sorted under upcoming or overdue on the main screen. The user is able to mark padckage as delivered or remove the package on the main screen. On package removal, from any of the lists, the package will immediately be deleted from all lists. If the package is marked as delivered the package will only appear in the ALL PACKAGES list.
+
+**Saving and Exiting**  
+If the user wants to delete a package, a pop-up will appear to confirm. If the user wants to exit, simply click the exit button and the program will automatically save the data to the server. The server will continue running if the client stops.
+
+***User needs to stop the server side by themselves! Exiting the client app will not terminate the server.***
+
 **See [video demo](#package-delivery-tracker-web-app-package) for more comprehensive walkthrough.**
 
 ### :sparkles: Project Takeaways
@@ -73,54 +84,37 @@ This project is the final assignment for CMPT 213 ([Dr. Victor Cheung](http://ww
 
 1. Download this project as a **ZIP file**.
     - Click **'Code'** and then **'Download ZIP'**.
-2. Unzip the main folder - **'record-player-sim-main'**.
+2. Unzip the main folder - **'A-213-master'**.
     - This may take a few minutes, make sure your machine has ample space!
 3. Open **IntelliJ** and select **'Open'** or 'Open Project'.
 4. **Locate** where the **unzipped folder** from step 2 is on your machine. Click on the folder to open the project.
     - Click 'Trust Project' when the pop-up appears.
     - The project will now open.
 </details>
-<details><summary><h4>Part II - Configure Folders and Libraries</h4></summary><br>
+<details><summary><h4>Part II - Configure Libraries and Run Program</h4></summary><br>
 
 5. Configure the SDK by **File > Project Structure > Project Settings > Project**
     - *We will set the JDK, Language Level, and Compiler output here.*
-6. Select ***JDK 16***
-    - It is HIGHLY important that JDK 16 is used! Project will not run otherwise.
-    - JDK 16.0.2 is preferred.
-7. Select **'Language Level' to be 16**
-    - If language level is not 16, the project will not run.
-8. Set **'Compiler output:'** to the out folder in the project folder
-    - Path: **record-player-sim-main/out**
+6. Select ***JDK 18***
+    - It is HIGHLY important that JDK 18 and up is used!
+7. Select **'Language Level' to be 18**
+    - Or whichever JDK number you are using.
+8. Make sure **'Compiler output:'** is set to the out folder
+    - It should already be set but if not make sure the path is **../A-213-master/out**
 9. Go to **Libraries** which is **also under Project Settings**
 10. **Click on the "+" button** to add a library
-11. **Click "Java"** from the library options
-12. **Add 'core.jar'** and only this one jar!
-    - Path: **record-player-sim-main/src/core.jar**
-13. Once the core.jar is added, **click on the '+' under the core library**
-    - It should say 'Add Alt+Insert' on mouse hover
-14. Now **add all the remaining jar files** under the src folder
-    - Add all at the same time by holding down 'Shift' and selecting all.
+11. **Click "Maven"** from the library options
+12. **Type 'com.google.gson'** and click on the search button
+13. **Select the newest gson library** and click ok
+    - Version 2.9.1 was used to write this project
+14. **Click 'OK'** when pop-up comes up on adding 'client app' to module
+    - If asked to replace old libary, click CANCEL and the old libary will be added to path.
 15. Click **'Apply'** and then **'OK'**
+16. **Click Run** and the app will run properly. Make sure to run the server side of the program too!
+    - The console will print [Status Codes](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes) on each operation.
+      - Usually 200, 201 are the SUCCESS codes that will print
 </details>
-<details><summary><h4>Part III - Set Sources Root and Configurations</h4></summary><br>
 
-16. **Find the 'src' folder** in the project directory
-17. Right-click and **go to 'Mark Directory as'**
-18. **Click on 'Sources Root'** from the listed options
-    - The folder colour should turn blue after clicking.
-19. Let IntelliJ reconfigure things and once it is done, *go to click on 'Current File' to edit run configurations**
-    - Located near the run button; top right bar.
-20. Click **'Edit Configurations...'** and then **'Add new configuration...'**
-21. Click **'Application'** on the pop-up
-22. Under **'Build and run'** set SDK to 16 if not already, **type 'main.RoomApp' in the Main class bar**
-    - The bar will be highlighted red if no main class is specified.
-23. In **'Working directory:'** set the directory to **'src'**
-    - It currently is just the record-player-sim-main folder which will not allow the program to run correctly.
-24. **Change the name of the build** to something meaningful like 'RoomApp'
-    - On default it is just 'Unnamed'
-25. Click **'Apply'** and then **'OK'**
-26. The project is now ready to run!
-</details>
 
 ## 3. References
 
