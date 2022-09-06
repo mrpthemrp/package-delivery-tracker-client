@@ -9,7 +9,7 @@ This project needs to be run with its :leaves::hiking_boot: [Spring Boot Web Ser
 This project is not intended to be open-source, feel free to use it as a reference but DO NOT FORK OR COPY!  
 If used as reference, please cite by providing link to project and author name \([see section below](#4-citation-format)\).
 
-:hotsprings: **[JavaDocs Link](https://mrpthemrp.github.io/A-213/)**
+:hotsprings: **[JavaDocs Link](https://mrpthemrp.github.io/package-delivery-tracker-client/)**
   
 Watch a quick demo of the project through the link below!  
 ***Video Link coming soon!***
@@ -84,7 +84,7 @@ If the user wants to delete a package, a pop-up will appear to confirm. If the u
 
 1. Download this project as a **ZIP file**.
     - Click **'Code'** and then **'Download ZIP'**.
-2. Unzip the main folder - **'A-213-master'**.
+2. Unzip the main folder - **'package-delivery-tracker-client-master'**.
     - This may take a few minutes, make sure your machine has ample space!
 3. Open **IntelliJ** and select **'Open'** or 'Open Project'.
 4. **Locate** where the **unzipped folder** from step 2 is on your machine. Click on the folder to open the project.
@@ -100,7 +100,7 @@ If the user wants to delete a package, a pop-up will appear to confirm. If the u
 7. Select **'Language Level' to be 18**
     - Or whichever JDK number you are using.
 8. Make sure **'Compiler output:'** is set to the out folder
-    - It should already be set but if not make sure the path is **../A-213-master/out**
+    - It should already be set but if not make sure the path is **../package-delivery-tracker-client-master/out**
 9. Go to **Libraries** which is **also under Project Settings**
 10. **Click on the "+" button** to add a library
 11. **Click "Maven"** from the library options
