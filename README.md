@@ -32,28 +32,28 @@ This project is the final assignment for CMPT 213 ([Dr. Victor Cheung](http://ww
 
 ### :sparkles: Project Takeaways
 
-- Coded with [OOP/D](https://en.wikipedia.org/wiki/Object-oriented_programming) in mind
-    - Fine-tuned OOP/D skills with this project
--  Practiced using [MVC Model](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller) intentionally
--  Learned how to use [Java's File Separator](https://www.baeldung.com/java-file-vs-file-path-separator) to account for backslash differences in different OS
+- Coded with [OOP/D](https://en.wikipedia.org/wiki/Object-oriented_programming) in mind.
+    - Fine-tuned OOP/D skills with this project.
+-  Practiced using [MVC Model](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller) intentionally.
+-  Learned how to use [Java's File Separator](https://www.baeldung.com/java-file-vs-file-path-separator) to account for backslash differences in different OS.
 -  Extensively used Java Swing's built in [GUI Components](https://en.wikipedia.org/wiki/Swing_(Java)) to build UI
     - Learned how to use JFrame, JPanels, etc.
--  Created a lot of custom UI components through OOD concepts of [Inheritance](https://www.geeksforgeeks.org/inheritance-in-java/), [Abstraction](), and [Polymorphism](https://www.geeksforgeeks.org/polymorphism-in-java/) 
--  Built simple Spring Boot [web server](https://github.com/mrpthemrp/A-213-WebServer) to emulate the [Client-Server Model](https://en.wikipedia.org/wiki/Client–server_model)
--  Practiced writing both front and backend code for this project
--  Practiced using [CRC Cards](http://agilemodeling.com/artifacts/crcModel.htm) and [UML Diagrams](https://en.wikipedia.org/wiki/Unified_Modeling_Language) to plan out code prior to writing code
-    - This [tag's folder](https://github.com/mrpthemrp/A-213/tree/6db2edbe1d6c21e1b94a0cfa5b9f912676a7cd36/docs) has the documents
-- Practiced iterative programming as this project was completed in 4 different increments
+-  Created a lot of custom UI components through OOD concepts of [Inheritance](https://www.geeksforgeeks.org/inheritance-in-java/), [Abstraction](), and [Polymorphism](https://www.geeksforgeeks.org/polymorphism-in-java/).
+-  Built simple Spring Boot [web server](https://github.com/mrpthemrp/A-213-WebServer) to emulate the [Client-Server Model](https://en.wikipedia.org/wiki/Client–server_model).
+-  Practiced writing both front and backend code for this project.
+-  Practiced using [CRC Cards](http://agilemodeling.com/artifacts/crcModel.htm) and [UML Diagrams](https://en.wikipedia.org/wiki/Unified_Modeling_Language) to plan out code prior to writing code.
+    - This [tag's folder](https://github.com/mrpthemrp/A-213/tree/6db2edbe1d6c21e1b94a0cfa5b9f912676a7cd36/docs) has the documents.
+- Practiced iterative programming as this project was completed in 4 different increments.
 
 ### :exclamation: Project Shortcomings
 
-- UI is not 100% adaptive to different screen sizes
-- UI Pop-up windows are not centered on screen properly
-- UI Pop-up is not always responsive
-- Package UI is not cohesive in width, some are longer and others are shorter
-    - This causes information to be cut off from the screen at times
+- UI is not 100% adaptive to different screen sizes.
+- UI Pop-up windows are not centered on screen properly.
+- UI Pop-up is not always responsive to changes.
+- Package UI is not cohesive in width, some are longer and others are shorter.
+    - This causes information to be cut off from the screen at times.
 - :lady_beetle: There is a bug! Packages that turn overdue as the program is running does not automatically get marked as overdue.
-    - This minor bug is an error on the backend algorithm 
+    - This minor bug is an error on the backend algorithm.
 
 ## 2. Installation Guide
 ***This project was created through IntelliJ.***
