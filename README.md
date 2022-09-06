@@ -124,6 +124,13 @@ This project is the final assignment for CMPT 213 ([Dr. Victor Cheung](http://ww
 
 ## 3. References
 
+All references are cited within the program's [API](https://mrpthemrp.github.io/A-213/).
+
+However, there are a few external libraries used that should be noted:
+- [Google GSON Libray](https://github.com/google/gson)
+    - [Runtime Type Adapter Factory](https://github.com/google/gson/blob/master/extras/src/main/java/com/google/gson/typeadapters/RuntimeTypeAdapterFactory.java)
+- [LGoodDatePicker](https://github.com/LGoodDatePicker/LGoodDatePicker)
+
 ## 4. Citation Format
 Example of citing this project as a reference:
 > Reference used for creating MVC model: https://github.com/mrpthemrp/A-213/tree/master/src/cmpt213/assignment4/packagedeliveries/client  
