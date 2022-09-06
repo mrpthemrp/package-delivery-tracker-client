@@ -50,10 +50,10 @@ If the user wants to delete a package, a pop-up will appear to confirm. If the u
 -  Extensively used Java Swing's built in [GUI Components](https://en.wikipedia.org/wiki/Swing_(Java)) to build UI
     - Learned how to use JFrame, JPanels, etc.
 -  Created a lot of custom UI components through OOD concepts of [Inheritance](https://www.geeksforgeeks.org/inheritance-in-java/), [Abstraction](), and [Polymorphism](https://www.geeksforgeeks.org/polymorphism-in-java/).
--  Built simple Spring Boot [web server](https://github.com/mrpthemrp/A-213-WebServer) to emulate the [Client-Server Model](https://en.wikipedia.org/wiki/Client–server_model).
+-  Built simple Spring Boot [web server](https://github.com/mrpthemrp/package-delivery-tracker-server) to emulate the [Client-Server Model](https://en.wikipedia.org/wiki/Client–server_model).
 -  Practiced writing both front and backend code for this project.
 -  Practiced using [CRC Cards](http://agilemodeling.com/artifacts/crcModel.htm) and [UML Diagrams](https://en.wikipedia.org/wiki/Unified_Modeling_Language) to plan out code prior to writing code.
-    - This [tag's folder](https://github.com/mrpthemrp/A-213/tree/6db2edbe1d6c21e1b94a0cfa5b9f912676a7cd36/docs) has the documents.
+    - This [tag's folder](https://github.com/mrpthemrp/package-delivery-tracker-client/tree/6db2edbe1d6c21e1b94a0cfa5b9f912676a7cd36/docs) has the documents.
 - Practiced iterative programming as this project was completed in 4 different increments.
 
 ### :exclamation: Project Shortcomings
@@ -127,7 +127,7 @@ However, there are a few external libraries used that should be noted:
 
 ## 4. Citation Format
 Example of citing this project as a reference:
-> Reference used for creating MVC model: https://github.com/mrpthemrp/A-213/tree/master/src/cmpt213/assignment4/packagedeliveries/client  
+> Reference used for creating MVC model: https://github.com/mrpthemrp/package-delivery-tracker-client/tree/master/src/cmpt213/assignment4/packagedeliveries/client  
 > Date Accessed: August 2022  
 > Developer: [Deborah Wang](https://github.com/mrpthemrp)
 
