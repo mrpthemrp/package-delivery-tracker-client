@@ -12,7 +12,8 @@ If used as reference, please cite by providing link to project and author name \
 :hotsprings: **[JavaDocs Link](https://mrpthemrp.github.io/A-213/)**
   
 Watch a quick demo of the project through the link below!  
-:vhs: **[Video Demo Link](??)**
+:vhs: **[Video Demo Link]()**
+***Video Link coming soon!***
 
 ## :bookmark_tabs: Table of Contents
 1. [Project Description and Summary](#1-project-description-and-summary)
